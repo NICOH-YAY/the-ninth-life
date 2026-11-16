@@ -175,10 +175,10 @@ Targets: the kitten dies in one hit, middle lives last 1 to 2 minutes, and the p
 
 | Reference | What is borrowed | What changes | Terms |
 |---|---|---|---|
-| *The Dark Queen of Mortholme* (Mosu, 2024) | Playing as the final boss while a hero returns stronger each time | The challenger is an AI that learns from how you play and chooses its own counters. The hero is your own past lives | Inspiration only |
-| *Scaredy Cats* (kimbo, in development) | Art and lighting direction | Different genre and mechanics | Inspiration only, no assets |
+| *The Dark Queen of Mortholme* (Mosu, 2024) | The core structure: you play the boss in one throne room, the first hero is crushed easily, and the hero keeps returning a little stronger and more skilled, with a short exchange between fights | Its hero's growth is authored. Here the challenger is an agent that chooses which past life to send and how to fight based on the player's own attack habits, and every challenger is one of the boss's past lives with a visible outfit for what it learned | Inspiration only, no code or assets |
+| *Scaredy Cats* (kimbo, in development) | Mood of its lighting: strong light sources against deep shadow, used for the throne room | Different genre and mechanics (it is a push-your-luck dungeon crawler) | Inspiration only, no assets |
 | Nine lives (folklore) | Premise | Past lives as challengers | Public domain idea |
-| Engine and asset packs | To be confirmed | — | Recorded in `ATTRIBUTION.md` |
+| Engine (Phaser or plain Canvas) and any asset packs | Rendering and input | — | Phaser is MIT licensed. Every asset and its license is recorded in `ATTRIBUTION.md` before use |
 
 ## 18. Concepts considered before this one
 
@@ -196,7 +196,7 @@ Targets: the kitten dies in one hit, middle lives last 1 to 2 minutes, and the p
 | Each challenger wears a different outfit showing a learned skill | Nicoh | Nov 15 |
 | Story of why the cat became the boss is required | Nicoh | Nov 15 |
 | Art direction like Scaredy Cats, not pixel art | Nicoh | Nov 15 |
-| Story details, agent choosing the challenger order, roster, move set, title "The Ninth Life" | Claude (proposed), awaiting Nicoh | Nov 15 |
+| Story details, agent choosing the challenger order, roster, move set, title "The Ninth Life" | Proposed by Claude, accepted by Nicoh | Nov 15 |
 
 ## 20. Open questions
 
