@@ -1,0 +1,17 @@
+# AI-use disclosure: written by Claude Code. Not deployed yet.
+# Deploy: npx wrangler deploy (from worker/), after
+#   npx wrangler secret put VERTEX_API_KEY
+#   npx wrangler kv namespace create SESSIONS   (then paste the id below)
+name = "ninth-life-agent"
+main = "src/index.ts"
+compatibility_date = "2026-11-01"
+
+[vars]
+GEMINI_MODEL = "gemini-2.5-flash"
+AGENT_MODE = "live"
+SESSION_CAP = "12"
+ALLOWED_ORIGIN = "*"
+
+# [[kv_namespaces]]
+# binding = "SESSIONS"
+# id = "<fill in after kv namespace create>"

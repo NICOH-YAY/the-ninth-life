@@ -1,0 +1,61 @@
+# AI-use disclosure: drafted by Claude Code from CONFIG.md A1. Nicoh approves changes by PR.
+# Function-calling tool bundle for the in-game agent: the challengers' collective mind.
+name: challenger
+config_version: challenger-v0.1
+purpose: >
+  Between fights, choose the next past life, a tactics plan, and one arrival line,
+  based on how the player fought. Never runs during combat.
+tools:
+  - name: choose_next_life
+    args: { life_id: "alley | sailor | acrobat | witch | knight | thief" }
+  - name: set_tactics
+    args: { aggression: "0..1", distance: "close | mid | far", bait_attack: "cleave | throw | reap | nova", dodge_priority: "list of move ids" }
+  - name: say_line
+    args: { text: "15 words or fewer" }
+  # In the prototype the three tools are one structured JSON reply (worker/src/prompt.ts RESPONSE_SCHEMA).
+prohibited_actions:
+  - Choosing a life already used, the kitten, the quiet one, or the patchwork cat.
+  - Tactics outside the allowed ranges or move ids outside the boss move list.
+  - Lines that insult the player, mention real-world self-harm, break character, or reveal why the lives return.
+memory_policy:
+  configs:
+    history: summaries of all earlier fights this session (client sends up to 8)
+    last: only the most recent fight
+  selection: VITE_AGENT_MEMORY or ?memory=last on the client
+  state: per-session call counter in Worker KV keyed by a random session id, 6 hour TTL
+context_sources:
+  - src/core/roster.ts (lives, skills, counters)
+  - FightSummary from the client (src/core/summary.ts)
+  - tier, bond, and the allowed facts list (src/agent/planners.ts ALLOWED_FACTS)
+model:
+  provider: Gemini through Vertex AI (express mode API key)
+  id: gemini-2.5-flash  # [Open] confirm the course-funded model id
+  settings: { temperature: 0.7, maxOutputTokens: 400, responseMimeType: application/json, responseSchema: enforced }
+prompts:
+  system: agents/challenger/system.md (mirrors worker/src/prompt.ts SYSTEM)
+  user: built by worker/src/prompt.ts buildPrompt
+limits:
+  client_timeout_ms: 5000
+  worker_model_timeout_ms: 4500
+  retries: 0
+  session_call_cap: 12
+fallback: scripted order and default tactics with an authored line (src/agent/planners.ts scriptedPlan)
+failure_modes:
+  - invalid choice or out-of-range tactics (validator rejects, scripted fallback)
+  - ignoring the evidence (measured by counter rate in the live eval, not yet run)
+  - harmful or off-tone line (blocklist, stock line swap)
+  - latency spill (5 s client timeout during the death animation)
+  - degenerate tactics (validator ranges, controller never stands still)
+  - memory confusion (only real summaries are sent)
+eval_cases:
+  deterministic: tests/agent.test.ts, worker/test/worker.test.ts, tests/headless.test.ts
+  live: not built yet (planned npm run eval:live -- --trials 20)
+logging: one JSON line per call in the Worker log (session id, fight, model, config, latency, tokens, raw output, validation result, choice)
+human_override:
+  - AGENT_MODE=scripted in the Worker (server kill switch) or ?mode=scripted on the client
+  - debug keys 1-9 to force a life
+knowledge_boundary:
+  game_holds: frames, hitboxes, timers, full roster, the ending
+  agent_sees: fight summary, remaining lives, tier, bond, allowed facts, earlier summaries (history config)
+test_command: npm test
+ci_workflow: .github/workflows/ci.yml
