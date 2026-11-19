@@ -915,6 +915,22 @@ export class FightSim {
     if (ch.state !== "enter" && ch.state !== "leave") ch.x = Math.max(ARENA.leftWall, ch.x);
   }
 
+  /** Debug key: drop the boss to the trigger point and start Phase Two now. */
+  debugForcePhase2(): void {
+    const b = this.boss;
+    const p2 = this.cfg.phase2;
+    if (b.phase2Triggered || !p2.PHASE2_ENABLED || this.outcome) return;
+    const t = this.time;
+    b.hp = Math.round(p2.PHASE2_TRIGGER_PCT * b.maxHp);
+    b.phase2Triggered = true;
+    b.transitionT = p2.PHASE2_TRANSITION_S;
+    b.move = null;
+    b.buffered = null;
+    b.glaiveDropX = b.x - 40;
+    this.projectiles = [];
+    this.log({ t, type: "phase2_start", hpBefore: b.hp });
+  }
+
   private updateQuiet(t: number): void {
     const ch = this.ch;
     ch.quietT += DT;
@@ -943,6 +959,11 @@ export class FightSim {
         b.yielded = true;
         b.buffered = null;
         this.log({ t, type: "yield" });
+        // The patchwork cat stops waiting and comes forward for the last blow.
+        if (this.ch.state === "lowered" || this.ch.state === "hesitate" || this.ch.state === "wait") {
+          this.ch.state = "attack";
+          this.ch.windupT = 0;
+        }
       }
     } else b.holdT = 0;
   }
