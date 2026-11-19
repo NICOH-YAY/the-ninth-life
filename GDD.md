@@ -2,10 +2,21 @@
 
 # The Ninth Life: Game Design Document
 
-**Version:** Initial (G1), November 15, 2026
+**Version:** Initial (G1), November 15, 2026. Updated Nov 19 to match the newer design docs (rows marked [Proposed] below are for Nicoh to confirm).
 **Owner:** Nicoh Koehly (GitHub `nicoh-yay`), Executive Producer and Creative Director
 **Labels:** **[Decided]** Nicoh's decision. **[Proposed]** agent recommendation awaiting Nicoh. **[Open]** unresolved.
 **Companion documents:** `CONFIG.md` (Configuration Document), `PLAN.md` (Project Plan and Risk Profile), `docs/design-history.md` (how the concept developed)
+
+## 0. Nov 19 update [Proposed]
+
+The story bible, `docs/phase-two.md`, `docs/challenger-progression.md`, and `docs/art-direction.md` replace parts of this document where they differ. The first playable prototype (`docs/prototype-notes.md`) follows them. In short:
+
+- **A story game.** One small cat comes back over nine lives. The fights turn into a bond with the lonely Immortal. Story moves in three tiers through light, music, props, dialogue, and challenger hesitation. Full detail in `docs/story-bible.md`.
+- **Nine lives, not 6 to 8 fights.** Life 1 is the kitten, lives 2 to 7 are chosen by the agent from alley, sailor, acrobat, witch, knight, and thief, life 8 is the quiet one who does not fight, and life 9 is the patchwork cat, who always wins.
+- **New base move set and Phase Two.** The Immortal fights with a glaive. At 50% HP it spends one of its own lives: refill, faster, and a magic move set on the same keys with the same counters. See Section 7 and `docs/phase-two.md`.
+- **Any challenger from life 2 on can kill the Immortal**, which ends the run early with the "too soon" ending.
+- **Progression curves.** Each life is stronger than the last. The agent plans on a gentle curve, the scripted fallback on a steeper capped one. A pacing director nudges stats between fights. See Section 14 and `docs/challenger-progression.md`.
+- **Between fights** the Immortal picks a guarded or open answer, which sets bond (0 to 8). Bond changes hesitation, tone, the life 8 talk, and the ending lines. It never changes difficulty.
 
 ---
 
@@ -60,31 +71,34 @@ One fight lasts about 1 to 3 minutes. A full game is 6 to 8 fights.
 
 ## 7. The boss (the player) [Decided: overpowered, fixed move set / Proposed: moves]
 
-The boss never gains or loses moves. Four attacks with cooldowns:
+The move set is fixed within each phase. **[Proposed, from docs/phase-two.md]** The Paw Slam, Hairball, and Tail Sweep set below was replaced on Nov 19 by a glaive set plus an Ascended set for Phase Two. Each Ascended move keeps its base move's key, id, and counter.
 
-| Move | Key | Effect | Tell |
-|---|---|---|---|
-| Paw Slam | J | Shockwave across the whole floor | Paw lifts for 0.5 s |
-| Hairball Volley | K | Three arcing projectiles | Cheeks puff |
-| Tail Sweep | L | Fast low sweep across the floor | Tail coils |
-| Nine-Lives Nova | Space | Fullscreen blast, about every 20 s | Eyes glow, screen darkens |
+| Key | Base form (glaive) | Tell | Ascended form (magic) | Tell | Countered by |
+|---|---|---|---|---|---|
+| J | Crescent Cleave, wide close slash | glaive raised, 0.45 s | Pounce Rift, crashes down on the challenger's spot | violet ring on the floor, 0.6 s | alley dodge-roll |
+| K | Glaive Throw, spins out and back | spin wind-up, 0.5 s | Soul Wisps, five slow homing wisps | glowing orb, 0.5 s | sailor umbrella |
+| L | Low Reap, sweep along the whole floor | crouch, 0.4 s | Shadow Tide, two floor waves | ground ripples, 0.45 s | acrobat double jump |
+| Space | Nine-Lives Nova, fullscreen, every 20 s | eyes glow, room darkens | Ninth Bell, pillars then nova, every 16 s | bell, pillar outlines | witch blink |
 
-The boss can shift left and right on the throne platform (A and D). The boss has a health bar, but early challengers can barely scratch it.
+Phase Two starts the first time HP drops to 50%: a 2 s transition, a refill (prototype uses 75%, tuning note in `docs/phase-two.md`), shorter cooldowns and tells, faster shifting, more damage. The boss can shift left and right on the throne platform (A and D) in both forms.
+
+Superseded G1 move set, kept for the record: Paw Slam (J), Hairball Volley (K), Tail Sweep (L), Nine-Lives Nova (Space).
 
 ## 8. The challengers (the agent's choices) [Decided: outfits show learned skills / Proposed: roster]
 
-| Life | Outfit | Learned skill | Counters | Scope |
+| Life | Outfit and weapon | Learned skill | Counters | Scope |
 |---|---|---|---|---|
-| Kitten | none | none | nothing | Committed |
-| Alley cat | bandana | dodge-roll with brief invulnerability | Paw Slam | Committed |
-| Sailor cat | raincoat | umbrella block | Hairball Volley | Committed |
-| Acrobat cat | leotard and bell | double jump | Tail Sweep | Committed |
-| Witch's cat | pointed hat | short blink | Nine-Lives Nova | Committed |
-| Knight cat | armor | survives one hit | any | Stretch |
-| Thief cat | mask | decoy clone | any | Stretch |
-| Patchwork cat (final) | every outfit | all skills | everything | Committed |
+| 1 Kitten | none, a twig | none | nothing | Committed |
+| Alley cat | red bandana, dagger | dodge-roll with brief invulnerability | Crescent Cleave / Pounce Rift | Committed |
+| Sailor cat | yellow raincoat, umbrella | umbrella block | Glaive Throw / Soul Wisps | Committed |
+| Acrobat cat | cape and bell, short staff | double jump | Low Reap / Shadow Tide | Committed |
+| Witch's cat | pointed hat, wand | short blink | Nova / Ninth Bell | Committed |
+| Knight cat | tin armor, sword | armor absorbs a hit, regrows after 6 s [Proposed] | any | Stretch, built in the prototype |
+| Thief cat | mask and hood, two knives | decoy that absorbs a hit | any | Stretch, built in the prototype |
+| 8 The quiet one [Proposed] | a scarf, no weapon | never attacks, talks | none | Committed (story bible) |
+| 9 Patchwork cat | pieces of every outfit, mended sword | all skills | everything | Committed |
 
-The kitten always comes first and the patchwork cat always comes last. **The agent chooses the order of everything between them.**
+The kitten always comes first, the quiet one is always eighth, and the patchwork cat is always last. **The agent chooses the order of lives 2 to 7.** In the prototype every life except the kitten and the quiet one also has a basic hop that clears the base Reap and Throw when timed well. It gets more reliable each fight and does nothing against Ascended moves. [Proposed]
 
 ## 9. The in-game agent: the challengers' collective mind (summary)
 
@@ -125,17 +139,22 @@ Full specification is in `CONFIG.md`.
 ## 11. Win, loss, and progress
 
 - The player "wins" each fight by killing the challenger. The story progresses either way.
-- The game ends when the patchwork cat defeats the boss.
-- If the player beats the patchwork cat, the fight continues until it wins, with authored escalation as needed. **[Open]** exact rule.
-- No score. Progress shows as the challenger lineup and the boss's growing stillness.
+- **[Proposed, from challenger-progression]** Any challenger from life 2 to 7 that takes the Immortal to 0 HP ends the run early with the "too soon" ending.
+- Life 8 never attacks. If the player kills it, life 9 still comes, bond drops to 0, and the life 9 lines change.
+- Life 9 always wins. Below 25% HP in Phase Two a prompt appears: hold S to lower your guard. Holding ends the fight with a last blow and the Immortal walks out with the patchwork cat. Fighting on ends with the Immortal kneeling and not getting up.
+- **[Proposed]** Rule if the player "beats" the patchwork cat: it cannot drop below 1 HP, and its damage climbs after 45 s, so it always wins within about 3 minutes.
+- No score and no "game over" text. Progress shows as the challenger lineup, the light moving toward dawn, and the boss's growing stillness.
 
 ## 12. Controls and feedback
 
 | Input | Action |
 |---|---|
 | A and D | Shift on the throne platform |
-| J, K, L | Paw Slam, Hairball Volley, Tail Sweep |
-| Space | Nine-Lives Nova (when charged) |
+| J, K, L | Crescent Cleave, Glaive Throw, Low Reap (Pounce Rift, Soul Wisps, Shadow Tide in Phase Two) |
+| Space | Nine-Lives Nova (Ninth Bell in Phase Two), when charged |
+| S (hold) | Life 9 only, below 25% HP: lower your guard [Proposed] |
+| A/D and Enter | Pick the Immortal's answer between fights |
+| M | Mute |
 
 Feedback includes clear wind-ups on every attack, hit flashes, a short intro card for each challenger showing its outfit and line, and a brief replay of the killing blow after each death.
 
@@ -150,6 +169,8 @@ Feedback includes clear wind-ups on every attack, hit flashes, a short intro car
 ## 14. Balance
 
 Targets: the kitten dies in one hit, middle lives last 1 to 2 minutes, and the patchwork cat wins within about 3 minutes. Tuning levers are challenger health, skill cooldowns, and boss cooldowns. **[Open]** First data at the G2 playtest.
+
+**[Proposed, from challenger-progression]** Each fight index has a pacing target for the lowest boss HP reached (90%, 75%, 60%, 50% with the first Phase Two at fight 4, then deep into Phase Two). Two curves: the agent plans on a roughly linear curve, the scripted fallback on a 1.25x per fight curve capped at 3x. A deterministic director raises or lowers the next fight by 5% (caps +20% and -15%) when a challenger misses its target by more than 10 points. All numbers live in `src/core/config.ts`. Headless numbers from `npm run sim` are in `docs/prototype-notes.md`.
 
 ## 15. Art and audio direction [Decided: not pixel art; lighting like Scaredy Cats / Proposed: details]
 
@@ -197,10 +218,15 @@ Targets: the kitten dies in one hit, middle lives last 1 to 2 minutes, and the p
 | Story of why the cat became the boss is required | Nicoh | Nov 15 |
 | Art direction like Scaredy Cats, not pixel art | Nicoh | Nov 15 |
 | Story details, agent choosing the challenger order, roster, move set, title "The Ninth Life" | Proposed by Claude, accepted by Nicoh | Nov 15 |
+| Story game with a bond, tiers, hesitation, life 8 and life 9, three endings (story bible) | Nicoh in a planning chat, recorded here [Proposed] for confirmation | Nov 19 |
+| Phase Two at 50% with a new magic move set; glaive base set (moves proposed by Claude) | Nicoh (concept), moves [Proposed] | Nov 19 |
+| Any challenger from life 2 can kill the boss | Nicoh, recorded here [Proposed] | Nov 19 |
+| Two progression curves (agent gentle, scripted steeper and capped) plus an evaluation ablation | Compromise in docs, [Proposed] | Nov 19 |
+| Engine: Phaser 3 with the Canvas renderer | Claude Code, [Proposed] | Nov 19 |
 
 ## 20. Open questions
 
-1. Engine choice: Phaser or plain Canvas.
+1. Engine choice: Phaser or plain Canvas. The prototype uses Phaser 3 with the Canvas renderer [Proposed].
 2. Final art references and the mood board.
 3. The rule if the player beats the patchwork cat.
 4. Whether challengers speak in text only or with generated voice.

@@ -43,11 +43,13 @@ Ships as a **function-calling tool bundle** at `agents/challenger/`, with `manif
 ```json
 {
   "next_life": "acrobat",
-  "tactics": {"aggression": 0.6, "distance": "close", "bait_attack": "tail_sweep", "dodge_priority": ["tail_sweep", "paw_slam"]},
+  "tactics": {"aggression": 0.6, "distance": "close", "bait_attack": "reap", "dodge_priority": ["reap", "cleave"]},
   "line": "You always sweep first. Not this time.",
-  "rationale": "Player killed 2 of 2 challengers with Tail Sweep."
+  "rationale": "Player killed 2 of 2 challengers with Low Reap."
 }
 ```
+
+**[Proposed, Nov 19]** Move ids are now `cleave`, `throw`, `reap`, `nova` (the glaive set in GDD Section 7). Each Phase Two move shares its base move's id and counter, so the schema does not change. Choosable lives are `alley`, `sailor`, `acrobat`, `witch`, `knight`, `thief` (fights 2 to 7). The kitten (1), the quiet one (8), and the patchwork cat (9) are fixed slots.
 
 The rationale is logged and shown in a debug view, never to the player.
 
@@ -55,7 +57,8 @@ The rationale is logged and shown in a debug view, never to the player.
 
 - **Life check:** `next_life` must be remaining and choosable.
 - **Tactics check:** values in range (aggression 0 to 1, distance in {close, mid, far}, attacks from the boss move list).
-- **Line check:** 15 words or fewer, passes a blocklist and a classifier pass. Failed lines are replaced with the outfit's stock line.
+- **Line check:** 15 words or fewer, passes a blocklist and a classifier pass. Failed lines are replaced with the outfit's stock line. **[Proposed]** The prototype has the blocklist only, no classifier yet. A bad line keeps the rest of the plan. Any structural failure (bad JSON, unknown or used life, a patchwork pick, out-of-range tactics) falls back to the whole scripted plan.
+- **Planner modes [Proposed, Nov 19]:** `AGENT_MODE` (or `?mode=` on the page) picks `scripted` (the deterministic fallback and kill switch), `heuristic` (an offline stand-in that counters the most-used move, used as an evaluation baseline and for play with no key), or `live` (the Worker). Default is `heuristic` with no Worker URL and `live` with one.
 - **Timing:** the call starts the moment a challenger dies, while the death and intro animation plays (about 4 to 6 s). Timeout 5 s, then fallback.
 - **Fallback:** the scripted order and default tactics. Also used offline, when the kill switch is on, or after the session cap.
 - **Spending limits:** at most 12 calls per session.
@@ -115,6 +118,13 @@ Agents run in Claude Code as subagents in `.claude/agents/`. Each role has an ex
 | QA | `qa.md` | Repro failures, verify fixes, run evals | Reports → Tech Lead | Known-issue acceptance |
 | BI | `bi.md` | Summarize eval and playtest numbers with limits | Summaries → Nicoh | What results mean |
 | Release | `release.md` | Build, deploy, archive, instructions | Release notes → Nicoh | Gold tag and production deploy |
+
+### A9. Prototype status (Nov 19) [Proposed]
+
+- The Worker (`worker/`) is written and unit-tested with a mocked model. It is not deployed and no live call has been made. Model id defaults to `gemini-2.5-flash` through Vertex express mode with an API key in Worker secrets.
+- The manifest is at `agents/challenger/manifest.yaml`, the system prompt at `agents/challenger/system.md` (mirrors `worker/src/prompt.ts`).
+- `FightSummary` gained `phase2ReachedAtSec`, `diedInPhase`, `moveCountsByPhase`, `fightIndex`, `bossMinHpPct`, `directorAdjust`, `outcome`, and `hesitations`. The Worker prompt adds tier, bond, and an allowed-facts list. The agent never sees the ending or the life 9 reason.
+- The A7 live evaluation and the A8 measurements are not done yet.
 
 ## Open questions
 
