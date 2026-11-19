@@ -1,0 +1,472 @@
+{
+  "disclosure": "AI-use disclosure: original combat redesign assets generated with Higgsfield; prompts, observed outputs and processing recorded by Codex.",
+  "date": "2026-11-19",
+  "generator": "Higgsfield",
+  "model": "gpt_image_2_6",
+  "balance": "free unlimited allowance authorized by user; no paid fallback",
+  "status": "all_generated_downloaded_processed",
+  "processing_scripts": [
+    "assets/combat-v3/process-assets.mjs",
+    "assets/combat-v3/process-fixed-motion.mjs"
+  ],
+  "notes": [
+    "Originals retained. No generated GIF used for the mandatory prior-king fight; game stages it with character sprites.",
+    "Active motion sprites use uniform96x96 source-cell mapping and central-body foot anchors, with no per-row scaling.",
+    "Challenger frames padded to144x144 so lower effects survive foot anchoring; body scale still comes from96x96 source-cell mapping.",
+    "No character sprites are quadrupeds; all remain original upright feline designs.",
+    "No live game source was modified by this asset helper."
+  ],
+  "assets": [
+    {
+      "index": 100,
+      "id": "castle-exterior",
+      "cols": 1,
+      "rows": 1,
+      "frameWidth": 960,
+      "frameHeight": 540,
+      "prompt": "Original atmospheric PIXEL ART environment for The Ninth Life game MAIN MENU. Wide16:9 moonlit ruined feline castle on a distant sheer cliff, seen from a dark windswept approach. Giant weathered gothic towers with subtle cat-ear roof silhouettes, broken bridges, hanging chains, teal-lit windows, indigo mountains and rolling mist below, huge pale moon partly behind clouds, tiny violet lights in overgrown roots. Castle should feel ancient,lonely,imposing,beautiful. Different exterior scene from throne-room combat. Compose castle toward right two-thirds and dark quiet sky/ruins at left for menu typography added later. Real deliberate hard pixelclusters,layered pixel-art silhouettes,limited teal/navy/violet palette with tarnishedgold accents. Detailed but clean,not3D,notpainting,no blur orantialiasing. NO characters,actors,creatures,text,logos,watermarks,UI orbuttons.",
+      "ratio": "16:9",
+      "status": "completed_downloaded_processed",
+      "job_id": "3ff59ac6-ac03-4c35-a780-17274d368e8e",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_215659_3ff59ac6-ac03-4c35-a780-17274d368e8e.png",
+      "original": "assets/combat-v3/castle-exterior.png",
+      "processed": "public/combat-v3/castle-exterior.png",
+      "metadata": "public/combat-v3/castle-exterior.json",
+      "observed": {
+        "source": [
+          2688,
+          1520
+        ],
+        "output": [
+          960,
+          540
+        ],
+        "frame": [
+          960,
+          540
+        ]
+      },
+      "params": {
+        "model": "gpt_image_2_6",
+        "aspect_ratio": "16:9",
+        "quality": "medium",
+        "resolution": "2k",
+        "count": 1,
+        "use_unlim": true
+      },
+      "requestedNativeFrame": [
+        960,
+        540
+      ]
+    },
+    {
+      "index": 101,
+      "id": "combat-vfx",
+      "cols": 6,
+      "rows": 6,
+      "frameWidth": 128,
+      "frameHeight": 128,
+      "prompt": "PRODUCTION PIXEL ART COMBAT EFFECT SPRITE ATLAS for an original cat boss game. Transparent alpha PNG. EXACTLY SIX columns SIX rows,36equally spaced square cells,each a six-frame animation left-to-right. Native128x128pixel-style percell,hard deliberate pixelclusters and stepped edges,crisp square particles,cel-shaded light cores,not smooth painting. Everycell has abundant empty transparent negative space,never a filled rectangle. Each effect centered with sameanchor andconstant scale,fullycontained within own cell. Row1 flowing mint-white crescent blade slash with violet trailingwisps: thin windup curl,fastlongcrescent,reachingwhiparc,featheringtrail,fragments,dissipation. Row2 REAL metal crescent GLAIVE projectile spinning around its shaft,clearly shaped silverbladegoldfittingdarkwoodhandle,mint/violet wispytrail,6rotationposes. Row3 travelling groundshadowBLADEwave,curved curling black-violetcrest with mintcuttingedge,pixel dust alongbottom,6successiveflowingposes,notflatrectangularbeam. Row4 dramatic nova/soulburst: tiny whitecoregathering,mintorbexpansion,violetspikedhalo,whiteimpactcore,mint-violetpetalshards,dispersingstars. Row5 enemy red-gold curved slashingarc with small red stylizedbloodsparkpixels,fastwhipshape,6actionposes,notgory. Row6 glowing cyan-violet shield and impactsparks: formingrune,curvedtransparentbarrier,brightcontactpoint,crackedhalosparks,shrinkingarc,dissolvingpixels. Bright luminous FLOWING effect shapes,sharp silhouettes,fluid arcs and taperedtrails,not abstract squares. Effects ONLY,noactors,noenvironment,notext,nolabels,nogridlines,noborders,noopaque backgrounds,no checkerboard painted into image. True alpha transparency.",
+      "ratio": "1:1",
+      "status": "completed_downloaded_processed",
+      "job_id": "b953b5bf-1701-48a7-8f2b-26384b1478dc",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_212932_b953b5bf-1701-48a7-8f2b-26384b1478dc.png",
+      "original": "assets/combat-v3/combat-vfx.png",
+      "processed": "public/combat-v3/combat-vfx.png",
+      "metadata": "public/combat-v3/combat-vfx.json",
+      "observed": {
+        "source": [
+          2048,
+          2048
+        ],
+        "output": [
+          768,
+          768
+        ],
+        "frame": [
+          128,
+          128
+        ]
+      },
+      "params": {
+        "model": "gpt_image_2_6",
+        "aspect_ratio": "1:1",
+        "quality": "medium",
+        "resolution": "2k",
+        "count": 1,
+        "use_unlim": true,
+        "background": "transparent"
+      },
+      "requestedNativeFrame": [
+        128,
+        128
+      ]
+    },
+    {
+      "index": 102,
+      "id": "immortal-base-motion",
+      "cols": 6,
+      "rows": 8,
+      "frameWidth": 96,
+      "frameHeight": 96,
+      "prompt": "Create a PRODUCTION GAME PIXEL SPRITE ANIMATION ATLAS matching attached original upright blackcat immortal EXACTLY:crown,paleeyes,indigopurplecape,crescentglaive,visiblecurledtail. UPRIGHT BIPEDAL2legs2armswithpawhands,catfacepointears,notquadruped,not human. Rich48x72nativepixel-style character,hardpixelclusters1pixeloutline,restrained24colors,twotonecelshading,noantialiasing,paintedfur,gradientsor3D. Transparentalpha. EXACTLY SIX columns EIGHT rows,48uniformcells,sixdistinctconsecutiveposesperrow. Wholeunclippedspriteineachcell,constantbody scale,stablefootanchor,comfortablepaddingforglaiveandcape. FaceLEFT throughout. ROW1idle:breathing,ears,tailandcapeanimated. ROW2RUN:all6realalternating-legcontactpassingflightgaitposes,pawarmscounter-swing,glaiveheldstill,capeandtailstream,NOattacks. ROW3JUMP:anticipationcrouch,takeoff,rising,tuckedapex,falling,softlanding;clearbodyheightchangeinsidecell. ROW4DASH:lean,compress,longlowstride,ghosttrail,longstride,brakerecovery;actuallegposes. ROW5CLEAVE:glaiveraise,cockback,overheadfastslash,fullextension,followthrough,recovery. ROW6THROW:windupspin,glaiveabovehead,releaseemptyhand,armextended,catchreturn,recover. ROW7REAP:lowerglaive,crouch,widefloorlevelbladesweep,extendedsweep,followthrough,recover. ROW8NOVA:eyesbright,pawscharge,cloakopens,fullbodymagicrelease,aftershock,recover. KeepVFXsmallandsparseinsidecell;weaponandbodymainfocus. Independenthead,pawarms,legs,tail,crownandcape. No duplicate stillframes. NOtext,nolabels,nogrid,noenvironment,floororcastshadow.",
+      "ratio": "3:4",
+      "reference": "10b5a340-04c3-4fc4-9737-073a43853886",
+      "status": "completed_downloaded_processed",
+      "job_id": "e7163c4b-91a0-4688-8216-aebda57502de",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_213646_e7163c4b-91a0-4688-8216-aebda57502de.png",
+      "original": "assets/combat-v3/immortal-base-motion.png",
+      "processed": "public/combat-v3/immortal-base-motion.png",
+      "metadata": "public/combat-v3/immortal-base-motion.json",
+      "observed": {
+        "source": [
+          1744,
+          2336
+        ],
+        "output": [
+          576,
+          768
+        ],
+        "frame": [
+          96,
+          96
+        ],
+        "anchor": {
+          "x": 48,
+          "y": 94
+        }
+      },
+      "params": {
+        "model": "gpt_image_2_6",
+        "aspect_ratio": "3:4",
+        "quality": "medium",
+        "resolution": "2k",
+        "count": 1,
+        "use_unlim": true,
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "10b5a340-04c3-4fc4-9737-073a43853886"
+          }
+        ]
+      },
+      "requestedNativeFrame": [
+        48,
+        72
+      ]
+    },
+    {
+      "index": 103,
+      "id": "immortal-ascended-motion",
+      "cols": 6,
+      "rows": 8,
+      "frameWidth": 96,
+      "frameHeight": 96,
+      "ratio": "3:4",
+      "reference": "8e7088c8-e93a-491b-8248-1c07b5c2da39",
+      "prompt": "PRODUCTION GAME PIXEL SPRITE FULL MOVEMENT/ATTACK ANIMATION ATLAS for the same UPRIGHTBIPEDAL BLACKCROWNED CAT immortal from supplied references. ASCENDED WEAPONLESS form:crackedfloatinggoldcrown,palesquareeyes,indigopurplecape,blackfelinebody,2pawarms2legs,pointedears,curledtail,cyan/violetpawmagic. NOglaiveorweapon. Preserveexactidentityandproportionswithbaseform. Rich48x72nativepixelstyle,hardpixelclusters,1pixeloutline,24colors,twotoneshading,noantialiasing,paintedfur,gradients,3Dorhumanbody. Truealpha. EXACTLY SIX columns EIGHT rows48uniformcells,completeunclippedspritesconstantbody scale,stablefootanchor,paddingforcapeandmagic. FacingLEFT. Sixdistinctconsecutiveframesperrow. Row1IDLE:levitationbreath,tail/cape/crownmotion. Row2RUN/GLIDE:6realhorizontalglidingmotionposeswithalternatingcatlegsandpawarms,streamingcape,NOattack. Row3JUMP:compress,takeoff,rising,airapex,fall,land;fullbodymotion. Row4DASH:coil,stretchleft,elongatedspectralstride,fasttranslationpose,brake,settle;actualbodyposes. Row5RIFTPOUNCE:crouch,vanishspectralpixelbody,reappearabove,descendingpawstrike,groundimpact,recover. Row6SOULWISPS:pawscup,orbforms,pawsraise,pawthrust,mintwispsrelease,recover. Row7SHADOWTIDE:lowerpaw,coilcape,bothpawsweep,crouchshadowrelease,followthrough,recover. Row8NINTHBELLNOVA:looksup,pawsraise,crownrings,whitemintvioletburst,pawsspread,recover. VFXonlycompactaccents,spritesnotobscured. Independenthead,ears,paws,legs,tail,cape,crownmotions. No duplicate stillframes,noenvironment,floor,shadows,text,labels,numbers,gridlines.",
+      "status": "completed_downloaded_processed",
+      "job_id": "0bff3fc0-ab77-4739-a177-3240987c87dd",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_213815_0bff3fc0-ab77-4739-a177-3240987c87dd.png",
+      "original": "assets/combat-v3/immortal-ascended-motion.png",
+      "processed": "public/combat-v3/immortal-ascended-motion.png",
+      "metadata": "public/combat-v3/immortal-ascended-motion.json",
+      "observed": {
+        "source": [
+          1744,
+          2336
+        ],
+        "output": [
+          576,
+          768
+        ],
+        "frame": [
+          96,
+          96
+        ],
+        "anchor": {
+          "x": 48,
+          "y": 94
+        }
+      },
+      "params": {
+        "model": "gpt_image_2_6",
+        "aspect_ratio": "3:4",
+        "quality": "medium",
+        "resolution": "2k",
+        "count": 1,
+        "use_unlim": true,
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "8e7088c8-e93a-491b-8248-1c07b5c2da39"
+          },
+          {
+            "role": "image",
+            "value": "e7163c4b-91a0-4688-8216-aebda57502de"
+          }
+        ]
+      },
+      "requestedNativeFrame": [
+        48,
+        72
+      ]
+    },
+    {
+      "index": 104,
+      "id": "challenger-abilities",
+      "cols": 6,
+      "rows": 9,
+      "frameWidth": 144,
+      "frameHeight": 144,
+      "ratio": "2:3",
+      "reference": "2ddab274-84d8-403f-8d39-d1ad5faa9290",
+      "prompt": "Original PRODUCTION GAME PIXEL SPRITE ABILITY ATTACK ATLAS matching supplied NINE UPRIGHT BIPEDAL CAT roster. Exactly SIX columns NINE rows,54uniformcells,sixdistinctconsecutiveabilityanimationframeslefttorightpercat. Rich48x72nativepixelart,sharpcountablepixelclusters,1pixeldarkoutlines,24colorspercat,twotoneshading,NOantialiasing,paintedfur,gradientsor3D. Realcatheads,roundbodies,2shortlegs,2pawarms,visibleears/tails,NEVERquadruped. FaceRIGHT,stablebody scaleandfootbaseline,generouspadding,completeunclippedweaponandmagicineachcell. Row1 CREAMSHORTFUR kitten twigjab:raise,cockback,forwardstep,twigthrust,recoil,recover. Row2 ORANGETABBY redbandana DAGGERROLLSTRIKE:windup,compactroll,rolltofeet,fastdaggerlunge,slashfollowthrough,recover. Row3 TUXEDO yellowraincoat UMBRELLABLOCK/RIPOSTE:raiseclosedumbrella,open,braceimpact,ripostethrust,close,recover. Row4 CALICO stripedacrobat bellstaff DOUBLEJUMPKICK:compress,takeoff,airtuck,airkickstaffswing,fall,land. Row5 CHARCOALLONGFUR purplewitchhat WAND BLINKCAST:charge,bodycompress,violetghost,appearotherfoot,wandthrust,settle. Row6 BROWNTABBY silverarmororangecape SWORDCLEAVE:armorlift,swordraise,weightstep,overheadslash,followthrough,recover. Row7 SILVERSPOTTED indigohoodmask TWIN KNIFEDECOY:knivescross,lowcrouch,onefaintafterimage,doubleknifelunge,followthrough,settle. Row8 WHITEFLUFFY orangescARF quietNOATTACK:gentlesit,earslower,lookdown,softpawgesture,lookupsit,rest;NOweapon. Row9 BLACKWHITECALICO patchworkredscarfyellowpatchpurplehatfragmenttinshoulder MENDED SWORDRIFTSTRIKE:ready,rollcrouch,leap,brightdecisiveswordslash,land,recover. Breedmarkings,outfitsandfacesconstantacrossallframes. VFXonlysmallaccents;actualbody/weaponanimationmustread. TRUEtransparentalpha,noopaquebackground,nofloor,notext,labels,gridlinesornumbers.",
+      "status": "completed_downloaded_processed",
+      "job_id": "45c7dc45-0213-493d-a553-50210cd8949f",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_214457_45c7dc45-0213-493d-a553-50210cd8949f.png",
+      "original": "assets/combat-v3/challenger-abilities.png",
+      "processed": "public/combat-v3/challenger-abilities.png",
+      "metadata": "public/combat-v3/challenger-abilities.json",
+      "observed": {
+        "source": [
+          1360,
+          2048
+        ],
+        "output": [
+          864,
+          1296
+        ],
+        "frame": [
+          144,
+          144
+        ],
+        "anchor": {
+          "x": 72,
+          "y": 110
+        }
+      },
+      "params": {
+        "model": "gpt_image_2_6",
+        "aspect_ratio": "2:3",
+        "quality": "medium",
+        "resolution": "2k",
+        "count": 1,
+        "use_unlim": true,
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "2ddab274-84d8-403f-8d39-d1ad5faa9290"
+          }
+        ]
+      },
+      "requestedNativeFrame": [
+        48,
+        72
+      ]
+    },
+    {
+      "index": 105,
+      "id": "castle-aged-mid",
+      "prompt": "REFERENCE IMAGE EDIT ONLY. The supplied image is the approved pixel-art throne-room arena. Preserve its EXACT composition, camera, lens, every wall/window/column/throne silhouette position, right throne dais, left entrance, full flat floor height and floor-line pixel coordinates. DO NOT redesign or recompose the hall. No zoom,perspective shift,scene crop or object movement. Create the SAME room after400years: fine visible cracks across stone columns and throne steps, more thin curling vines climbing existing window frames and edgepillars, faded torn hanging banners with a few missing strips, dust and cobwebs in corners, small chips in windowtracery and glass. Preserve usable floor as a straight unchanged horizontal walkable plane; no rubble or roots obstruct the central combat lane. Keep midnight cold teal moonlight and originalindigo/violetpalette, same glowingfungi. Originaldeliberatepixelclusters,crisp nearest-neighborlook,no painterly smoothing,no3D. Aging must be visible but gradual,not destroyed. ZERO characters,actors,creatures,text,logos,interface orframes. Opaque complete16:9environment.",
+      "reference": "f2d13509-56af-41d5-a1ce-305355b10118",
+      "status": "completed_downloaded_processed",
+      "job_id": "2ceab360-0c32-4e2f-ac05-df86a5991b37",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_221335_2ceab360-0c32-4e2f-ac05-df86a5991b37.png",
+      "original": "assets/combat-v3/castle-aged-mid.png",
+      "processed": "public/combat-v3/castle-aged-mid.png",
+      "metadata": "public/combat-v3/castle-aged-mid.json",
+      "frameWidth": 960,
+      "frameHeight": 540,
+      "cols": 1,
+      "rows": 1,
+      "observed": {
+        "source": [
+          2688,
+          1520
+        ],
+        "output": [
+          960,
+          540
+        ],
+        "verticalRegistrationPixels": 3,
+        "brightFloorY": 460
+      },
+      "params": {
+        "model": "gpt_image_2_6",
+        "prompt": "REFERENCE IMAGE EDIT ONLY. The supplied image is the approved pixel-art throne-room arena. Preserve its EXACT composition, camera, lens, every wall/window/column/throne silhouette position, right throne dais, left entrance, full flat floor height and floor-line pixel coordinates. DO NOT redesign or recompose the hall. No zoom,perspective shift,scene crop or object movement. Create the SAME room after400years: fine visible cracks across stone columns and throne steps, more thin curling vines climbing existing window frames and edgepillars, faded torn hanging banners with a few missing strips, dust and cobwebs in corners, small chips in windowtracery and glass. Preserve usable floor as a straight unchanged horizontal walkable plane; no rubble or roots obstruct the central combat lane. Keep midnight cold teal moonlight and originalindigo/violetpalette, same glowingfungi. Originaldeliberatepixelclusters,crisp nearest-neighborlook,no painterly smoothing,no3D. Aging must be visible but gradual,not destroyed. ZERO characters,actors,creatures,text,logos,interface orframes. Opaque complete16:9environment.",
+        "aspect_ratio": "16:9",
+        "background": "opaque",
+        "quality": "medium",
+        "resolution": "2k",
+        "count": 1,
+        "use_unlim": true,
+        "medias": [
+          {
+            "role": "image",
+            "value": "f2d13509-56af-41d5-a1ce-305355b10118"
+          }
+        ]
+      }
+    },
+    {
+      "index": 106,
+      "id": "castle-aged-late",
+      "prompt": "REFERENCE IMAGE EDIT ONLY. Image1 is the exact approved original night pixel throne arena;image2 is its matching dawn lighting version;image3 is the same arena after400years. Create this EXACT SAME arena after900years. Preserve EXACT camera,framing,perspective,window/columnpositions,leftentrance,rightthroneanddais,andtheflatwalkablefloorpixelheight fromimage1. Do not recompose,zoom,crop,move architecture or change floor geometry. MaterialagingONLY:deeper branchingstonecracks,thickancientroots aroundedgepillars andbehindthrone,fewerremainingbannerstrips,moremoss,littleflowersinrootcracks,andmissingpatchesinhighroofshowingmistysky. Roofdamageconfinedupperedge,notwalkway. Subtle earliest dawn warmth creeps throughsamewindows,mostlystillcoldteal/violet;useimage2onlyforsoftwarmlightreference,notfullsunrise. Originalcrisppixelclusters,limitedcoherentpalette,nonewpainterlydetail,no3D. Keepentire centralcombatlaneandwalkablefloorstraight,unobstructedandunchanged. Thronepositionandflooranchorsmustmatchpreviousvariantsforasoftcrossfade. NOcharacters,creatures,text,logos,UI orframes. Opaque complete16:9environment.",
+      "references": [
+        "f2d13509-56af-41d5-a1ce-305355b10118",
+        "3170b8f5-8128-4fce-a936-338fde52fc0c",
+        "2ceab360-0c32-4e2f-ac05-df86a5991b37"
+      ],
+      "status": "completed_downloaded_processed",
+      "job_id": "d133c617-ad54-43f8-a1d4-1e580b3fdfa6",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_221525_d133c617-ad54-43f8-a1d4-1e580b3fdfa6.png",
+      "original": "assets/combat-v3/castle-aged-late.png",
+      "processed": "public/combat-v3/castle-aged-late.png",
+      "metadata": "public/combat-v3/castle-aged-late.json",
+      "frameWidth": 960,
+      "frameHeight": 540,
+      "cols": 1,
+      "rows": 1,
+      "observed": {
+        "source": [
+          2688,
+          1520
+        ],
+        "output": [
+          960,
+          540
+        ],
+        "verticalRegistrationPixels": 3,
+        "brightFloorY": 460
+      },
+      "params": {
+        "model": "gpt_image_2_6",
+        "prompt": "REFERENCE IMAGE EDIT ONLY. Image1 is the exact approved original night pixel throne arena;image2 is its matching dawn lighting version;image3 is the same arena after400years. Create this EXACT SAME arena after900years. Preserve EXACT camera,framing,perspective,window/columnpositions,leftentrance,rightthroneanddais,andtheflatwalkablefloorpixelheight fromimage1. Do not recompose,zoom,crop,move architecture or change floor geometry. MaterialagingONLY:deeper branchingstonecracks,thickancientroots aroundedgepillars andbehindthrone,fewerremainingbannerstrips,moremoss,littleflowersinrootcracks,andmissingpatchesinhighroofshowingmistysky. Roofdamageconfinedupperedge,notwalkway. Subtle earliest dawn warmth creeps throughsamewindows,mostlystillcoldteal/violet;useimage2onlyforsoftwarmlightreference,notfullsunrise. Originalcrisppixelclusters,limitedcoherentpalette,nonewpainterlydetail,no3D. Keepentire centralcombatlaneandwalkablefloorstraight,unobstructedandunchanged. Thronepositionandflooranchorsmustmatchpreviousvariantsforasoftcrossfade. NOcharacters,creatures,text,logos,UI orframes. Opaque complete16:9environment.",
+        "aspect_ratio": "16:9",
+        "background": "opaque",
+        "quality": "medium",
+        "resolution": "2k",
+        "count": 1,
+        "use_unlim": true,
+        "medias": [
+          {
+            "role": "image",
+            "value": "f2d13509-56af-41d5-a1ce-305355b10118"
+          },
+          {
+            "role": "image",
+            "value": "3170b8f5-8128-4fce-a936-338fde52fc0c"
+          },
+          {
+            "role": "image",
+            "value": "2ceab360-0c32-4e2f-ac05-df86a5991b37"
+          }
+        ]
+      }
+    },
+    {
+      "index": 107,
+      "id": "previous-king",
+      "prompt": "Original GAME PIXEL ART SPRITE ANIMATION ATLAS for the previous immortal KING, an OLD GRAY TABBY CAT. Distinct from the young black/purple player immortal: oldergraytabbyfurwithsubtlefacialstripes,onebentear,silverpaleeyes,oldbrokenBRONZE/GOLDcrown,tatteredSTEELBLUEcloak,andweatheredroyalcrescentglaive. UPRIGHTBIPEDALtwolegs/twopawarms,clearlyfelineheadearsandtail,notquadruped,not human. Match the attached game's simplecrisppixelsprite rendering and proportions only,doNOTcopyblackfur/purplecloak. Genuinehardpixelclusters,1pixeloutlines,restrained24colorpalette,twotonecelshading,noantialiasing,paintedfur,gradientsor3D. EXACTLY SIX columns FOUR rows24uniformcells. Eachcellfullunclippedcharacterconstantbody scale,samecentralroot/footbaseline,generouspaddingforbladeandcollapse. FaceLEFTthroughout. ROW1sixIDLEframes:heavybreathing,bentear/tailmotion,royalglaiveresting. ROW2sixROYALGLAIVEATTACKframes:lift,cockback,stepforward,fastoverheadcleave,followthrough,recover. ROW3sixHURT/RECOILframes:hitflinch,pawclutcheschest,headrocksback,kneesbuckle,steadiesglaive,weakrecovery. ROW4sixCOLLAPSE/DEFEATframes:stagger,kneesdrop,glaivefalls,pawsonfloor,sitscollapsedwithheadraisedbitterlaugh,lastslumpedrestpose. No bloodorgore. Animatearmslegsheadtailcloakandweapondistinctly. Spriteeffectsonlytinysparks,notcoveringbody. Transparentalpha,noenvironment,ground,text,labels,numbers,gridlinesorcastshadows.",
+      "reference": "10b5a340-04c3-4fc4-9737-073a43853886",
+      "status": "completed_downloaded_processed",
+      "job_id": "60ccecaf-3d15-464e-8173-5379c5578169",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_221640_60ccecaf-3d15-464e-8173-5379c5578169.png",
+      "original": "assets/combat-v3/previous-king.png",
+      "processed": "public/combat-v3/previous-king.png",
+      "metadata": "public/combat-v3/previous-king.json",
+      "frameWidth": 96,
+      "frameHeight": 96,
+      "cols": 6,
+      "rows": 4,
+      "observed": {
+        "source": [
+          2048,
+          2048
+        ],
+        "output": [
+          576,
+          384
+        ],
+        "anchor": {
+          "x": 48,
+          "y": 94
+        },
+        "clippedOpaquePixels": 24,
+        "clippingNote": "Only low glaive tip in royal-cleave frame4 extends below foot anchor; body remains intact."
+      },
+      "params": {
+        "model": "gpt_image_2_6",
+        "prompt": "Original GAME PIXEL ART SPRITE ANIMATION ATLAS for the previous immortal KING, an OLD GRAY TABBY CAT. Distinct from the young black/purple player immortal: oldergraytabbyfurwithsubtlefacialstripes,onebentear,silverpaleeyes,oldbrokenBRONZE/GOLDcrown,tatteredSTEELBLUEcloak,andweatheredroyalcrescentglaive. UPRIGHTBIPEDALtwolegs/twopawarms,clearlyfelineheadearsandtail,notquadruped,not human. Match the attached game's simplecrisppixelsprite rendering and proportions only,doNOTcopyblackfur/purplecloak. Genuinehardpixelclusters,1pixeloutlines,restrained24colorpalette,twotonecelshading,noantialiasing,paintedfur,gradientsor3D. EXACTLY SIX columns FOUR rows24uniformcells. Eachcellfullunclippedcharacterconstantbody scale,samecentralroot/footbaseline,generouspaddingforbladeandcollapse. FaceLEFTthroughout. ROW1sixIDLEframes:heavybreathing,bentear/tailmotion,royalglaiveresting. ROW2sixROYALGLAIVEATTACKframes:lift,cockback,stepforward,fastoverheadcleave,followthrough,recover. ROW3sixHURT/RECOILframes:hitflinch,pawclutcheschest,headrocksback,kneesbuckle,steadiesglaive,weakrecovery. ROW4sixCOLLAPSE/DEFEATframes:stagger,kneesdrop,glaivefalls,pawsonfloor,sitscollapsedwithheadraisedbitterlaugh,lastslumpedrestpose. No bloodorgore. Animatearmslegsheadtailcloakandweapondistinctly. Spriteeffectsonlytinysparks,notcoveringbody. Transparentalpha,noenvironment,ground,text,labels,numbers,gridlinesorcastshadows.",
+        "aspect_ratio": "1:1",
+        "background": "transparent",
+        "quality": "medium",
+        "resolution": "2k",
+        "count": 1,
+        "use_unlim": true,
+        "medias": [
+          {
+            "role": "image",
+            "value": "10b5a340-04c3-4fc4-9737-073a43853886"
+          }
+        ]
+      }
+    },
+    {
+      "index": 108,
+      "id": "immortal-rest",
+      "prompt": "Create ONE transparent PIXEL ART GAME SPRITE ANIMATION ATLAS of the EXACT black immortal cat from the supplied reference: same small tarnished gold crown, pale square eyes, pointed ears, black feline fur, indigo-purple cloak, crescent glaive and curled tail. UPRIGHT BIPEDAL cat anatomy, two paw arms and two short legs, not human and not quadruped. Exactly SIX columns TWO rows, twelve uniformly spaced equal cells. Each frame uses the SAME global character scale and SAME centered root coordinate with foot baseline at 94 percent cell height. Native 96x96 pixel sprite style, hard square pixel clusters, restrained 24-color palette, one-pixel outline, two-tone shading. No smooth illustration, antialiasing, painterly fur, gradients or 3D. ROW ONE: six clearly SITTING ON A THRONE / RESTING poses. The chair itself MUST be invisible/absent. Cat hips low, knees bent, lower legs and feet forward, paws resting loosely on knees or armrests, crown/head significantly lower than in standing stance. Slumped tired shoulders, eyes blink, head dips, ears droop, cloak drapes around seated thighs, tail curls on floor. Glaive leans relaxed beside the body rather than being brandished. Every one of these six poses must unmistakably be seated, NEVER standing. Subtle changes across all six frames: heavy breath, blink, head sag and small cape/tail sway. ROW TWO: six consecutive RISING FROM SEAT TO STANDING poses: lean forward, paws brace knees, hips lift, knees extend, body straightens, final standing idle matching reference. Keep character identity and scale constant between sitting and standing; seated silhouette physically lower, do NOT enlarge seated sprite to standing height. Complete unclipped ears, crown, tail and glaive in every cell with generous empty padding. No painted throne, chair, stool, platform, ground, cast shadow or background. TRUE transparent alpha. No labels, lettering, numbering or gridlines.",
+      "reference": "e7163c4b-91a0-4688-8216-aebda57502de",
+      "status": "completed_downloaded_processed",
+      "job_id": "3af32e0d-8ea8-419e-be54-149b0a6ded2d",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_223739_3af32e0d-8ea8-419e-be54-149b0a6ded2d.png",
+      "original": "assets/combat-v3/immortal-rest.png",
+      "processed": "public/combat-v3/immortal-rest.png",
+      "metadata": "public/combat-v3/immortal-rest.json",
+      "cols": 6,
+      "rows": 2,
+      "frameWidth": 96,
+      "frameHeight": 96,
+      "frameCount": 12,
+      "rowNames": [
+        "sit",
+        "rise"
+      ],
+      "observed": {
+        "source": [
+          2688,
+          1152
+        ],
+        "output": [
+          576,
+          192
+        ],
+        "anchor": {
+          "x": 48,
+          "y": 94
+        },
+        "clippedOpaquePixels": 0
+      },
+      "params": {
+        "model": "gpt_image_2_6",
+        "prompt": "Create ONE transparent PIXEL ART GAME SPRITE ANIMATION ATLAS of the EXACT black immortal cat from the supplied reference: same small tarnished gold crown, pale square eyes, pointed ears, black feline fur, indigo-purple cloak, crescent glaive and curled tail. UPRIGHT BIPEDAL cat anatomy, two paw arms and two short legs, not human and not quadruped. Exactly SIX columns TWO rows, twelve uniformly spaced equal cells. Each frame uses the SAME global character scale and SAME centered root coordinate with foot baseline at 94 percent cell height. Native 96x96 pixel sprite style, hard square pixel clusters, restrained 24-color palette, one-pixel outline, two-tone shading. No smooth illustration, antialiasing, painterly fur, gradients or 3D. ROW ONE: six clearly SITTING ON A THRONE / RESTING poses. The chair itself MUST be invisible/absent. Cat hips low, knees bent, lower legs and feet forward, paws resting loosely on knees or armrests, crown/head significantly lower than in standing stance. Slumped tired shoulders, eyes blink, head dips, ears droop, cloak drapes around seated thighs, tail curls on floor. Glaive leans relaxed beside the body rather than being brandished. Every one of these six poses must unmistakably be seated, NEVER standing. Subtle changes across all six frames: heavy breath, blink, head sag and small cape/tail sway. ROW TWO: six consecutive RISING FROM SEAT TO STANDING poses: lean forward, paws brace knees, hips lift, knees extend, body straightens, final standing idle matching reference. Keep character identity and scale constant between sitting and standing; seated silhouette physically lower, do NOT enlarge seated sprite to standing height. Complete unclipped ears, crown, tail and glaive in every cell with generous empty padding. No painted throne, chair, stool, platform, ground, cast shadow or background. TRUE transparent alpha. No labels, lettering, numbering or gridlines.",
+        "aspect_ratio": "21:9",
+        "background": "transparent",
+        "quality": "medium",
+        "resolution": "2k",
+        "count": 1,
+        "use_unlim": true,
+        "medias": [
+          {
+            "role": "image",
+            "value": "e7163c4b-91a0-4688-8216-aebda57502de"
+          }
+        ]
+      }
+    }
+  ]
+}

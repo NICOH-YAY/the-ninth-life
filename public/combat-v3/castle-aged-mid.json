@@ -1,0 +1,13 @@
+{
+  "disclosure": "AI-use disclosure: Higgsfield reference edit; Codex nearest-neighbor resize and vertical floor-line registration.",
+  "id": "castle-aged-mid",
+  "frameWidth": 960,
+  "frameHeight": 540,
+  "cols": 1,
+  "rows": 1,
+  "source": "assets/combat-v3/castle-aged-mid.png",
+  "originalBrightFloorY": 457,
+  "referenceBrightFloorY": 460,
+  "verticalRegistrationPixels": 3,
+  "processing": "Original preserved. Resize to960x540 and translate down to align the original night arena floor. Top few rows repeat source top edge; central walkable line stays unchanged."
+}

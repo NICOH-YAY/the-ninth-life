@@ -1,0 +1,122 @@
+{
+  "disclosure": "AI-use disclosure: Higgsfield source; Codex uses uniform whole-cell nearest-neighbor scale and central-body feet anchoring.",
+  "id": "immortal-rest",
+  "source": "assets/combat-v3/immortal-rest.png",
+  "sourceWidth": 2688,
+  "sourceHeight": 1152,
+  "cols": 6,
+  "rows": 2,
+  "frameWidth": 96,
+  "frameHeight": 96,
+  "frameCount": 12,
+  "width": 576,
+  "height": 192,
+  "anchor": {
+    "x": 48,
+    "y": 94
+  },
+  "rowNames": [
+    "sit",
+    "rise"
+  ],
+  "alphaThreshold": 96,
+  "processing": "Each equal source cell uses the same96x96 full-cell mapping. No row or per-frame bounding-box scaling. Central-body feet detection x33..64,y48..95; translateY only to the declared foot anchor; previous-king uses a uniform aspect-preserving whole-cell contain fit. Binaryalpha and32color palette.",
+  "anchors": [
+    {
+      "index": 0,
+      "row": 0,
+      "col": 0,
+      "sourceFeetY": 85,
+      "shiftY": 9,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 1,
+      "row": 0,
+      "col": 1,
+      "sourceFeetY": 85,
+      "shiftY": 9,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 2,
+      "row": 0,
+      "col": 2,
+      "sourceFeetY": 85,
+      "shiftY": 9,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 3,
+      "row": 0,
+      "col": 3,
+      "sourceFeetY": 85,
+      "shiftY": 9,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 4,
+      "row": 0,
+      "col": 4,
+      "sourceFeetY": 85,
+      "shiftY": 9,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 5,
+      "row": 0,
+      "col": 5,
+      "sourceFeetY": 85,
+      "shiftY": 9,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 6,
+      "row": 1,
+      "col": 0,
+      "sourceFeetY": 84,
+      "shiftY": 10,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 7,
+      "row": 1,
+      "col": 1,
+      "sourceFeetY": 84,
+      "shiftY": 10,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 8,
+      "row": 1,
+      "col": 2,
+      "sourceFeetY": 84,
+      "shiftY": 10,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 9,
+      "row": 1,
+      "col": 3,
+      "sourceFeetY": 84,
+      "shiftY": 10,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 10,
+      "row": 1,
+      "col": 4,
+      "sourceFeetY": 84,
+      "shiftY": 10,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 11,
+      "row": 1,
+      "col": 5,
+      "sourceFeetY": 84,
+      "shiftY": 10,
+      "clippedOpaque": 0
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "disclosure": "AI-use disclosure: Higgsfield generated the source; Codex processed frame geometry, nearest-neighbor pixels and hard alpha with sharp.",
+  "id": "combat-vfx",
+  "source": "assets/combat-v3/combat-vfx.png",
+  "sourceWidth": 2048,
+  "sourceHeight": 2048,
+  "hasSourceAlpha": true,
+  "cols": 6,
+  "rows": 6,
+  "frameWidth": 128,
+  "frameHeight": 128,
+  "kind": "effect",
+  "rowNames": [
+    "crescent-slash",
+    "spinning-glaive",
+    "shadow-wave",
+    "nova-burst",
+    "enemy-slash-bloodsparks",
+    "shield-hitsparks"
+  ],
+  "frameCount": 36,
+  "width": 768,
+  "height": 768,
+  "alphaThreshold": 40,
+  "processing": "Original preserved. Each frame extracted separately. Characters fit a shared row bounding box to preserve relative animation positions. Effects preserve whole cell. Hard alpha, nearest-neighbor resizing and dither-free palette."
+}

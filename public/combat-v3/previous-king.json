@@ -1,0 +1,220 @@
+{
+  "disclosure": "AI-use disclosure: Higgsfield source; Codex uses uniform whole-cell nearest-neighbor scale and central-body feet anchoring.",
+  "id": "previous-king",
+  "source": "assets/combat-v3/previous-king.png",
+  "sourceWidth": 2048,
+  "sourceHeight": 2048,
+  "cols": 6,
+  "rows": 4,
+  "frameWidth": 96,
+  "frameHeight": 96,
+  "frameCount": 24,
+  "width": 576,
+  "height": 384,
+  "anchor": {
+    "x": 48,
+    "y": 94
+  },
+  "rowNames": [
+    "idle",
+    "royal-cleave",
+    "hurt",
+    "collapse"
+  ],
+  "alphaThreshold": 96,
+  "processing": "Each equal source cell uses the same96x96 full-cell mapping. No row or per-frame bounding-box scaling. Central-body feet detection x33..64,y48..95; translateY only to the declared foot anchor; previous-king uses a uniform aspect-preserving whole-cell contain fit. Binaryalpha and32color palette.",
+  "anchors": [
+    {
+      "index": 0,
+      "row": 0,
+      "col": 0,
+      "sourceFeetY": 82,
+      "shiftY": 12,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 1,
+      "row": 0,
+      "col": 1,
+      "sourceFeetY": 82,
+      "shiftY": 12,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 2,
+      "row": 0,
+      "col": 2,
+      "sourceFeetY": 82,
+      "shiftY": 12,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 3,
+      "row": 0,
+      "col": 3,
+      "sourceFeetY": 82,
+      "shiftY": 12,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 4,
+      "row": 0,
+      "col": 4,
+      "sourceFeetY": 82,
+      "shiftY": 12,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 5,
+      "row": 0,
+      "col": 5,
+      "sourceFeetY": 82,
+      "shiftY": 12,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 6,
+      "row": 1,
+      "col": 0,
+      "sourceFeetY": 82,
+      "shiftY": 12,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 7,
+      "row": 1,
+      "col": 1,
+      "sourceFeetY": 83,
+      "shiftY": 11,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 8,
+      "row": 1,
+      "col": 2,
+      "sourceFeetY": 83,
+      "shiftY": 11,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 9,
+      "row": 1,
+      "col": 3,
+      "sourceFeetY": 83,
+      "shiftY": 11,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 10,
+      "row": 1,
+      "col": 4,
+      "sourceFeetY": 83,
+      "shiftY": 11,
+      "clippedOpaque": 24
+    },
+    {
+      "index": 11,
+      "row": 1,
+      "col": 5,
+      "sourceFeetY": 83,
+      "shiftY": 11,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 12,
+      "row": 2,
+      "col": 0,
+      "sourceFeetY": 82,
+      "shiftY": 12,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 13,
+      "row": 2,
+      "col": 1,
+      "sourceFeetY": 82,
+      "shiftY": 12,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 14,
+      "row": 2,
+      "col": 2,
+      "sourceFeetY": 82,
+      "shiftY": 12,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 15,
+      "row": 2,
+      "col": 3,
+      "sourceFeetY": 82,
+      "shiftY": 12,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 16,
+      "row": 2,
+      "col": 4,
+      "sourceFeetY": 82,
+      "shiftY": 12,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 17,
+      "row": 2,
+      "col": 5,
+      "sourceFeetY": 82,
+      "shiftY": 12,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 18,
+      "row": 3,
+      "col": 0,
+      "sourceFeetY": 82,
+      "shiftY": 12,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 19,
+      "row": 3,
+      "col": 1,
+      "sourceFeetY": 82,
+      "shiftY": 12,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 20,
+      "row": 3,
+      "col": 2,
+      "sourceFeetY": 82,
+      "shiftY": 12,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 21,
+      "row": 3,
+      "col": 3,
+      "sourceFeetY": 82,
+      "shiftY": 12,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 22,
+      "row": 3,
+      "col": 4,
+      "sourceFeetY": 80,
+      "shiftY": 14,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 23,
+      "row": 3,
+      "col": 5,
+      "sourceFeetY": 81,
+      "shiftY": 13,
+      "clippedOpaque": 0
+    }
+  ]
+}

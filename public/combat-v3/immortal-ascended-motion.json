@@ -1,0 +1,416 @@
+{
+  "disclosure": "AI-use disclosure: Higgsfield source; Codex uses uniform whole-cell nearest-neighbor scale and central-body feet anchoring.",
+  "id": "immortal-ascended-motion",
+  "source": "assets/combat-v3/immortal-ascended-motion.png",
+  "sourceWidth": 1744,
+  "sourceHeight": 2336,
+  "cols": 6,
+  "rows": 8,
+  "frameWidth": 96,
+  "frameHeight": 96,
+  "frameCount": 48,
+  "width": 576,
+  "height": 768,
+  "anchor": {
+    "x": 48,
+    "y": 94
+  },
+  "rowNames": [
+    "idle",
+    "run",
+    "jump",
+    "dash",
+    "rift",
+    "wisps",
+    "tide",
+    "bell"
+  ],
+  "alphaThreshold": 96,
+  "processing": "Each equal source cell uses the same96x96 full-cell mapping. No row or per-frame bounding-box scaling. Central-body feet detection x33..64,y48..95; translateY only to footanchor94. Binaryalpha and32color palette.",
+  "anchors": [
+    {
+      "index": 0,
+      "row": 0,
+      "col": 0,
+      "sourceFeetY": 95,
+      "shiftY": -1,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 1,
+      "row": 0,
+      "col": 1,
+      "sourceFeetY": 94,
+      "shiftY": 0,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 2,
+      "row": 0,
+      "col": 2,
+      "sourceFeetY": 87,
+      "shiftY": 7,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 3,
+      "row": 0,
+      "col": 3,
+      "sourceFeetY": 90,
+      "shiftY": 4,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 4,
+      "row": 0,
+      "col": 4,
+      "sourceFeetY": 95,
+      "shiftY": -1,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 5,
+      "row": 0,
+      "col": 5,
+      "sourceFeetY": 95,
+      "shiftY": -1,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 6,
+      "row": 1,
+      "col": 0,
+      "sourceFeetY": 86,
+      "shiftY": 8,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 7,
+      "row": 1,
+      "col": 1,
+      "sourceFeetY": 87,
+      "shiftY": 7,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 8,
+      "row": 1,
+      "col": 2,
+      "sourceFeetY": 81,
+      "shiftY": 13,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 9,
+      "row": 1,
+      "col": 3,
+      "sourceFeetY": 86,
+      "shiftY": 8,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 10,
+      "row": 1,
+      "col": 4,
+      "sourceFeetY": 87,
+      "shiftY": 7,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 11,
+      "row": 1,
+      "col": 5,
+      "sourceFeetY": 85,
+      "shiftY": 9,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 12,
+      "row": 2,
+      "col": 0,
+      "sourceFeetY": 95,
+      "shiftY": -1,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 13,
+      "row": 2,
+      "col": 1,
+      "sourceFeetY": 95,
+      "shiftY": -1,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 14,
+      "row": 2,
+      "col": 2,
+      "sourceFeetY": 81,
+      "shiftY": 13,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 15,
+      "row": 2,
+      "col": 3,
+      "sourceFeetY": 76,
+      "shiftY": 18,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 16,
+      "row": 2,
+      "col": 4,
+      "sourceFeetY": 94,
+      "shiftY": 0,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 17,
+      "row": 2,
+      "col": 5,
+      "sourceFeetY": 95,
+      "shiftY": -1,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 18,
+      "row": 3,
+      "col": 0,
+      "sourceFeetY": 90,
+      "shiftY": 4,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 19,
+      "row": 3,
+      "col": 1,
+      "sourceFeetY": 90,
+      "shiftY": 4,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 20,
+      "row": 3,
+      "col": 2,
+      "sourceFeetY": 87,
+      "shiftY": 7,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 21,
+      "row": 3,
+      "col": 3,
+      "sourceFeetY": 79,
+      "shiftY": 15,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 22,
+      "row": 3,
+      "col": 4,
+      "sourceFeetY": 90,
+      "shiftY": 4,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 23,
+      "row": 3,
+      "col": 5,
+      "sourceFeetY": 90,
+      "shiftY": 4,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 24,
+      "row": 4,
+      "col": 0,
+      "sourceFeetY": 95,
+      "shiftY": -1,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 25,
+      "row": 4,
+      "col": 1,
+      "sourceFeetY": 95,
+      "shiftY": -1,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 26,
+      "row": 4,
+      "col": 2,
+      "sourceFeetY": 78,
+      "shiftY": 16,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 27,
+      "row": 4,
+      "col": 3,
+      "sourceFeetY": 93,
+      "shiftY": 1,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 28,
+      "row": 4,
+      "col": 4,
+      "sourceFeetY": 95,
+      "shiftY": -1,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 29,
+      "row": 4,
+      "col": 5,
+      "sourceFeetY": 95,
+      "shiftY": -1,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 30,
+      "row": 5,
+      "col": 0,
+      "sourceFeetY": 93,
+      "shiftY": 1,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 31,
+      "row": 5,
+      "col": 1,
+      "sourceFeetY": 93,
+      "shiftY": 1,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 32,
+      "row": 5,
+      "col": 2,
+      "sourceFeetY": 92,
+      "shiftY": 2,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 33,
+      "row": 5,
+      "col": 3,
+      "sourceFeetY": 93,
+      "shiftY": 1,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 34,
+      "row": 5,
+      "col": 4,
+      "sourceFeetY": 92,
+      "shiftY": 2,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 35,
+      "row": 5,
+      "col": 5,
+      "sourceFeetY": 93,
+      "shiftY": 1,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 36,
+      "row": 6,
+      "col": 0,
+      "sourceFeetY": 86,
+      "shiftY": 8,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 37,
+      "row": 6,
+      "col": 1,
+      "sourceFeetY": 86,
+      "shiftY": 8,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 38,
+      "row": 6,
+      "col": 2,
+      "sourceFeetY": 86,
+      "shiftY": 8,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 39,
+      "row": 6,
+      "col": 3,
+      "sourceFeetY": 83,
+      "shiftY": 11,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 40,
+      "row": 6,
+      "col": 4,
+      "sourceFeetY": 84,
+      "shiftY": 10,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 41,
+      "row": 6,
+      "col": 5,
+      "sourceFeetY": 86,
+      "shiftY": 8,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 42,
+      "row": 7,
+      "col": 0,
+      "sourceFeetY": 85,
+      "shiftY": 9,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 43,
+      "row": 7,
+      "col": 1,
+      "sourceFeetY": 85,
+      "shiftY": 9,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 44,
+      "row": 7,
+      "col": 2,
+      "sourceFeetY": 85,
+      "shiftY": 9,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 45,
+      "row": 7,
+      "col": 3,
+      "sourceFeetY": 85,
+      "shiftY": 9,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 46,
+      "row": 7,
+      "col": 4,
+      "sourceFeetY": 85,
+      "shiftY": 9,
+      "clippedOpaque": 0
+    },
+    {
+      "index": 47,
+      "row": 7,
+      "col": 5,
+      "sourceFeetY": 85,
+      "shiftY": 9,
+      "clippedOpaque": 0
+    }
+  ]
+}

@@ -42,3 +42,34 @@ Pixel revision status: active runtime characters, arenas and the opening use the
 | public/bg/pixel-arena.png and pixel-dawn.png | Copied matching night/dawn generated halls | Higgsfield source | 2026-11-19 |
 | public/favicon.png | Immortal sprite first-frame derivative | Codex; sharp | 2026-11-19 |
 | assets/references/* | User-supplied mood and accessory references, local-only and excluded from Git/runtime | Original image owners; reference use only | 2026-11-19 |
+
+## Combat and movement revision
+
+AI-use disclosure: these original assets were generated through Higgsfield GPT Image 2.6 using the authorized free unlimited allowance. Exact prompts, model parameters, result URLs, job IDs and observed layouts are in assets/combat-v3/manifest.json. Existing source images are preserved.
+
+| Asset | Source and tool | Date |
+|---|---|---|
+| assets/combat-v3/castle-exterior.png | Higgsfield GPT Image 2.6, job 3ff59ac6-ac03-4c35-a780-17274d368e8e; original moonlit castle exterior | 2026-11-19 |
+| assets/combat-v3/combat-vfx.png | Higgsfield GPT Image 2.6, job b953b5bf-1701-48a7-8f2b-26384b1478dc; 36 sprite effect frames | 2026-11-19 |
+| assets/combat-v3/immortal-base-motion.png | Higgsfield GPT Image 2.6, job e7163c4b-91a0-4688-8216-aebda57502de; 48 movement and attack frames with character reference | 2026-11-19 |
+| assets/combat-v3/immortal-ascended-motion.png | Higgsfield GPT Image 2.6, job 0bff3fc0-ab77-4739-a177-3240987c87dd; 48 movement and magic frames with base and ascended references | 2026-11-19 |
+| assets/combat-v3/challenger-abilities.png | Higgsfield GPT Image 2.6, job 45c7dc45-0213-493d-a553-50210cd8949f; 54 distinct accessory cat ability frames with roster reference | 2026-11-19 |
+| public/combat-v3/castle-exterior.png | Codex/sharp resize from generated exterior to 960x540 | 2026-11-19 |
+| public/combat-v3/combat-vfx.png | Codex/sharp: 128x128 cells, nearest-neighbor, binary alpha, 48-color palette | 2026-11-19 |
+| public/combat-v3/immortal-base-motion.png and immortal-ascended-motion.png | Codex/sharp: uniform whole-cell mapping, 96x96 frames, central feet anchor (48,94), binary alpha and 32-color palette; no row-dependent scaling | 2026-11-19 |
+| public/combat-v3/challenger-abilities.png | Codex/sharp: uniform 96x96 source mapping padded to 144x144, feet anchor (72,110), no body rescaling between action frames | 2026-11-19 |
+| public/combat-v3/*-native48x72.png | Archived first processing pass from the same generated originals; active motion files use uniform scaling instead | 2026-11-19 |
+| public/combat-v3/*.json and assets/combat-v3/process-*.mjs | Codex-authored atlas geometry, provenance and repeatable processing helpers | 2026-11-19 |
+
+| Additional arena and opening asset | Source and processing | Date |
+|---|---|---|
+| assets/combat-v3/castle-aged-mid.png | Higgsfield GPT Image 2.6 reference edit, job 2ceab360-0c32-4e2f-ac05-df86a5991b37; 400-year cracks, vines, banners, dust and window aging | 2026-11-19 |
+| assets/combat-v3/castle-aged-late.png | Higgsfield GPT Image 2.6 reference edit, job d133c617-ad54-43f8-a1d4-1e580b3fdfa6; 900-year roots, roof loss, moss, flowers and early dawn | 2026-11-19 |
+| public/combat-v3/castle-aged-mid.png and castle-aged-late.png | Codex/sharp nearest-neighbor resize to 960x540 and 3px downward registration to original arena floor; originals preserved | 2026-11-19 |
+| assets/combat-v3/previous-king.png | Higgsfield GPT Image 2.6, job 60ccecaf-3d15-464e-8173-5379c5578169; original old gray tabby king, 24 idle, attack, hurt and collapse poses | 2026-11-19 |
+| public/combat-v3/previous-king.png and previous-king-portrait.png | Codex/sharp uniform aspect-preserving whole-cell scale, 96x96 frames with foot anchor (48,94), binary alpha and 32-color palette; portrait is first idle frame | 2026-11-19 |
+
+| Seated immortal asset | Source and processing | Date |
+|---|---|---|
+| assets/combat-v3/immortal-rest.png | Higgsfield GPT Image 2.6, job 3af32e0d-8ea8-419e-be54-149b0a6ded2d; six seated waiting poses and six rising poses using the approved base-motion reference, free unlimited allowance | 2026-11-19 |
+| public/combat-v3/immortal-rest.png and immortal-rest.json | Codex/sharp uniform whole-cell contain scale, twelve 96x96 frames, feet at (48,94), hard alpha and 32-color palette; seated body stays physically lower; no chair or environment baked in | 2026-11-19 |
