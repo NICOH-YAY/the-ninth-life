@@ -8,6 +8,8 @@ This is Nicoh Koehly's (`nicoh-yay`) final project for COMS E6998 sec 014, AI in
 @CONFIG.md
 @PLAN.md
 
+Newer design docs that override GDD.md where they conflict (update GDD.md to match): docs/story-bible.md, docs/phase-two.md, docs/challenger-progression.md, docs/art-direction.md, docs/prototype-brief.md. Simple mechanical work goes to the Haiku subagents in `.claude/agents/`.
+
 `GDD.md` is the current spec. `docs/design-history.md` records the concepts considered, why this one was chosen, decisions, and open critiques.
 
 ## Project rules

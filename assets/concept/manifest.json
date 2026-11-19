@@ -1,0 +1,86 @@
+{
+  "generator": "Higgsfield",
+  "disclosure": "AI-generated concept art, used as prototype sprites and backgrounds.",
+  "images": [
+    {
+      "file": "immortal-base.png",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_074459_223de3cf-721b-4038-9490-68d2b4bb0875.png",
+      "higgsfield_job_id": "223de3cf-721b-4038-9490-68d2b4bb0875",
+      "model": "z_image (Higgsfield)",
+      "date": "2026-11-19",
+      "kind": "character",
+      "description": "Tall regal lonely black cat guardian, indigo cloak, small crown, crescent glaive, side view, grey background",
+      "note": "Generated concept art. Exact prompts are in docs/art-direction.md history; regenerate rather than edit if a style change is needed."
+    },
+    {
+      "file": "immortal-ascended.png",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_074640_d4f4189e-1d2c-4a4d-bea0-c10102892e24.png",
+      "higgsfield_job_id": "d4f4189e-1d2c-4a4d-bea0-c10102892e24",
+      "model": "z_image (Higgsfield)",
+      "date": "2026-11-19",
+      "kind": "character",
+      "description": "Ascended form: floating, no weapon, violet and green spectral flame, tail wisps, cracked hovering crown, grey background",
+      "note": "Generated concept art. Exact prompts are in docs/art-direction.md history; regenerate rather than edit if a style change is needed."
+    },
+    {
+      "file": "lineup-six.png",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_074708_17a4491d-fe3e-42de-9496-d295c7ef0701.png",
+      "higgsfield_job_id": "17a4491d-fe3e-42de-9496-d295c7ef0701",
+      "model": "z_image (Higgsfield)",
+      "date": "2026-11-19",
+      "kind": "lineup",
+      "description": "Six challengers left to right: kitten (twig), alley (red bandana, dagger), sailor (yellow raincoat, umbrella), acrobat (striped leotard, bell, staff), witch (pointed hat, wand), knight (tin armor, sword)",
+      "note": "Generated concept art. Exact prompts are in docs/art-direction.md history; regenerate rather than edit if a style change is needed."
+    },
+    {
+      "file": "patchwork.png",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_074737_760fb3df-94f6-463c-b20a-e0b90d061bd0.png",
+      "higgsfield_job_id": "760fb3df-94f6-463c-b20a-e0b90d061bd0",
+      "model": "z_image (Higgsfield)",
+      "date": "2026-11-19",
+      "kind": "character",
+      "description": "Patchwork cat wearing pieces of every outfit, mended sword, grey background",
+      "note": "Generated concept art. Exact prompts are in docs/art-direction.md history; regenerate rather than edit if a style change is needed."
+    },
+    {
+      "file": "bg-throne-night.png",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_074436_13d4c905-51d8-430a-9133-69cebd42d168.png",
+      "higgsfield_job_id": "13d4c905-51d8-430a-9133-69cebd42d168",
+      "model": "z_image (Higgsfield)",
+      "date": "2026-11-19",
+      "kind": "background",
+      "description": "Ruined throne room at night, teal and indigo, bioluminescent fungus, throne at right",
+      "note": "Generated concept art. Exact prompts are in docs/art-direction.md history; regenerate rather than edit if a style change is needed."
+    },
+    {
+      "file": "bg-throne-dawn.png",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_074803_fe5ec166-dbf3-4f25-b132-4510c68af5c8.png",
+      "higgsfield_job_id": "fe5ec166-dbf3-4f25-b132-4510c68af5c8",
+      "model": "z_image (Higgsfield)",
+      "date": "2026-11-19",
+      "kind": "background",
+      "description": "Same throne room at dawn, golden light, flowering roots",
+      "note": "Generated concept art. Exact prompts are in docs/art-direction.md history; regenerate rather than edit if a style change is needed."
+    },
+    {
+      "file": "key-art.png",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_074839_9630f3c8-bb3c-4f19-8f8e-c711bd872599.png",
+      "higgsfield_job_id": "9630f3c8-bb3c-4f19-8f8e-c711bd872599",
+      "model": "z_image (Higgsfield)",
+      "date": "2026-11-19",
+      "kind": "key-art",
+      "description": "Immortal on throne, tiny red-bandana cat at the steps, moonlight shaft",
+      "note": "Generated concept art. Exact prompts are in docs/art-direction.md history; regenerate rather than edit if a style change is needed."
+    },
+    {
+      "file": "lineup-thief-quiet.png",
+      "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_074914_dcf33558-7b82-494f-9557-f4208191f1e1.png",
+      "higgsfield_job_id": "dcf33558-7b82-494f-9557-f4208191f1e1",
+      "model": "z_image (Higgsfield)",
+      "date": "2026-11-19",
+      "kind": "lineup",
+      "description": "Two challengers left to right: thief (mask, hood, two knives), quiet one (scarf only, sitting)",
+      "note": "Generated concept art. Exact prompts are in docs/art-direction.md history; regenerate rather than edit if a style change is needed."
+    }
+  ]
+}

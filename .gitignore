@@ -1,0 +1,7 @@
+CLAUDE.local.md
+node_modules/
+dist/
+.dev.vars
+.wrangler/
+*.log
+start-overnight-build.cmd
