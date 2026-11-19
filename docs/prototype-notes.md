@@ -72,7 +72,7 @@ Open the address Vite prints and press any key. Controls and page options are in
 14. **Answer options** come from the tier of the fight that just ended and rotate within it.
 15. **Canvas renderer by default** because WebGL ran at about 2 FPS in Nicoh's Brave on earlier projects. `?renderer=webgl` to compare.
 16. **Worker uses Vertex express mode** (an API key in Worker secrets), not a service account. That is simpler to deploy but needs checking against the course's Google Cloud setup.
-17. **Debug keys** are 1 to 9, P, B, N, H. The digits stay active in a normal run.
+17. **Debug keys** are 1 to 9, P, B, N, H. They work in `npm run dev` and on a built page only with `?debug=1`.
 
 ## First five things I would tune
 
@@ -101,9 +101,21 @@ On the same curve, the heuristic planner beats the scripted order at fight 4 (0.
 ## Tests and build
 
 - `npm run typecheck`: passes (client and Worker projects).
-- `npm test`: 78 tests pass (phase two, progression, fight rules, replay, hesitation, run state, endings, planners, validation, fallback timeout with fake timers, call cap, kill switch, headless nine-life runs in scripted and heuristic modes, Worker with a mocked model).
+- `npm test`: 82 tests pass (phase two, progression, fight rules, replay, hesitation, run state, endings, planners, validation, fallback timeout with fake timers, call cap, kill switch, headless nine-life runs in scripted and heuristic modes, Worker with a mocked model).
 - `npm run build`: passes. The bundle is about 1.5 MB (Phaser), 365 KB gzipped.
 - CI: `.github/workflows/ci.yml` (ubuntu-latest, Node from `.nvmrc`, npm cache, concurrency with cancel-in-progress, 10 minute timeout). Not run on GitHub since nothing was pushed.
+
+## Code review (ECC code-reviewer agent)
+
+A review of the branch found no bug in the core rules and no path for the model key or unchecked model output to reach the client. It found these, all fixed before the last commit:
+
+- The Worker answered the CORS preflight with a 204 that had a body, which throws, so every live call from the browser would have failed and quietly fallen back. Fixed, with a test.
+- The 12-call cap was per client-chosen session id, so it did not limit spending. The Worker now also has a daily cap across all sessions (`DAILY_CAP`, default 400, approximate because KV is eventually consistent), ignores client-sent facts, rebuilds the fight summary from checked fields, and limits the body size. A per-IP rate limit is still worth adding before a public deploy.
+- The model key moved from the URL to the `x-goog-api-key` header, and error replies are generic. Tested.
+- A debug jump left old timers running, which could start a fight twice or apply an answer twice. The jump now clears timers and tweens, and async steps check an epoch counter.
+- Mashing attack keys could skip the summary, the line, and the answer (picking the guarded one). Key repeat is ignored and confirm keys are locked for about 0.6 s when a screen appears.
+- A one-hit overkill through 50% was logged below the trigger, so the summary under-reported progress. The crossing hit now logs the trigger point.
+- One test could not fail (memory mode) and one test name claimed more than it checked. Both fixed.
 
 ## Not done, and risks
 

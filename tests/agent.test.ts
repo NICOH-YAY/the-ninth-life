@@ -154,7 +154,7 @@ describe("LivePlanner fallback", () => {
   });
 
   it("sends only the last fight in last-fight memory mode", async () => {
-    let sent: { history: unknown[] } | null = null;
+    let sent: { history: { fight: number }[] } | null = null;
     const capture = (async (_url: string, init: RequestInit) => {
       sent = JSON.parse(String(init.body));
       return { ok: true, status: 200, text: async () => JSON.stringify(good) } as Response;
@@ -162,9 +162,9 @@ describe("LivePlanner fallback", () => {
     const s1 = summaryWith([["reap", 3]], "reap", 1);
     const s2 = summaryWith([["reap", 4]], "reap", 2);
     await new LivePlanner({ workerUrl: "http://w", fetchImpl: capture, memory: "last" }).plan(s2, [s1], ctx);
-    expect(sent!.history).toHaveLength(1);
+    expect(sent!.history.map((h) => h.fight)).toEqual([2]);
     await new LivePlanner({ workerUrl: "http://w", fetchImpl: capture, memory: "history" }).plan(s2, [s1], ctx);
-    expect(sent!.history).toHaveLength(1);
+    expect(sent!.history.map((h) => h.fight)).toEqual([1]);
   });
 });
 

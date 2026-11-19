@@ -106,8 +106,16 @@ export class Session {
 
   async resolveNext(): Promise<PlanResult> {
     if (this.pending) {
-      this.next = await this.pending;
+      const pending = this.pending;
       this.pending = null;
+      try {
+        this.next = await pending;
+      } catch (e) {
+        // A planner should never throw, but if one does the run continues on the scripted plan.
+        const fi = this.state.fightIndex;
+        const ctx = { fightIndex: fi, tier: tierFor(fi), bond: this.state.bond, remaining: remainingChoosable(this.state), sessionId: this.id };
+        this.next = fixedLifeFor(fi) ? authoredPlan(fi) : { plan: scriptedPlan(ctx), source: "fallback", fallbackReason: "planner error: " + String(e) };
+      }
     }
     return this.next;
   }

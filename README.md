@@ -28,7 +28,7 @@ Open the address Vite prints (usually http://localhost:5173). Press any key on t
 | A/D, Enter | Choose the Immortal's answer between fights |
 | M | Mute |
 
-Debug keys: 1 to 9 jump to a life, P forces Phase Two, B and N raise and lower bond, H shows hitboxes. The line at the bottom shows the planner mode and where the last plan came from.
+Debug keys (on in `npm run dev`, or add `?debug=1` to a built page): 1 to 9 jump to a life, P forces Phase Two, B and N raise and lower bond, H shows hitboxes. The line at the bottom shows the planner mode and where the last plan came from.
 
 ## Planner modes
 

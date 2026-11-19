@@ -14,8 +14,11 @@ describe("Phase Two trigger", () => {
     runFight(sim, makeBot("idle"));
     const starts = sim.events.filter((e) => e.type === "phase2_start");
     expect(starts).toHaveLength(1);
-    const firstHit = sim.events.find((e) => e.type === "boss_hit");
-    expect(firstHit && firstHit.type === "boss_hit" ? firstHit.hpAfter : -1).toBeLessThan(BOSS.maxHp * 0.3);
+    const start = starts[0];
+    expect(start && start.type === "phase2_start" ? start.hpBefore : -1).toBeLessThan(BOSS.maxHp * 0.3);
+    // The summary still counts the crossing at the trigger point, not the overkill.
+    const s = summarize(sim.events.slice(0, sim.events.indexOf(start!) + 1), { fight: 4, remaining: [] });
+    expect(s.bossMinHpPct).toBeCloseTo(0.5);
     // Later hits in Phase Two below 50% do not trigger again, and the boss can still die.
     expect(sim.outcome).toBe("boss_dead");
   });

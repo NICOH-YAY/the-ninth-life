@@ -753,7 +753,8 @@ export class FightSim {
     if (!b.phase2Triggered && p2.PHASE2_ENABLED && b.hp <= p2.PHASE2_TRIGGER_PCT * b.maxHp) {
       const before = Math.max(0, b.hp);
       b.hp = Math.max(1, b.hp);
-      this.log({ t, type: "boss_hit", dmg: Math.round(dmg), hpAfter: Math.round(before), phase: 1 });
+      // The crossing hit is logged at the trigger point: Phase Two starts there, whatever the overkill.
+      this.log({ t, type: "boss_hit", dmg: Math.round(dmg), hpAfter: Math.round(p2.PHASE2_TRIGGER_PCT * b.maxHp), phase: 1 });
       b.phase2Triggered = true;
       b.transitionT = p2.PHASE2_TRANSITION_S;
       b.move = null;
@@ -921,6 +922,7 @@ export class FightSim {
     const p2 = this.cfg.phase2;
     if (b.phase2Triggered || !p2.PHASE2_ENABLED || this.outcome) return;
     const t = this.time;
+    const before = Math.round(b.hp);
     b.hp = Math.round(p2.PHASE2_TRIGGER_PCT * b.maxHp);
     b.phase2Triggered = true;
     b.transitionT = p2.PHASE2_TRANSITION_S;
@@ -928,7 +930,7 @@ export class FightSim {
     b.buffered = null;
     b.glaiveDropX = b.x - 40;
     this.projectiles = [];
-    this.log({ t, type: "phase2_start", hpBefore: b.hp });
+    this.log({ t, type: "phase2_start", hpBefore: before });
   }
 
   private updateQuiet(t: number): void {

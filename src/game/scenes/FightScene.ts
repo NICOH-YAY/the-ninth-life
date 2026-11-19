@@ -46,6 +46,12 @@ export class FightScene extends Phaser.Scene {
   private speed = 1;
   private autoplay = false;
   private autoBot: BossBot | null = null;
+  /** Debug keys are on in dev builds or with ?debug=1. */
+  private debug = false;
+  /** Confirm keys are ignored until this scene time, so mashing attack keys cannot skip a screen. */
+  private inputLockUntil = 0;
+  /** Bumped on a debug jump so stale async steps know to stop. */
+  private epoch = 0;
 
   private bgNight!: Phaser.GameObjects.Image;
   private bgDawn!: Phaser.GameObjects.Image;
@@ -141,6 +147,7 @@ export class FightScene extends Phaser.Scene {
     const params = new URLSearchParams(window.location.search);
     this.speed = Math.min(8, Math.max(1, Number(params.get("speed") ?? 1) || 1));
     this.autoplay = params.get("autoplay") === "1";
+    this.debug = import.meta.env.DEV || params.get("debug") === "1";
     this.setupInput();
     this.applyTierLook(this.session.fightIndex, false);
     this.showIntroCard();
@@ -155,7 +162,20 @@ export class FightScene extends Phaser.Scene {
     kb.on("keydown", (e: KeyboardEvent) => this.onKey(e));
   }
 
+  /** A delayed flow step that is dropped if a debug jump happened in between. */
+  private later(ms: number, fn: () => void): void {
+    const epoch = this.epoch;
+    this.time.delayedCall(ms, () => {
+      if (epoch === this.epoch) fn();
+    });
+  }
+
+  private lockInput(ms = 600): void {
+    this.inputLockUntil = this.time.now + ms;
+  }
+
   private onKey(e: KeyboardEvent): void {
+    if (e.repeat) return;
     const k = e.key.toLowerCase();
     if (this.mode === "fight") {
       if (k === "j") this.press.cleave = true;
@@ -163,23 +183,26 @@ export class FightScene extends Phaser.Scene {
       else if (k === "l") this.press.reap = true;
       else if (k === " ") this.press.nova = true;
     }
-    // Debug keys.
-    if (/^[1-9]$/.test(k) && !this.choice) {
-      this.debugJump(Number(k));
-      return;
+    if (this.debug) {
+      if (/^[1-9]$/.test(k)) {
+        this.debugJump(Number(k));
+        return;
+      }
+      if (k === "p" && this.sim && this.mode === "fight") this.sim.debugForcePhase2();
+      if (k === "b") this.session.state.bond = clampBond(this.session.state.bond + 1);
+      if (k === "n") this.session.state.bond = clampBond(this.session.state.bond - 1);
+      if (k === "h") this.showHitboxes = !this.showHitboxes;
     }
-    if (k === "p" && this.sim && this.mode === "fight") this.sim.debugForcePhase2();
-    if (k === "b") this.session.state.bond = clampBond(this.session.state.bond + 1);
-    if (k === "n") this.session.state.bond = clampBond(this.session.state.bond - 1);
-    if (k === "h") this.showHitboxes = !this.showHitboxes;
+    const confirm = k === "enter" || k === " " || k === "j";
+    if (confirm && this.time.now < this.inputLockUntil) return;
 
     if (this.choice) {
       if (k === "a" || k === "arrowleft") this.moveChoice(0);
       else if (k === "d" || k === "arrowright") this.moveChoice(1);
-      else if (k === "enter" || k === " " || k === "j") this.confirmChoice();
+      else if (confirm) this.confirmChoice();
       return;
     }
-    if (this.overlayAdvance && (k === "enter" || k === " " || k === "j")) {
+    if (this.overlayAdvance && confirm) {
       const f = this.overlayAdvance;
       this.overlayAdvance = null;
       f();
@@ -199,6 +222,13 @@ export class FightScene extends Phaser.Scene {
   }
 
   private debugJump(n: number): void {
+    // Stop every pending step of the old flow before starting the new one.
+    this.epoch++;
+    this.time.removeAllEvents();
+    this.tweens.killAll();
+    this.hideDialogue();
+    this.holdText.setAlpha(0);
+    this.overlay.setAlpha(1);
     this.overlay.removeAll(true);
     this.choice = null;
     this.overlayAdvance = null;
@@ -218,6 +248,7 @@ export class FightScene extends Phaser.Scene {
     const life = this.session.lifeFor(plan, fi);
     this.ch.setTexture(ROSTER[life].sprite).setAlpha(0).setRotation(0);
     this.overlay.removeAll(true);
+    this.lockInput();
     const W = ARENA.width;
     const H = ARENA.height;
     const dim = this.add.rectangle(W / 2, H / 2, W, H, 0x020208, 0.78);
@@ -238,15 +269,15 @@ export class FightScene extends Phaser.Scene {
     // Flow runs on the scene clock. The tween is only the visual fade.
     const go = (): void => {
       this.tweens.add({ targets: this.overlay, alpha: 0, duration: 450 });
-      this.time.delayedCall(460, () => {
+      this.later(460, () => {
         this.overlay.removeAll(true);
         this.overlay.setAlpha(1);
         this.beginFight();
       });
     };
     this.overlayAdvance = go;
-    if (this.autoplay) this.time.delayedCall(400, () => this.overlayAdvance === go && (this.overlayAdvance = null, go()));
-    this.time.delayedCall(fi === 1 ? 3800 : 2800, () => {
+    if (this.autoplay) this.later(400, () => this.overlayAdvance === go && (this.overlayAdvance = null, go()));
+    this.later(fi === 1 ? 3800 : 2800, () => {
       if (this.overlayAdvance === go) {
         this.overlayAdvance = null;
         go();
@@ -286,7 +317,7 @@ export class FightScene extends Phaser.Scene {
       const endingNow = this.session.state.ending ?? ending;
       this.hitstop = 0.4;
       this.tweens.add({ targets: [this.boss, this.asc], alpha: 0.6, duration: 900 });
-      this.time.delayedCall(1400, () => {
+      this.later(1400, () => {
         this.cameras.main.fadeOut(1200, 255, 236, 200);
         this.cameras.main.once("camerafadeoutcomplete", () =>
           this.scene.start("ending", { session: this.session, ending: endingNow, life: sim.setup.life }),
@@ -298,7 +329,7 @@ export class FightScene extends Phaser.Scene {
       this.tweens.add({ targets: this.ch, rotation: -1.4, y: FLOOR, alpha: 0, duration: 1300, ease: "Quad.easeIn" });
     }
     const summary = this.session.endFight();
-    this.time.delayedCall(1500, () => this.showSummary(summary));
+    this.later(1500, () => this.showSummary(summary));
   }
 
   private panel(lines: { text: string; size: number; color?: string; dy: number }[]): Phaser.GameObjects.GameObject[] {
@@ -314,6 +345,7 @@ export class FightScene extends Phaser.Scene {
   private showSummary(summary: FightSummary): void {
     this.mode = "between";
     this.overlay.removeAll(true);
+    this.lockInput();
     const lowPct = Math.round(summary.bossMinHpPct * 100);
     const life = summary.lifeId;
     const fate = summary.outcome === "spared" ? "left quietly" : "fell";
@@ -346,14 +378,17 @@ export class FightScene extends Phaser.Scene {
       void this.showLine();
     };
     this.overlayAdvance = next;
-    if (this.autoplay) this.time.delayedCall(500, next);
-    this.time.delayedCall(3200, next);
+    if (this.autoplay) this.later(500, next);
+    this.later(3200, next);
   }
 
   private async showLine(): Promise<void> {
     this.overlayAdvance = null;
     this.overlay.removeAll(true);
+    const epoch = this.epoch;
     const plan: PlanResult = await this.session.resolveNext();
+    if (epoch !== this.epoch) return;
+    this.lockInput();
     const fi = this.session.fightIndex;
     const line = this.session.lineFor(plan, fi);
     const items = this.panel([{ text: "a voice from the stairs", size: 14, color: "#8f86ad", dy: -60 }]);
@@ -366,13 +401,14 @@ export class FightScene extends Phaser.Scene {
       this.showChoice();
     };
     this.overlayAdvance = next;
-    if (this.autoplay) this.time.delayedCall(500, next);
-    this.time.delayedCall(Math.max(2600, 120 * line.length), next);
+    if (this.autoplay) this.later(500, next);
+    this.later(Math.max(2600, 120 * line.length), next);
   }
 
   private showChoice(): void {
     this.overlayAdvance = null;
     this.overlay.removeAll(true);
+    this.lockInput(800);
     this.hideDialogue();
     const fi = this.session.fightIndex;
     const tier = tierOf(Math.max(1, fi - 1));
@@ -405,7 +441,7 @@ export class FightScene extends Phaser.Scene {
       },
     };
     this.moveChoice(0);
-    if (this.autoplay) this.time.delayedCall(500, () => {
+    if (this.autoplay) this.later(500, () => {
       this.moveChoice(this.session.fightIndex % 2);
       this.confirmChoice();
     });

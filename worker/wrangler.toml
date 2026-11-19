@@ -10,6 +10,7 @@ compatibility_date = "2026-11-01"
 GEMINI_MODEL = "gemini-2.5-flash"
 AGENT_MODE = "live"
 SESSION_CAP = "12"
+DAILY_CAP = "400"
 ALLOWED_ORIGIN = "*"
 
 # [[kv_namespaces]]

@@ -38,7 +38,7 @@ describe("counters", () => {
     ["witch", "spam_nova", "sailor"],
   ];
   for (const [life, bot, other] of cases) {
-    it(`${life} outlasts and outdamages a non-counter life against ${bot}`, () => {
+    it(`${life} fares better than a non-counter life against ${bot}`, () => {
       const counter = makeSim(life, { seed: 4, fightIndex: 4 });
       const control = makeSim(other, { seed: 4, fightIndex: 4 });
       runFight(counter, makeBot(bot, 4));
