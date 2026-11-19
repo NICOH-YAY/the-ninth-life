@@ -1,0 +1,281 @@
+{
+  "disclosure": "AI-use disclosure: generation prompts and observed job evidence recorded by Codex.",
+  "generator": "Higgsfield",
+  "model": "gpt_image_2_6",
+  "balance": "free unlimited generations",
+  "date": "2026-11-19",
+  "user_reference": {
+    "description": "User-provided upright accessory cat lineup image.",
+    "higgsfield_media_id": "ddb868c7-8cbe-4158-b629-2481687a9c24"
+  },
+  "notes": [
+    "Initial batch without balance choice created zero jobs.",
+    "Initial unlimited batch hit429 rate limit for five items; only index2 submitted. Remaining submissions run sequentially.",
+    "Original source files retained; processed public assets separately attributed.",
+    "Original illustrated sheets preserved; latest upright pixel revisions are indices9-13.",
+    "Index8 submitted with384x384size failed generically; retry index9 at supported normal output succeeded.",
+    "Index13 first rejected before job creation because937ms is not divisible by10. Corrected940ms succeeded.",
+    "Original prologue requested48frames but delivered16. Prologuev2 requested/delivered16frames,768x432,940ms each,total15040ms.",
+    "Latest roster has uprightbipedal furvariants; alley actioncol3 incorrectlyholds twig;col4 has correctdagger.",
+    "Prologuev2 opening protagonist inherits blackwhitecalico fur from roster, becomes blackimmortal after curse; sceneatlasshould be reviewed before finalart approval."
+  ],
+  "requests": [
+    {
+      "index": 0,
+      "id": "arena-night",
+      "prompt": "Original pixel art production assets for an indie game The Ninth Life. Deliberately placed square pixel clusters, a restrained 24-color palette of near-black navy #080d1c, slate teal #203546, moonlit teal #5a908a, pale mint #d9efe0, indigo #372a55, violet #af91cb, tarnished gold #c9a15b and warm amber. Authentic low-resolution game pixels with nearest-neighbor enlarged pixels; no antialiasing, no 3D, no painterly gradients, no blurry texture, no lettering, watermark, UI or logos. Original designs, not copies of named games. Widescreen side-view ruined feline throne hall at midnight, gorgeous coherent game arena environment, NO CHARACTERS. Composition and collision geometry are essential: 16:9 image, with an absolutely straight walkable horizontal floor at 84 percent image height (y452 of a 960x540 game screen); floor extends from left entrance across all width. A low dais only in the rightmost quarter, top at 72 percent image height, supports an empty tall dark stone cat throne. Huge ruined gothic windows and moon behind, dark branching roots framing the far edges, hanging gold chains, turquoise bioluminescent mushrooms clustered outside combat lane, broken feline statues, teal dust motes. Strong large architectural silhouettes, small detail only away from battle lane. Center and lower half remain dark and uncluttered so pale and black cat sprites both read. Light teal edging on floor. Framed architectural depth without tilted perspective. No foreground objects across combat floor.",
+      "ratio": "16:9",
+      "parameters": {
+        "model": "gpt_image_2_6",
+        "aspect_ratio": "16:9",
+        "use_unlim": true,
+        "count": 1
+      }
+    },
+    {
+      "index": 1,
+      "id": "arena-dawn",
+      "prompt": "Original pixel art production assets for an indie game The Ninth Life. Deliberately placed square pixel clusters, a restrained 24-color palette of near-black navy #080d1c, slate teal #203546, moonlit teal #5a908a, pale mint #d9efe0, indigo #372a55, violet #af91cb, tarnished gold #c9a15b and warm amber. Authentic low-resolution game pixels with nearest-neighbor enlarged pixels; no antialiasing, no 3D, no painterly gradients, no blurry texture, no lettering, watermark, UI or logos. Original designs, not copies of named games. Widescreen side-view ruined feline throne hall at dawn, NO CHARACTERS. 16:9 image. Straight walkable horizontal floor at 84 percent image height (y452 of 960x540), left entrance, low dais rightmost quarter with top at 72 percent image height and empty tall cat throne. Tall broken gothic windows, branching roots on edges, gold chains, feline statues. Dawn amber beams mingle with teal shadows, tiny flowers in roots. Battle lane lower half uncluttered and flat. Environment must look like a matching alternate-lighting layer for a cold teal night throne hall, same symmetrical window rhythm and right throne composition. Use the supplied night arena as an EXACT architecture reference. Preserve every pixel-cluster shape, window column, throne and dais, entry and floor height; change only illumination, amber rays and small flowers. Do not change camera or zoom.",
+      "ratio": "16:9",
+      "parameters": {
+        "model": "gpt_image_2_6",
+        "aspect_ratio": "16:9",
+        "use_unlim": true,
+        "count": 1,
+        "quality": "medium"
+      }
+    },
+    {
+      "index": 2,
+      "id": "immortal-base-sheet",
+      "prompt": "Original pixel art production assets for an indie game The Ninth Life. Deliberately placed square pixel clusters, a restrained 24-color palette of near-black navy #080d1c, slate teal #203546, moonlit teal #5a908a, pale mint #d9efe0, indigo #372a55, violet #af91cb, tarnished gold #c9a15b and warm amber. Authentic low-resolution game pixels with nearest-neighbor enlarged pixels; no antialiasing, no 3D, no painterly gradients, no blurry texture, no lettering, watermark, UI or logos. Original designs, not copies of named games. Transparent-background production animation sprite sheet of ONE consistent original tall black immortal cat guardian, facing LEFT, small tarnished gold crown, enormous readable pointed feline ears, pale violet eyes, frayed indigo cape, crescent glaive. Strong appealing feline design, not human anatomy. Wide sheet with exactly SIX equal columns and FOUR equal rows, all 24 cells uniformly spaced with identical size. First row six idle breathing frames with tail swish; second row six crescent glaive overhead cleave frames, anticipation to release to recovery; third row six low floor sweeping glaive attack frames; fourth row six spinning glaive throwing frames. Every cell contains complete unclipped character, identical centered foot anchor and fixed character scale, generous padding for blade. Crisp 64x64 native-style pixel drawing within each cell, enlarged. True alpha transparency around sprites, no background, no shadows outside cells, no labels or grid lines. Separate distinct poses per frame, dynamic articulated head, paws, cape and tail, not just whole-image rotation.",
+      "ratio": "3:2",
+      "parameters": {
+        "model": "gpt_image_2_6",
+        "aspect_ratio": "3:2",
+        "use_unlim": true,
+        "count": 1
+      }
+    },
+    {
+      "index": 3,
+      "id": "immortal-ascended-sheet",
+      "prompt": "Original pixel art production assets for an indie game The Ninth Life. Deliberately placed square pixel clusters, a restrained 24-color palette of near-black navy #080d1c, slate teal #203546, moonlit teal #5a908a, pale mint #d9efe0, indigo #372a55, violet #af91cb, tarnished gold #c9a15b and warm amber. Authentic low-resolution game pixels with nearest-neighbor enlarged pixels; no antialiasing, no 3D, no painterly gradients, no blurry texture, no lettering, watermark, UI or logos. Original designs, not copies of named games. Transparent-background production animation sprite sheet of ONE consistent original tall black immortal cat, facing LEFT, cracked floating tarnished gold crown, pointed feline ears, pale violet eyes, frayed indigo cape, mint spectral paws. NO GLAIVE OR WEAPON. Exactly SIX equal columns and FOUR equal rows, all 24 cells uniform. First row floating idle with trailing tail and cape; second row rift pounce with compression, vanish, descending stretched pose, impact crouch, rise; third row soul wisp casting with paws cupping orb then reaching; fourth row ninth bell nova charge with paws lifting then burst and settling. True alpha transparency, centered stable root position and constant character scale, full unclipped character in every cell, no labels or grid lines. Native 64x64 style pixel clusters. Dynamic articulated paws, ears, tail and cape. Strong clearly feline design and restrained glowing trim. Match the exact character identity from the supplied base sprite sheet, but transform it to the weaponless magical form. VERY chunky authentic pixel clusters on a strict 48-pixel character drawing grid; no fine painterly detail. Keep character touching the same baseline in every frame.",
+      "ratio": "3:2",
+      "parameters": {
+        "model": "gpt_image_2_6",
+        "aspect_ratio": "3:2",
+        "use_unlim": true,
+        "count": 1,
+        "quality": "medium",
+        "background": "transparent"
+      }
+    },
+    {
+      "index": 4,
+      "id": "challenger-roster",
+      "prompt": "Original pixel art production assets for an indie game The Ninth Life. Deliberately placed square pixel clusters, a restrained 24-color palette of near-black navy #080d1c, slate teal #203546, moonlit teal #5a908a, pale mint #d9efe0, indigo #372a55, violet #af91cb, tarnished gold #c9a15b and warm amber. Authentic low-resolution game pixels with nearest-neighbor enlarged pixels; no antialiasing, no 3D, no painterly gradients, no blurry texture, no lettering, watermark, UI or logos. Original designs, not copies of named games. Transparent-background character roster sprite sheet, EXACTLY THREE columns and THREE rows, nine equal square cells, each containing one complete unclipped small upright feline character facing RIGHT, same proportions, same foot baseline at 85 percent cell height, 32x32 native-style game sprite enlarged with crisp pixels. Strong appealing cat faces, tails, paws, visible pointed ears. Every accessory readable. ROW ONE left-to-right: 1 cream kitten with twig and no clothes; 2 orange tabby with red bandana and short dagger; 3 blue-gray cat with mustard raincoat and yellow umbrella. ROW TWO: 4 white ginger acrobat with indigo cream striped suit, gold bell and short staff; 5 charcoal witch cat with violet hat and wand; 6 brown tabby knight with tin armor, teal tabard and short sword. ROW THREE: 7 silver thief cat with indigo hood and eye mask, two daggers; 8 cream quiet cat sitting with faded red scarf and NO WEAPON; 9 calico patchwork cat with red scarf, yellow cloth, violet hat fragment and one tin armor plate, mended sword. Clear negative space between cells. True transparent alpha, no labels, no numbering, no grid lines, no platform or ground, no cast shadow. Keep base cats simple and let accessories define identity.",
+      "ratio": "1:1",
+      "parameters": {
+        "model": "gpt_image_2_6",
+        "aspect_ratio": "1:1",
+        "use_unlim": true,
+        "count": 1
+      }
+    },
+    {
+      "index": 6,
+      "id": "challenger-actions",
+      "prompt": "Create an actual production game SPRITE ANIMATION ATLAS based on the attached nine-cat roster reference. Preserve each cat exact identity, fur colors, facial features and accessories. Genuine crisp pixel art with chunky 32x32-native character clusters enlarged; nearest-neighbor edges, no painterly texture or smooth gradients. TRANSPARENT background. EXACTLY SIX equal columns and NINE equal rows, all54 cells same square size with stable foot anchor at85% cell height and consistent scale. Every sprite complete and unclipped. Each row is one cat, in this top-to-bottom order: cream kitten twig; orange red-bandana alley dagger; blue-gray yellow-raincoat sailor umbrella; white-ginger striped acrobat bell staff; charcoal violet-hat witch wand; brown tabby tin-armored knight sword; silver indigo-hood thief two knives; cream quiet scarf sitting unarmed; calico patchwork mended sword. Exactly SIX different sequential action poses left-to-right in each row: neutral alert stance, crouched windup, spring forward, full extended attack, follow-through, settle to neutral. Direction RIGHT for every frame. Articulate forepaws and rear paws, ears, head, tail, accessory cloth and weapon independently. No repeated still images. Quiet cat row instead six gentle sit-and-look poses; never attack. No text, labels, lines, numbering, platform or cast shadow. Keep6column9row grid precise, generous padding. Deliver transparent PNG.",
+      "ratio": "2:3",
+      "parameters": {
+        "model": "gpt_image_2_6",
+        "aspect_ratio": "2:3",
+        "use_unlim": true,
+        "count": 1,
+        "quality": "medium",
+        "background": "transparent",
+        "resolution": "2k"
+      }
+    },
+    {
+      "index": 7,
+      "id": "prologue-animated",
+      "prompt": "Create a complete fifteen-second animated pixel-art opening cutscene for The Ninth Life. This is ONE continuous widescreen animated scene, not a sprite sheet, not panels. Match the attached ruined teal throne arena and crowned black cat designs. Authentic chunky game pixel art, stable crisp pixel grid, no3D or painterly smoothing. No text, subtitles, logos or interface; dialogue will be added in game. 48 sequential frames. Frames1-12: a small brave black cat wearing a red scarf stands over the defeated previous gray immortal at the throne steps; gray old immortal lifts its head and visibly laughs mockingly, then dissolves into teal sparks. Frames13-24: gold crown floats onto the black cat, indigo cape unfurls, cat grows into the tall crowned immortal guardian, clenches paws stubbornly while roots curl around throne. Frames25-36: subtle match dissolve showing centuries passing: dust settles, roots thicken, candles extinguish, moonlight travels across same room as immortal sits motionless with drooping ears. Frames37-48: tiny cream kitten enters from left holding a twig, pauses looking up; tall immortal rises slightly and with one precise paw flick sends a mint crescent flash across the floor, kitten becomes a little puff of star sparks; immortal settles back alone. Keep action clear and humane, no blood, no gore. Low sideview fixed camera with slight cinematic push-in during transformation, and pullback for thousand-year loneliness. Consistent character identity, accessories and environment across all frames. Every frame is a full opaque scene.",
+      "parameters": {
+        "model": "gpt_image_2_6",
+        "aspect_ratio": "16:9",
+        "use_unlim": true,
+        "count": 1,
+        "quality": "medium",
+        "output_format": "gif",
+        "size": "768x432",
+        "frame_count": 48,
+        "frame_duration_ms": 300,
+        "background": "opaque"
+      }
+    },
+    {
+      "index": 8,
+      "id": "immortal-strict-pixel-sheet",
+      "prompt": "GAME SPRITE PIXEL MATRIX, not an illustration. Draw an actual very low resolution 16-color pixel-art game sprite atlas. Exactly384x384 pixels output. SIX columns FOUR rows. Each output cell64x96 pixels is an exact2x nearest-neighbor enlargement of a32x48 native sprite; every visible edge is made from2x2 square blocks. No subpixel detail. Absolutely no antialiasing, gradients, fur texture, airbrush, smooth curves or rendered shading. Use ONLY these16 colors: #080d1c #111827 #263244 #3d5363 #657d89 #a9c9c4 #e5f0d7 #211b37 #3b315d #70608c #ac98c7 #e6dfff #715128 #a67a3d #c9a15b #f1d5a0. Character: tall BLACK CAT immortal guardian facing LEFT; simple triangular ears3pixels wide, face8pixels wide with2 pale eye pixels, dark indigo cape6pixels wide, small GOLD crown3points, crescent glaive with clearly stepped pixel blade, visible curling tail. Strong iconic cat silhouette, cute serious handheld RPG sprite. Keep anatomy SIMPLE, designed in32x48 native pixels with 1-pixel outline. Not a painted chibi portrait. Each cell complete unclipped character, identical foot baseline and scale. Row1 six breathing/tail-swish idle sprites. Row2 six overhead glaive cleave anticipation/swing/recovery. Row3 six low glaive sweep poses. Row4 six throwing glaive poses. Every frame must actually change limb and weapon positions. NO text or grid lines. TRANSPARENT alpha background. Flat sparse pixel clusters, visibly countable blocks.",
+      "output_file": "assets/pixel/immortal-base-pixel-v2.png"
+    },
+    {
+      "index": 9,
+      "id": "immortal-strict-pixel-sheet",
+      "prompt": "GAME SPRITE PIXEL MATRIX, not an illustration. Draw an actual very low resolution 16-color pixel-art game sprite atlas. Square transparent atlas at normal image output resolution. SIX columns FOUR rows. Each cell is a nearest-neighbor enlargement of a32x48 native sprite, with large plainly visible square pixel blocks. All sprites must be made of countable hard square clusters rather than smooth contours. No subpixel detail. Absolutely no antialiasing, gradients, fur texture, airbrush, smooth curves or rendered shading. Use ONLY these16 colors: #080d1c #111827 #263244 #3d5363 #657d89 #a9c9c4 #e5f0d7 #211b37 #3b315d #70608c #ac98c7 #e6dfff #715128 #a67a3d #c9a15b #f1d5a0. Character: tall BLACK CAT immortal guardian facing LEFT; simple triangular ears3pixels wide, face8pixels wide with2 pale eye pixels, dark indigo cape6pixels wide, small GOLD crown3points, crescent glaive with clearly stepped pixel blade, visible curling tail. Strong iconic cat silhouette, cute serious handheld RPG sprite. Keep anatomy SIMPLE, designed in32x48 native pixels with 1-pixel outline. Not a painted chibi portrait. Each cell complete unclipped character, identical foot baseline and scale. Row1 six breathing/tail-swish idle sprites. Row2 six overhead glaive cleave anticipation/swing/recovery. Row3 six low glaive sweep poses. Row4 six throwing glaive poses. Every frame must actually change limb and weapon positions. NO text or grid lines. TRANSPARENT alpha background. Flat sparse pixel clusters, visibly countable blocks.",
+      "output_file": "assets/pixel/immortal-base-pixel-v2.png"
+    },
+    {
+      "index": 10,
+      "id": "challenger-pixel-v2",
+      "output_file": "assets/pixel/challenger-pixel-v2.png",
+      "prompt": "Draw an ACTUAL GAME PIXEL SPRITE ANIMATION ATLAS. Reference1 supplies the simple UPRIGHT BIPEDAL cat body proportions and accessory styling ONLY, not its smooth illustration rendering. Reference2 supplies PIXEL CLUSTER rendering ONLY. Make richer48x64 native pixel-art character sprites, carefully drawn with hard square clusters, 16-24 colors per character,1-pixel dark outline, cel-shaded2tone fur, visible pixel steps. NO airbrush, smooth shading, painterly fur, fine hairs, antialiasing or 3D. All cats MUST stand upright on TWO SHORT LEGS and have TWO ARMS with PAW HANDS holding accessories. Round plump torso, large feline head, pointed ears, curved visible tail; not human anatomy and NOT quadrupeds. EXACTLY SIX columns and NINE rows of uniform cells, every sprite complete and unclipped, identical foot baseline and consistent relative scale. Direction RIGHT or three-quarter right. Six sequential poses across each row: alert idle, crouched anticipation, step forward, active weapon attack, follow-through, recovery idle. Clearly move twoarms, twolegs, head, ears, tail and clothing independently. Row1 cream shortfur kitten with tiny twig, slightly smaller than others. Row2 orange tabby with red bandana and dagger. Row3 black-white TUXEDO cat with yellow raincoat and yellow umbrella. Row4 CALICO cat with striped acrobat tunic, gold bell and staff. Row5 CHARCOAL longfur cat in purple witch hat and cloak, wand. Row6 BROWN TABBY knight with silver armor, orange cape and short sword. Row7 SILVER SPOTTED cat wearing indigo hood and dark eye mask, two knives. Row8 WHITE FLUFFY cat with orange scarf,no weapon, six gentle seated gestures instead of attacks. Row9 BLACK-WHITE CALICO patchwork cat with red bandana,yellow patch,purple hat fragment,silver shoulder plate and mended sword. Breed markings must remain consistent in every frame. Keep every sprite crisp and legible as a detailed48x64 pixel game character. Transparent alpha background, no numbers, text, labels, grid lines or shadows."
+    },
+    {
+      "index": 11,
+      "id": "immortal-ascended-pixel-v2",
+      "output_file": "assets/pixel/immortal-ascended-pixel-v2.png",
+      "prompt": "Actual game PIXEL ART ANIMATION SPRITE SHEET of the same UPRIGHT BIPEDAL black immortal cat from the reference. Preserve its gold crown, huge pointed feline ears, pale square eyes, indigo cape, short cat muzzle,2arms with pawhands,2legs,visible tail, but now the weaponless magical ASCENDED FORM. Tall regal cat silhouette, NOT quadruped, not human. Crisp detailed48x64native pixel sprite design, hard square pixelclusters,1pixel outlines,24colors maximum,2tone flat cel shading. No smooth illustration, painterly fur, rendered shading, antialiasing, tiny fine hairs or3D. Transparent alpha. Exactly SIX equal columns FOUR equal rows, every sprite complete within own equal cell, stable root and consistent scale. Row1 six hovering idle frames with trailing cape and tail, levitating cracked gold crown,mint paw glow. Row2 six rift pounce frames: crouch/compress,vanish,spectral reappear,descending stretched body,impact crouch,rise. Row3 six soul wisp cast frames: paws cup bright mint orb then thrust forward and settle. Row4 six ninth bell nova frames: ears lift,paws lift,body rises,bright cyan-violet magical halo burst,paws spread,settle. Use magical violet and cyan accents in crisp square particles. No weapon or glaive. No labels,text,gridlines or background,uncropped ears crown cape and tail."
+    },
+    {
+      "index": 12,
+      "id": "immortal-transformation",
+      "output_file": "assets/pixel/immortal-transformation.png",
+      "prompt": "ACTUAL PIXEL ART GAME ANIMATION ATLAS of one UPRIGHT BIPEDAL immortal black cat TRANSFORMING from the first reference into the magical weaponless form of the second reference. SAME cat face,crown,indigo cape,body proportions and short feline muzzle in all frames. Crisp rich48x64native sprite drawing,hard square pixelclusters,24color palette,1pixel outlines,2tone cel shading; NO painted rendering,airbrush,antialiasing,fine fur,human skin or3D. Exactly SIX columns TWO rows,12 sequential transformation frames read left-to-right across top row then bottom row. All cells equal,constant scale,full unclipped sprite,stable centered root with generous halo padding. Frame1 base black cat holding crescent glaive;2head lowers crown trembles;3paw opens glaive drops;4cat crouches cape coils;5violet cracks and teal light start;6floating cat arms spreading;7bright white-violet silhouette impactframe;8body levitates, crown cracks and lifts;9cyan pawflames ignite;10cape andtail spread into mintwisps;11aura settles;12matches ascended floating weaponless reference. Glowing pixel magic and square shard particles,readable powerful motion. DirectionLEFT or3quarterleft. Transparent alpha,NO background floor,NO text labels orgridlines."
+    },
+    {
+      "index": 13,
+      "id": "prologue-v2",
+      "output_file": "assets/pixel/prologue-v2.gif",
+      "prompt": "Create ONE complete animated PIXEL ART opening cutscene for The Ninth Life, full widescreen scene, exactly16 keyframes. Reference1 is the EXACT arena architecture, reference2 the strict PIXEL SPRITE black immortal design, reference3 upright challenger identities. All cats MUST be HUMANOID UPRIGHT BIPEDAL sprites with two short legs and two pawarms, round feline heads and tails; NEVER quadrupeds. Pixel art film on a384x216 native grid, hard square pixelclusters and restrained shared palette, authentic sprite-size actors much smaller than grand arena. No painterly fine detail,3D,soft airbrush,antialiasing,text,subtitles,UI orlogos. Keep architecture stable and same character design in every frame. Frames1-4: a small UPRIGHT black red-scarf player cat stands after defeating old gray crowned immortal; old gray bipedal cat sits collapsed at throne steps, raises head and visibly laughs mockingly. Frames5-6: old immortal turns into teal square pixel sparks, leaving black scarf cat alone. Frames7-9: gold crown descends onto black cat; violet roots curl around its paws; indigo cape wraps around body. Frames10-11: black cat grows into the tall UPRIGHT black crowned sprite from reference2, clenches paw stubbornly, cape andtail move. Frame12: one thousand years later, immortal stands alone by right throne in dusty hall, worn crown and sagging cape, moonlight shifted. Frames13-15: small UPRIGHT cream kitten with twig enters from left and pauses looking up, dwarfed by hall and tall immortal. Frame16: immortal makes one crisp paw flick, mint crescent flash across floor, kitten becomes tiny gold square sparks, no blood or gore. Whole scene animated, no panels or sprite grid. Readable expressive ears and postures, rich teal/violet colors. Every frame a full opaque scene."
+    },
+    {
+      "index": 14,
+      "id": "challenger-walk-v2",
+      "output_file": "assets/pixel/challenger-walk-v2.png",
+      "prompt": "PRODUCTION GAME PIXEL ART WALK CYCLE SPRITE ATLAS matching the attached upright nine-cat action roster EXACTLY: same fur patterns,face,body proportions,outfit colors,accessories and weapons. SIX columns NINE rows,54 uniform cells. Each row is ONE cat doing a continuous SIX-FRAME RIGHTWARD WALK/RUN LOOP. These are locomotion frames ONLY. NO attacks,NO weapon swings,NO casting,NO crouching hit reactions. Every cat is UPRIGHT BIPEDAL on TWO SHORT LEGS with TWO PAW ARMS. NEVER quadrupeds. Show clearly alternating LEFT and RIGHT feet throughout all6frames: contactleft,passing,contactright,contactrightextended,passing,contactleftextended,so the loop closes smoothly. One planted foot or brief runflight,oppositeleg reachesforward;twoarms counter-swing gently while weapons are held stable and safe. Headbobs2pixels,tail sways,cape orscarfbounces. Stable groundbaseline percell,exactlyconstant character size,fullunclipped ears/tail/weapon in eachcell,generous spacing. FacingRIGHT or3quarterRIGHT consistently,NOT front-facing standing portraits. Actual hard-cluster pixel drawing on48x72nativegrid percharacter,1pixeloutline,restrained24color palette,two-tonecel shading,no gradients,no antialiasing,no painterly finefur,no3D. Row1 creamshortfur kitten withtwig heldstill. Row2 orangetabby redbandana dagger heldstill. Row3 blackwhiteTUXEDO yellowraincoat yellowumbrella heldabovehead. Row4 CALICO stripedacrobat tunic goldbell shortstaff heldstill. Row5 CHARCOAL longfur purplewitchhat cloak wand heldstill,no magic. Row6 BROWNTABBY silverknightarmor orangecape sword heldstill. Row7 SILVERSPOTTED indigohood darkeyemask two knives heldstill. Row8 WHITEFLUFFY orangescARF no weapon,gentleslowuprightwalk. Row9 BLACKWHITECALICO patchwork redbandana yellowpatch purplehatfragment silvershoulder mendedsword heldstill. Keep everyrow identity completely separate,no outfitbleed. TRANSPARENT alpha,NO text labels numbers gridlines background floor shadows.",
+      "parameters": {
+        "model": "gpt_image_2_6",
+        "aspect_ratio": "2:3",
+        "background": "transparent",
+        "quality": "medium",
+        "resolution": "2k",
+        "count": 1,
+        "use_unlim": true,
+        "medias": [
+          {
+            "role": "image",
+            "value": "2ddab274-84d8-403f-8d39-d1ad5faa9290"
+          },
+          {
+            "role": "image",
+            "value": "10b5a340-04c3-4fc4-9737-073a43853886"
+          }
+        ]
+      }
+    }
+  ],
+  "jobs": [
+    {
+      "index": 2,
+      "job_id": "276b03fd-d546-4ab0-801b-29bb5a762a67",
+      "status": "completed_downloaded",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_203228_276b03fd-d546-4ab0-801b-29bb5a762a67.png",
+      "local_file": "assets/pixel/immortal-base-sheet.png"
+    },
+    {
+      "index": 0,
+      "job_id": "f2d13509-56af-41d5-a1ce-305355b10118",
+      "status": "completed_downloaded",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_203319_f2d13509-56af-41d5-a1ce-305355b10118.png",
+      "local_file": "assets/pixel/arena-night.png"
+    },
+    {
+      "index": 4,
+      "job_id": "c002be15-0757-4311-bc16-459810438b23",
+      "status": "completed_downloaded",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_203358_c002be15-0757-4311-bc16-459810438b23.png",
+      "local_file": "assets/pixel/challenger-roster.png"
+    },
+    {
+      "index": 3,
+      "job_id": "8e3f5c3b-1ce8-428f-9193-30924ee418dd",
+      "status": "completed_downloaded",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_203457_8e3f5c3b-1ce8-428f-9193-30924ee418dd.png",
+      "local_file": "assets/pixel/immortal-ascended-sheet.png"
+    },
+    {
+      "index": 6,
+      "job_id": "f723f778-0ee4-4b4b-b4b1-f7e0bd33362b",
+      "status": "completed_downloaded",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_203557_f723f778-0ee4-4b4b-b4b1-f7e0bd33362b.png",
+      "local_file": "assets/pixel/challenger-actions.png"
+    },
+    {
+      "index": 7,
+      "job_id": "39a8f7d4-7f54-4e01-b3d5-f0f512b11476",
+      "status": "completed_downloaded",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_203657_39a8f7d4-7f54-4e01-b3d5-f0f512b11476.gif",
+      "local_file": "assets/pixel/prologue.gif"
+    },
+    {
+      "index": 1,
+      "job_id": "3170b8f5-8128-4fce-a936-338fde52fc0c",
+      "status": "completed_downloaded",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_203824_3170b8f5-8128-4fce-a936-338fde52fc0c.png",
+      "local_file": "assets/pixel/arena-dawn.png"
+    },
+    {
+      "index": 8,
+      "job_id": "ad5d1dd2-8db9-4809-a358-ebd10bf06d37",
+      "status": "failed",
+      "error": "Something went wrong. Please try again, or change your input files or prompt.",
+      "result_url": null,
+      "local_file": null
+    },
+    {
+      "index": 9,
+      "job_id": "10b5a340-04c3-4fc4-9737-073a43853886",
+      "status": "completed_downloaded",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_204313_10b5a340-04c3-4fc4-9737-073a43853886.png",
+      "local_file": "assets/pixel/immortal-base-pixel-v2.png"
+    },
+    {
+      "index": 10,
+      "job_id": "2ddab274-84d8-403f-8d39-d1ad5faa9290",
+      "status": "completed_downloaded",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_204431_2ddab274-84d8-403f-8d39-d1ad5faa9290.png",
+      "local_file": "assets/pixel/challenger-pixel-v2.png"
+    },
+    {
+      "index": 11,
+      "job_id": "8e7088c8-e93a-491b-8248-1c07b5c2da39",
+      "status": "completed_downloaded",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_204542_8e7088c8-e93a-491b-8248-1c07b5c2da39.png",
+      "local_file": "assets/pixel/immortal-ascended-pixel-v2.png"
+    },
+    {
+      "index": 12,
+      "job_id": "f3c0f5b3-825d-41b4-887a-70c12075f477",
+      "status": "completed_downloaded",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_204644_f3c0f5b3-825d-41b4-887a-70c12075f477.png",
+      "local_file": "assets/pixel/immortal-transformation.png"
+    },
+    {
+      "index": 13,
+      "job_id": "d4ca8b87-0c7f-4fe4-b43c-147c3e7a7a86",
+      "status": "completed_downloaded",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_204805_d4ca8b87-0c7f-4fe4-b43c-147c3e7a7a86.gif",
+      "local_file": "assets/pixel/prologue-v2.gif"
+    },
+    {
+      "index": 14,
+      "job_id": "7b5a9cbc-0c46-4e7c-913e-37bbe4d37b15",
+      "status": "completed_downloaded",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261119_205044_7b5a9cbc-0c46-4e7c-913e-37bbe4d37b15.png",
+      "local_file": "assets/pixel/challenger-walk-v2.png"
+    }
+  ]
+}

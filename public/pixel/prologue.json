@@ -1,0 +1,31 @@
+{
+  "disclosure": "AI-use disclosure: Higgsfield GPT Image 2.6 generated the source GIF; Codex extracted this atlas with sharp.",
+  "source": "../../assets/pixel/prologue-v2.gif",
+  "higgsfield_job_id": "d4ca8b87-0c7f-4fe4-b43c-147c3e7a7a86",
+  "frameCount": 16,
+  "frameWidth": 384,
+  "frameHeight": 216,
+  "cols": 8,
+  "rows": 2,
+  "durationMs": 15000,
+  "sourceDurationMs": 15040,
+  "sourceDelaysMs": [
+    940,
+    940,
+    940,
+    940,
+    940,
+    940,
+    940,
+    940,
+    940,
+    940,
+    940,
+    940,
+    940,
+    940,
+    940,
+    940
+  ],
+  "note": "The atlas records the actual delivered GIF frames. Game playback maps these observed poses to the authored 15 second opening."
+}

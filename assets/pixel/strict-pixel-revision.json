@@ -1,0 +1,21 @@
+{
+  "disclosure": "AI-use disclosure: strict pixel revision prompted by Codex after user feedback that initial generated cats were too illustrated.",
+  "status": "generated_downloaded",
+  "model": "gpt_image_2_6",
+  "balance": "free unlimited",
+  "requested_native_frame": {
+    "width": 32,
+    "height": 48
+  },
+  "requested_output_frame": {
+    "width": 64,
+    "height": 96
+  },
+  "request": {
+    "index": 8,
+    "id": "immortal-strict-pixel-sheet",
+    "prompt": "GAME SPRITE PIXEL MATRIX, not an illustration. Draw an actual very low resolution 16-color pixel-art game sprite atlas. Exactly384x384 pixels output. SIX columns FOUR rows. Each output cell64x96 pixels is an exact2x nearest-neighbor enlargement of a32x48 native sprite; every visible edge is made from2x2 square blocks. No subpixel detail. Absolutely no antialiasing, gradients, fur texture, airbrush, smooth curves or rendered shading. Use ONLY these16 colors: #080d1c #111827 #263244 #3d5363 #657d89 #a9c9c4 #e5f0d7 #211b37 #3b315d #70608c #ac98c7 #e6dfff #715128 #a67a3d #c9a15b #f1d5a0. Character: tall BLACK CAT immortal guardian facing LEFT; simple triangular ears3pixels wide, face8pixels wide with2 pale eye pixels, dark indigo cape6pixels wide, small GOLD crown3points, crescent glaive with clearly stepped pixel blade, visible curling tail. Strong iconic cat silhouette, cute serious handheld RPG sprite. Keep anatomy SIMPLE, designed in32x48 native pixels with 1-pixel outline. Not a painted chibi portrait. Each cell complete unclipped character, identical foot baseline and scale. Row1 six breathing/tail-swish idle sprites. Row2 six overhead glaive cleave anticipation/swing/recovery. Row3 six low glaive sweep poses. Row4 six throwing glaive poses. Every frame must actually change limb and weapon positions. NO text or grid lines. TRANSPARENT alpha background. Flat sparse pixel clusters, visibly countable blocks.",
+    "output_file": "assets/pixel/immortal-base-pixel-v2.png"
+  },
+  "submission_result": "384x384 attempt failed; normal-size retry succeeded as job10b5a340-04c3-4fc4-9737-073a43853886. Later upright48x64-native roster,ascended,transformation,and prologue also generated;see generation-log.json."
+}

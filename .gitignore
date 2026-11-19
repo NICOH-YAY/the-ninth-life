@@ -6,3 +6,5 @@ dist/
 *.log
 start-overnight-build.cmd
 public/sprites/keyed/
+output/
+assets/references/

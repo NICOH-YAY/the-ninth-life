@@ -1,0 +1,45 @@
+{
+  "disclosure": "AI-use disclosure: Higgsfield generated sources; Codex resampled and quantized native sprite frames.",
+  "exported": [
+    {
+      "output": "assets/pixel/native/immortal-base.png",
+      "source": "assets/pixel/immortal-base-pixel-v2.png",
+      "frameWidth": 48,
+      "frameHeight": 72,
+      "columns": 6,
+      "rows": 4
+    },
+    {
+      "output": "assets/pixel/native/immortal-ascended.png",
+      "source": "assets/pixel/immortal-ascended-pixel-v2.png",
+      "frameWidth": 48,
+      "frameHeight": 72,
+      "columns": 6,
+      "rows": 4
+    },
+    {
+      "output": "assets/pixel/native/challengers.png",
+      "source": "assets/pixel/challenger-pixel-v2.png",
+      "frameWidth": 48,
+      "frameHeight": 72,
+      "columns": 6,
+      "rows": 9
+    },
+    {
+      "output": "assets/pixel/native/challenger-walk.png",
+      "source": "assets/pixel/challenger-walk-v2.png",
+      "frameWidth": 48,
+      "frameHeight": 72,
+      "columns": 6,
+      "rows": 9
+    },
+    {
+      "output": "assets/pixel/native/immortal-transformation.png",
+      "source": "assets/pixel/immortal-transformation.png",
+      "frameWidth": 48,
+      "frameHeight": 72,
+      "columns": 6,
+      "rows": 2
+    }
+  ]
+}

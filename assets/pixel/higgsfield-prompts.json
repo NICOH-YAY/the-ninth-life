@@ -1,0 +1,171 @@
+{
+  "disclosure": "AI-use disclosure: production prompts written by Codex from the requested pixel revision. These specifications are not generated images.",
+  "generator": "Higgsfield",
+  "status": "partially_generated",
+  "created": "2026-11-19",
+  "palette": [
+    "#080D1C",
+    "#111B2B",
+    "#203546",
+    "#38616A",
+    "#5A908A",
+    "#A1CEC1",
+    "#D9EFE0",
+    "#372A55",
+    "#6D4C8C",
+    "#AF91CB",
+    "#C9A15B",
+    "#F1D5A0",
+    "#9E484B",
+    "#D17E59"
+  ],
+  "shared_prompt": "Original production pixel art for The Ninth Life. Crisp deliberate square pixel clusters, limited shared palette, no antialiasing. Teal moonlight and restrained violet magic, dark indigo stone. Preserve broad silhouettes and accessory readability at gameplay scale. No copied characters or compositions.",
+  "negative_prompt": "3D render, photorealism, painterly texture, smooth gradients, antialiasing, blurry pixels, inconsistent pixel sizes, text, labels, logos, watermark, interface, extra limbs, clipped ears, clipped tail, repeated accessories, background baked into sprites",
+  "submission_rule": "Submit shared_prompt plus the selected asset prompt plus the matching geometry prompt. Include negative_prompt. Each asset remains pending until the actual output is downloaded and validated.",
+  "geometry": {
+    "arena": "Native 480x270 side-view composition. Deliver lossless PNG with exact 2x nearest-neighbor upscale to 960x540. Opaque background. Flat combat floor across the lower fifth. Raised throne platform at right and clear left entry. No characters, weapons, text or interface.",
+    "challenger": "Transparent animation production sheet, 6 equal columns and 8 equal rows. Every output cell exactly 64x64 pixels, designed on a 32x32 native grid and upscaled 2x nearest-neighbor. Total output 384x512 pixels. Stable foot baseline at 90 percent cell height, centered root, padding for ears, tail, cloth and weapon. Rows: idle, run, attack anticipation, attack release, recovery, evade, hit reaction, defeated or sitting. Six sequential frames per row, left to right. Independently articulate paws, head, tail and cloth. Consistent anatomy and accessories across all 48 cells. No labels or grid lines. True transparent alpha around every sprite. Impact effects are separate.",
+    "immortal": "Transparent animation production sheet, 6 equal columns and 8 equal rows. Every output cell exactly 128x128 pixels, designed on a 64x64 native grid and upscaled 2x nearest-neighbor. Total output 768x1024 pixels. Stable foot baseline at 90 percent cell height, centered root, generous padding for crown, ears, tail, cloak and glaive. Rows: idle, shift, attack anticipation, attack release, recovery, ascend, hit reaction, kneel. Six sequential frames per row, left to right. Independently articulate paws, head, tail, cloak and weapon. Consistent anatomy and accessories across all 48 cells. No labels or grid lines. True transparent alpha around every sprite. Impact effects are separate."
+  },
+  "integration_notes": [
+    "Preserve all assets/concept originals.",
+    "Generate one character at a time, validate anatomy and accessory continuity before selecting.",
+    "If a generated sheet violates frame geometry, use its selected reference to author animation frames; do not claim unverified generated frames are production ready.",
+    "Verify true alpha, exact dimensions, nearest-neighbor pixels, fixed baseline, no clipping, readable action poses and no labels.",
+    "Record actual submitted prompt, model, job ID, date, output filename and attribution after generation.",
+    "Use identical architecture, camera, floor and platform coordinates for the night and dawn arenas."
+  ],
+  "assets": [
+    {
+      "id": "arena-night",
+      "output_file": "public/pixel/arena-night.png",
+      "geometry": "arena",
+      "status": "pending_generation",
+      "model": null,
+      "higgsfield_job_id": null,
+      "generated_at": null,
+      "prompt": "Ruined cat throne hall, original composition. Tall broken arched windows, carved feline stone motifs and roots around pillars. Frame the edges in darkness and reserve negative space around combat silhouettes. Cold teal moonlight, violet recesses, sparse luminous fungi. The floor and throne platform must remain easy to read."
+    },
+    {
+      "id": "arena-dawn",
+      "output_file": "public/pixel/arena-dawn.png",
+      "geometry": "arena",
+      "status": "pending_generation",
+      "model": null,
+      "higgsfield_job_id": null,
+      "generated_at": null,
+      "prompt": "The exact same ruined cat throne hall and camera as the selected night arena. Warm early gold light through the same windows, flowering roots, gentle teal shadows. Keep every architectural edge, floor level, entry and platform coordinate unchanged. No characters."
+    },
+    {
+      "id": "immortal-base",
+      "output_file": "public/pixel/immortal-base-sheet.png",
+      "geometry": "immortal",
+      "status": "pending_generation",
+      "model": null,
+      "higgsfield_job_id": null,
+      "generated_at": null,
+      "prompt": "Tall black immortal cat, small tarnished gold crown, frayed indigo cloak with teal rim accents, pale violet eyes, separate long crescent glaive. Facing left. Regal but exhausted. Recognizably feline proportions and expressive ears; readable blade silhouette."
+    },
+    {
+      "id": "immortal-ascended",
+      "output_file": "public/pixel/immortal-ascended-sheet.png",
+      "geometry": "immortal",
+      "status": "pending_generation",
+      "model": null,
+      "higgsfield_job_id": null,
+      "generated_at": null,
+      "prompt": "Same tall black immortal cat as the selected base reference, cracked hovering gold crown, floating indigo cloak, pale violet eyes, spectral teal paws and restrained violet magical motes. No weapon. Facing left. Preserve face, proportions and fur."
+    },
+    {
+      "id": "kitten",
+      "output_file": "public/pixel/kitten-sheet.png",
+      "geometry": "challenger",
+      "status": "pending_generation",
+      "model": null,
+      "higgsfield_job_id": null,
+      "generated_at": null,
+      "prompt": "Small cream kitten with amber ears holding a plain twig, no clothing. Brave nervous posture. Facing right. Large readable ears, rounded feline head and visible tail."
+    },
+    {
+      "id": "alley",
+      "output_file": "public/pixel/alley-sheet.png",
+      "geometry": "challenger",
+      "status": "pending_generation",
+      "model": null,
+      "higgsfield_job_id": null,
+      "generated_at": null,
+      "prompt": "Small orange tabby cat wearing a vivid red neck bandana and holding a short dagger. Facing right. Red scarf trails with movement and stays clear of the face."
+    },
+    {
+      "id": "sailor",
+      "output_file": "public/pixel/sailor-sheet.png",
+      "geometry": "challenger",
+      "status": "pending_generation",
+      "model": null,
+      "higgsfield_job_id": null,
+      "generated_at": null,
+      "prompt": "Small blue-gray cat wearing a mustard yellow raincoat and carrying a yellow umbrella with a curved handle. Facing right. Umbrella remains a separate readable object, ears and tail visible."
+    },
+    {
+      "id": "acrobat",
+      "output_file": "public/pixel/acrobat-sheet.png",
+      "geometry": "challenger",
+      "status": "pending_generation",
+      "model": null,
+      "higgsfield_job_id": null,
+      "generated_at": null,
+      "prompt": "Small white and ginger cat wearing an indigo and cream striped acrobat suit, a gold bell, and holding a short staff. Facing right. Lively springing poses with a readable tail."
+    },
+    {
+      "id": "witch",
+      "output_file": "public/pixel/witch-sheet.png",
+      "geometry": "challenger",
+      "status": "pending_generation",
+      "model": null,
+      "higgsfield_job_id": null,
+      "generated_at": null,
+      "prompt": "Small charcoal cat wearing a violet pointed hat, tiny gold clasp, and holding a simple wand. Facing right. This is the only challenger closely echoing the supplied black-cat reference. Hat silhouette remains distinct from the ears."
+    },
+    {
+      "id": "knight",
+      "output_file": "public/pixel/knight-sheet.png",
+      "geometry": "challenger",
+      "status": "pending_generation",
+      "model": null,
+      "higgsfield_job_id": null,
+      "generated_at": null,
+      "prompt": "Small brown tabby cat wearing modest tin-gray armor with a teal cloth tabard, carrying a short sword. Ears remain visible. Facing right. Chunky readable armor plates, not a human body."
+    },
+    {
+      "id": "thief",
+      "output_file": "public/pixel/thief-sheet.png",
+      "geometry": "challenger",
+      "status": "pending_generation",
+      "model": null,
+      "higgsfield_job_id": null,
+      "generated_at": null,
+      "prompt": "Small silver cat wearing a dark indigo hood and eye mask, carrying two short knives. Facing right. Eyes readable, ears distinct, hood and knives do not obscure the feline silhouette."
+    },
+    {
+      "id": "quiet",
+      "output_file": "public/pixel/quiet-sheet.png",
+      "geometry": "challenger",
+      "status": "pending_generation",
+      "model": null,
+      "higgsfield_job_id": null,
+      "generated_at": null,
+      "prompt": "Small cream cat wearing only a faded red scarf, no weapon. Soft lowered ears and calm sitting pose. Facing right. Replace attack rows with slow settling and gentle attentive gestures; never depict an attack."
+    },
+    {
+      "id": "patchwork",
+      "output_file": "public/pixel/patchwork-sheet.png",
+      "geometry": "challenger",
+      "status": "pending_generation",
+      "model": null,
+      "higgsfield_job_id": null,
+      "generated_at": null,
+      "prompt": "Small calico cat wearing a red bandana, patched yellow raincoat piece, striped cloth, violet hat fragment, one tin armor plate and dark mask cloth tied to a mended sword. Keep readable as one cat with carefully selected accessories rather than visual clutter. Facing right. Warm and determined."
+    }
+  ],
+  "actual_generation_log": "generation-log.json"
+}
