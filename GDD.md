@@ -9,6 +9,14 @@
 
 ## 0. Nov 19 update [Proposed]
 
+### Later Nov 19 presentation revision [Proposed implementation of Nicoh's request]
+
+The latest user direction supersedes the original painterly-character art and popup life cards. The game now uses upright humanoid cat sprites, distinct fur patterns and accessories, a spacious moonlit pixel throne room, animated attack poses, colourful hit effects and an Ascended transformation. The view keeps the whole hall visible and characters smaller relative to its architecture. Combat numbers are unchanged.
+
+The Play / Attributions menu opens a skippable fifteen-second inheritance flashback: the prior Immortal laughs that the throne has trapped the player, the player dismisses it, then a thousand-year jump and a kitten's one-hit defeat. Interactive combat starts with the next life. Dialogue is provisional text for Nicoh's final wording. The new backstory is the latest requested opening; older self-imprisonment explanations remain historical rather than additional exposition.
+
+Arrival dialogue and short answer choices stay in the room. Life cards, stat summaries and planner diagnostics are absent from normal play; debug tools remain available explicitly through `?debug=1`. Detailed implementation and remaining limits are in `docs/pixel-pass-notes.md`.
+
 The story bible, `docs/phase-two.md`, `docs/challenger-progression.md`, and `docs/art-direction.md` replace parts of this document where they differ. The first playable prototype (`docs/prototype-notes.md`) follows them. In short:
 
 - **A story game.** One small cat comes back over nine lives. The fights turn into a bond with the lonely Immortal. Story moves in three tiers through light, music, props, dialogue, and challenger hesitation. Full detail in `docs/story-bible.md`.

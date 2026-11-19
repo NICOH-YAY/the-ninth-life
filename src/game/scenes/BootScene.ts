@@ -3,6 +3,7 @@
 
 import Phaser from "phaser";
 import { BACKGROUNDS, SPRITES, makeFallbackTexture, makeGlowTexture } from "../art";
+import { createPixelArt, installBossSheet, installChallengers, installPixelSheet } from "../pixel";
 
 export class BootScene extends Phaser.Scene {
   constructor() {
@@ -14,11 +15,28 @@ export class BootScene extends Phaser.Scene {
     const bar = this.add.rectangle(width / 2 - 150, height / 2, 0, 4, 0x9a8cff).setOrigin(0, 0.5);
     this.load.on("progress", (p: number) => bar.setSize(300 * p, 4));
     this.load.on("loaderror", (file: Phaser.Loader.File) => console.warn("asset missing, using a stand-in:", file.key));
-    for (const [k, v] of Object.entries(SPRITES)) this.load.image(k, v);
-    for (const [k, v] of Object.entries(BACKGROUNDS)) this.load.image(k, v);
+    this.load.image("higgsfield-arena", "bg/pixel-arena.png");
+    this.load.image("higgsfield-dawn", "bg/pixel-dawn.png");
+    this.load.image("hf-base", "pixel/immortal-base-sheet.png");
+    this.load.image("hf-ascended", "pixel/immortal-ascended-sheet.png");
+    this.load.image("hf-challengers", "pixel/challenger-actions.png");
+    this.load.image("hf-walk", "pixel/challenger-walk.png");
+    this.load.image("hf-transformation", "pixel/immortal-transformation.png");
+    this.load.spritesheet("prologue", "pixel/prologue-atlas.png", { frameWidth: 384, frameHeight: 216 });
   }
 
   create(): void {
+    createPixelArt(this);
+    installBossSheet(this, "hf-base", "immortal-base");
+    installBossSheet(this, "hf-ascended", "immortal-ascended");
+    installChallengers(this);
+    installPixelSheet(this, "hf-transformation", "immortal-transform", { idle: 0, run: 1 }, 6, 2);
+    for (const [key, source] of [["bg-night", "higgsfield-arena"], ["bg-dawn", "higgsfield-dawn"], ["key-art", "higgsfield-arena"]]) {
+      if (source && key && this.textures.exists(source)) {
+        this.textures.remove(key);
+        this.textures.addImage(key, this.textures.get(source).getSourceImage() as HTMLImageElement);
+      }
+    }
     for (const k of Object.keys(SPRITES)) makeFallbackTexture(this, k);
     for (const k of Object.keys(BACKGROUNDS)) {
       if (!this.textures.exists(k)) {
@@ -49,7 +67,7 @@ export class BootScene extends Phaser.Scene {
     canvas.height = ch;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-    ctx.imageSmoothingQuality = "high";
+    ctx.imageSmoothingEnabled = false;
     const dw = src.width * scale;
     const dh = src.height * scale;
     ctx.drawImage(src, (cw - dw) / 2, (ch - dh) / 2, dw, dh);

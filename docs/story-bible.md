@@ -4,6 +4,8 @@ AI-use disclosure: drafted with Claude from Nicoh's design direction. Nicoh owns
 
 ## The premise in one paragraph
 
+Latest opening direction (Nicoh, later Nov 19): the player defeated the prior Immortal, who laughed that the throne had trapped its successor. The player answered that it did not matter. A thousand years later a kitten arrived, was refused and fell in one hit. This is staged in the generated fifteen-second opening, replacing explanatory intro cards. Past-life cats are now upright pixel sprites with different fur patterns as well as distinct accessories. The relationship, bond and authored ending below remain the continuing arc; inherited immortality supersedes older self-imprisonment exposition.
+
 An immortal cat guards an empty throne in a ruined castle. It cannot leave and cannot die. One small cat keeps coming to fight it, and every time it dies it comes back on its next life, a little stronger, wearing a new outfit, remembering what the last life learned. The player is the immortal cat. The player's move set stays fixed while the challenger grows. Over nine lives the fights turn into a relationship. The challenger is not trying to conquer the throne. It is trying to free the cat sitting on it. Losing the last fight is the ending, and it should feel like letting go.
 
 ## Characters

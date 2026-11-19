@@ -27,17 +27,17 @@ export const BACKGROUNDS: Record<string, string> = {
 
 /** On-screen height in pixels for each character. The Immortal is about twice a challenger. */
 export const DISPLAY_HEIGHT: Record<LifeId | "immortal" | "ascended", number> = {
-  kitten: 66,
-  alley: 100,
-  sailor: 104,
-  acrobat: 100,
-  witch: 104,
-  knight: 100,
-  thief: 104,
-  quiet: 92,
-  patchwork: 112,
-  immortal: 220,
-  ascended: 236,
+  kitten: 58,
+  alley: 84,
+  sailor: 88,
+  acrobat: 84,
+  witch: 88,
+  knight: 88,
+  thief: 86,
+  quiet: 80,
+  patchwork: 94,
+  immortal: 172,
+  ascended: 188,
 };
 
 export interface TierLook {

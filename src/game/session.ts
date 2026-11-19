@@ -16,6 +16,7 @@ import {
   type RunState,
 } from "../core/run";
 import { RUN } from "../core/config";
+import { NO_INPUT } from "../core/types";
 import type { FightSummary, LifeId, PlanResult, Tier } from "../core/types";
 import { ARRIVAL, ARRIVAL_PATCHWORK_STRUCK, FALLBACK } from "../content/lines";
 
@@ -81,6 +82,16 @@ export class Session {
     this.sim = new FightSim(setupFight(this.state, this.next));
     this.lastPlan = this.next;
     return this.sim;
+  }
+
+  /** The opening's one-hit kitten defeat uses real rules, then resolves the next arrival. */
+  async completeOpening(): Promise<void> {
+    if (this.fightIndex !== 1) return;
+    const sim = this.startFight();
+    for (let tick = 0; tick < 600 && !sim.outcome; tick++) sim.step({ ...NO_INPUT, reap: tick === 180 });
+    if (sim.outcome !== "challenger_dead") throw new Error("Opening kitten encounter did not resolve");
+    this.endFight();
+    await this.resolveNext();
   }
 
   /** Records the fight. Starts the planner call for the next slot right away. */

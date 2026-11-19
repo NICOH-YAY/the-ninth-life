@@ -9,6 +9,7 @@ import { BootScene } from "./scenes/BootScene";
 import { EndingScene } from "./scenes/EndingScene";
 import { FightScene } from "./scenes/FightScene";
 import { TitleScene } from "./scenes/TitleScene";
+import { OpeningScene } from "./scenes/OpeningScene";
 
 const params = new URLSearchParams(window.location.search);
 const audio = getAudio();
@@ -24,9 +25,9 @@ const game = new Phaser.Game({
   height: ARENA.height,
   backgroundColor: "#07070d",
   scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
-  render: { antialias: true, pixelArt: false },
+  render: { antialias: false, pixelArt: true, roundPixels: true },
   fps: { target: 60 },
-  scene: [BootScene, TitleScene, FightScene, EndingScene],
+  scene: [BootScene, TitleScene, OpeningScene, FightScene, EndingScene],
 });
 
 // Exposed for debugging in the console only.

@@ -2,6 +2,8 @@
 
 # Prototype notes: first playable
 
+This is the original overnight build record. The later pixel presentation, opening, project organization and verification are documented in `docs/pixel-pass-notes.md`; its run instructions and presentation status supersede this historical record.
+
 Branch `prototype/first-playable`, not pushed. Nothing merged. Plan: `docs/agent-sessions/2026-11-19-prototype-plan.md`.
 
 ## How to run

@@ -171,6 +171,15 @@ export const TITLE = {
   controls: "A D shift   J K L Space attack   M mute", // PLACEHOLDER: Nicoh to rewrite
 };
 
+export const PROLOGUE = {
+  laugh: 'THE FALLEN IMMORTAL:  "Ha... You think you won?"', // PLACEHOLDER: Nicoh to rewrite
+  trap: 'THE FALLEN IMMORTAL:  "The throne keeps you now."', // PLACEHOLDER: Nicoh to rewrite
+  answer: 'YOU:  "It doesn’t matter."', // PLACEHOLDER: Nicoh to rewrite
+  years: "A thousand years later.", // PLACEHOLDER: Nicoh to rewrite
+  kitten: 'A SMALL VOICE:  "I came for the throne."', // PLACEHOLDER: Nicoh to rewrite
+  refusal: 'YOU:  "No."', // PLACEHOLDER: Nicoh to rewrite
+};
+
 export function quietBand(bond: number): "low" | "mid" | "high" {
   return bond >= 5 ? "high" : bond >= 2 ? "mid" : "low";
 }
@@ -184,5 +193,6 @@ export function allLines(): string[] {
   out.push(...Object.values(RESPONSES).flatMap((r) => r.flatMap((x) => [x.guarded, x.open])));
   out.push(...Object.values(QUIET_TALK).flat(), ...MUTUAL.lower, ...MUTUAL.raise, PHASE2_BEAT);
   out.push(...Object.values(LIFE9), ...Object.values(ENDINGS));
+  out.push(...Object.values(PROLOGUE));
   return out;
 }

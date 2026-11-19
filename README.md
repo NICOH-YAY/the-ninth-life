@@ -1,4 +1,4 @@
-> AI-use disclosure: written by Claude Code during the Nov 19 overnight build.
+> AI-use disclosure: prototype written by Claude Code; pixel presentation pass and project organization by Codex, from Nicoh's direction.
 
 # The Ninth Life
 
@@ -8,12 +8,37 @@ Design: `GDD.md`, `CONFIG.md`, `docs/story-bible.md`, `docs/phase-two.md`, `docs
 
 ## Run it
 
+On this computer, double-click `PLAY.cmd`, then open the local address it prints. Or use:
+
 ```
 npm install
 npm run dev
 ```
 
-Open the address Vite prints (usually http://localhost:5173). Press any key on the title screen.
+Open the address Vite prints (usually http://localhost:5173). Click Play or press Enter. C opens Attributions. Esc skips the opening or returns from Attributions.
+
+The fifteen-second opening shows the Immortal inheriting the throne, a thousand-year jump, and the first kitten's one-hit defeat. That defeat uses the real combat rules and is recorded once; interactive play starts at the second life. Autoplay retains the complete original nine-fight harness.
+
+## Project map
+
+This organized working copy is `C:\Users\Nicoh K\Documents\New project\the-ninth-life`. It includes the original Git history on `prototype/first-playable`. The original `D:\Coding VS\the-ninth-life` remains preserved.
+
+| Folder or file | Contents |
+|---|---|
+| `src/core/` | Existing deterministic combat, progression and story rules |
+| `src/game/` | Pixel rendering, animation, input, menu, cutscenes and audio |
+| `assets/pixel/` | Original Higgsfield generations, exact prompts, jobs and palette |
+| `assets/pixel/native/` | Exported transparent 48 x 72 sprite sheets |
+| `public/pixel/` | Runtime animation sheets and generated opening atlas |
+| `public/bg/` | Runtime throne hall backgrounds |
+| `assets/concept/` | Preserved original concept art and manifest |
+| `assets/references/` | Your mood and upright-cat references, local only and Git-ignored |
+| `docs/` | All handoff design files, session plans and build notes |
+| `worker/`, `agents/` | Existing between-fight agent service and configuration |
+| `ATTRIBUTION.md` | Source and AI-use record |
+| `CLAUDE.local.md` | Private course context, Git-ignored |
+
+Presentation status and limitations: `docs/pixel-pass-notes.md`. Native sprite exports can be regenerated with `node scripts/export-pixel-sprites.mjs`.
 
 ## Controls
 
@@ -28,7 +53,7 @@ Open the address Vite prints (usually http://localhost:5173). Press any key on t
 | A/D, Enter | Choose the Immortal's answer between fights |
 | M | Mute |
 
-Debug keys (on in `npm run dev`, or add `?debug=1` to a built page): 1 to 9 jump to a life, P forces Phase Two, B and N raise and lower bond, H shows hitboxes. The line at the bottom shows the planner mode and where the last plan came from.
+Debug keys require `?debug=1`: 1 to 9 jump to a life, P forces Phase Two, B and N raise and lower bond, H shows hitboxes. Planner diagnostics appear only in this mode.
 
 ## Planner modes
 

@@ -128,6 +128,8 @@ Agents run in Claude Code as subagents in `.claude/agents/`. Each role has an ex
 
 ## Open questions
 
+**[Proposed, later Nov 19 presentation pass]** Pixel rendering disables antialiasing, snaps character frames to a 48 x 72 grid and a shared 32-colour palette, and retains binary alpha. The original generated sheets and generation evidence remain in `assets/pixel/`. Combat config and planner validation are unchanged. Player-facing diagnostics require `?debug=1`. The opening records a real one-hit kitten encounter before resolving the next plan, so the cinematic and run history agree. No model call runs in combat or during deterministic checks.
+
 1. Exact Gemini model ID and measured latency and cost.
 2. Phaser or plain Canvas.
 3. Worker session state on Durable Objects or KV.
