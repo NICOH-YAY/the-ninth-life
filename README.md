@@ -21,7 +21,7 @@ The fifteen-second opening shows the Immortal inheriting the throne, a thousand-
 
 ## Project map
 
-This organized working copy is `C:\Users\Nicoh K\Documents\New project\the-ninth-life`. It includes the original Git history on `prototype/first-playable`. The original `D:\Coding VS\the-ninth-life` remains preserved.
+The working project is `D:\Coding VS\the-ninth-life`, including its Git history, assets, dependencies and local QA evidence. The former C: game copy has been relocated here. Use this D: folder for future work.
 
 | Folder or file | Contents |
 |---|---|
@@ -39,6 +39,10 @@ This organized working copy is `C:\Users\Nicoh K\Documents\New project\the-ninth
 | `CLAUDE.local.md` | Private course context, Git-ignored |
 
 Presentation status and limitations: `docs/pixel-pass-notes.md`. Native sprite exports can be regenerated with `node scripts/export-pixel-sprites.mjs`.
+
+## Published game
+
+GitHub Pages: [Play The Ninth Life](https://nicoh-yay.github.io/the-ninth-life/). The Pages workflow tests and builds the game on pushes to `prototype/first-playable` or `main`. It publishes only `dist/`; the private course context and local reference files remain ignored.
 
 ## Controls
 

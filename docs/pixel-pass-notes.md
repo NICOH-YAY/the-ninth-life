@@ -2,7 +2,7 @@ AI-use disclosure: written by Codex; Higgsfield generated the new raster assets.
 
 # Pixel presentation revision
 
-The existing prototype was copied with its Git history into `C:\Users\Nicoh K\Documents\New project\the-ninth-life`, on `prototype/first-playable`. The D: original is preserved. All source, design documents, course handoff files and asset evidence are in this folder. User reference images are local-only in the ignored `assets/references/`; private `CLAUDE.local.md` remains ignored.
+The working project and its Git history are now in `D:\Coding VS\the-ninth-life`, on `prototype/first-playable`. The former C: game copy was moved here at Nicoh's request. All source, design documents, course handoff files and asset evidence are in this folder. User reference images are local-only in the ignored `assets/references/`; private `CLAUDE.local.md` remains ignored.
 
 ## Play
 
@@ -32,7 +32,7 @@ The final native sprite sheets total approximately 85 KB in `public/pixel/`, rep
 - Dialogue, procedural music, sounds and ending wording remain provisional. No recorded voice acting is included.
 - Generators can drift in accessories and pose anchors. The importer excludes known incorrect cells, preserves a common foot anchor and uses a fixed grid. Further sprite cleanup is an art-polish task.
 - Live Worker deployment and live-model evaluation remain as in the original handoff: not completed by this visual pass.
-- No push, PR, deployment or merge is performed.
+- The later user request authorizes a source push and GitHub Pages publication. The Pages workflow is in `.github/workflows/pages.yml`; no main-branch merge is required.
 - ECC commands and the named Haiku runtime are not exposed in this Codex session. Available coding subagents handled the kickoff's requested asset and test delegation. Local commits use Codex authorship; the source branch is preserved.
 
 First five tuning targets: hand-clean sprite silhouettes; add more walk and recovery frames; review dialogue timing; listen to and mix audio; playtest counter readability in the larger-feeling hall.
