@@ -1,0 +1,28 @@
+{
+  "name": "the-ninth-life",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A short story boss fight where you play an immortal cat and your past lives come back to let you rest.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p worker/tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "sim": "vite-node scripts/sim.ts",
+    "assets:key": "node scripts/chroma-key.mjs",
+    "assets:crop": "node scripts/crop-lineup.mjs"
+  },
+  "dependencies": {
+    "phaser": "3.88.2"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5",
+    "typescript": "~5.6.3",
+    "vite": "^5.4.11",
+    "vite-node": "^2.1.8",
+    "vitest": "^2.1.8"
+  }
+}
