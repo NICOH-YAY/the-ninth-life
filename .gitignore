@@ -5,3 +5,4 @@ dist/
 .wrangler/
 *.log
 start-overnight-build.cmd
+public/sprites/keyed/

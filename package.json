@@ -13,7 +13,7 @@
     "test:watch": "vitest",
     "sim": "vite-node scripts/sim.ts",
     "assets:key": "node scripts/chroma-key.mjs",
-    "assets:crop": "node scripts/crop-lineup.mjs"
+    "assets:crop": "node scripts/crop-lineup.mjs && node scripts/resize-sprites.mjs"
   },
   "dependencies": {
     "phaser": "3.88.2"
