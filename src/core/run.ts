@@ -122,9 +122,9 @@ export function finishFight(state: RunState, sim: FightSim, plan: PlanResult): F
   return summary;
 }
 
-/** The Immortal answers between fights. Open answers raise bond by one. */
+/** The Immortal answers between fights. Open answers raise bond by one. After life 8 is struck, bond stays at 0. */
 export function applyResponse(state: RunState, open: boolean): void {
-  if (open) state.bond = clampBond(state.bond + 1);
+  if (open && !state.life8Struck) state.bond = clampBond(state.bond + 1);
 }
 
 export function isOver(state: RunState): boolean {

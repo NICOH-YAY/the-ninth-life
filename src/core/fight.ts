@@ -122,6 +122,7 @@ export interface ChallengerState {
   blockT: number;
   decoyT: number;
   armorUp: boolean;
+  armorT: number;
   skillCd: Record<Skill, number>;
   pending: { at: number; skill: Skill | "flee"; move: BossMove } | null;
   doubleJumpAt: number | null;
@@ -192,6 +193,7 @@ export class FightSim {
       blockT: 0,
       decoyT: 0,
       armorUp: ROSTER[setup.life].skills.includes("armor"),
+      armorT: 0,
       skillCd,
       pending: null,
       doubleJumpAt: null,
@@ -532,6 +534,7 @@ export class FightSim {
     }
     if (ch.armorUp) {
       ch.armorUp = false;
+      ch.armorT = CHALLENGER.armorRechargeS;
       this.log({ t, type: "armor_break" });
       return;
     }
@@ -573,6 +576,8 @@ export class FightSim {
     const best = SKILL_FOR_MOVE[move];
     if (skills.includes(best) && this.ch.skillCd[best] <= 0) return best;
     if (skills.includes("decoy") && this.ch.skillCd.decoy <= 0) return "decoy";
+    // The witch can also blink clear of a cleave.
+    if (move === "cleave" && skills.includes("blink") && this.ch.skillCd.blink <= 0) return "blink";
     if (skills.includes(best)) return best;
     return null;
   }
@@ -770,6 +775,10 @@ export class FightSim {
     ch.iframes = Math.max(0, ch.iframes - DT);
     ch.blockT = Math.max(0, ch.blockT - DT);
     ch.decoyT = Math.max(0, ch.decoyT - DT);
+    if (ch.armorT > 0) {
+      ch.armorT -= DT;
+      if (ch.armorT <= 0 && ROSTER[ch.life].skills.includes("armor")) ch.armorUp = true;
+    }
     ch.hitFlashT = Math.max(0, ch.hitFlashT - DT);
     ch.attackFlashT = Math.max(0, ch.attackFlashT - DT);
     for (const s of ALL_SKILLS) ch.skillCd[s] = Math.max(0, ch.skillCd[s] - DT);

@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p worker/tsconfig.json",
     "test": "vitest run",
     "test:watch": "vitest",
-    "sim": "vite-node scripts/sim.ts",
+    "sim": "vite-node scripts/sim.ts --",
     "assets:key": "node scripts/chroma-key.mjs",
     "assets:crop": "node scripts/crop-lineup.mjs && node scripts/resize-sprites.mjs"
   },

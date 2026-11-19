@@ -95,7 +95,7 @@ export const PHASE2: Phase2Config = {
   PHASE2_ENABLED: true,
   PHASE2_TRIGGER_PCT: 0.5,
   PHASE2_TRANSITION_S: 2.0,
-  PHASE2_REFILL_PCT: 1.0,
+  PHASE2_REFILL_PCT: 0.75,
   PHASE2_COOLDOWN_MULT: 0.7,
   PHASE2_TELL_MULT: 0.8,
   PHASE2_TELL_MIN_S: 0.3,
@@ -105,8 +105,8 @@ export const PHASE2: Phase2Config = {
 };
 
 export const CHALLENGER = {
-  baseHp: 150,
-  baseDamage: 15,
+  baseHp: 160,
+  baseDamage: 18,
   baseSpeed: 150,
   reach: 44,
   attackWindupS: 0.2,
@@ -122,7 +122,9 @@ export const CHALLENGER = {
   blinkInvulnS: 0.4,
   blinkDistance: 170,
   decoyS: 0.9,
-  skillCooldownS: { roll: 0.9, umbrella: 0.9, double_jump: 0.6, blink: 2.5, armor: 0, decoy: 3.5, hop: 1.2 },
+  skillCooldownS: { roll: 0.9, umbrella: 0.9, double_jump: 0.6, blink: 2.5, armor: 0, decoy: 2.0, hop: 1.2 },
+  /** The knight armor grows back this long after it breaks. */
+  armorRechargeS: 6,
   /** How long before the active frames each skill must start to cover them. */
   skillLeadS: { roll: 0.1, umbrella: 0.3, double_jump: 0.12, blink: 0.15, armor: 0, decoy: 0.2, hop: 0.12 },
   /** Basic hop every life but the kitten and the quiet one has. Success chance grows by fight. */
