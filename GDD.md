@@ -7,6 +7,10 @@
 **Labels:** **[Decided]** Nicoh's decision. **[Proposed]** agent recommendation awaiting Nicoh. **[Open]** unresolved.
 **Companion documents:** `CONFIG.md` (Configuration Document), `PLAN.md` (Project Plan and Risk Profile), `docs/design-history.md` (how the concept developed)
 
+## Latest combat revision [Proposed implementation of Nicoh's new request]
+
+The current implementation contract is docs/mobile-combat.md. It replaces the older immobile player, one-hit kitten, forced patchwork loss and popup intermissions. The player can move, jump, dash and guard; enemies grow gradually and have animated abilities and knockback. The first kitten is a playable movement/defense tutorial. The three endings are Normal, Do Nothing and an earned Victory for defeating all nine lives. The opening actually stages the prior king's defeat before explaining the castle-bound curse. Unskippable portrait dialogue, years of rest, castle decay, reflections and a castle-exterior menu establish the scene. Older sections below are historical where they conflict.
+
 ## 0. Nov 19 update [Proposed]
 
 ### Later Nov 19 presentation revision [Proposed implementation of Nicoh's request]

@@ -20,9 +20,3 @@ await sharp({create:{width:cols*frame,height:rows*frame,channels:4,background:'#
 const rowNames=id==='immortal-rest'?['sit','rise']:id==='previous-king'?['idle','royal-cleave','hurt','collapse']:id==='challenger-abilities'?['kitten','alley','sailor','acrobat','witch','knight','thief','quiet','patchwork']:id==='immortal-base-motion'?['idle','run','jump','dash','cleave','throw','reap','nova']:['idle','run','jump','dash','rift','wisps','tide','bell'];
 const layout={disclosure:'AI-use disclosure: Higgsfield source; Codex uses uniform whole-cell nearest-neighbor scale and central-body feet anchoring.',id,source:input,sourceWidth:metadata.width,sourceHeight:metadata.height,cols,rows,frameWidth:frame,frameHeight:frame,frameCount:cols*rows,width:cols*frame,height:rows*frame,anchor:{x:frame/2,y:anchorY},rowNames,alphaThreshold:96,processing:'Each equal source cell uses the same96x96 full-cell mapping. No row or per-frame bounding-box scaling. Central-body feet detection x33..64,y48..95; translateY only to the declared foot anchor; previous-king uses a uniform aspect-preserving whole-cell contain fit. Binaryalpha and32color palette.',anchors};
 await writeFile('public/combat-v3/'+id+'.json',JSON.stringify(layout,null,2)+'\n');console.log(JSON.stringify({id,cols,rows,frameWidth:frame,frameHeight:frame,anchor:layout.anchor,clippedOpaque:anchors.reduce((n,a)=>n+a.clippedOpaque,0)}));
-
-
-
-
-
-

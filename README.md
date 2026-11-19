@@ -2,7 +2,7 @@
 
 # The Ninth Life
 
-A short story boss fight for COMS E6998 sec 014 (Fall 2026). You play a tall, lonely, immortal cat on a throne. One small cat keeps coming back over nine lives, stronger each time, in a new outfit with a new skill. An agent picks which life comes next and how it fights, between fights only. The ninth life always wins.
+A short story boss fight for COMS E6998 sec 014 (Fall 2026). You play a tall, lonely, immortal cat on a throne. One small cat keeps coming back over nine lives, stronger each time, in a new outfit with a new skill. An agent picks which life comes next and how it fights, between fights only. The outcome follows your play: be defeated, remain silent, or win every challenge.
 
 Design: `GDD.md`, `CONFIG.md`, `docs/story-bible.md`, `docs/phase-two.md`, `docs/challenger-progression.md`, `docs/art-direction.md`. Status of the first playable: `docs/prototype-notes.md`.
 
@@ -17,7 +17,7 @@ npm run dev
 
 Open the address Vite prints (usually http://localhost:5173). Click Play or press Enter. C opens Attributions. Esc skips the opening or returns from Attributions.
 
-The fifteen-second opening shows the Immortal inheriting the throne, a thousand-year jump, and the first kitten's one-hit defeat. That defeat uses the real combat rules and is recorded once; interactive play starts at the second life. Autoplay retains the complete original nine-fight harness.
+The opening shows you entering the hall, defeating the previous king, hearing his warning and taking the crown. Portrait dialogue cannot be skipped. A thousand years later, interactive play starts with a weak but durable tutorial kitten; you must jump, dash and block a real hit before finishing it. The current gameplay contract is in docs/mobile-combat.md.
 
 ## Project map
 
@@ -46,18 +46,25 @@ GitHub Pages: [Play The Ninth Life](https://nicoh-yay.github.io/the-ninth-life/)
 
 ## Controls
 
+Use Controls in the castle menu (R) to rebind any action. Bindings persist locally; assigning an occupied key swaps the two actions. Reset Defaults restores this layout.
+
 | Key | Action |
 |---|---|
-| A, D | Shift on the throne platform |
-| J | Crescent Cleave (Pounce Rift in Phase Two) |
-| K | Glaive Throw (Soul Wisps) |
-| L | Low Reap (Shadow Tide) |
-| Space | Nine-Lives Nova (Ninth Bell), when charged |
-| S (hold) | Life 9, below 25% health: lower your guard |
-| A/D, Enter | Choose the Immortal's answer between fights |
-| M | Mute |
+| A / D | Move freely across the hall |
+| Space | Jump |
+| Left Shift | Dash with brief invulnerability |
+| J, hold to chain | Crescent Cleave / Pounce Rift |
+| K | Glaive Throw / Soul Wisps |
+| L | Travelling ground blade / Shadow Tide |
+| F | Nine-Lives Nova / Ninth Bell |
+| G, hold | Magic guard, using guard energy |
+| S, hold when available | Voluntarily lower your guard in the final encounter |
+| Esc | Pause combat |
+| M | Mute, unless rebound to another action |
 
-Debug keys require `?debug=1`: 1 to 9 jump to a life, P forces Phase Two, B and N raise and lower bond, H shows hitboxes. Planner diagnostics appear only in this mode.
+Three main endings: Normal after defeat in active combat, Do Nothing after persistent inactivity, and Victory after defeating every life. The final cat is mortal. Between visitors, the king waits as years pass and the castle ages. Story details and remaining limitations are in docs/mobile-combat.md.
+
+Debug requires ?debug=1: 1–9 choose an encounter and P triggers transformation. Planner diagnostics stay hidden in normal play.
 
 ## Planner modes
 
@@ -66,6 +73,8 @@ Set `AGENT_MODE` at build time (`VITE_AGENT_MODE` in a `.env.local`) or add `?mo
 - `heuristic` (default with no Worker URL): offline stand-in for the agent. Sends the life that counters your most-used move.
 - `scripted`: the fixed order and default tactics. The deterministic fallback and the kill switch.
 - `live`: calls the Worker at `VITE_WORKER_URL` (or `?worker=`). 5 s timeout, schema check, 12 calls per session, scripted fallback on any failure. `?memory=last` sends only the last fight.
+
+QA playback profiles: ?autoplay=1&speed=8&bot=victory, ?autoplay=1&speed=8&bot=normal, or ?autoplay=1&speed=8&bot=idle. These use real gameplay inputs; they do not modify health or the ending rules.
 
 Other page options: `?seed=N` fixes the run seed, `?mute=1` starts muted, `?speed=4` runs fights faster, `?autoplay=1` lets a scripted boss play the whole run, `?renderer=webgl` tries WebGL (Canvas is the default).
 
@@ -76,6 +85,7 @@ npm run typecheck
 npm test
 npm run build
 npm run sim -- 12
+npm run test:browser
 ```
 
 `npm run sim` plays full headless runs and prints the lowest boss health per fight for each planner, curve, and boss style.

@@ -38,26 +38,19 @@ export function tierFor(fightIndex: number): Tier {
   return TIERS[fightIndex] ?? 3;
 }
 
+/** Every life is mortal. Strength grows by encounter, without a discontinuous final boss. */
 export function statsFor(life: LifeId, fightIndex: number, curve: CurveId, directorAdjust: number): ChallengerStats {
-  if (life === "patchwork") {
-    return {
-      maxHp: PATCHWORK.hp,
-      damage: PATCHWORK.damage,
-      speed: CHALLENGER.baseSpeed * PATCHWORK.speed,
-      reactionMs: PATCHWORK.reactionMs,
-    };
-  }
-  const row = curveRow(curve, fightIndex);
-  const over = LIFE_BASE[life] ?? {};
-  const adj = 1 + directorAdjust;
+  if (life === "kitten") return { maxHp: 260, damage: 4, speed: 130, reactionMs: 500 };
+  const n = Math.max(2, Math.min(9, fightIndex));
+  const multiplier = 1 + Math.max(-0.10, Math.min(0.10, directorAdjust));
+  const baseline = curve === "scripted" ? 1.05 : 1;
   return {
-    maxHp: Math.round((over.hp ?? CHALLENGER.baseHp) * row.hp * adj),
-    damage: (over.damage ?? CHALLENGER.baseDamage) * row.damage * adj,
-    speed: CHALLENGER.baseSpeed * row.speed,
-    reactionMs: row.reactionMs,
+    maxHp: Math.round((250 + (n - 2) * 52) * multiplier * baseline),
+    damage: (16 + (n - 2) * 3.5) * multiplier,
+    speed: 175 + (n - 2) * 12,
+    reactionMs: Math.max(125, 350 - (n - 2) * 30),
   };
 }
-
 export function pacingTarget(fightIndex: number): number | null {
   return PACING_TARGETS[fightIndex] ?? null;
 }

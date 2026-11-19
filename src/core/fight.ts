@@ -4,6 +4,7 @@
 
 import {
   ARENA,
+  MOBILITY,
   ASCENDED_MOVES,
   BASE_MOVES,
   BOSS,
@@ -52,6 +53,7 @@ export interface ActiveMove {
   stage: MoveStage;
   t: number;
   spec: MoveSpec;
+  direction: -1 | 1;
   targetX: number;
   pillars: number[];
   hitCh: boolean;
@@ -60,7 +62,7 @@ export interface ActiveMove {
 }
 
 export interface Projectile {
-  kind: "glaive" | "wisp";
+  kind: "glaive" | "wisp" | "blade" | "enemy-wave" | "enemy-orb";
   move: BossMove;
   x: number;
   y: number;
@@ -90,6 +92,10 @@ export type ChState =
   | "dead";
 
 export interface BossState {
+  y: number; vy: number; vx: number; facing: -1 | 1; grounded: boolean;
+  dashT: number; dashCooldown: number; invulnT: number; coyoteT: number; jumpBufferT: number;
+  guardEnergy: number; guarding: boolean; knockVx: number;
+  jumps: number; dashes: number; blocks: number; inactivityT: number;
   x: number;
   hp: number;
   maxHp: number;
@@ -109,6 +115,8 @@ export interface BossState {
 }
 
 export interface ChallengerState {
+  knockVx: number; abilityT: number; abilityTellT: number; abilityKind: "wave" | "orb" | "lunge";
+  attackSerial: number; abilitySerial: number;
   life: LifeId;
   x: number;
   y: number;
@@ -152,6 +160,7 @@ export class FightSim {
   tick = 0;
   outcome: FightOutcome | null = null;
   killingMove: BossMove | null = null;
+  endReason: "combat" | "boredom" = "combat";
   minBossEffPct = 1;
   lastPlayerAttackT = 0;
 
@@ -161,6 +170,9 @@ export class FightSim {
     this.rng = new Rng(setup.seed);
     this.boss = {
       x: ARENA.bossStartX,
+      y: 0, vy: 0, vx: 0, facing: -1, grounded: true, dashT: 0, dashCooldown: 0,
+      invulnT: 0, coyoteT: MOBILITY.coyoteS, jumpBufferT: 0, guardEnergy: 1, guarding: false,
+      knockVx: 0, jumps: 0, dashes: 0, blocks: 0, inactivityT: 0,
       hp: BOSS.maxHp,
       maxHp: BOSS.maxHp,
       phase: 1,
@@ -181,6 +193,7 @@ export class FightSim {
     for (const s of ALL_SKILLS) skillCd[s] = 0;
     this.ch = {
       life: setup.life,
+      knockVx: 0, abilityT: 2.5, abilityTellT: 0, abilityKind: "wave", attackSerial: 0, abilitySerial: 0,
       x: ARENA.spawnX,
       y: 0,
       vy: 0,
@@ -217,7 +230,7 @@ export class FightSim {
   }
 
   get bossFront(): number {
-    return this.boss.x - ARENA.bossHalfWidth;
+    return this.boss.x + this.boss.facing * ARENA.bossHalfWidth;
   }
 
   get bossHpPct(): number {
@@ -233,7 +246,7 @@ export class FightSim {
   }
 
   get isQuiet(): boolean {
-    return this.setup.life === "quiet";
+    return false; // The white-scarf life now fights under the revised design.
   }
 
   get hesitating(): boolean {
@@ -261,7 +274,7 @@ export class FightSim {
   canUse(move: BossMove): boolean {
     const b = this.boss;
     if (this.outcome || b.transitionT > 0 || b.yielded) return false;
-    if (b.move) return false;
+    if (b.move && (b.move.stage !== "recover" || b.move.t < 0.04)) return false;
     if (move === "nova") return b.novaCharge >= this.novaChargeNeeded();
     return b.cooldowns[move] <= 0;
   }
@@ -284,7 +297,17 @@ export class FightSim {
       b.buffered = { move: pressed, until: t + BOSS.inputBufferS };
     }
 
+    const active = pressed || input.left || input.right || input.jump || input.dash || input.guard;
+    b.inactivityT = active ? 0 : b.inactivityT + DT;
     b.hitFlashT = Math.max(0, b.hitFlashT - DT);
+    b.invulnT = Math.max(0, b.invulnT - DT);
+    b.dashCooldown = Math.max(0, b.dashCooldown - DT);
+    if (b.inactivityT > MOBILITY.boredomS && b.transitionT <= 0) {
+      this.endReason = "boredom";
+      this.log({ t, type: "boredom" });
+      this.killBoss(t);
+      return;
+    }
     for (const m of ["cleave", "throw", "reap"] as BossMove[]) b.cooldowns[m] = Math.max(0, b.cooldowns[m] - DT);
     if (!b.move || b.move.id !== "nova") b.novaCharge = Math.min(this.novaChargeNeeded(), b.novaCharge + DT);
 
@@ -310,34 +333,60 @@ export class FightSim {
       this.log({ t, type: "distance", d: Math.round(this.bossFront - ch.x) });
     }
     if (!this.outcome && t >= RUN.maxFightS) {
-      if (this.setup.life === "patchwork") this.killBoss(t);
-      else this.endChallenger(t, null);
+      this.outcome = "spared";
+      this.log({ t, type: "spared" });
     }
   }
 
   private updateBossInput(input: BossInput, t: number): void {
     const b = this.boss;
     const dir: -1 | 0 | 1 = input.left && !input.right ? -1 : input.right && !input.left ? 1 : 0;
-    const canShift = !b.move || b.move.stage === "recover";
-    if (dir !== 0 && canShift) {
-      const speed = BOSS.shiftSpeed * (b.phase === 2 ? this.cfg.phase2.PHASE2_MOVE_SPEED_MULT : 1);
-      b.x = Math.min(ARENA.bossMaxX, Math.max(ARENA.bossMinX, b.x + dir * speed * DT));
-      if (b.shiftDir !== dir) this.log({ t, type: "boss_shift", dir });
+    if (b.grounded) b.coyoteT = MOBILITY.coyoteS;
+    else b.coyoteT = Math.max(0, b.coyoteT - DT);
+    b.jumpBufferT = input.jump ? MOBILITY.jumpBufferS : Math.max(0, b.jumpBufferT - DT);
+    if (b.jumpBufferT > 0 && b.coyoteT > 0) {
+      b.vy = MOBILITY.jumpSpeed; b.grounded = false; b.coyoteT = 0; b.jumpBufferT = 0; b.jumps++;
+      if (b.move?.stage === "recover") b.move = null;
+      this.log({ t, type: "jump" });
     }
-    b.shiftDir = canShift ? dir : 0;
+    if (input.dash && b.dashCooldown <= 0) {
+      if (dir) b.facing = dir;
+      b.dashT = MOBILITY.dashS; b.dashCooldown = MOBILITY.dashCooldownS;
+      b.invulnT = Math.max(b.invulnT, MOBILITY.dashS); b.move = null; b.dashes++;
+      this.log({ t, type: "dash" });
+    }
+    b.guarding = input.guard && b.guardEnergy > 0.08 && b.dashT <= 0 && !b.move;
+    b.guardEnergy = Math.max(0, Math.min(1, b.guardEnergy + (b.guarding ? -MOBILITY.guardDrain : MOBILITY.guardRegen) * DT));
+    const phaseSpeed = b.phase === 2 ? this.cfg.phase2.PHASE2_MOVE_SPEED_MULT : 1;
+    if (b.dashT > 0) {
+      b.dashT = Math.max(0, b.dashT - DT); b.vx = b.facing * MOBILITY.dashSpeed;
+    } else {
+      b.vx = dir * BOSS.shiftSpeed * phaseSpeed * (b.guarding ? 0.5 : 1);
+      if (dir && !b.move) b.facing = dir;
+    }
+    b.x += (b.vx + b.knockVx) * DT;
+    b.knockVx *= Math.max(0, 1 - DT * 10);
+    b.x = Math.max(ARENA.bossMinX, Math.min(ARENA.bossMaxX, b.x));
+    if (!b.grounded || b.vy > 0) {
+      b.vy -= MOBILITY.gravity * DT; b.y += b.vy * DT;
+      if (b.y <= 0) { b.y = 0; b.vy = 0; b.grounded = true; }
+    }
+    if (dir && b.shiftDir !== dir) this.log({ t, type: "boss_shift", dir });
+    b.shiftDir = dir;
     if (b.buffered && t > b.buffered.until) b.buffered = null;
-    if (b.buffered && this.canUse(b.buffered.move)) {
-      this.startMove(b.buffered.move, t);
-      b.buffered = null;
+    if (b.buffered && this.canUse(b.buffered.move) && !b.guarding && b.dashT <= 0) {
+      this.startMove(b.buffered.move, t); b.buffered = null;
     }
   }
 
   private startMove(id: BossMove, t: number): void {
     const b = this.boss;
+    b.facing = this.ch.x < b.x ? -1 : 1;
     const spec = this.moveSpec(id, b.phase);
+    if (id !== "nova") b.cooldowns[id] = spec.cooldownS;
     const ch = this.ch;
     const pillars = id === "nova" && b.phase === 2 ? [ch.x, ch.x - G.bellPillarSpacing, ch.x + G.bellPillarSpacing] : [];
-    b.move = { id, phase: b.phase, stage: "tell", t: 0, spec, targetX: ch.x, pillars, hitCh: false, waveHits: 0, spawned: 0 };
+    b.move = { id, phase: b.phase, stage: "tell", t: 0, spec, direction: b.facing, targetX: ch.x, pillars, hitCh: false, waveHits: 0, spawned: 0 };
     if (id === "nova") b.novaCharge = 0;
     this.log({ t, type: "boss_move", move: id, phase: b.phase });
     this.challengerSeesTell(id, spec.tellS, t);
@@ -361,27 +410,21 @@ export class FightSim {
         this.onMoveResolved(m, t);
       }
     } else if (m.stage === "recover" && m.t >= m.spec.recoverS - 1e-9) {
-      if (m.id !== "nova") b.cooldowns[m.id] = m.spec.cooldownS;
+      // Cooldowns start with the input, not after recovery.
       b.move = null;
     }
   }
 
   private onActiveStart(m: ActiveMove): void {
+    const b = this.boss;
+    if (m.id === "cleave" && m.phase === 1) b.x = Math.max(48, Math.min(912, b.x + m.direction * 14));
     if (m.id === "throw" && m.phase === 1) {
-      this.projectiles.push({
-        kind: "glaive",
-        move: "throw",
-        x: this.bossFront,
-        y: G.throwHeight,
-        vx: -G.throwSpeed,
-        vy: 0,
-        ttl: 6,
-        traveled: 0,
-        returning: false,
-        canHit: true,
-        damage: m.spec.damage,
-        dead: false,
-      });
+      this.projectiles.push({ kind: "glaive", move: "throw", x: this.bossFront, y: b.y + 44,
+        vx: m.direction * G.throwSpeed, vy: 0, ttl: 4, traveled: 0, returning: false, canHit: true, damage: m.spec.damage, dead: false });
+    }
+    if (m.id === "reap") {
+      this.projectiles.push({ kind: "blade", move: "reap", x: b.x + m.direction * 40, y: 20,
+        vx: m.direction * (m.phase === 2 ? 650 : 540), vy: 0, ttl: 2, traveled: 0, returning: false, canHit: true, damage: m.spec.damage, dead: false });
     }
   }
 
@@ -398,7 +441,7 @@ export class FightSim {
         if (m.hitCh) return;
         const inZone =
           m.phase === 1
-            ? ch.x >= front - G.cleaveReach && ch.y < G.cleaveHeight
+            ? (ch.x - this.boss.x) * m.direction > -20 && Math.abs(ch.x - this.boss.x) < G.cleaveReach && Math.abs(ch.y - this.boss.y) < G.cleaveHeight
             : Math.abs(ch.x - m.targetX) <= G.riftRadius && ch.y < G.cleaveHeight;
         if (inZone) this.hitChallenger(m, m.spec.damage, t);
         return;
@@ -430,16 +473,10 @@ export class FightSim {
         return;
       }
       case "reap": {
-        if (m.phase === 1) {
-          if (!m.hitCh && ch.y < G.floorHitHeight) this.hitChallenger(m, m.spec.damage, t);
-          return;
-        }
-        const wave = m.t < G.tideWaveS ? 0 : m.t >= G.tideSecondWaveS && m.t < G.tideSecondWaveS + G.tideWaveS ? 1 : -1;
-        if (wave >= 0 && m.waveHits <= wave) {
-          if (ch.y < G.floorHitHeight) {
-            m.waveHits = wave + 1;
-            this.hitChallenger(m, m.spec.damage, t);
-          }
+        if (m.phase === 2 && m.spawned === 0 && m.t >= 0.25) {
+          m.spawned++;
+          this.projectiles.push({ kind: "blade", move: "reap", x: this.boss.x + m.direction * 36, y: 20,
+            vx: m.direction * 650, vy: 0, ttl: 2, traveled: 0, returning: false, canHit: true, damage: m.spec.damage, dead: false });
         }
         return;
       }
@@ -467,52 +504,46 @@ export class FightSim {
   }
 
   private updateProjectiles(): void {
-    const ch = this.ch;
-    const t = this.time;
+    const ch = this.ch; const b = this.boss; const t = this.time;
     for (const p of this.projectiles) {
       if (p.dead) continue;
       p.ttl -= DT;
-      if (p.kind === "glaive") {
-        p.x += p.vx * DT;
-        p.traveled += Math.abs(p.vx * DT);
-        if (!p.returning && (p.traveled >= G.throwRange || p.x <= ARENA.leftWall)) {
-          p.returning = true;
-          p.vx = G.throwSpeed;
-        }
-        if (p.returning && p.x >= this.bossFront) p.dead = true;
-      } else {
-        const dx = ch.x - p.x;
-        const dy = this.chCenterY() - p.y;
-        const len = Math.hypot(dx, dy) || 1;
-        p.vx += (dx / len) * G.wispSpeed * G.wispTurn * DT;
-        p.vy += (dy / len) * G.wispSpeed * G.wispTurn * DT;
-        const sp = Math.hypot(p.vx, p.vy) || 1;
-        p.vx = (p.vx / sp) * G.wispSpeed;
-        p.vy = (p.vy / sp) * G.wispSpeed;
-        p.x += p.vx * DT;
-        p.y += p.vy * DT;
+      if (p.kind === "wisp") {
+        const dx = ch.x - p.x, dy = this.chCenterY() - p.y, len = Math.hypot(dx, dy) || 1;
+        p.vx += dx / len * G.wispSpeed * G.wispTurn * DT;
+        p.vy += dy / len * G.wispSpeed * G.wispTurn * DT;
+        const speed = Math.hypot(p.vx, p.vy) || 1;
+        p.vx = p.vx / speed * G.wispSpeed; p.vy = p.vy / speed * G.wispSpeed;
       }
-      if (p.ttl <= 0) p.dead = true;
-      if (p.dead || !p.canHit || ch.state === "dead" || this.outcome) continue;
-      const r = p.kind === "glaive" ? G.throwRadius : G.wispRadius;
-      if (Math.abs(ch.x - p.x) < r + 12 && Math.abs(this.chCenterY() - p.y) < r + 22) {
-        if (ch.blockT > 0) {
+      if (p.kind === "glaive" && p.returning) {
+        const dx = this.bossFront - p.x, dy = b.y + 44 - p.y, len = Math.hypot(dx, dy) || 1;
+        p.vx = dx / len * G.throwSpeed; p.vy = dy / len * G.throwSpeed;
+        if (len < 25) p.dead = true;
+      }
+      p.x += p.vx * DT; p.y += p.vy * DT; p.traveled += Math.hypot(p.vx, p.vy) * DT;
+      if (p.kind === "glaive" && !p.returning && (p.traveled >= G.throwRange || p.x < 12 || p.x > 948)) {
+        p.returning = true; p.canHit = true;
+      }
+      if (p.ttl <= 0 || (p.kind !== "glaive" && (p.x < -100 || p.x > 1060))) p.dead = true;
+      if (p.dead || !p.canHit || this.outcome) continue;
+      if (p.kind === "enemy-wave" || p.kind === "enemy-orb") {
+        const hit = Math.abs(b.x - p.x) < 35 && (p.kind === "enemy-wave" ? b.y < 35 : Math.abs(b.y + 42 - p.y) < 42);
+        if (hit) { this.damageBoss(p.damage, t, p.kind === "enemy-wave"); p.dead = true; }
+        continue;
+      }
+      const r = p.kind === "blade" ? 34 : p.kind === "glaive" ? G.throwRadius : G.wispRadius;
+      if (Math.abs(ch.x - p.x) < r + 12 && Math.abs(this.chCenterY() - p.y) < r + 24) {
+        if (ch.blockT > 0 && p.kind !== "blade") {
           this.log({ t, type: "evade", move: p.move, how: "umbrella" });
-          if (p.move === this.setup.tactics.bait_attack) ch.punishReady = true;
-          if (p.kind === "glaive") {
-            p.canHit = false;
-            p.returning = true;
-            p.vx = G.throwSpeed;
-          } else p.dead = true;
+          if (p.kind === "glaive") { p.canHit = false; p.returning = true; } else p.dead = true;
           continue;
         }
         const negated = ch.iframes > 0 || ch.decoyT > 0;
-        if (p.kind === "glaive") p.canHit = false;
-        else p.dead = true;
+        if (p.kind === "glaive") p.canHit = false; else p.dead = true;
         this.applyDamage(p.move, p.damage, t, negated);
       }
     }
-    this.projectiles = this.projectiles.filter((p) => !p.dead);
+    this.projectiles = this.projectiles.filter(p => !p.dead);
   }
 
   private hitChallenger(m: ActiveMove, dmg: number, t: number): void {
@@ -542,7 +573,9 @@ export class FightSim {
     let d = dmg * (hes ? HESITATION.damageTakenMult : 1);
     if (this.isQuiet) d = ch.hp;
     ch.hp -= d;
-    if (ch.life === "patchwork") ch.hp = Math.max(1, ch.hp);
+    if (ch.life === "kitten" && !this.tutorialComplete) ch.hp = Math.max(1, ch.hp);
+    ch.knockVx = Math.sign(ch.x - this.boss.x || -this.boss.facing) * (move === "nova" ? 420 : 260);
+    if (move === "cleave" || move === "nova") { ch.vy = Math.max(ch.vy, 180); ch.y = Math.max(ch.y, 0.1); }
     ch.hitFlashT = 0.2;
     this.log({ t, type: "challenger_hit", move, dmg: Math.round(d), hpAfter: Math.max(0, Math.round(ch.hp)), hesitating: hes });
     if (ch.hp <= 0) {
@@ -596,7 +629,7 @@ export class FightSim {
     const tac = this.setup.tactics;
     const inPriority = tac.dodge_priority.includes(move);
     const jitter = 1 + this.rng.range(-CHALLENGER.reactionJitter, CHALLENGER.reactionJitter);
-    const react = (this.setup.stats.reactionMs / 1000) * (inPriority ? 1 : CHALLENGER.offPriorityReactionMult) * jitter;
+    const react = (this.setup.stats.reactionMs / 1000) * (inPriority ? 0.25 : 0.65) * jitter;
     const skill = this.skillFor(move);
     if (skill) {
       const lead = CHALLENGER.skillLeadS[skill];
@@ -687,7 +720,7 @@ export class FightSim {
   }
 
   prefX(): number {
-    return this.bossFront - CHALLENGER.distanceOffset[this.setup.tactics.distance];
+    const side = this.ch.x < this.boss.x ? -1 : 1; return Math.max(ARENA.leftWall, Math.min(936, this.boss.x + side * (ARENA.bossHalfWidth + CHALLENGER.distanceOffset[this.setup.tactics.distance])));
   }
 
   private moveToward(target: number, speedMult = 1): boolean {
@@ -729,46 +762,75 @@ export class FightSim {
     }
   }
 
-  private damageMult(t: number): number {
-    if (this.setup.life !== "patchwork") return 1;
-    return 1 + Math.max(0, t - PATCHWORK.escalateAfterS) * PATCHWORK.escalatePerS;
-  }
+  private damageMult(_t: number): number { return 1; }
+
+  get tutorialComplete(): boolean { return this.boss.jumps > 0 && this.boss.dashes > 0 && this.boss.blocks > 0; }
 
   private strikeBoss(t: number): void {
-    const b = this.boss;
     const ch = this.ch;
-    ch.attackFlashT = 0.15;
-    if (b.transitionT > 0 || this.outcome) return;
-    if (b.yielded) {
-      this.log({ t, type: "boss_hit", dmg: Math.round(b.hp), hpAfter: 0, phase: b.phase });
-      this.killBoss(t);
-      return;
-    }
-    const p2 = this.cfg.phase2;
-    let dmg = this.setup.stats.damage * (ch.punishReady ? CHALLENGER.punishDamageMult : 1) * this.damageMult(t);
-    if (b.phase === 2) dmg *= p2.PHASE2_DAMAGE_TAKEN_MULT;
+    ch.attackFlashT = 0.18; ch.attackSerial++;
+    const dx = Math.abs(ch.x - this.boss.x);
+    if (dx > ARENA.bossHalfWidth + CHALLENGER.reach + 12 || Math.abs(ch.y - this.boss.y) > 65) return;
+    const damage = this.setup.stats.damage * (ch.punishReady ? CHALLENGER.punishDamageMult : 1);
     ch.punishReady = false;
-    b.hp -= dmg;
-    b.hitFlashT = 0.12;
-    if (!b.phase2Triggered && p2.PHASE2_ENABLED && b.hp <= p2.PHASE2_TRIGGER_PCT * b.maxHp) {
-      const before = Math.max(0, b.hp);
-      b.hp = Math.max(1, b.hp);
-      // The crossing hit is logged at the trigger point: Phase Two starts there, whatever the overkill.
-      this.log({ t, type: "boss_hit", dmg: Math.round(dmg), hpAfter: Math.round(p2.PHASE2_TRIGGER_PCT * b.maxHp), phase: 1 });
-      b.phase2Triggered = true;
-      b.transitionT = p2.PHASE2_TRANSITION_S;
-      b.move = null;
-      b.buffered = null;
-      b.glaiveDropX = b.x - 40;
-      this.projectiles = [];
-      this.log({ t, type: "phase2_start", hpBefore: Math.round(before) });
-      ch.state = "backoff";
-      ch.pending = null;
-      return;
+    this.damageBoss(damage, t);
+  }
+
+  private damageBoss(damage: number, t: number, low = false): void {
+    const b = this.boss;
+    if (b.transitionT > 0 || b.invulnT > 0 || this.outcome) return;
+    if (b.yielded) { this.killBoss(t); return; }
+    if (low && b.y > 34) return;
+    if (b.guarding && !low) {
+      damage *= 1 - MOBILITY.guardReduction; b.blocks++; b.guardEnergy = Math.max(0, b.guardEnergy - 0.10);
+      this.log({ t, type: "boss_block" });
     }
-    this.log({ t, type: "boss_hit", dmg: Math.round(dmg), hpAfter: Math.max(0, Math.round(b.hp)), phase: b.phase });
+    b.hp -= damage; b.hitFlashT = 0.13; b.invulnT = MOBILITY.hurtInvulnS;
+    b.knockVx = Math.sign(b.x - this.ch.x || 1) * (b.guarding ? 70 : 240);
+    if (!b.phase2Triggered && this.cfg.phase2.PHASE2_ENABLED && b.hp <= this.cfg.phase2.PHASE2_TRIGGER_PCT * b.maxHp) {
+      const before = Math.max(1, Math.round(b.hp));
+      this.log({ t, type: "boss_hit", dmg: Math.round(damage), hpAfter: Math.round(this.cfg.phase2.PHASE2_TRIGGER_PCT * b.maxHp), phase: 1 });
+      this.beginPhase2(t, before); return;
+    }
+    this.log({ t, type: "boss_hit", dmg: Math.round(damage), hpAfter: Math.max(0, Math.round(b.hp)), phase: b.phase });
     if (b.hp <= 0) this.killBoss(t);
   }
+
+  private beginPhase2(t: number, hpBefore: number): void {
+    const b = this.boss;
+    b.hp = Math.max(1, b.hp); b.phase2Triggered = true; b.transitionT = this.cfg.phase2.PHASE2_TRANSITION_S;
+    b.move = null; b.buffered = null; b.glaiveDropX = b.x - 40; b.y = 0; b.vy = 0; b.grounded = true; b.dashT = 0;
+    this.projectiles = []; this.ch.state = "backoff"; this.ch.pending = null;
+    this.log({ t, type: "phase2_start", hpBefore });
+  }
+
+  private updateAbility(t: number): void {
+    const ch = this.ch;
+    if (this.boss.transitionT > 0 || this.hesitating || ch.state === "dead" || ch.state === "enter") return;
+    if (ch.abilityTellT > 0) {
+      ch.abilityTellT = Math.max(0, ch.abilityTellT - DT);
+      if (ch.abilityTellT === 0) {
+        const side = this.boss.x < ch.x ? -1 : 1;
+        const orb = ch.abilityKind === "orb";
+        this.projectiles.push({ kind: orb ? "enemy-orb" : "enemy-wave", move: orb ? "throw" : "reap",
+          x: ch.x + side * 20, y: orb ? ch.y + 45 : 13, vx: side * (orb ? 280 : 360), vy: 0, ttl: 4,
+          traveled: 0, returning: false, canHit: true, damage: this.setup.stats.damage * (orb ? 0.85 : 0.7), dead: false });
+        ch.abilitySerial++;
+        if (ch.life === "sailor" || ch.life === "knight" || ch.life === "quiet") ch.blockT = 0.65;
+        if (ch.life === "acrobat") { ch.vy = 500; ch.y = 0.1; }
+        if (ch.life === "thief") ch.decoyT = 0.5;
+      }
+      return;
+    }
+    ch.abilityT -= DT;
+    if (ch.abilityT <= 0) {
+      ch.abilityT = ch.life === "kitten" ? 3.2 : Math.max(1.8, 4.2 - this.setup.fightIndex * 0.16);
+      ch.abilityTellT = ch.life === "kitten" ? 0.85 : 0.48;
+      ch.abilityKind = ch.life === "witch" || ch.life === "sailor" || ch.life === "quiet" ? "orb" : "wave";
+      this.log({ t, type: "enemy_ability", kind: ch.abilityKind, x: ch.x });
+    }
+  }
+
 
   private updateChallenger(t: number): void {
     const ch = this.ch;
@@ -796,7 +858,9 @@ export class FightSim {
       if (ch.y > 0) ch.vy = CHALLENGER.doubleJumpVy;
       ch.doubleJumpAt = null;
     }
+    ch.x += ch.knockVx * DT; ch.knockVx *= Math.max(0, 1 - DT * 8);
     this.runPending(t);
+    this.updateAbility(t);
 
     const transition = this.boss.transitionT > 0;
     const combat = !this.isQuiet;
@@ -853,9 +917,9 @@ export class FightSim {
           ch.state = "backoff";
           break;
         }
-        const target = this.bossFront - CHALLENGER.reach * 0.7;
+        const side = ch.x < this.boss.x ? -1 : 1; const target = this.boss.x + side * (ARENA.bossHalfWidth + CHALLENGER.reach * 0.45);
         const arrived = this.moveToward(target, ch.punishReady ? CHALLENGER.punishDashMult : CHALLENGER.attackDashMult);
-        if (arrived || this.bossFront - ch.x <= CHALLENGER.reach) {
+        if (arrived || Math.abs(ch.x - this.boss.x) <= ARENA.bossHalfWidth + CHALLENGER.reach) {
           ch.windupT += DT;
           if (ch.windupT >= CHALLENGER.attackWindupS) {
             this.strikeBoss(t);
@@ -912,7 +976,7 @@ export class FightSim {
         }
         break;
     }
-    ch.x = Math.max(ARENA.spawnX - 30, Math.min(this.bossFront - 16, ch.x));
+    ch.x = Math.max(ARENA.spawnX - 30, Math.min(ARENA.width - 24, ch.x));
     if (ch.state !== "enter" && ch.state !== "leave") ch.x = Math.max(ARENA.leftWall, ch.x);
   }
 

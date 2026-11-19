@@ -1,64 +1,98 @@
-// AI-use disclosure: Codex-authored staging; dialogue is provisional for Nicoh to review.
+// AI-use disclosure: Codex-authored previous-king battle and provisional dialogue for Nicoh.
 import Phaser from "phaser";
 import type { Session } from "../session";
+import { PortraitDialogue } from "../dialogue";
+import { FLOOR, SpriteEffects, poseActor, reflectActor } from "../presentation";
 import { getAudio } from "../audio";
-import { pixelFrame } from "../pixel";
-import { PROLOGUE } from "../../content/lines";
 
 export class OpeningScene extends Phaser.Scene {
   private session!: Session;
   private hero!: Phaser.GameObjects.Image;
-  private prior!: Phaser.GameObjects.Image;
-  private subtitle!: Phaser.GameObjects.Text;
-  private startedAt = 0;
-  private done = false;
-  private film: Phaser.GameObjects.Image | null = null;
+  private oldKing!: Phaser.GameObjects.Image;
+  private heroReflection!: Phaser.GameObjects.Image;
+  private oldReflection!: Phaser.GameObjects.Image;
+  private dialogue!: PortraitDialogue;
+  private fx!: SpriteEffects;
+  private phase = "entry";
+  private phaseAt = 0;
+  private alive = false;
+  private actors = { heroX: 65, heroY: FLOOR, kingX: 802, kingY: FLOOR };
+  private resolves: (() => void)[] = [];
   constructor() { super("opening"); }
-  init(data: { session: Session }): void { this.session = data.session; this.done = false; this.film = null; }
-  create(): void {
-    this.startedAt = this.time.now;
-    this.add.image(480, 270, this.textures.exists("higgsfield-arena") ? "higgsfield-arena" : "bg-night").setDisplaySize(960, 540);
-    this.add.rectangle(480, 26, 960, 52, 0x050a13); this.add.rectangle(480, 505, 960, 70, 0x050a13);
-    this.hero = this.add.image(598, 452, "alley").setOrigin(0.5, 1).setDisplaySize(112, 128);
-    this.prior = this.add.image(800, 416, "immortal-base").setOrigin(0.5, 1).setDisplaySize(168, 192).setAngle(-16).setTint(0xa59daf);
-    if (this.textures.exists("prologue")) {
-      this.film = this.add.image(480, 270, "prologue", 0).setDisplaySize(960, 540);
-      this.hero.setVisible(false); this.prior.setVisible(false);
-      this.add.rectangle(480, 26, 960, 52, 0x050a13); this.add.rectangle(480, 505, 960, 70, 0x050a13);
-    }
-    this.subtitle = this.add.text(480, 493, "", { fontFamily: "Georgia, serif", fontSize: "21px", color: "#e8e0cd", align: "center" }).setOrigin(0.5);
-    const skip = this.add.text(920, 26, "ESC  SKIP", { fontFamily: "monospace", fontSize: "11px", color: "#92a9af" }).setOrigin(1, 0.5).setInteractive({ useHandCursor: true });
-    skip.on("pointerdown", () => this.finish()); this.input.keyboard?.on("keydown-ESC", () => this.finish());
-    // PLACEHOLDER: Nicoh to rewrite. Requested plot beats, fifteen seconds total.
-    const beats: [number, () => void][] = [
-      [100, () => this.subtitle.setText(PROLOGUE.laugh)],
-      [3300, () => this.subtitle.setText(PROLOGUE.trap)],
-      [6500, () => this.subtitle.setText(PROLOGUE.answer)],
-      [8600, () => { this.cameras.main.flash(450, 160, 199, 188); this.prior.setAlpha(0); this.hero.setTexture("immortal-base").setPosition(800, 416).setDisplaySize(196, 224); this.subtitle.setText(PROLOGUE.years); }],
-      [10900, () => { this.subtitle.setText(PROLOGUE.kitten); this.prior.setTexture("kitten").clearTint().setAngle(0).setPosition(-30, 452).setDisplaySize(70, 80).setAlpha(1); this.tweens.add({ targets: this.prior, x: 235, duration: 1900, ease: "Sine.Out" }); }],
-      [13300, () => this.subtitle.setText(PROLOGUE.refusal)],
-      [15000, () => this.finish()],
-    ];
-    beats.forEach(([delay, fn]) => this.time.delayedCall(delay, fn));
+  init(data: { session: Session }): void {
+    this.session = data.session; this.phase = "entry";
+    this.actors = { heroX: 65, heroY: FLOOR, kingX: 802, kingY: FLOOR }; this.resolves = [];
   }
-  private finish(): void {
-    if (this.done) return;
-    this.done = true;
-    this.time.removeAllEvents();
-    getAudio().start();
-    void this.session.completeOpening().then(() => {
-      if (this.scene.isActive()) this.scene.start("fight", { session: this.session });
+  create(): void {
+    this.alive = true; this.phaseAt = this.time.now;
+    this.add.image(480, 270, "higgsfield-arena").setDisplaySize(960, 540);
+    this.heroReflection = this.add.image(65, FLOOR, "alley").setDepth(2);
+    this.oldReflection = this.add.image(802, FLOOR, "immortal-base").setDepth(2);
+    this.hero = this.add.image(65, FLOOR, "alley").setDepth(7);
+    this.oldKing = this.add.image(802, FLOOR, "immortal-base").setDepth(7);
+    this.add.rectangle(480, 14, 960, 28, 0x040912).setDepth(20);
+    this.add.text(30, 13, "BEFORE THE THOUSAND YEARS", { fontFamily: "monospace", fontSize: "10px", color: "#bfbaaa" }).setDepth(21).setOrigin(0, 0.5);
+    this.fx = new SpriteEffects(this); this.dialogue = new PortraitDialogue(this);
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+      this.alive = false; this.dialogue.dispose(); this.fx.clear(); this.resolves.splice(0).forEach(resolve => resolve());
+    });
+    this.cameras.main.fadeIn(700); getAudio().start();
+    void this.run();
+  }
+  private wait(ms: number): Promise<void> {
+    return new Promise(resolve => {
+      this.resolves.push(resolve);
+      this.time.delayedCall(ms, () => { this.resolves = this.resolves.filter(r => r !== resolve); resolve(); });
     });
   }
-  override update(time: number): void {
-    const late = time - this.startedAt >= 8600;
-    this.hero.setTexture(pixelFrame(late ? "immortal-base" : "alley", "idle", time / 1000));
-    if (this.film) {
-      const elapsed = time - this.startedAt;
-      const frame = elapsed < 6500 ? Math.min(5, Math.floor(elapsed / 1100)) : elapsed < 8600 ? 6 + Math.min(2, Math.floor((elapsed - 6500) / 700)) : elapsed < 10900 ? 9 + Math.min(2, Math.floor((elapsed - 8600) / 770)) : elapsed < 14000 ? 12 + Math.min(2, Math.floor((elapsed - 10900) / 1033)) : 15;
-      this.film.setFrame(frame);
-      // A restrained continuous dolly joins generated key poses without moving UI.
-      this.film.setScale(2.5 + Math.sin(elapsed / 15000 * Math.PI) * 0.06);
+  private setPhase(value: string): void { this.phase = value; this.phaseAt = this.time.now; }
+  private async run(): Promise<void> {
+    this.tweens.add({ targets: this.actors, heroX: 425, duration: 1400, ease: "Sine.Out" });
+    await this.wait(1450); if (!this.alive) return;
+    this.setPhase("challenge");
+    await this.dialogue.play([{ speaker: "THE CHALLENGER — YOU", text: "I came for your crown.", portrait: "alley" }], 2000);
+    if (!this.alive) return;
+    for (let hit = 0; hit < 3; hit++) {
+      this.setPhase("duel");
+      this.tweens.add({ targets: this.actors, heroX: 720 + hit * 20, duration: 300, ease: "Cubic.Out" });
+      this.tweens.add({ targets: this.actors, heroY: FLOOR - (hit === 1 ? 100 : 28), duration: 200, yoyo: true, ease: "Sine.Out" });
+      this.fx.spawn(0, 750, FLOOR - 70, 260, 440, 1);
+      await this.wait(300); if (!this.alive) return;
+      getAudio().hit(true); this.fx.burst(this.actors.kingX, FLOOR - 65, true);
+      this.actors.kingX = Math.min(880, this.actors.kingX + 22);
+      this.cameras.main.shake(110, 0.004);
+      this.setPhase(hit === 2 ? "fallen" : "recoil");
+      await this.wait(hit === 2 ? 500 : 400); if (!this.alive) return;
     }
+    await this.dialogue.play([
+      { speaker: "THE FALLEN KING", text: "Ha... Another fool who thinks he has won a kingdom.", portrait: "previous-king-portrait" },
+      { speaker: "THE FALLEN KING", text: "Take the crown. Walk every inch of this hall. Its doors will never open for you.", portrait: "previous-king-portrait" },
+      { speaker: "THE FALLEN KING", text: "Every life you buried will come for it. You will learn their faces.", portrait: "previous-king-portrait" },
+      { speaker: "YOU", text: "It doesn't matter. I will be a better king.", portrait: "alley" },
+    ], 2100);
+    if (!this.alive) return;
+    this.setPhase("crowned"); this.oldKing.setAlpha(0.3);
+    this.fx.spawn(3, this.actors.heroX, FLOOR - 70, 420, 1500); getAudio().bell();
+    this.cameras.main.flash(450, 150, 195, 205);
+    await this.wait(1700); if (!this.alive) return;
+    this.oldKing.setAlpha(0); this.setPhase("centuries");
+    this.tweens.add({ targets: this.actors, heroX: 850, heroY: 385, duration: 1700, ease: "Sine.InOut" });
+    const years = this.add.text(480, 150, "ONE THOUSAND YEARS LATER", { fontFamily: "Georgia, serif", fontSize: "27px", color: "#e7d4ad", letterSpacing: 2 }).setOrigin(0.5).setAlpha(0).setDepth(30);
+    this.tweens.add({ targets: years, alpha: 1, duration: 1600 });
+    await this.wait(3300); if (!this.alive) return;
+    await this.dialogue.play([{ speaker: "THE IMMORTAL", text: "My kingdom is dust. Still, someone climbs the steps.", portrait: "immortal-base" }], 2300);
+    if (this.alive) this.scene.start("fight", { session: this.session });
+  }
+  override update(time: number, delta: number): void {
+    const t = time / 1000; this.fx?.update(Math.min(0.05, delta / 1000));
+    const elapsed = time - this.phaseAt;
+    const crowned = this.phase === "crowned" || this.phase === "centuries";
+    const motion = this.phase === "entry" ? "run" : this.phase === "duel" ? "cleave" : "idle";
+    const frame = this.phase === "duel" ? Math.min(5, Math.floor(elapsed / 65)) : Math.floor(t * (motion === "run" ? 12 : 5)) % 6;
+    poseActor(this, this.hero, crowned ? "player" : "alley", motion, frame, this.actors.heroX, this.actors.heroY, crowned ? -1 : 1, crowned ? 143 : 82);
+    const oldMotion = this.phase === "fallen" || crowned ? "dash" : this.phase === "recoil" ? "jump" : this.phase === "duel" ? "cleave" : "idle";
+    const oldFrame = oldMotion === "dash" ? Math.min(5, Math.floor(elapsed / 130)) : oldMotion === "cleave" ? Math.min(3, Math.floor(elapsed / 80)) : Math.floor(t * 5) % 6;
+    poseActor(this, this.oldKing, "previous", oldMotion, oldFrame, this.actors.kingX, this.actors.kingY, -1, 146);
+    reflectActor(this.hero, this.heroReflection); reflectActor(this.oldKing, this.oldReflection);
   }
 }

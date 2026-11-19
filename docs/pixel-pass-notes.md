@@ -2,6 +2,8 @@ AI-use disclosure: written by Codex; Higgsfield generated the new raster assets.
 
 # Pixel presentation revision
 
+Historical record of the earlier visual pass. The later mobile combat, tutorial, story staging, settings and three-ending revision is documented in docs/mobile-combat.md. That contract supersedes the one-hit kitten and forced-loss behaviors described below.
+
 The working project and its Git history are now in `D:\Coding VS\the-ninth-life`, on `prototype/first-playable`. The former C: game copy was moved here at Nicoh's request. All source, design documents, course handoff files and asset evidence are in this folder. User reference images are local-only in the ignored `assets/references/`; private `CLAUDE.local.md` remains ignored.
 
 ## Play

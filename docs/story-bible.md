@@ -2,6 +2,10 @@
 
 AI-use disclosure: drafted with Claude from Nicoh's design direction. Nicoh owns final wording and all authored lines.
 
+## Current story revision
+
+See docs/mobile-combat.md for the current playable arc: the king may walk, jump and dash throughout the hall; the curse binds the castle's doors, not the throne. The previous king is defeated on screen before his warning. Years of waiting separate returning past lives. Normal, Do Nothing and earned Victory replace the older inevitable-loss ending. Portrait dialogue has a minimum reading time and cannot be skipped. Older descriptions below remain history where they conflict.
+
 ## The premise in one paragraph
 
 Latest opening direction (Nicoh, later Nov 19): the player defeated the prior Immortal, who laughed that the throne had trapped its successor. The player answered that it did not matter. A thousand years later a kitten arrived, was refused and fell in one hit. This is staged in the generated fifteen-second opening, replacing explanatory intro cards. Past-life cats are now upright pixel sprites with different fur patterns as well as distinct accessories. The relationship, bond and authored ending below remain the continuing arc; inherited immortality supersedes older self-imprisonment exposition.

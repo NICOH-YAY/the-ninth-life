@@ -8,6 +8,8 @@ This is Nicoh Koehly's (`nicoh-yay`) final project for COMS E6998 sec 014, AI in
 @CONFIG.md
 @PLAN.md
 
+Current combat and story contract: @docs/mobile-combat.md. Its later user-directed mobility, tutorial and three-ending rules replace the older forced-loss rules.
+
 Newer design docs that override GDD.md where they conflict (update GDD.md to match): docs/story-bible.md, docs/phase-two.md, docs/challenger-progression.md, docs/art-direction.md, docs/prototype-brief.md. Simple mechanical work goes to the Haiku subagents in `.claude/agents/`.
 
 `GDD.md` is the current spec. `docs/design-history.md` records the concepts considered, why this one was chosen, decisions, and open critiques.
@@ -20,7 +22,7 @@ Newer design docs that override GDD.md where they conflict (update GDD.md to mat
 - **Nicoh merges.** Never merge, force-push, or push to `main`. Branch and open a PR.
 - **Plan first.** Propose a plan for any non-trivial task and wait for approval.
 - **Secrets.** The model key lives only in the Cloudflare Worker (`wrangler secret put`). Keep `.dev.vars` in `.gitignore`.
-- **The ending is authored.** The patchwork cat always wins. Do not let the agent decide the ending.
+- **Endings are game rules.** Normal, Do Nothing and Victory follow the player's combat and inactivity. The final cat is mortal. The planner never chooses the ending.
 - **Decisions versus recommendations.** Mark your suggestions **[Proposed]**. Only Nicoh marks **[Decided]**. Log decisions in `GDD.md` Section 19.
 - **AI-use disclosure** at the top of every written artifact.
 - **Evidence.** Notes for significant agent sessions go in `docs/agent-sessions/`.

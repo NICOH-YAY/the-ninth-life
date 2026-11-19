@@ -11,14 +11,14 @@ export const ARENA = {
   width: 960,
   height: 540,
   /** Screen y of the floor. Core positions use y = height above the floor. */
-  floorY: 452,
+  floorY: 464,
   /** Height of the throne platform the Immortal stands on. */
-  platformY: 36,
+  platformY: 0,
   leftWall: 24,
   spawnX: -40,
   startX: 90,
-  bossMinX: 700,
-  bossMaxX: 870,
+  bossMinX: 48,
+  bossMaxX: 912,
   bossStartX: 800,
   bossHalfWidth: 52,
 };
@@ -33,24 +33,24 @@ export interface MoveSpec {
 }
 
 export const BASE_MOVES: Record<BossMove, MoveSpec> = {
-  cleave: { name: "Crescent Cleave", tellS: 0.45, activeS: 0.15, recoverS: 0.35, cooldownS: 1.1, damage: 16 },
-  throw: { name: "Glaive Throw", tellS: 0.5, activeS: 0.1, recoverS: 0.3, cooldownS: 2.0, damage: 12 },
-  reap: { name: "Low Reap", tellS: 0.4, activeS: 0.25, recoverS: 0.35, cooldownS: 1.6, damage: 13 },
-  nova: { name: "Nine-Lives Nova", tellS: 1.0, activeS: 0.2, recoverS: 0.6, cooldownS: 0, damage: 26 },
+  cleave: { name: "Crescent Cleave", tellS: 0.10, activeS: 0.14, recoverS: 0.14, cooldownS: 0.30, damage: 28 },
+  throw: { name: "Glaive Throw", tellS: 0.16, activeS: 0.10, recoverS: 0.15, cooldownS: 0.90, damage: 24 },
+  reap: { name: "Low Reap", tellS: 0.18, activeS: 0.18, recoverS: 0.16, cooldownS: 1.10, damage: 32 },
+  nova: { name: "Nine-Lives Nova", tellS: 0.55, activeS: 0.25, recoverS: 0.20, cooldownS: 0, damage: 75 },
 };
 
 export const ASCENDED_MOVES: Record<BossMove, MoveSpec> = {
-  cleave: { name: "Pounce Rift", tellS: 0.6, activeS: 0.15, recoverS: 0.35, cooldownS: 1.2, damage: 16 },
-  throw: { name: "Soul Wisps", tellS: 0.5, activeS: 0.6, recoverS: 0.3, cooldownS: 2.2, damage: 5 },
-  reap: { name: "Shadow Tide", tellS: 0.45, activeS: 0.8, recoverS: 0.35, cooldownS: 1.8, damage: 10 },
-  nova: { name: "Ninth Bell", tellS: 1.0, activeS: 0.2, recoverS: 0.6, cooldownS: 0, damage: 22 },
+  cleave: { name: "Pounce Rift", tellS: 0.28, activeS: 0.18, recoverS: 0.16, cooldownS: 0.6, damage: 30 },
+  throw: { name: "Soul Wisps", tellS: 0.20, activeS: 0.40, recoverS: 0.15, cooldownS: 1.2, damage: 10 },
+  reap: { name: "Shadow Tide", tellS: 0.20, activeS: 0.65, recoverS: 0.15, cooldownS: 1.3, damage: 26 },
+  nova: { name: "Ninth Bell", tellS: 0.55, activeS: 0.25, recoverS: 0.20, cooldownS: 0, damage: 70 },
 };
 
 export const MOVE_GEOMETRY = {
   /** Cleave reaches this far in front of the boss, below this height. */
   cleaveReach: 170,
-  cleaveHeight: 60,
-  throwSpeed: 480,
+  cleaveHeight: 120,
+  throwSpeed: 650,
   throwRange: 620,
   throwRadius: 24,
   throwHeight: 40,
@@ -68,14 +68,21 @@ export const MOVE_GEOMETRY = {
   bellPillarHalfWidth: 32,
   bellPillarSpacing: 170,
   bellPillarDamage: 9,
-  novaChargeS: 20,
-  bellChargeS: 16,
+  novaChargeS: 8,
+  bellChargeS: 7,
 };
+
+export const MOBILITY = {
+  gravity: 1700, jumpSpeed: 580, dashSpeed: 900, dashS: 0.16, dashCooldownS: 0.65,
+  coyoteS: 0.09, jumpBufferS: 0.14, hurtInvulnS: 0.28, guardReduction: 0.78,
+  guardDrain: 0.42, guardRegen: 0.30, boredomS: 55,
+};
+export const TUTORIAL = { requireJump: true, requireDash: true, requireBlock: true };
 
 export const BOSS = {
   maxHp: 700,
-  shiftSpeed: 150,
-  inputBufferS: 0.15,
+  shiftSpeed: 310,
+  inputBufferS: 0.24,
 };
 
 export interface Phase2Config {
@@ -98,7 +105,7 @@ export const PHASE2: Phase2Config = {
   PHASE2_REFILL_PCT: 0.75,
   PHASE2_COOLDOWN_MULT: 0.7,
   PHASE2_TELL_MULT: 0.8,
-  PHASE2_TELL_MIN_S: 0.3,
+  PHASE2_TELL_MIN_S: 0.12,
   PHASE2_MOVE_SPEED_MULT: 1.3,
   PHASE2_DAMAGE_MULT: 1.25,
   PHASE2_DAMAGE_TAKEN_MULT: 1.0,
@@ -107,11 +114,11 @@ export const PHASE2: Phase2Config = {
 export const CHALLENGER = {
   baseHp: 160,
   baseDamage: 18,
-  baseSpeed: 150,
+  baseSpeed: 180,
   reach: 44,
-  attackWindupS: 0.2,
-  hitstunS: 0.3,
-  decisionIntervalS: 0.5,
+  attackWindupS: 0.30,
+  hitstunS: 0.20,
+  decisionIntervalS: 0.32,
   gravity: 1600,
   jumpVy: 540,
   doubleJumpVy: 500,
@@ -143,8 +150,8 @@ export const CHALLENGER = {
 
 /** Per-life base stat overrides. Multiplied by the curve. */
 export const LIFE_BASE: Partial<Record<string, { hp?: number; damage?: number }>> = {
-  kitten: { hp: 12, damage: 8 },
-  quiet: { hp: 1, damage: 0 },
+  kitten: { hp: 260, damage: 4 },
+  quiet: { hp: 320, damage: 27 },
   knight: { hp: 170 },
   thief: { damage: 16 },
 };

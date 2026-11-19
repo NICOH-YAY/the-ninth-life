@@ -16,6 +16,16 @@ export class BootScene extends Phaser.Scene {
     this.load.on("progress", (p: number) => bar.setSize(300 * p, 4));
     this.load.on("loaderror", (file: Phaser.Loader.File) => console.warn("asset missing, using a stand-in:", file.key));
     this.load.image("higgsfield-arena", "bg/pixel-arena.png");
+    this.load.image("hf-castle-exterior", "combat-v3/castle-exterior.png");
+    this.load.image("combat-aged-mid", "combat-v3/castle-aged-mid.png");
+    this.load.image("combat-aged-late", "combat-v3/castle-aged-late.png");
+    this.load.image("previous-king-portrait", "combat-v3/previous-king-portrait.png");
+    this.load.spritesheet("combat-player", "combat-v3/immortal-base-motion.png", { frameWidth: 96, frameHeight: 96 });
+    this.load.spritesheet("combat-ascended", "combat-v3/immortal-ascended-motion.png", { frameWidth: 96, frameHeight: 96 });
+    this.load.spritesheet("combat-enemy", "combat-v3/challenger-abilities.png", { frameWidth: 144, frameHeight: 144 });
+    this.load.spritesheet("combat-vfx", "combat-v3/combat-vfx.png", { frameWidth: 128, frameHeight: 128 });
+    this.load.spritesheet("combat-rest", "combat-v3/immortal-rest.png", { frameWidth: 96, frameHeight: 96 });
+    this.load.spritesheet("combat-previous", "combat-v3/previous-king.png", { frameWidth: 96, frameHeight: 96 });
     this.load.image("higgsfield-dawn", "bg/pixel-dawn.png");
     this.load.image("hf-base", "pixel/immortal-base-sheet.png");
     this.load.image("hf-ascended", "pixel/immortal-ascended-sheet.png");

@@ -1,841 +1,346 @@
-// AI-use disclosure: written by Claude Code. The throne room: renders the core fight sim,
-// reads input, plays the between-fight sequence (death, summary, line, response, intro
-// card), and hands endings to the ending scene. All rules live in src/core.
-
+// AI-use disclosure: Codex-authored mobile combat presentation; deterministic rules stay in src/core.
 import Phaser from "phaser";
-import { pixelFrame, type Pose } from "../pixel";
-import { ARENA, DT, MOVE_GEOMETRY as G, PATCHWORK, RUN } from "../../core/config";
-import type { FightSim } from "../../core/fight";
-import { ROSTER } from "../../core/roster";
-import { clampBond, fixedLifeFor } from "../../core/run";
+import { ARENA, DT, BASE_MOVES, ASCENDED_MOVES, MOBILITY } from "../../core/config";
+import type { FightSim, Projectile } from "../../core/fight";
+import { NO_INPUT, type BossInput, type FightEvent, type LifeId, type BossMove } from "../../core/types";
 import { makeBot, type BossBot } from "../../core/bots";
-import { NO_INPUT, type BossInput, type FightEvent, type FightSummary, type LifeId, type PlanResult } from "../../core/types";
-import { INTRO, LIFE9, MUTUAL, QUIET_TALK, RESPONSES, quietBand } from "../../content/lines";
-import { DISPLAY_HEIGHT, drawFraming, drawProps, tierLook, tierOf } from "../art";
+import { ROSTER } from "../../core/roster";
+import { loadBindings, keyLabel, type Bindings } from "../controls";
+import { PortraitDialogue, type DialogueLine } from "../dialogue";
+import { FLOOR, LIFE_ORDER, SpriteEffects, poseActor, reflectActor, type Motion } from "../presentation";
 import { getAudio } from "../audio";
 import type { Session } from "../session";
 
-type Mode = "card" | "fight" | "death" | "between";
-
-const FONT = "monospace";
-const FLOOR = ARENA.floorY;
-const PLATFORM_TOP = FLOOR - ARENA.platformY;
-
-/** Filled circular sector as a polygon. Graphics.slice draws the wrong arc in the Canvas renderer. */
-function fan(g: Phaser.GameObjects.Graphics, cx: number, cy: number, r: number, a0: number, a1: number): void {
-  const pts: Phaser.Types.Math.Vector2Like[] = [{ x: cx, y: cy }];
-  const steps = 14;
-  for (let i = 0; i <= steps; i++) {
-    const a = a0 + ((a1 - a0) * i) / steps;
-    pts.push({ x: cx + Math.cos(a) * r, y: cy + Math.sin(a) * r });
-  }
-  g.fillPoints(pts, true);
-}
+type Mode = "arrival" | "fight" | "death" | "waiting" | "paused";
+const YEARS = [1000, 1089, 1193, 1324, 1488, 1672, 1880, 2116, 2400];
+const NAMES: Record<LifeId, string> = { kitten: "The Village Kitten", alley: "The Red Scarf", sailor: "The Stormwalker", acrobat: "The Bell Dancer", witch: "The Ash Witch", knight: "The Last Knight", thief: "The Silver Thief", quiet: "The Winter Visitor", patchwork: "The Mended One" };
+// PLACEHOLDER: Nicoh to review. Authored scene facts, never generated during combat.
+const ARRIVALS: Record<LifeId, [string, string]> = {
+  kitten: ["The villages sent me. They say their king never leaves this castle.", "Then let me see what the villages have learned."],
+  alley: ["All these winters. I still remember your blade.", "The scarf is new. The eyes are not."],
+  sailor: ["The river moved. Your castle did not. Do you remember the sea?", "I hear it when the hall is quiet."],
+  acrobat: ["You always strike low. I practiced above the bells.", "There were bells here once."],
+  witch: ["The crown keeps every life you buried. I am one of them.", "I thought I had forgotten that voice."],
+  knight: ["Your people are names carved into stone now. Come outside.", "The doors open for everyone but their king."],
+  thief: ["I found the old king's warning beneath your throne.", "I heard it before I put the crown on."],
+  quiet: ["I brought you a scarf. Winter has reached the broken roof.", "Stay a while. Then show me what you came to do."],
+  patchwork: ["I have worn every life you left behind. This one is mine.", "Then neither of us will pretend this is easy."],
+};
 
 export class FightScene extends Phaser.Scene {
   private session!: Session;
   private sim: FightSim | null = null;
-  private mode: Mode = "card";
-  private acc = 0;
+  private mode: Mode = "arrival";
+  private bindings!: Bindings;
+  private held = new Set<string>();
+  private queued: Partial<BossInput> = {};
+  private accumulator = 0;
   private hitstop = 0;
-  private evIndex = 0;
-  private press: Partial<BossInput> = {};
-  private keys!: Record<"A" | "D" | "S" | "LEFT" | "RIGHT", Phaser.Input.Keyboard.Key>;
-  private showHitboxes = false;
-  private fightClock = 0;
-  private releasedMove: object | null = null;
-  /** Dev options from the URL: ?speed=N runs the sim N times faster, ?autoplay=1 lets a scripted boss play. */
-  private speed = 1;
-  private autoplay = false;
-  private autoBot: BossBot | null = null;
-  /** Debug keys are on in dev builds or with ?debug=1. */
-  private debug = false;
-  /** Confirm keys are ignored until this scene time, so mashing attack keys cannot skip a screen. */
-  private inputLockUntil = 0;
-  /** Bumped on a debug jump so stale async steps know to stop. */
+  private eventIndex = 0;
   private epoch = 0;
-
-  private bgNight!: Phaser.GameObjects.Image;
-  private bgDawn!: Phaser.GameObjects.Image;
-  private wash!: Phaser.GameObjects.Rectangle;
-  private warm!: Phaser.GameObjects.Rectangle;
-  private dark!: Phaser.GameObjects.Rectangle;
-  private flash!: Phaser.GameObjects.Rectangle;
-  private props!: Phaser.GameObjects.Graphics;
-  private stage!: Phaser.GameObjects.Graphics;
-  private fx!: Phaser.GameObjects.Graphics;
-  private fxAdd!: Phaser.GameObjects.Graphics;
-  private ui!: Phaser.GameObjects.Graphics;
-  private debugG!: Phaser.GameObjects.Graphics;
-  private boss!: Phaser.GameObjects.Image;
-  private asc!: Phaser.GameObjects.Image;
-  private transformation!: Phaser.GameObjects.Image;
-  private bossGlow!: Phaser.GameObjects.Image;
-  private eyeL!: Phaser.GameObjects.Image;
-  private eyeR!: Phaser.GameObjects.Image;
+  private modeAt = 0;
+  private autoplay = false;
+  private speed = 1;
+  private debug = false;
+  private bot: BossBot | null = null;
+  private released: object | null = null;
+  private bg!: Phaser.GameObjects.Image;
+  private aged!: Phaser.GameObjects.Image;
+  private king!: Phaser.GameObjects.Image;
   private ch!: Phaser.GameObjects.Image;
-  private decoy!: Phaser.GameObjects.Image;
-  private chName!: Phaser.GameObjects.Text;
-  private bossName!: Phaser.GameObjects.Text;
-  private caption!: Phaser.GameObjects.Text;
-  private dialogue!: Phaser.GameObjects.Text;
-  private dialogueBox!: Phaser.GameObjects.Rectangle;
-  private holdText!: Phaser.GameObjects.Text;
+  private kingReflection!: Phaser.GameObjects.Image;
+  private chReflection!: Phaser.GameObjects.Image;
+  private shield!: Phaser.GameObjects.Image;
+  private enemyShield!: Phaser.GameObjects.Image;
+  private ui!: Phaser.GameObjects.Graphics;
+  private ground!: Phaser.GameObjects.Graphics;
+  private healthLeft!: Phaser.GameObjects.Text;
+  private healthRight!: Phaser.GameObjects.Text;
+  private yearText!: Phaser.GameObjects.Text;
+  private hint!: Phaser.GameObjects.Text;
+  private waitingText!: Phaser.GameObjects.Text;
   private debugText!: Phaser.GameObjects.Text;
-  private overlay!: Phaser.GameObjects.Container;
+  private docks: Phaser.GameObjects.Text[] = [];
+  private dialogue!: PortraitDialogue;
+  private fx!: SpriteEffects;
+  private projectileImages = new Map<Projectile, Phaser.GameObjects.Image>();
 
-  private dockLabels: Phaser.GameObjects.Text[] = [];
-  private bossHpShown = 1;
-  private typing: { full: string; shown: number; t: number; hold: number } | null = null;
-  private captionT = 0;
-  private overlayAdvance: (() => void) | null = null;
-  private choice: { index: number; options: Phaser.GameObjects.Text[]; done: (open: boolean) => void } | null = null;
-
-  constructor() {
-    super("fight");
-  }
-
+  constructor() { super("fight"); }
   init(data: { session: Session }): void {
-    this.session = data.session;
-    this.sim = null;
-    this.mode = "card";
-    this.evIndex = 0;
-    this.press = {};
-    this.typing = null;
-    this.choice = null;
-    this.overlayAdvance = null;
-    this.releasedMove = null;
+    this.session = data.session; this.sim = null; this.held.clear(); this.queued = {};
+    this.accumulator = 0; this.epoch++; this.projectileImages.clear(); this.released = null;
   }
-
   create(): void {
-    const W = ARENA.width;
-    const H = ARENA.height;
-    this.cameras.main.fadeIn(600);
-    this.bgNight = this.add.image(W / 2, H / 2, this.textures.exists("higgsfield-arena") ? "higgsfield-arena" : "bg-night");
-    this.bgNight.setScale(Math.max(W / this.bgNight.width, H / this.bgNight.height));
-    this.bgDawn = this.add.image(W / 2, H / 2, "bg-dawn").setAlpha(0);
-    this.bgDawn.setScale(Math.max(W / this.bgDawn.width, H / this.bgDawn.height));
-    this.wash = this.add.rectangle(W / 2, H / 2, W, H, 0x10183a, 0.3);
-    this.warm = this.add.rectangle(W / 2, H / 2, W, H, 0xffa860, 0).setBlendMode(Phaser.BlendModes.ADD);
-    this.props = this.add.graphics();
-    this.stage = this.add.graphics();
-    this.drawStage();
-    this.bossGlow = this.add.image(0, 0, "glow").setBlendMode(Phaser.BlendModes.ADD).setAlpha(0);
-    this.boss = this.add.image(ARENA.bossStartX, PLATFORM_TOP, "immortal-base").setOrigin(0.5, 1);
-    this.boss.setScale(DISPLAY_HEIGHT.immortal / this.boss.height);
-    this.asc = this.add.image(ARENA.bossStartX, PLATFORM_TOP, "immortal-ascended").setOrigin(0.5, 1).setAlpha(0);
-    this.asc.setScale(DISPLAY_HEIGHT.ascended / this.asc.height);
-    this.transformation = this.add.image(ARENA.bossStartX, PLATFORM_TOP, "immortal-base").setOrigin(0.5, 1).setVisible(false);
-    this.eyeL = this.add.image(0, 0, "glow").setBlendMode(Phaser.BlendModes.ADD).setTint(0xc8b6ff).setAlpha(0);
-    this.eyeR = this.add.image(0, 0, "glow").setBlendMode(Phaser.BlendModes.ADD).setTint(0xc8b6ff).setAlpha(0);
-    this.decoy = this.add.image(0, FLOOR, "kitten").setOrigin(0.5, 1).setAlpha(0);
-    this.ch = this.add.image(ARENA.spawnX, FLOOR, "kitten").setOrigin(0.5, 1);
-    this.fx = this.add.graphics();
-    this.fxAdd = this.add.graphics().setBlendMode(Phaser.BlendModes.ADD);
-    this.dark = this.add.rectangle(W / 2, H / 2, W, H, 0x000000, 0);
-    this.flash = this.add.rectangle(W / 2, H / 2, W, H, 0xffffff, 0);
-    if (!this.textures.exists("higgsfield-arena")) drawFraming(this.add.graphics(), W, H);
-    this.debugG = this.add.graphics();
-    this.ui = this.add.graphics();
-
-    const text = (x: number, y: number, size: number, color = "#e8e0ff"): Phaser.GameObjects.Text =>
-      this.add.text(x, y, "", { fontFamily: FONT, fontSize: `${size}px`, color });
-    this.chName = text(30, 16, 15);
-    this.bossName = text(W - 30, 16, 15).setOrigin(1, 0);
-    this.bossName.setText("The Immortal");
-    this.caption = text(W / 2, 92, 18, "#d9ccff").setOrigin(0.5).setAlpha(0);
-    this.dialogueBox = this.add.rectangle(W / 2, H - 70, 640, 54, 0x05050c, 0.72).setStrokeStyle(1, 0x5c5480).setAlpha(0);
-    this.dialogue = text(W / 2, H - 70, 19, "#f3ecff").setOrigin(0.5).setAlpha(0).setWordWrapWidth(600).setAlign("center");
-    this.holdText = text(W / 2, H - 128, 17, "#ffe8b0").setOrigin(0.5).setAlpha(0);
-    this.debugText = text(22, H - 20, 11, "#8d85a8").setOrigin(0, 1);
-    this.overlay = this.add.container(0, 0).setDepth(50);
-    this.dockLabels = [0, 1, 2, 3].map(i => text(336 + i * 100, 513, 10, "#c5d4d0").setOrigin(0.5).setDepth(20));
-
-    const params = new URLSearchParams(window.location.search);
-    this.speed = Math.min(8, Math.max(1, Number(params.get("speed") ?? 1) || 1));
-    this.autoplay = params.get("autoplay") === "1";
-    this.debug = params.get("debug") === "1";
-    this.debugText.setVisible(this.debug);
-    this.setupInput();
-    this.applyTierLook(this.session.fightIndex, false);
-    this.showIntroCard();
-  }
-
-  // ---------- input ----------
-
-  private setupInput(): void {
-    const kb = this.input.keyboard!;
-    this.keys = kb.addKeys({ A: "A", D: "D", S: "S", LEFT: "LEFT", RIGHT: "RIGHT" }) as FightScene["keys"];
-    kb.addCapture("SPACE,UP,DOWN,LEFT,RIGHT");
-    kb.on("keydown", (e: KeyboardEvent) => this.onKey(e));
-  }
-
-  /** A delayed flow step that is dropped if a debug jump happened in between. */
-  private later(ms: number, fn: () => void): void {
-    const epoch = this.epoch;
-    this.time.delayedCall(ms, () => {
-      if (epoch === this.epoch) fn();
+    const params = new URLSearchParams(location.search);
+    this.autoplay = params.get("autoplay") === "1"; this.speed = Math.max(1, Math.min(8, Number(params.get("speed") ?? 1)));
+    this.debug = params.get("debug") === "1"; this.bindings = loadBindings();
+    this.bg = this.add.image(480, 270, "higgsfield-arena").setDisplaySize(960, 540);
+    this.aged = this.add.image(480, 270, "combat-aged-mid").setDisplaySize(960, 540).setAlpha(0);
+    this.ground = this.add.graphics().setDepth(1);
+    this.kingReflection = this.add.image(800, FLOOR, "immortal-base").setDepth(2);
+    this.chReflection = this.add.image(120, FLOOR, "kitten").setDepth(2);
+    this.king = this.add.image(800, FLOOR, "immortal-base").setDepth(8);
+    this.ch = this.add.image(-50, FLOOR, "kitten").setDepth(7);
+    this.shield = this.add.image(800, FLOOR - 60, "combat-vfx", 30).setDepth(13).setVisible(false);
+    this.enemyShield = this.add.image(120, FLOOR - 35, "combat-vfx", 30).setDepth(13).setVisible(false);
+    this.ui = this.add.graphics().setDepth(40);
+    const text = (x: number, y: number, size: number, color = "#d8e1dd") => this.add.text(x, y, "", { fontFamily: "monospace", fontSize: size + "px", color }).setDepth(42);
+    this.healthLeft = text(28, 15, 13); this.healthRight = text(932, 15, 13).setOrigin(1, 0);
+    this.yearText = text(480, 23, 12, "#cdbb92").setOrigin(0.5);
+    this.hint = text(480, 73, 12, "#e1cb97").setOrigin(0.5);
+    this.waitingText = text(480, 144, 27, "#e5d3b2").setOrigin(0.5).setAlpha(0);
+    this.debugText = text(20, 482, 10, "#91a3b0").setVisible(this.debug);
+    this.docks = [0, 1, 2, 3].map(i => text(330 + i * 98, 518, 10).setOrigin(0.5));
+    this.dialogue = new PortraitDialogue(this); this.fx = new SpriteEffects(this);
+    const down = (e: KeyboardEvent) => this.onKey(e);
+    const up = (e: KeyboardEvent) => this.held.delete(e.code);
+    const blur = () => { this.held.clear(); this.queued = {}; };
+    this.input.keyboard?.on("keydown", down); this.input.keyboard?.on("keyup", up);
+    this.game.events.on("blur", blur);
+    this.input.keyboard?.addCapture("SPACE,UP,DOWN,LEFT,RIGHT");
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+      this.epoch++; this.held.clear(); this.dialogue.dispose(); this.fx.clear();
+      this.input.keyboard?.off("keydown", down); this.input.keyboard?.off("keyup", up); this.game.events.off("blur", blur);
     });
-  }
-
-  private lockInput(ms = 600): void {
-    this.inputLockUntil = this.time.now + ms;
+    this.cameras.main.fadeIn(500);
+    void this.encounter();
   }
 
   private onKey(e: KeyboardEvent): void {
+    this.held.add(e.code);
     if (e.repeat) return;
-    const k = e.key.toLowerCase();
-    if (this.mode === "fight") {
-      if (k === "j") this.press.cleave = true;
-      else if (k === "k") this.press.throw = true;
-      else if (k === "l") this.press.reap = true;
-      else if (k === " ") this.press.nova = true;
+    if (this.debug && /^Digit[1-9]$/.test(e.code)) {
+      this.epoch++; this.dialogue.hide(); this.fx.clear(); this.session.debugJump(Number(e.code.slice(-1)));
+      this.projectileImages.forEach(image => image.destroy()); this.projectileImages.clear();
+      void this.encounter(); return;
     }
-    if (this.debug) {
-      if (/^[1-9]$/.test(k)) {
-        this.debugJump(Number(k));
-        return;
-      }
-      if (k === "p" && this.sim && this.mode === "fight") this.sim.debugForcePhase2();
-      if (k === "b") this.session.state.bond = clampBond(this.session.state.bond + 1);
-      if (k === "n") this.session.state.bond = clampBond(this.session.state.bond - 1);
-      if (k === "h") this.showHitboxes = !this.showHitboxes;
-    }
-    const confirm = k === "enter" || k === " " || k === "j";
-    if (confirm && this.time.now < this.inputLockUntil) return;
-
-    if (this.choice) {
-      if (k === "a" || k === "arrowleft") this.moveChoice(0);
-      else if (k === "d" || k === "arrowright") this.moveChoice(1);
-      else if (confirm) this.confirmChoice();
+    if (this.debug && e.code === "KeyP") this.sim?.debugForcePhase2();
+    if (e.code === "Escape" && this.mode === "fight") { this.mode = "paused"; this.hint.setText("PAUSED — Enter resumes, T returns to the castle"); return; }
+    if (this.mode === "paused") {
+      if (e.code === "Enter" || e.code === "Escape") { this.mode = "fight"; this.hint.setText(""); this.held.clear(); }
+      else if (e.code === "KeyT") this.scene.start("title");
       return;
     }
-    if (this.overlayAdvance && confirm) {
-      const f = this.overlayAdvance;
-      this.overlayAdvance = null;
-      f();
+    if (this.mode !== "fight") return;
+    for (const action of ["jump", "dash", "cleave", "throw", "reap", "nova"] as const) {
+      if (e.code === this.bindings[action]) this.queued[action] = true;
     }
   }
-
   private readInput(): BossInput {
-    const inp: BossInput = {
-      ...NO_INPUT,
-      ...this.press,
-      left: this.keys.A.isDown || this.keys.LEFT.isDown,
-      right: this.keys.D.isDown || this.keys.RIGHT.isDown,
-      hold: this.keys.S.isDown,
-    };
-    this.press = {};
-    return inp;
+    if (this.autoplay && this.bot && this.sim) return this.bot(this.sim);
+    const result: BossInput = { ...NO_INPUT, ...this.queued, cleave: !!this.queued.cleave || this.held.has(this.bindings.cleave), left: this.held.has(this.bindings.left), right: this.held.has(this.bindings.right),
+      guard: this.held.has(this.bindings.guard), hold: this.held.has(this.bindings.hold) };
+    this.queued = {}; return result;
+  }
+  private wait(ms: number): Promise<void> { return new Promise(resolve => this.time.delayedCall(ms, resolve)); }
+  private async speak(lines: DialogueLine[], epoch: number): Promise<boolean> {
+    if (!this.autoplay) await this.dialogue.play(lines, 2200);
+    return epoch === this.epoch && this.scene.isActive();
   }
 
-  private debugJump(n: number): void {
-    // Stop every pending step of the old flow before starting the new one.
-    this.epoch++;
-    this.time.removeAllEvents();
-    this.tweens.killAll();
-    this.hideDialogue();
-    this.holdText.setAlpha(0);
-    this.overlay.setAlpha(1);
-    this.overlay.removeAll(true);
-    this.choice = null;
-    this.overlayAdvance = null;
-    this.session.debugJump(n);
-    getAudio().phase2(false);
-    this.applyTierLook(n, false);
-    this.showIntroCard();
-  }
-
-  // ---------- flow ----------
-
-  private showIntroCard(): void {
-    this.overlayAdvance = null;
-    this.overlay.removeAll(true);
-    this.hideDialogue();
-    this.beginFight();
-    if (this.session.fightIndex === 1) this.caption.setText("J  CLEAVE    K  THROW    L  REAP    SPACE  NOVA").setAlpha(1);
-    this.captionT = this.session.fightIndex === 1 ? 4 : 0;
-  }
-
-  private beginFight(): void {
-    this.sim = this.session.startFight();
-    this.evIndex = 0;
-    this.acc = 0;
-    this.fightClock = 0;
-    this.bossHpShown = 1;
-    this.mode = "fight";
-    const life = this.sim.setup.life;
-    if (this.autoplay) this.autoBot = makeBot(life === "patchwork" ? "holder" : life === "quiet" ? "idle" : "average", this.session.state.seed + this.sim.setup.fightIndex);
-    this.ch.setTexture(ROSTER[life].sprite).setAlpha(1).setRotation(0);
-    this.ch.setScale(DISPLAY_HEIGHT[life] / this.ch.height);
-    this.decoy.setTexture(ROSTER[life].sprite).setScale(this.ch.scaleX).setAlpha(0);
-    this.boss.setAlpha(1).setRotation(0);
-    this.asc.setAlpha(0);
-    this.transformation.setVisible(false);
-    this.bossGlow.setAlpha(0);
-    getAudio().phase2(false);
-    getAudio().setTier(tierOf(this.sim.setup.fightIndex));
-    this.chName.setText(life === "quiet" ? "A familiar face" : INTRO[life].title);
-    drawProps(this.props, this.sim.setup.fightIndex, this.session.state.used, FLOOR, this.session.state.seed);
-    if (life === "patchwork") this.say(LIFE9.midFight);
-  }
-
-  private onFightOver(): void {
-    const sim = this.sim!;
-    this.mode = "death";
-    this.holdText.setAlpha(0);
-    if (sim.outcome === "boss_dead") {
-      const ending = this.session.state.ending;
-      this.session.endFight();
-      const endingNow = this.session.state.ending ?? ending;
-      this.hitstop = 0.4;
-      this.tweens.add({ targets: [this.boss, this.asc], alpha: 0.6, duration: 900 });
-      this.later(1400, () => {
-        this.cameras.main.fadeOut(1200, 255, 236, 200);
-        this.cameras.main.once("camerafadeoutcomplete", () =>
-          this.scene.start("ending", { session: this.session, ending: endingNow, life: sim.setup.life }),
-        );
-      });
-      return;
-    }
-    if (sim.outcome === "challenger_dead") {
-      this.tweens.add({ targets: this.ch, rotation: -1.4, y: FLOOR, alpha: 0, duration: 1300, ease: "Quad.easeIn" });
-    }
-    const summary = this.session.endFight();
-    this.later(1500, () => this.showSummary(summary));
-  }
-
-  private panel(lines: { text: string; size: number; color?: string; dy: number }[]): Phaser.GameObjects.GameObject[] {
-    const W = ARENA.width;
-    const H = ARENA.height;
-    const out: Phaser.GameObjects.GameObject[] = [this.add.rectangle(W / 2, H / 2, W, H, 0x020208, 0.6)];
-    for (const l of lines) {
-      out.push(this.add.text(W / 2, H / 2 + l.dy, l.text, { fontFamily: FONT, fontSize: `${l.size}px`, color: l.color ?? "#ece4ff" }).setOrigin(0.5));
-    }
-    return out;
-  }
-
-  private showSummary(_summary: FightSummary): void {
-    this.mode = "between";
-    this.overlay.removeAll(true);
-    this.later(450, () => { void this.showLine(); });
-  }
-
-  private async showLine(): Promise<void> {
-    this.overlayAdvance = null;
-    this.overlay.removeAll(true);
+  private async encounter(): Promise<void> {
     const epoch = this.epoch;
-    const plan: PlanResult = await this.session.resolveNext();
+    this.mode = "arrival"; this.modeAt = this.time.now;
+    this.waitingText.setAlpha(0); this.dialogue.hide(); this.shield.setVisible(false); this.enemyShield.setVisible(false);
+    this.sim = this.session.startFight(); this.eventIndex = 0; this.accumulator = 0; this.released = null;
+    this.king.setAlpha(1); this.ch.setAlpha(1);
+    const fi = this.session.fightIndex; const life = this.sim.setup.life;
+    this.yearText.setText("YEAR " + YEARS[Math.min(8, fi - 1)]);
+    this.healthLeft.setText(NAMES[life]); this.healthRight.setText("The Immortal");
+    this.hint.setText("");
+    const requestedBot = new URLSearchParams(location.search).get("bot") ?? "average";
+    if (this.autoplay && requestedBot === "normal" && fi > 1) this.bot = () => ({ ...NO_INPUT, guard: true });
+    else if (this.autoplay) {
+      const profile = requestedBot === "victory" ? fi === 9 ? "spam_reap" : "aggressive" : requestedBot === "normal" ? "aggressive" :
+        ["average", "aggressive", "defensive", "idle", "holder", "fighter", "spam_cleave", "spam_throw", "spam_reap", "spam_nova"].includes(requestedBot) ? requestedBot : "average";
+      this.bot = makeBot(profile as Parameters<typeof makeBot>[0], this.session.state.seed + fi);
+    } else this.bot = null;
+    getAudio().setTier(fi <= 3 ? 1 : fi <= 6 ? 2 : 3); getAudio().phase2(false);
+    const age = fi <= 3 ? 0 : fi <= 6 ? (fi - 3) / 3 : 1;
+    this.aged.setTexture(fi >= 7 ? "combat-aged-late" : "combat-aged-mid").setDisplaySize(960, 540);
+    this.aged.setAlpha(fi >= 7 ? Math.min(1, 0.5 + (fi - 7) * 0.25) : age);
+    await this.wait(this.autoplay ? 250 : 1700);
     if (epoch !== this.epoch) return;
-    this.lockInput();
-    const fi = this.session.fightIndex;
-    const line = this.session.lineFor(plan, fi);
-    this.say(line, 2.4);
-    let advanced = false;
-    const next = (): void => {
-      if (advanced) return;
-      advanced = true;
-      this.showChoice();
-    };
-    this.overlayAdvance = next;
-    if (this.autoplay) this.later(500, next);
-    this.later(Math.max(2400, 65 * line.length), next);
+    const pair = ARRIVALS[life];
+    if (!await this.speak([
+      { speaker: NAMES[life], text: pair[0], portrait: life },
+      { speaker: "THE IMMORTAL", text: pair[1], portrait: "immortal-base" },
+    ], epoch)) return;
+    if (fi === 1 && !await this.speak([
+      { speaker: "THE VILLAGE KITTEN", text: "I cannot hurt you much. Show me a leap, a dash, and your guard.", portrait: "kitten" },
+      { speaker: "THE IMMORTAL", text: "Watch the low wave. A king can move. The curse binds the castle, not the chair.", portrait: "immortal-base" },
+    ], epoch)) return;
+    this.mode = "fight"; this.modeAt = this.time.now; this.held.clear(); this.queued = {};
   }
 
-  private showChoice(): void {
-    this.overlayAdvance = null;
-    this.overlay.removeAll(true);
-    this.lockInput(800);
-    this.hideDialogue();
-    const fi = this.session.fightIndex;
-    const tier = tierOf(Math.max(1, fi - 1));
-    const options = RESPONSES[tier];
-    const pair = options[(fi - 2 + options.length) % options.length]!;
-    const W = ARENA.width;
-    const H = ARENA.height;
-    const items: Phaser.GameObjects.GameObject[] = [this.add.rectangle(W / 2, H - 69, 740, 85, 0x081020, 0.94).setStrokeStyle(1, 0x516b78)];
-    const left = this.add.text(W / 2 - 170, H - 78, pair.guarded, { fontFamily: FONT, fontSize: "20px", color: "#ece4ff", align: "center", wordWrap: { width: 280 } }).setOrigin(0.5);
-    const right = this.add.text(W / 2 + 170, H - 78, pair.open, { fontFamily: FONT, fontSize: "20px", color: "#ece4ff", align: "center", wordWrap: { width: 280 } }).setOrigin(0.5);
-    const hint = this.add.text(W / 2, H - 39, "A / D  choose     Enter  answer", { fontFamily: FONT, fontSize: "12px", color: "#7f7799" }).setOrigin(0.5);
-    for (const [i, t] of [left, right].entries()) {
-      t.setInteractive({ useHandCursor: true });
-      t.on("pointerover", () => this.moveChoice(i));
-      t.on("pointerdown", () => {
-        this.moveChoice(i);
-        this.confirmChoice();
-      });
+  private async finishEncounter(): Promise<void> {
+    if (!this.sim || this.mode !== "fight") return;
+    const epoch = this.epoch; const sim = this.sim;
+    this.mode = "death"; this.modeAt = this.time.now; this.hint.setText("");
+    this.session.endFight();
+    this.fx.burst(sim.outcome === "boss_dead" ? sim.boss.x : sim.ch.x, FLOOR - 45, true);
+    await this.wait(this.autoplay ? 200 : 1100);
+    if (epoch !== this.epoch) return;
+    if (this.session.state.ending) {
+      this.scene.start("ending", { session: this.session, ending: this.session.state.ending, life: sim.setup.life }); return;
     }
-    items.push(left, right, hint);
-    this.overlay.add(items);
-    this.choice = {
-      index: 0,
-      options: [left, right],
-      done: (open) => {
-        this.session.respond(open);
-        this.choice = null;
-        this.applyTierLook(this.session.fightIndex, true);
-        this.showIntroCard();
-      },
-    };
-    this.moveChoice(0);
-    if (this.autoplay) this.later(500, () => {
-      this.moveChoice(this.session.fightIndex % 2);
-      this.confirmChoice();
-    });
+    this.mode = "waiting"; this.modeAt = this.time.now; this.dialogue.hide();
+    this.shield.setVisible(false); this.enemyShield.setVisible(false);
+    this.projectileImages.forEach(image => image.destroy()); this.projectileImages.clear();
+    const oldYear = YEARS[Math.max(0, this.session.fightIndex - 2)]!;
+    const nextYear = YEARS[Math.min(8, this.session.fightIndex - 1)]!;
+    this.waitingText.setText((nextYear - oldYear) + " years pass.").setAlpha(0);
+    this.tweens.add({ targets: this.waitingText, alpha: 1, duration: 1200, hold: 3300, yoyo: true });
+    this.healthLeft.setText(""); this.ch.setAlpha(0);
+    this.session.respond(true);
+    const pending = this.session.resolveNext();
+    await this.wait(this.autoplay ? 200 : 7000);
+    if (epoch !== this.epoch) return;
+    await pending;
+    if (epoch !== this.epoch) return;
+    await this.encounter();
   }
 
-  private moveChoice(i: number): void {
-    if (!this.choice) return;
-    this.choice.index = i;
-    this.choice.options.forEach((t, j) => t.setColor(j === i ? "#ffe2a8" : "#8f86ad").setScale(j === i ? 1.06 : 1));
-  }
-
-  private confirmChoice(): void {
-    if (!this.choice) return;
-    const c = this.choice;
-    getAudio().evade();
-    c.done(c.index === 1);
-  }
-
-  // ---------- dialogue ----------
-
-  /** Shows a line. Ambient lines wait their turn instead of cutting off a line still on screen. */
-  private say(text: string, holdS = 3.2, boxless = false, ambient = false): void {
-    if (!text) return;
-    if (ambient && this.typing) return;
-    this.typing = { full: text, shown: 0, t: 0, hold: holdS };
-    this.dialogue.setText("").setAlpha(1).setDepth(60);
-    this.dialogueBox.setAlpha(boxless ? 0 : 1).setDepth(59);
-    if (boxless) this.dialogue.setY(ARENA.height / 2 - 10);
-    else this.dialogue.setY(ARENA.height - 70);
-  }
-
-  private hideDialogue(): void {
-    this.typing = null;
-    this.dialogue.setAlpha(0);
-    this.dialogueBox.setAlpha(0);
-  }
-
-  private updateDialogue(dt: number): void {
-    const ty = this.typing;
-    if (!ty) return;
-    ty.t += dt;
-    const target = Math.min(ty.full.length, Math.floor(ty.t / 0.035));
-    while (ty.shown < target) {
-      const ch = ty.full[ty.shown]!;
-      const prev = ty.shown > 0 ? ty.full[ty.shown - 1]! : " ";
-      if (/[aeiouy]/i.test(ch) && !/[aeiouy]/i.test(prev)) getAudio().murmur(this.sim?.setup.life === "kitten" ? 1.3 : 1);
-      ty.shown++;
-    }
-    this.dialogue.setText(ty.full.slice(0, ty.shown));
-    if (ty.shown >= ty.full.length && ty.t > ty.full.length * 0.035 + ty.hold) this.hideDialogue();
-  }
-
-  private handleEvent(e: FightEvent): void {
-    const audio = getAudio();
-    const sim = this.sim!;
-    switch (e.type) {
-      case "boss_move":
-        audio.tell(e.move, e.phase);
-        break;
-      case "challenger_hit":
-        audio.hit(e.dmg > 20);
-        this.hitstop = Math.max(this.hitstop, 0.055);
-        this.impact(sim.ch.x, FLOOR - sim.ch.y - 35, 0xf4dba6, 18);
-        this.cameras.main.shake(120, 0.004);
-        break;
-      case "boss_hit":
-        this.hitstop = Math.max(this.hitstop, 0.035);
-        this.impact(sim.boss.x - 24, PLATFORM_TOP - 100, 0x9ad8cf, 12);
-        audio.hit(false);
-        break;
-      case "evade":
-        this.impact(sim.ch.x, FLOOR - 8, 0x7a9dba, 8);
-        audio.evade();
-        break;
-      case "phase2_start":
-        this.hitstop = 0.22;
-        this.flash.setAlpha(0.9);
-        this.cameras.main.shake(500, 0.01);
-        audio.phase2(true);
-        this.impact(sim.boss.x, PLATFORM_TOP - 80, 0x9affd6, 48);
-        this.impact(sim.boss.x, PLATFORM_TOP - 100, 0xb98aff, 32);
-        this.caption.setAlpha(0);
-        this.captionT = 0;
-        break;
-      case "say": {
-        if (e.key.startsWith("quiet.")) {
-          const i = Number(e.key.split(".")[1]);
-          const line = QUIET_TALK[quietBand(this.session.state.bond)][i];
-          if (line) this.say(line, 2.8);
-        } else if (e.key === "mutual.lower") this.say(MUTUAL.lower[sim.setup.fightIndex % MUTUAL.lower.length]!, 2.5, false, true);
-        else if (e.key === "mutual.raise") this.say(MUTUAL.raise[sim.setup.fightIndex % MUTUAL.raise.length]!, 2, false, true);
-        break;
-      }
-      case "hold_prompt": {
-        const st = this.session.state;
-        this.say(st.life8Struck ? LIFE9.whyStruck : st.bond >= 4 ? LIFE9.whyHigh : LIFE9.whyLow, 5);
-        break;
-      }
-      case "yield":
-        this.holdText.setAlpha(0);
-        audio.bell();
-        break;
-      default:
-        break;
-    }
-  }
-
-  // ---------- frame ----------
-
-  override update(_time: number, deltaMs: number): void {
-    const dt = Math.min(0.1, deltaMs / 1000);
-    this.updateDialogue(dt);
-    if (this.captionT > 0) {
-      this.captionT -= dt;
-      this.caption.setAlpha(Math.min(1, this.captionT));
-    }
-    this.flash.setAlpha(Math.max(0, this.flash.alpha - dt * 2.2));
-
+  private event(e: FightEvent): void {
+    if (!this.sim) return;
     const sim = this.sim;
-    if (sim && this.mode === "fight") {
+    if (e.type === "boss_move") getAudio().tell(e.move, e.phase);
+    if (e.type === "challenger_hit") {
+      this.fx.burst(sim.ch.x, FLOOR - sim.ch.y - 35, true); this.hitstop = 0.035;
+      this.cameras.main.shake(90, 0.0025); getAudio().hit(e.dmg > 25);
+    }
+    if (e.type === "boss_hit") { this.fx.burst(sim.boss.x, FLOOR - sim.boss.y - 65, true); this.hitstop = 0.025; getAudio().hit(false); }
+    if (e.type === "boss_block") { this.fx.spawn(5, sim.boss.x, FLOOR - sim.boss.y - 65, 175, 300); getAudio().bell(); }
+    if (e.type === "dash") { this.fx.spawn(0, sim.boss.x, FLOOR - sim.boss.y - 35, 150, 240, -sim.boss.facing, 0x8bd5df); getAudio().evade(); }
+    if (e.type === "jump") this.fx.spawn(5, sim.boss.x, FLOOR - 8, 80, 220);
+    if (e.type === "phase2_start") { getAudio().phase2(true); this.cameras.main.flash(180, 150, 210, 210); this.fx.spawn(3, sim.boss.x, FLOOR - 80, 380, 1100); this.cameras.main.shake(400, 0.005); }
+    if (e.type === "evade") this.fx.spawn(5, sim.ch.x, FLOOR - sim.ch.y - 30, 80, 200);
+    if (e.type === "enemy_ability") this.fx.spawn(sim.ch.life === "sailor" || sim.ch.life === "knight" ? 5 : 4, sim.ch.x, FLOOR - sim.ch.y - 35, 95, 460);
+    if (e.type === "boredom") this.fx.spawn(4, sim.boss.x, FLOOR - 60, 350, 700);
+  }
+
+  override update(_time: number, delta: number): void {
+    const dt = Math.min(0.05, delta / 1000); this.fx?.update(dt);
+    const sim = this.sim; if (!sim) return;
+    if (this.mode === "arrival") {
+      if (sim.ch.state === "enter") for (let i = 0; i < 2 && sim.ch.state === "enter"; i++) sim.step(NO_INPUT);
+      // Arrival and portrait dialogue freeze combat rather than secretly dealing damage.
+    } else if (this.mode === "fight") {
       if (this.hitstop > 0) this.hitstop -= dt;
       else {
-        this.acc += dt * this.speed;
-        while (this.acc >= DT && !sim.outcome) {
-          const input = this.readInput();
-          sim.step(this.autoBot ? { ...this.autoBot(sim), left: input.left, right: input.right } : input);
-          this.acc -= DT;
-        }
+        this.accumulator += dt * this.speed;
+        while (this.accumulator >= DT && !sim.outcome) { sim.step(this.readInput()); this.accumulator -= DT; }
       }
-      while (this.evIndex < sim.events.length) this.handleEvent(sim.events[this.evIndex++]!);
-      this.fightClock += dt;
-      if (sim.outcome) this.onFightOver();
+      while (this.eventIndex < sim.events.length) this.event(sim.events[this.eventIndex++]!);
+      if (sim.outcome) void this.finishEncounter();
     }
-    if (sim) this.render(sim, dt);
-    this.drawDebug();
+    this.render(sim);
   }
 
-  private render(sim: FightSim, dt: number): void {
-    const t = this.time.now / 1000;
-    const b = sim.boss;
-    const fi = sim.setup.fightIndex;
-    const tier = tierOf(fi);
-    this.fx.clear();
-    this.fxAdd.clear();
-    this.ui.clear();
-
-    // --- the Immortal ---
-    const trans = b.transitionT > 0 ? 1 - b.transitionT / sim.cfg.phase2.PHASE2_TRANSITION_S : b.phase === 2 ? 1 : 0;
-    const breathAmp = tier === 1 ? 0.006 : tier === 2 ? 0.01 : 0.016;
-    const breathRate = tier === 1 ? 2.2 : tier === 2 ? 1.8 : 1.3;
-    const sway = tier >= 2 ? Math.sin(t * 0.7) * (tier === 3 ? 0.03 : 0.015) : 0;
-    const m = b.move;
-    if (m && m.stage === "active" && m !== this.releasedMove) {
-      this.releasedMove = m;
-      if (m.id === "nova") getAudio().boom(0.45);
-      else getAudio().swing();
-      if (m.phase === 2) this.impact(m.id === "cleave" ? m.targetX : b.x - 30, m.id === "cleave" ? FLOOR - 10 : PLATFORM_TOP - 80, 0x8af0d0, 14);
+  private render(sim: FightSim): void {
+    const t = this.time.now / 1000, b = sim.boss, c = sim.ch;
+    const move = b.move;
+    let kingMotion: Motion = b.dashT > 0 ? "dash" : !b.grounded ? "jump" : Math.abs(b.vx) > 10 ? "run" : "idle";
+    let kingFrame = Math.floor(t * (kingMotion === "run" ? 12 : 6)) % 6;
+    if (move) {
+      kingMotion = move.id;
+      const duration = move.stage === "tell" ? move.spec.tellS : move.stage === "active" ? move.spec.activeS : move.spec.recoverS;
+      const progress = Math.min(0.999, move.t / duration);
+      kingFrame = move.stage === "tell" ? Math.min(2, Math.floor(progress * 3)) : move.stage === "active" ? 3 + Math.min(1, Math.floor(progress * 2)) : 5;
     }
-    let lean = sway + (tier === 3 ? 0.04 : 0);
-    let squash = 1 + Math.sin(t * breathRate) * breathAmp;
-    if (m && m.phase === 1) {
-      const p = m.stage === "tell" ? m.t / m.spec.tellS : 1;
-      if (m.id === "cleave") lean = m.stage === "tell" ? -0.1 * p : m.stage === "active" ? 0.16 : 0.05;
-      if (m.id === "reap") squash = m.stage === "tell" ? 1 - 0.1 * p : 0.92;
-      if (m.id === "throw") lean = m.stage === "tell" ? -0.06 * p : 0;
+    let kx = b.x, ky = FLOOR - b.y;
+    if (this.mode === "waiting") {
+      const p = Math.min(1, (this.time.now - this.modeAt) / 1600);
+      kx = Phaser.Math.Linear(b.x, 880, p); ky = Phaser.Math.Linear(FLOOR - b.y, 385, p);
+      kingMotion = p < 1 ? "run" : "idle"; kingFrame = Math.floor(t * (p < 1 ? 10 : 3)) % 6;
     }
-    const pose: Pose = b.hitFlashT > 0 ? "hurt" : !m ? "idle" : m.stage === "tell" ? (b.phase === 2 ? "cast" : "tell") : m.stage === "active" ? "strike" : "recover";
-    const poseTime = m ? Math.min(5, Math.floor(m.t / Math.max(0.01, m.stage === "tell" ? m.spec.tellS : m.stage === "active" ? m.spec.activeS : m.spec.recoverS) * 6)) / 8 : t;
-    const baseFrame = pixelFrame("immortal-base", pose, poseTime, m?.id);
-    const ascFrame = pixelFrame("immortal-ascended", pose, poseTime, m?.id);
-    this.boss.setTexture(this.textures.exists(baseFrame) ? baseFrame : pixelFrame("immortal-base", pose, poseTime));
-    this.asc.setTexture(this.textures.exists(ascFrame) ? ascFrame : pixelFrame("immortal-ascended", pose, poseTime));
-    const baseScale = DISPLAY_HEIGHT.immortal / this.boss.height;
-    this.boss.setPosition(b.x, PLATFORM_TOP).setRotation(lean).setScale(baseScale, baseScale * squash);
-    this.boss.setAlpha(b.hitFlashT > 0 ? 0.6 : 1 - trans);
-    const ascScale = DISPLAY_HEIGHT.ascended / this.asc.height;
-    const floatY = PLATFORM_TOP - 22 + Math.sin(t * 2.4) * 6;
-    let ascAlpha = trans;
-    if (m && m.phase === 2 && m.id === "cleave" && m.stage === "tell") ascAlpha = Math.max(0.2, 1 - m.t / m.spec.tellS);
-    this.asc.setPosition(b.x, floatY).setScale(ascScale).setAlpha(b.hitFlashT > 0 ? ascAlpha * 0.6 : ascAlpha);
-    if (m?.phase === 2 && m.id === "cleave" && m.stage === "active") this.asc.setPosition(m.targetX, FLOOR + 4).setScale(ascScale * 1.1, ascScale * 0.8);
-    this.transformation.setVisible(b.transitionT > 0);
+    if (this.mode === "arrival") {
+      const p = Math.min(1, (this.time.now - this.modeAt) / 1300);
+      kx = Phaser.Math.Linear(880, b.x, p); ky = Phaser.Math.Linear(385, FLOOR - b.y, p);
+      if (p < 1) { kingMotion = "run"; kingFrame = Math.floor(t * 10) % 6; }
+    }
+    if (b.phase === 2 && b.grounded && this.mode !== "waiting") ky -= 10 + Math.sin(t * 3) * 3;
+    poseActor(this, this.king, this.mode === "waiting" && this.time.now - this.modeAt >= 1600 ? "rest" : b.phase === 2 ? "ascended" : "player", kingMotion, kingFrame, kx, ky, move?.direction ?? b.facing, 143);
     if (b.transitionT > 0) {
-      const index = Math.min(11, Math.floor(trans * 12));
-      const frame = `immortal-transform:${index < 6 ? "idle" : "run"}:${index % 6}`;
-      if (this.textures.exists(frame)) {
-        this.transformation.setTexture(frame).setPosition(b.x, PLATFORM_TOP - trans * 16);
-        this.transformation.setScale((DISPLAY_HEIGHT.immortal + trans * 16) / this.transformation.height);
-        this.boss.setAlpha(0); this.asc.setAlpha(0);
-      } else this.transformation.setVisible(false);
+      const progress = 1 - b.transitionT / sim.cfg.phase2.PHASE2_TRANSITION_S;
+      const frame = Math.min(11, Math.floor(progress * 12));
+      const key = "immortal-transform:" + (frame < 6 ? "idle" : "run") + ":" + frame % 6;
+      if (this.textures.exists(key)) this.king.setTexture(key).setOrigin(0.5, 71 / 72).setScale(170 / 72);
     }
-    this.bossGlow.setPosition(b.x, floatY - 110).setScale(3.4).setTint(0x8f5cff).setAlpha(0.35 * trans + (b.hitFlashT > 0 ? 0.3 : 0));
-    // The dropped glaive stays on the floor in Phase Two.
-    if (b.glaiveDropX !== null) {
-      this.fx.lineStyle(4, 0x9aa0b4, 1).lineBetween(b.glaiveDropX - 60, PLATFORM_TOP - 2, b.glaiveDropX + 40, PLATFORM_TOP - 6);
-      this.fx.lineStyle(3, 0xc8ccd8, 1).beginPath().arc(b.glaiveDropX - 66, PLATFORM_TOP - 14, 14, -1.2, 1.6).strokePath();
+    this.king.setTint(b.hitFlashT > 0 ? 0xffb2c8 : 0xffffff);
+    let cm: Motion = c.y > 3 ? "jump" : c.abilityTellT > 0 || c.state === "attack" || c.attackFlashT > 0 ? "cleave" :
+      ["approach", "enter", "backoff", "flee", "leave", "evade"].includes(c.state) ? "run" : "idle";
+    let cf = Math.floor(t * 10) % 6;
+    if (c.abilityTellT > 0) cf = 1 + Math.floor((1 - c.abilityTellT / (c.life === "kitten" ? 0.85 : 0.48)) * 2);
+    else if (c.attackFlashT > 0) cf = 3 + Math.min(2, Math.floor((1 - c.attackFlashT / 0.18) * 3));
+    if (c.state === "hitstun") { cm = "cleave"; cf = 5; }
+    poseActor(this, this.ch, c.life, cm, cf, c.x, FLOOR - c.y, b.x > c.x ? 1 : -1, c.life === "kitten" ? 61 : c.life === "patchwork" ? 85 : 78);
+    if (this.mode === "death" && sim.outcome !== "boss_dead") this.ch.setAlpha(Math.max(0, 1 - (this.time.now - this.modeAt) / 900));
+    else if (this.mode !== "waiting") this.ch.setAlpha(c.iframes > 0 ? 0.65 : 1);
+    this.ch.setTint(c.hitFlashT > 0 ? 0xffb2bf : 0xffffff);
+    this.shield.setVisible(b.guarding && this.mode === "fight").setPosition(b.x, FLOOR - b.y - 66).setFrame(30 + Math.floor(t * 10) % 6).setDisplaySize(170, 170).setAlpha(0.8);
+    this.enemyShield.setVisible(c.blockT > 0).setPosition(c.x, FLOOR - c.y - 37).setFrame(30 + Math.floor(t * 10) % 6).setDisplaySize(115, 115).setAlpha(0.85);
+    if (move?.stage === "active" && move !== this.released) {
+      this.released = move;
+      const row = move.id === "nova" ? 3 : move.id === "throw" ? 1 : move.id === "reap" ? 2 : 0;
+      this.fx.spawn(row, move.id === "cleave" && b.phase === 2 ? move.targetX : b.x + move.direction * 60, FLOOR - b.y - 55, move.id === "nova" ? 600 : 240, move.id === "nova" ? 600 : 340, move.direction);
+      getAudio().swing();
     }
-    if (b.transitionT > 0 || b.phase === 2) {
-      const charge = b.transitionT > 0 ? 1 - b.transitionT / sim.cfg.phase2.PHASE2_TRANSITION_S : 1;
-      for (let i = 0; i < 18; i++) {
-        const a = i * Math.PI / 9 + t * 1.4;
-        const x = b.x + Math.cos(a) * (30 + charge * 45);
-        const y = PLATFORM_TOP - 70 + Math.sin(a) * 38 - ((t * 35 + i * 19) % 110);
-        this.fxAdd.fillStyle(i % 2 ? 0x9effd0 : 0xb397f1, 0.45 * trans).fillRect(Math.round(x / 3) * 3, Math.round(y / 3) * 3, 3, 6);
-      }
+    if (c.attackFlashT > 0 && c.attackSerial !== this.lastAttackSerial) {
+      this.lastAttackSerial = c.attackSerial;
+      this.fx.spawn(4, c.x + (b.x > c.x ? 38 : -38), FLOOR - c.y - 35, 155, 280, b.x > c.x ? 1 : -1);
     }
-
-    // Eyes glow on the Nova tell, and the room darkens.
-    const novaTell = m && m.id === "nova" && m.stage === "tell" ? m.t / m.spec.tellS : 0;
-    const eyeY = (b.phase === 2 ? floatY : PLATFORM_TOP) - (b.phase === 2 ? DISPLAY_HEIGHT.ascended : DISPLAY_HEIGHT.immortal) * 0.62;
-    this.eyeL.setPosition(b.x - 24, eyeY).setScale(0.12 + novaTell * 0.25).setAlpha(novaTell * 0.85);
-    this.eyeR.setAlpha(0);
-    this.dark.setAlpha(novaTell * 0.5);
-
-    this.drawMove(sim, t);
-
-    // --- challenger ---
-    const c = sim.ch;
-    const life = c.life;
-    const chPose: Pose = c.hitFlashT > 0 ? "hurt" : c.state === "attack" ? (c.windupT > 0 ? "tell" : "strike") : ["hesitate", "lowered", "sit"].includes(c.state) ? "sit" : ["enter", "approach", "flee", "evade", "leave"].includes(c.state) ? "run" : "idle";
-    this.ch.setTexture(pixelFrame(life, chPose, t));
-    const chScale = DISPLAY_HEIGHT[life] / this.ch.height;
-    let rot = 0;
-    let sy = 1;
-    let yOff = 0;
-    const bob = Math.sin(t * (tier === 3 ? 3 : 5)) * (tier === 3 ? 1.5 : 2);
-    switch (c.state) {
-      case "hesitate":
-      case "lowered":
-        rot = -0.14;
-        sy = 0.94;
-        yOff = 2;
-        break;
-      case "attack":
-        rot = c.windupT > 0 ? 0.22 : 0.08;
-        break;
-      case "evade":
-        if (c.lastSkill === "roll") rot = -(1 - c.stateT / 0.42) * Math.PI * 2;
-        break;
-      case "hitstun":
-        rot = -0.25;
-        break;
-      case "sit":
-        sy = 0.86;
-        break;
-      case "flee":
-        rot = -0.1;
-        break;
-      default:
-        yOff = c.state === "wait" ? bob * 0.5 : Math.abs(bob);
-    }
-    if (c.state !== "dead") {
-      this.ch.setPosition(c.x, FLOOR - c.y - yOff).setRotation(rot).setScale(chScale, chScale * sy);
-      this.ch.setAlpha(c.iframes > 0 ? 0.55 : c.hitFlashT > 0 ? (Math.floor(t * 30) % 2 ? 0.4 : 1) : 1);
-    }
-    // Decoy afterimage.
-    this.decoy.setAlpha(c.decoyT > 0 ? 0.35 : 0).setPosition(c.x + 60, FLOOR);
-    // Umbrella.
-    if (c.blockT > 0) {
-      fan(this.fx.fillStyle(0xf2c230, 0.9), c.x + 18, FLOOR - c.y - 58, 34, Math.PI + 0.35, Math.PI * 2 - 0.35);
-    }
-    // Armor glint.
-    if (c.armorUp && life !== "patchwork") this.fxAdd.fillStyle(0xdfe6ff, 0.25 + 0.15 * Math.sin(t * 6)).fillCircle(c.x, FLOOR - c.y - 50, 10);
-    // Attack slash in the accessory color.
-    if (c.attackFlashT > 0) {
-      this.fxAdd.lineStyle(4, ROSTER[life].color, c.attackFlashT / 0.15).beginPath().arc(c.x + 28, FLOOR - c.y - 50, 34, -1.2, 1.0).strokePath();
-    }
-    // Blink puff.
-    if (c.lastSkill === "blink" && c.iframes > 0) this.fxAdd.fillStyle(0x9b6bff, c.iframes).fillCircle(c.x, FLOOR - 50, 30 * (1 - c.iframes));
-
-    // --- projectiles ---
+    reflectActor(this.king, this.kingReflection); reflectActor(this.ch, this.chReflection);
+    this.drawProjectiles(sim, t);
+    this.ground.clear().fillStyle(0x00040e, 0.32);
+    if (this.mode !== "waiting") this.ground.fillEllipse(b.x, FLOOR + 1, Math.max(22, 72 - b.y * 0.2), 9);
+    if (c.state !== "dead" && this.mode !== "waiting") this.ground.fillEllipse(c.x, FLOOR + 1, Math.max(16, 40 - c.y * 0.15), 6);
+    this.ground.lineStyle(1, 0x79959c, 0.12);
+    for (let i = 0; i < 12; i++) { const x = (i * 83 + Math.sin(t * 0.5 + i) * 7) % 960; this.ground.lineBetween(x, FLOOR + 10 + i % 4 * 11, x + 28 + i % 3 * 15, FLOOR + 10 + i % 4 * 11); }
+    this.drawHUD(sim);
+  }
+  private lastAttackSerial = -1;
+  private drawProjectiles(sim: FightSim, t: number): void {
+    const living = new Set(sim.projectiles);
+    this.projectileImages.forEach((image, p) => { if (!living.has(p)) { image.destroy(); this.projectileImages.delete(p); } });
     for (const p of sim.projectiles) {
-      const py = FLOOR - p.y;
-      if (p.kind === "glaive") {
-        const a = t * 18;
-        this.fx.lineStyle(4, 0xd7dbea, 1).beginPath().arc(p.x, py, 20, a, a + 2.6).strokePath();
-        this.fxAdd.fillStyle(0xbfc6ff, 0.25).fillCircle(p.x, py, 16);
-      } else {
-        this.fxAdd.fillStyle(0x7cffc8, 0.35).fillCircle(p.x, py, 16);
-        this.fxAdd.fillStyle(0xe9fff6, 0.9).fillCircle(p.x, py, 6);
-      }
+      let image = this.projectileImages.get(p);
+      if (!image) { image = this.add.image(p.x, FLOOR - p.y, "combat-vfx", 0).setDepth(14); this.projectileImages.set(p, image); }
+      const row = p.kind === "glaive" ? 1 : p.kind === "blade" || p.kind === "enemy-wave" ? 2 : 3;
+      image.setFrame(row * 6 + Math.floor(t * 15) % 6).setPosition(p.x, FLOOR - p.y).setFlipX(p.vx < 0);
+      const wave = p.kind === "blade" || p.kind === "enemy-wave";
+      image.setDisplaySize(wave ? 215 : p.kind === "glaive" ? 118 : 76, wave ? 120 : p.kind === "glaive" ? 118 : 76);
+      if (p.kind === "enemy-wave" || p.kind === "enemy-orb") image.setTint(0xffa1ba); else image.clearTint();
     }
-
-    // --- hp bars ---
-    this.bossHpShown += (sim.bossHpPct - this.bossHpShown) * Math.min(1, dt * 6);
-    const W = ARENA.width;
-    const bw = 300;
-    this.ui.fillStyle(0x000000, 0.55).fillRect(W - 30 - bw, 40, bw, 10);
-    this.ui.fillStyle(b.phase === 2 || b.transitionT > 0 ? 0x7cffc8 : 0xa48cff, 1).fillRect(W - 30 - bw, 40, bw * Math.max(0, this.bossHpShown), 10);
-    if (!b.phase2Triggered) this.ui.fillStyle(0xffffff, 0.6).fillRect(W - 30 - bw * 0.5, 38, 2, 14);
-    if (life !== "quiet") {
-      this.ui.fillStyle(0x000000, 0.55).fillRect(30, 40, 200, 8);
-      this.ui.fillStyle(ROSTER[life].color, 1).fillRect(30, 40, 200 * Math.max(0, c.hp / c.maxHp), 8);
-    }
-
-    const labels = b.phase === 2 ? ["RIFT", "WISPS", "TIDE", "BELL"] : ["CLEAVE", "THROW", "REAP", "NOVA"];
-    (["cleave", "throw", "reap", "nova"] as const).forEach((id, i) => {
-      const x = 290 + i * 100;
-      const ready = sim.canUse(id);
-      this.ui.fillStyle(0x0c1626, 0.95).fillRect(x, 500, 92, 29);
-      this.ui.lineStyle(1, ready ? 0x9cbdb5 : 0x3e5068, 1).strokeRect(x, 500, 92, 29);
-      const progress = id === "nova" ? b.novaCharge / sim.novaChargeNeeded() : ready ? 1 : Math.max(0, 1 - b.cooldowns[id] / 3);
-      this.ui.fillStyle(ready ? 0xa6c9b8 : 0x516887, 1).fillRect(x + 2, 525, 88 * progress, 2);
-      // Labels are drawn in a cached text object, outside the graphics primitive stream.
-      const dock = this.dockLabels[i]!;
-      dock.setText(["J", "K", "L", "SPACE"][i] + " " + labels[i]).setColor(ready ? "#dce5cf" : "#7b8a9f");
+  }
+  private drawHUD(sim: FightSim): void {
+    const b = sim.boss, c = sim.ch;
+    const visible = this.mode !== "waiting";
+    this.docks.forEach(label => label.setVisible(visible));
+    this.healthLeft.setVisible(visible); this.healthRight.setVisible(visible); this.hint.setVisible(visible);
+    this.debugText.setVisible(this.debug && visible);
+    if (!visible) { this.ui.clear(); return; }
+    this.ui.clear().fillStyle(0x07101f, 0.86);
+    this.ui.fillRect(26, 37, 245, 10).fillRect(630, 37, 304, 10);
+    this.ui.fillStyle(ROSTER[c.life].color === 0x1c1c22 ? 0x9ab4c6 : ROSTER[c.life].color, 1).fillRect(28, 39, 241 * Math.max(0, c.hp / c.maxHp), 6);
+    this.ui.fillStyle(b.phase === 2 ? 0x8df5cd : 0xb29ce1, 1).fillRect(632, 39, 300 * Math.max(0, b.hp / b.maxHp), 6);
+    this.ui.fillStyle(0x7799bd, 1).fillRect(632, 53, 180 * b.guardEnergy, 3);
+    const moves: BossMove[] = ["cleave", "throw", "reap", "nova"];
+    moves.forEach((move, i) => {
+      const cd = move === "nova" ? Math.max(0, sim.novaChargeNeeded() - b.novaCharge) : b.cooldowns[move];
+      const full = move === "nova" ? sim.novaChargeNeeded() : (b.phase === 2 ? ASCENDED_MOVES[move].cooldownS * sim.cfg.phase2.PHASE2_COOLDOWN_MULT : BASE_MOVES[move].cooldownS);
+      const x = 282 + i * 98;
+      this.ui.fillStyle(0x091526, 0.95).fillRect(x, 502, 94, 29);
+      this.ui.lineStyle(1, cd <= 0 ? 0x9bc8b4 : 0x3b4b63, 1).strokeRect(x, 502, 94, 29);
+      this.ui.fillStyle(cd <= 0 ? 0x94d3ba : 0x647da1, 1).fillRect(x + 2, 527, 90 * Math.max(0, 1 - cd / full), 2);
+      this.docks[i]!.setText(keyLabel(this.bindings[move]) + " " + (cd > 0 ? cd.toFixed(1) : move.toUpperCase())).setColor(cd > 0 ? "#8796ac" : "#d8e9da");
     });
-    // --- life 9 hold prompt ---
-    if (b.holdAvailable && !b.yielded && this.mode === "fight") {
-      const txt = b.phase === 2 ? LIFE9.holdPromptAscended : LIFE9.holdPrompt;
-      this.holdText.setText(txt).setAlpha(0.65 + 0.35 * Math.sin(t * 2));
-      const p = Math.min(1, b.holdT / PATCHWORK.holdToYieldS);
-      this.ui.fillStyle(0x000000, 0.5).fillRect(W / 2 - 80, ARENA.height - 112, 160, 5);
-      this.ui.fillStyle(0xffe2a8, 1).fillRect(W / 2 - 80, ARENA.height - 112, 160 * p, 5);
-    } else if (this.mode === "fight") this.holdText.setAlpha(0);
-  }
-
-  private drawMove(sim: FightSim, t: number): void {
-    const m = sim.boss.move;
-    if (!m || sim.outcome) return;
-    const front = sim.bossFront;
-    const p = m.stage === "tell" ? Math.min(1, m.t / m.spec.tellS) : 1;
-    const fx = this.fx;
-    const add = this.fxAdd;
-    if (m.phase === 1) {
-      switch (m.id) {
-        case "cleave":
-          if (m.stage === "tell") add.lineStyle(3, 0xd8dcf0, 0.3 + 0.6 * p).beginPath().arc(sim.boss.x - 10, PLATFORM_TOP - 190, 46, -2.8, -0.6).strokePath();
-          if (m.stage === "active") {
-            const swing = m.t / m.spec.activeS;
-            for (let trail = 0; trail < 3; trail++) {
-              const radius = G.cleaveReach - trail * 14;
-              add.lineStyle(12 - trail * 3, trail === 0 ? 0x8b83db : trail === 1 ? 0x94e6d2 : 0xf4efce, 0.45 + trail * 0.15).beginPath().arc(front, FLOOR - 30, radius, Math.PI * (0.68 + swing * 0.18), Math.PI * (0.95 + swing * 0.3)).strokePath();
-            }
-            fan(add.fillStyle(0xe8e4ff, 0.55), front, FLOOR - 30, G.cleaveReach, Math.PI * 0.82, Math.PI * 1.12);
-            add.lineStyle(5, 0xffffff, 0.9).beginPath().arc(front, FLOOR - 30, G.cleaveReach, Math.PI * 0.82, Math.PI * 1.12).strokePath();
-          }
-          break;
-        case "throw":
-          if (m.stage === "tell") {
-            const a = t * 10 * (0.5 + p);
-            fx.lineStyle(4, 0xd7dbea, 0.9).beginPath().arc(front + 6, PLATFORM_TOP - 120, 22, a, a + 2.6).strokePath();
-          }
-          break;
-        case "reap":
-          if (m.stage === "tell") add.lineStyle(2, 0xd8dcf0, 0.3 + 0.5 * p).lineBetween(front - 40 * p, FLOOR - 4, front, FLOOR - 4);
-          if (m.stage === "active") {
-            const prog = m.t / m.spec.activeS;
-            add.fillStyle(0xeae6ff, 0.55).fillRect(front - (front - 20) * prog, FLOOR - 14, (front - 20) * prog, 12);
-            for (let i = 0; i < 12; i++) add.fillStyle(i % 2 ? 0x95f2d5 : 0xc2a2f3, 0.75).fillRect(front - (front - 20) * prog + i * 9, FLOOR - 4 - (i % 4) * 4, 5, 3);
-          }
-          break;
-        case "nova":
-          if (m.stage === "active") this.flash.setAlpha(0.85);
-          break;
-      }
-      return;
+    if (this.mode === "fight") {
+      if (sim.setup.life === "kitten" && !sim.tutorialComplete) this.hint.setText(
+        (b.jumps ? "✓ " : "") + keyLabel(this.bindings.jump) + " JUMP   " + (b.dashes ? "✓ " : "") + keyLabel(this.bindings.dash) + " DASH   " + (b.blocks ? "✓ " : "") + keyLabel(this.bindings.guard) + " BLOCK A HIT");
+      else if (b.inactivityT > 30) this.hint.setText("The visitor lowers its blade. \"Will you answer me?\"");
+      else this.hint.setText("");
     }
-    switch (m.id) {
-      case "cleave":
-        if (m.stage === "tell") {
-          add.lineStyle(3, 0xb07cff, 0.4 + 0.6 * p).strokeEllipse(m.targetX, FLOOR - 2, G.riftRadius * 2 * (1.4 - 0.4 * p), 24);
-        }
-        if (m.stage === "active") {
-          add.fillStyle(0xc9a2ff, 0.6).fillEllipse(m.targetX, FLOOR - 6, G.riftRadius * 2, 34);
-          add.fillStyle(0xffffff, 0.5).fillRect(m.targetX - 6, FLOOR - 260, 12, 254);
-        }
-        break;
-      case "throw":
-        if (m.stage === "tell") add.fillStyle(0x7cffc8, 0.3 + 0.5 * p).fillCircle(sim.boss.x - 20, PLATFORM_TOP - 150, 10 + 10 * p);
-        break;
-      case "reap":
-        if (m.stage === "tell") {
-          for (let i = 0; i < 4; i++) {
-            const x = front - 60 - i * 140 + Math.sin(t * 8 + i) * 8;
-            add.lineStyle(2, 0x6fe6ff, 0.25 + 0.5 * p).beginPath().arc(x, FLOOR + 6, 30, Math.PI * 1.15, Math.PI * 1.85).strokePath();
-          }
-        }
-        if (m.stage === "active") {
-          const wave = m.t < G.tideWaveS ? 0 : m.t >= G.tideSecondWaveS && m.t < G.tideSecondWaveS + G.tideWaveS ? 1 : -1;
-          if (wave >= 0) {
-            const local = wave === 0 ? m.t / G.tideWaveS : (m.t - G.tideSecondWaveS) / G.tideWaveS;
-            add.fillStyle(0x6fe6ff, 0.55).fillRect(front - (front - 20) * local, FLOOR - 18, (front - 20) * local, 16);
-          }
-        }
-        break;
-      case "nova":
-        for (const px of m.pillars) {
-          if (m.stage === "tell") add.lineStyle(2, 0xfff1b8, 0.3 + 0.6 * p).strokeRect(px - G.bellPillarHalfWidth, 60, G.bellPillarHalfWidth * 2, FLOOR - 60);
-          if (m.stage === "active") add.fillStyle(0xfff1b8, 0.55).fillRect(px - G.bellPillarHalfWidth, 60, G.bellPillarHalfWidth * 2, FLOOR - 60);
-        }
-        if (m.stage === "active") this.flash.setAlpha(0.7);
-        break;
-    }
-  }
-
-  private impact(x: number, y: number, color: number, count: number): void {
-    for (let i = 0; i < count; i++) {
-      const a = i * Math.PI * 2 / count;
-      const distance = 22 + (i % 4) * 16;
-      const p = this.add.rectangle(x, y, i % 3 ? 3 : 6, 3, color).setDepth(12);
-      this.tweens.add({ targets: p, x: x + Math.cos(a) * distance, y: y + Math.sin(a) * distance + 14, alpha: 0, duration: 200 + i % 4 * 55, ease: "Cubic.Out", onComplete: () => p.destroy() });
-    }
-  }
-
-  private drawStage(): void {
-    const g = this.stage;
-    g.clear();
-    const x0 = ARENA.bossMinX - 90;
-    g.fillStyle(0x15222e, 1).fillRect(x0, PLATFORM_TOP, ARENA.width - x0, ARENA.platformY);
-    for (let row = 0; row < 4; row++) for (let col = 0; col < 13; col++) {
-      const x = x0 + col * 30 - (row % 2) * 13;
-      g.fillStyle((row + col) % 3 ? 0x263d49 : 0x324651, 1).fillRect(Math.max(x0, x), PLATFORM_TOP + row * 9 + 1, Math.min(28, x + 28 - x0), 7);
-    }
-    g.fillStyle(0x71948d, 1).fillRect(x0, PLATFORM_TOP, ARENA.width - x0, 2);
-    for (let i = 0; i < 4; i++) {
-      g.fillStyle(0x263c46, 1).fillRect(x0 - 12 * (4 - i), FLOOR - (i + 1) * 9, 12, (i + 1) * 9);
-      g.fillStyle(0x71948d, 1).fillRect(x0 - 12 * (4 - i), FLOOR - (i + 1) * 9, 12, 2);
-    }
-  }
-
-  private applyTierLook(fightIndex: number, animate: boolean): void {
-    const look = tierLook(fightIndex);
-    this.wash.setFillStyle(look.wash, look.washAlpha);
-    this.warm.setFillStyle(look.warm, look.warmAlpha);
-    if (animate) this.tweens.add({ targets: this.bgDawn, alpha: look.dawn, duration: 2500 });
-    else this.bgDawn.setAlpha(look.dawn);
-    getAudio().setTier(tierOf(fightIndex));
-  }
-
-  private drawDebug(): void {
-    if (!this.debug) return;
-    const s = this.session;
-    const last = s.lastPlan;
-    const src = last ? last.source + (last.fallbackReason ? ` (${last.fallbackReason})` : "") : "-";
-    const nextLife = fixedLifeFor(s.fightIndex) ?? s.next.plan.next_life;
-    this.debugText.setText(
-      `planner ${s.planner.mode}  ·  last plan ${src}  ·  fight ${Math.min(s.fightIndex, 9)}  ·  bond ${s.state.bond}  ·  director ${s.state.directorAdjust >= 0 ? "+" : ""}${s.state.directorAdjust}  ·  next ${nextLife}  ·  1-9 jump  P phase two  B/N bond  H hitboxes  M mute`,
-    );
-    this.debugG.clear();
-    const sim = this.sim;
-    if (!this.showHitboxes || !sim) return;
-    const g = this.debugG;
-    const c = sim.ch;
-    g.lineStyle(1, 0x00ff88, 1).strokeRect(c.x - 14, FLOOR - c.y - 52, 28, 52);
-    g.lineStyle(1, 0xff4466, 1).strokeRect(sim.bossFront, PLATFORM_TOP - 200, ARENA.bossHalfWidth * 2, 200);
-    const m = sim.boss.move;
-    if (m && m.stage !== "recover") {
-      g.lineStyle(1, 0xffcc00, 1);
-      if (m.id === "cleave" && m.phase === 1) g.strokeRect(sim.bossFront - G.cleaveReach, FLOOR - G.cleaveHeight, G.cleaveReach, G.cleaveHeight);
-      if (m.id === "cleave" && m.phase === 2) g.strokeRect(m.targetX - G.riftRadius, FLOOR - G.cleaveHeight, G.riftRadius * 2, G.cleaveHeight);
-      if (m.id === "reap") g.strokeRect(0, FLOOR - G.floorHitHeight, sim.bossFront, G.floorHitHeight);
-      if (m.id === "nova") g.strokeRect(0, 0, ARENA.width, ARENA.height);
-    }
-    for (const p of sim.projectiles) g.strokeCircle(p.x, FLOOR - p.y, p.kind === "glaive" ? G.throwRadius : G.wispRadius);
-    g.lineStyle(1, 0x66aaff, 0.6).lineBetween(sim.prefX(), FLOOR, sim.prefX(), FLOOR - 20);
+    this.debugText.setText("mode " + this.session.planner.mode + "  life " + sim.setup.fightIndex + "  JUMP " + b.jumps + " DASH " + b.dashes + " BLOCK " + b.blocks + "  1–9 encounter  P ascend");
   }
 }
-
-export type { LifeId };

@@ -2,29 +2,30 @@
 // docs/challenger-progression.md.
 
 import { describe, expect, it } from "vitest";
-import { CHALLENGER, CURVE_AGENT, DIRECTOR } from "../src/core/config";
-import { makeBot, runFight } from "../src/core/bots";
-import { curveForSource, curveRow, directorStep, statsFor, tierFor } from "../src/core/progression";
-import { defaultTactics } from "../src/core/roster";
+import { DIRECTOR } from "../src/core/config";
+import { curveForSource, directorStep, statsFor, tierFor } from "../src/core/progression";
 import { newRun, setupFight } from "../src/core/run";
-import { makeSim } from "./helpers";
 
 describe("curve tables", () => {
-  it("applies the agent curve rows by fight index, with fights past 6 on the 6+ row", () => {
-    for (let n = 1; n <= 6; n++) expect(curveRow("agent", n)).toEqual(CURVE_AGENT[n - 1]);
-    expect(curveRow("agent", 7)).toEqual(CURVE_AGENT[5]);
-    const s4 = statsFor("alley", 4, "agent", 0);
-    expect(s4.maxHp).toBe(Math.round(CHALLENGER.baseHp * 1.6));
-    expect(s4.damage).toBeCloseTo(CHALLENGER.baseDamage * 1.45);
-    expect(s4.reactionMs).toBe(260);
+  it("grows all later encounters gradually with mortal final-life stats", () => {
+    const rows = Array.from({length:8},(_,i)=>statsFor(i===7?"patchwork":i===6?"quiet":"alley",i+2,"agent",0));
+    for(let i=1;i<rows.length;i++){
+      expect(rows[i]!.maxHp).toBeGreaterThan(rows[i-1]!.maxHp);
+      expect(rows[i]!.maxHp/rows[i-1]!.maxHp).toBeLessThan(1.3);
+      expect(rows[i]!.damage).toBeGreaterThan(rows[i-1]!.damage);
+      expect(rows[i]!.speed).toBeGreaterThan(rows[i-1]!.speed);
+      expect(rows[i]!.reactionMs).toBeLessThanOrEqual(rows[i-1]!.reactionMs);
+    }
+    expect(rows[7]!.maxHp).toBeLessThan(1000);
+    expect(statsFor("kitten",1,"agent",0)).toMatchObject({maxHp:260,damage:4});
   });
 
-  it("grows the scripted curve geometrically by 1.25 per fight, capped at 3.0", () => {
-    expect(curveRow("scripted", 1).hp).toBeCloseTo(1);
-    expect(curveRow("scripted", 2).hp).toBeCloseTo(1.25);
-    expect(curveRow("scripted", 3).damage).toBeCloseTo(1.5625);
-    expect(curveRow("scripted", 6).hp).toBeCloseTo(3.0);
-    expect(curveRow("scripted", 7).hp).toBeCloseTo(3.0);
+  it("keeps scripted strength close to adaptive strength instead of a geometric spike", () => {
+    for(let n=2;n<=9;n++){
+      const a=statsFor("alley",n,"agent",0),s=statsFor("alley",n,"scripted",0);
+      expect(s.maxHp/a.maxHp).toBeLessThan(1.1);
+      expect(s.damage).toBe(a.damage);
+    }
   });
 
   it("pairs scripted and fallback plans with the scripted curve, and agent or heuristic plans with the agent curve", () => {
@@ -67,15 +68,5 @@ describe("pacing director", () => {
     expect(b.tactics).toEqual(a.tactics);
     expect(b.stats.maxHp).toBeGreaterThan(a.stats.maxHp);
     expect(b.stats.damage).toBeGreaterThan(a.stats.damage);
-  });
-});
-
-describe("midpoint", () => {
-  it("with a fixed seed and scripted boss input, the midpoint fight triggers Phase Two", () => {
-    // Fight 4, the acrobat (counters Low Reap) against a boss that leans on Low Reap.
-    const sim = makeSim("acrobat", { seed: 2, fightIndex: 4 });
-    expect(sim.setup.tactics).toEqual(defaultTactics("acrobat"));
-    runFight(sim, makeBot("spam_reap", 2));
-    expect(sim.boss.phase2Triggered).toBe(true);
   });
 });

@@ -10,9 +10,9 @@ import { summarize } from "./summary";
 import { CHOOSABLE_LIVES, type FightSummary, type LifeId, type PlanResult } from "./types";
 
 export type Ending =
-  | { kind: "letting_go"; held: boolean; bond: number; life8Struck: boolean }
-  | { kind: "too_soon"; by: LifeId; fightIndex: number; bond: number };
-
+  | { kind: "normal"; by: LifeId; fightIndex: number; bond: number }
+  | { kind: "do_nothing"; by: LifeId; fightIndex: number; bond: number }
+  | { kind: "victory"; defeated: number; bond: number };
 export interface RunState {
   seed: number;
   /** The fight about to be played or being played (1 to 9). */
@@ -104,16 +104,13 @@ export function finishFight(state: RunState, sim: FightSim, plan: PlanResult): F
   });
   state.summaries.push(summary);
 
-  if (life === "quiet" && sim.outcome === "challenger_dead") {
-    state.life8Struck = true;
-    state.bond = 0;
-  }
   if (sim.outcome === "boss_dead") {
-    if (life === "patchwork") {
-      state.ending = { kind: "letting_go", held: sim.boss.yielded, bond: state.bond, life8Struck: state.life8Struck };
-    } else {
-      state.ending = { kind: "too_soon", by: life, fightIndex: state.fightIndex, bond: state.bond };
-    }
+    state.ending = { kind: sim.endReason === "boredom" ? "do_nothing" : "normal", by: life, fightIndex: state.fightIndex, bond: state.bond };
+  } else if (life === "patchwork" && sim.outcome === "challenger_dead") {
+    state.ending = { kind: "victory", defeated: state.used.length, bond: state.bond };
+  } else if (life === "patchwork" && sim.outcome === "spared") {
+    // A stalemate is not the difficult Victory route; the crown eventually fails.
+    state.ending = { kind: "normal", by: life, fightIndex: state.fightIndex, bond: state.bond };
   }
   if (life !== "quiet" && life !== "patchwork") {
     state.directorAdjust = directorStep(state.directorAdjust, state.fightIndex, summary.bossMinHpPct);

@@ -15,7 +15,7 @@
     "assets:key": "node scripts/chroma-key.mjs",
     "assets:crop": "node scripts/crop-lineup.mjs && node scripts/resize-sprites.mjs",
     "assets:pixel": "node scripts/export-pixel-sprites.mjs",
-    "test:browser": "npm run build && node scripts/presentation-smoke.mjs"
+    "test:browser": "npm run build && node scripts/mobile-smoke.mjs"
   },
   "dependencies": {
     "phaser": "3.88.2"

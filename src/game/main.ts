@@ -10,12 +10,14 @@ import { EndingScene } from "./scenes/EndingScene";
 import { FightScene } from "./scenes/FightScene";
 import { TitleScene } from "./scenes/TitleScene";
 import { OpeningScene } from "./scenes/OpeningScene";
+import { SettingsScene } from "./scenes/SettingsScene";
+import { loadBindings } from "./controls";
 
 const params = new URLSearchParams(window.location.search);
 const audio = getAudio();
 
 window.addEventListener("keydown", (e) => {
-  if (e.key === "m" || e.key === "M") audio.toggleMute();
+  if ((e.key === "m" || e.key === "M") && !Object.values(loadBindings()).includes(e.code)) audio.toggleMute();
 });
 
 const game = new Phaser.Game({
@@ -27,7 +29,7 @@ const game = new Phaser.Game({
   scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
   render: { antialias: false, pixelArt: true, roundPixels: true },
   fps: { target: 60 },
-  scene: [BootScene, TitleScene, OpeningScene, FightScene, EndingScene],
+  scene: [BootScene, TitleScene, SettingsScene, OpeningScene, FightScene, EndingScene],
 });
 
 // Exposed for debugging in the console only.

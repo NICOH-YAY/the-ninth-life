@@ -84,16 +84,8 @@ export class Session {
     return this.sim;
   }
 
-  /** The opening's one-hit kitten defeat uses real rules, then resolves the next arrival. */
-  async completeOpening(): Promise<void> {
-    if (this.fightIndex !== 1) return;
-    const sim = this.startFight();
-    for (let tick = 0; tick < 600 && !sim.outcome; tick++) sim.step({ ...NO_INPUT, reap: tick === 180 });
-    if (sim.outcome !== "challenger_dead") throw new Error("Opening kitten encounter did not resolve");
-    this.endFight();
-    await this.resolveNext();
-  }
-
+  /** The opening defeats the previous king; the tutorial kitten remains playable. */
+  async completeOpening(): Promise<void> { return; }
   /** Records the fight. Starts the planner call for the next slot right away. */
   endFight(): FightSummary {
     const sim = this.sim!;

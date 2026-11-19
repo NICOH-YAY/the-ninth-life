@@ -1,131 +1,152 @@
-// AI-use disclosure: written by Claude Code. The endings from docs/story-bible.md:
-// letting go (held or fought) and too soon. The crown rolls to the challenger, the light
-// turns to dawn, and the screen fades to the empty dawn room and the title.
-// No "game over" text anywhere.
-
+// AI-use disclosure: Codex-authored staging and provisional dialogue for the three requested endings.
 import Phaser from "phaser";
-import { ARENA } from "../../core/config";
-import { ROSTER } from "../../core/roster";
 import type { Ending } from "../../core/run";
 import type { LifeId } from "../../core/types";
-import { ENDINGS, TITLE } from "../../content/lines";
-import { DISPLAY_HEIGHT } from "../art";
 import { getAudio } from "../audio";
+import { PortraitDialogue, type DialogueLine } from "../dialogue";
+import { FLOOR, poseActor, reflectActor, SpriteEffects, type Motion } from "../presentation";
 import type { Session } from "../session";
 
-const FONT = "Georgia, 'Times New Roman', serif";
-
+type ActorState = { x: number; feet: number; facing: number; motion: Motion; fixed: number | null; alpha: number; height: number };
 export class EndingScene extends Phaser.Scene {
   private session!: Session;
   private ending!: Ending | null;
-  private life!: LifeId;
+  private life: LifeId = "patchwork";
+  private king!: Phaser.GameObjects.Image;
+  private visitor!: Phaser.GameObjects.Image;
+  private kingReflection!: Phaser.GameObjects.Image;
+  private visitorReflection!: Phaser.GameObjects.Image;
+  private kingState!: ActorState;
+  private visitorState!: ActorState;
+  private dialogue!: PortraitDialogue;
+  private effects!: SpriteEffects;
+  private epoch = 0;
+  private ready = false;
+  private exiting = false;
+  private wait: { timer: Phaser.Time.TimerEvent; resolve: () => void } | null = null;
+  private returnKey: ((event: KeyboardEvent) => void) | null = null;
+  private returnClick: (() => void) | null = null;
 
-  constructor() {
-    super("ending");
-  }
-
+  constructor() { super("ending"); }
   init(data: { session: Session; ending: Ending | null; life: LifeId }): void {
     this.session = data.session;
-    this.ending = data.ending;
-    this.life = data.life;
+    this.ending = data.ending ?? data.session.state.ending;
+    this.life = data.life ?? "patchwork";
+    this.ready = false; this.exiting = false;
   }
-
   create(): void {
-    const W = ARENA.width;
-    const H = ARENA.height;
-    const floor = ARENA.floorY;
-    const platform = floor - ARENA.platformY;
-    const audio = getAudio();
-    audio.resolve();
-    this.cameras.main.fadeIn(1500, 255, 236, 200);
-
-    const night = this.add.image(W / 2, H / 2, "bg-night");
-    night.setScale(Math.max(W / night.width, H / night.height));
-    const dawn = this.add.image(W / 2, H / 2, "bg-dawn").setAlpha(0.35);
-    dawn.setScale(Math.max(W / dawn.width, H / dawn.height));
-    const warm = this.add.rectangle(W / 2, H / 2, W, H, 0xffc070, 0.0).setBlendMode(Phaser.BlendModes.ADD);
-
-    const ending = this.ending;
-    const tooSoon = !ending || ending.kind === "too_soon";
-    const bossX = this.session.sim?.boss.x ?? ARENA.bossStartX;
-    const boss = this.add.image(bossX, platform, "immortal-base").setOrigin(0.5, 1);
-    const bs = DISPLAY_HEIGHT.immortal / boss.height;
-    boss.setScale(bs);
-    const chX = Math.min(bossX - 110, this.session.sim?.ch.x ?? 600);
-    const ch = this.add.image(chX, floor, ROSTER[this.life].sprite).setOrigin(0.5, 1);
-    ch.setScale(DISPLAY_HEIGHT[this.life] / ch.height);
-    const crown = this.add.circle(bossX + 4, platform - DISPLAY_HEIGHT.immortal + 6, 7, 0xd9b45a).setStrokeStyle(2, 0x8a6a2a);
-
-    // The Immortal kneels.
-    this.tweens.add({ targets: boss, scaleY: bs * 0.72, rotation: 0.12, duration: 1600, ease: "Sine.easeInOut" });
-    // The crown slips off and rolls to the challenger's feet.
-    this.tweens.add({ targets: crown, x: chX + 26, y: floor - 7, duration: 2600, delay: 1200, ease: "Quad.easeIn" });
-    this.tweens.add({ targets: crown, angle: -720, duration: 2600, delay: 1200 });
-    // The light turns to dawn.
-    this.tweens.add({ targets: dawn, alpha: 1, duration: tooSoon ? 3000 : 6000, delay: 800 });
-    this.tweens.add({ targets: warm, alpha: 0.12, duration: 6000, delay: 800 });
-
-    const text = this.add.text(W / 2, H - 92, "", { fontFamily: FONT, fontSize: "21px", color: "#2a1c22", align: "center", wordWrap: { width: 700 } }).setOrigin(0.5);
-    const shade = this.add.rectangle(W / 2, H - 92, 760, 70, 0xfff2dc, 1).setAlpha(0);
-    text.setDepth(5);
-    shade.setDepth(4);
-
-    const lines: string[] = [];
-    if (tooSoon) {
-      lines.push(ENDINGS.tooSoonChallenger, ENDINGS.tooSoonCoda);
-    } else if (ending.kind === "letting_go") {
-      const high = ending.bond >= 4;
-      if (ending.held) lines.push(ENDINGS.heldImmortal, high ? ENDINGS.heldHigh : ENDINGS.heldLow);
-      else lines.push(high ? ENDINGS.foughtHigh : ENDINGS.foughtLow);
-      if (ending.life8Struck) lines.push(ENDINGS.struckCoda);
+    const epoch = ++this.epoch;
+    getAudio().resolve();
+    const kind = this.ending?.kind ?? "normal";
+    const preferred = kind === "victory" ? "combat-aged-late" : "higgsfield-dawn";
+    const background = this.textures.exists(preferred) ? preferred : this.textures.exists(kind === "victory" ? "higgsfield-arena" : "bg-dawn") ? kind === "victory" ? "higgsfield-arena" : "bg-dawn" : "bg-night";
+    this.add.image(480, 270, background).setDisplaySize(960, 540);
+    this.add.rectangle(480, FLOOR + 38, 960, 76, 0x172633, 0.25).setDepth(1);
+    this.add.rectangle(480, FLOOR + 1, 960, 2, 0xb6d0c9, 0.25).setDepth(2);
+    this.cameras.main.fadeIn(1200, kind === "victory" ? 6 : 229, kind === "victory" ? 13 : 213, kind === "victory" ? 26 : 184);
+    this.kingReflection = this.add.image(730, FLOOR, "immortal-base").setDepth(3);
+    this.visitorReflection = this.add.image(590, FLOOR, this.life).setDepth(3);
+    this.king = this.add.image(730, FLOOR, "immortal-base").setDepth(4);
+    this.visitor = this.add.image(590, FLOOR, this.life).setDepth(4);
+    this.kingState = { x: 730, feet: FLOOR, facing: -1, motion: kind === "normal" ? "reap" : "idle", fixed: kind === "normal" ? 1 : null, alpha: 1, height: 143 };
+    this.visitorState = { x: 590, feet: FLOOR, facing: 1, motion: kind === "victory" ? "reap" : "idle", fixed: kind === "victory" ? 4 : null, alpha: 1, height: 79 };
+    if (kind === "do_nothing") this.king.setTint(0x636c7b);
+    this.effects = new SpriteEffects(this);
+    this.dialogue = new PortraitDialogue(this);
+    const label = kind === "normal" ? "Normal Ending" : kind === "do_nothing" ? "Do Nothing Ending" : "Victory Ending";
+    const title = this.add.text(480, 61, label, { fontFamily: "Georgia, serif", fontSize: "30px", color: "#ead8af" }).setOrigin(0.5).setAlpha(0).setDepth(20);
+    this.tweens.add({ targets: title, alpha: 1, duration: 1000, delay: 600 });
+    if (kind === "normal") this.dropCrown();
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.cleanup());
+    this.events.once(Phaser.Scenes.Events.DESTROY, () => this.cleanup());
+    void this.finishStory(epoch, kind);
+  }
+  private lines(kind: "normal" | "do_nothing" | "victory"): DialogueLine[] {
+    // PLACEHOLDER: Nicoh to review the final ending wording.
+    if (kind === "normal") return [
+      { speaker: "The Challenger", text: "You do not have to guard an empty room anymore.", portrait: this.life },
+      { speaker: "The Immortal", text: "I cannot remember the sky without these windows.", portrait: "immortal-base" },
+      { speaker: "The Challenger", text: "Then let us begin there.", portrait: this.life },
+    ];
+    if (kind === "do_nothing") return [
+      { speaker: "The Challenger", text: "All those years, and you will not even answer.", portrait: this.life },
+      { speaker: "The Challenger", text: "I thought there was someone left behind those eyes.", portrait: this.life },
+      { speaker: "The Challenger", text: "Enough. Let the castle keep its silence.", portrait: this.life },
+    ];
+    return [
+      { speaker: "The Challenger", text: "There is no life left in me that wants your crown.", portrait: this.life },
+      { speaker: "The Immortal", text: "Then I have won.", portrait: "immortal-base" },
+      { speaker: "The Challenger", text: "Yes. Keep it. I am going outside.", portrait: this.life },
+    ];
+  }
+  private async finishStory(epoch: number, kind: "normal" | "do_nothing" | "victory"): Promise<void> {
+    await this.pause(1000);
+    if (!this.alive(epoch)) return;
+    await this.dialogue.play(this.lines(kind), 2400);
+    if (!this.alive(epoch)) return;
+    if (kind === "normal") {
+      this.visitorState.motion = "run"; this.visitorState.fixed = null;
+      this.tweens.add({ targets: this.visitorState, x: 663, duration: 800, ease: "Sine.InOut" });
+      await this.pause(800);
+      if (!this.alive(epoch)) return;
+      this.kingState.motion = "run"; this.kingState.fixed = null;
+      this.kingState.facing = -1; this.visitorState.facing = -1;
+      this.tweens.add({ targets: this.kingState, x: -90, duration: 4200, ease: "Sine.InOut" });
+      this.tweens.add({ targets: this.visitorState, x: -165, duration: 4200, ease: "Sine.InOut" });
+      await this.pause(4200);
+    } else {
+      this.visitorState.facing = -1; this.visitorState.motion = "run"; this.visitorState.fixed = null;
+      this.tweens.add({ targets: this.visitorState, x: -100, duration: 4600, ease: "Sine.InOut" });
+      if (kind === "do_nothing") this.tweens.add({ targets: this.kingState, alpha: 0.35, duration: 3600 });
+      await this.pause(5000);
     }
-
-    // The patchwork cat sits beside the Immortal.
-    if (!tooSoon) this.tweens.add({ targets: ch, x: bossX - 70, y: platform, scaleY: ch.scaleY * 0.88, duration: 2200, delay: 3000 });
-
-    let delay = 4200;
-    lines.forEach((l, i) => {
-      this.time.delayedCall(delay, () => {
-        shade.setAlpha(0.7);
-        this.typeLine(text, l);
-        if (i === 0 && !tooSoon && ending?.kind === "letting_go" && ending.held) {
-          // It stands, and they walk out together.
-          this.tweens.add({ targets: boss, scaleY: bs, rotation: 0, duration: 1600, delay: 1800 });
-          this.tweens.add({ targets: [boss, ch, crown], x: "-=900", duration: 7000, delay: 3800, ease: "Sine.easeIn" });
-        }
-      });
-      delay += 4200 + l.length * 30;
-    });
-
-    // Fade to the empty dawn room and the title.
-    this.time.delayedCall(delay + 1500, () => {
-      const cover = this.add.image(W / 2, H / 2, "bg-dawn").setAlpha(0).setDepth(10);
-      cover.setScale(Math.max(W / cover.width, H / cover.height));
-      const title = this.add.text(W / 2, H / 2 - 40, TITLE.name, { fontFamily: FONT, fontSize: "56px", color: "#3a2430" }).setOrigin(0.5).setAlpha(0).setDepth(11);
-      this.tweens.add({ targets: cover, alpha: 1, duration: 3500 });
-      this.tweens.add({ targets: title, alpha: 1, duration: 3000, delay: 2500 });
-      text.setAlpha(0);
-      shade.setAlpha(0);
-      this.time.delayedCall(7000, () => {
-        this.input.keyboard?.once("keydown", () => this.scene.start("title"));
-        this.input.once("pointerdown", () => this.scene.start("title"));
-      });
+    if (!this.alive(epoch)) return;
+    const coda = kind === "normal" ? "At last, the doors open." : kind === "do_nothing" ? "The hall is silent again." : "The crown is still yours. The kingdom is empty.";
+    this.add.rectangle(480, 488, 960, 104, 0x050c18, 0.9).setDepth(30);
+    this.add.text(480, 476, coda, { fontFamily: "Georgia, serif", fontSize: "21px", color: "#e4dcc5", align: "center", wordWrap: { width: 820 } }).setOrigin(0.5).setDepth(31);
+    this.add.text(480, 514, "[ Enter ]  Return to the castle", { fontFamily: "monospace", fontSize: "13px", color: "#aec5bd" }).setOrigin(0.5).setDepth(31);
+    this.ready = true;
+    this.returnKey = (event: KeyboardEvent): void => { if (event.code === "Enter" && !event.repeat) { event.preventDefault(); this.returnToMenu(); } };
+    this.returnClick = (): void => this.returnToMenu();
+    this.input.keyboard?.on("keydown", this.returnKey);
+    this.input.on("pointerdown", this.returnClick);
+  }
+  private dropCrown(): void {
+    const crown = this.add.graphics().setPosition(730, FLOOR - 137).setDepth(8);
+    crown.fillStyle(0xe4c47a, 1).fillRect(-11, 0, 22, 5).fillRect(-11, -8, 4, 8).fillRect(-2, -11, 4, 11).fillRect(7, -8, 4, 8);
+    crown.fillStyle(0xa47c48, 1).fillRect(-11, 4, 22, 2);
+    this.tweens.add({ targets: crown, x: 648, y: FLOOR - 6, angle: -205, duration: 1800, delay: 400, ease: "Bounce.Out", onComplete: () => this.effects.burst(648, FLOOR - 4) });
+  }
+  private pause(ms: number): Promise<void> {
+    return new Promise<void>(resolve => {
+      const timer = this.time.delayedCall(ms, () => { this.wait = null; resolve(); });
+      this.wait = { timer, resolve };
     });
   }
-
-  private typeLine(target: Phaser.GameObjects.Text, line: string): void {
-    let i = 0;
-    target.setText("").setAlpha(1);
-    const ev = this.time.addEvent({
-      delay: 40,
-      repeat: line.length - 1,
-      callback: () => {
-        const c = line[i] ?? "";
-        if (/[aeiouy]/i.test(c) && !/[aeiouy]/i.test(line[i - 1] ?? " ")) getAudio().murmur(0.85);
-        i++;
-        target.setText(line.slice(0, i));
-        if (i >= line.length) ev.remove();
-      },
-    });
+  private alive(epoch: number): boolean { return epoch === this.epoch && this.scene.isActive(); }
+  private returnToMenu(): void {
+    if (!this.ready || this.exiting) return;
+    this.exiting = true;
+    this.scene.start("title");
+  }
+  private cleanup(): void {
+    this.epoch++;
+    if (this.wait) {
+      this.wait.timer.remove(false); this.time.removeEvent(this.wait.timer);
+      const resolve = this.wait.resolve; this.wait = null; resolve();
+    }
+    this.dialogue?.dispose(); this.effects?.clear();
+    if (this.returnKey) this.input.keyboard?.off("keydown", this.returnKey);
+    if (this.returnClick) this.input.off("pointerdown", this.returnClick);
+    this.returnKey = null; this.returnClick = null; this.ready = false;
+  }
+  override update(time: number, delta: number): void {
+    if (!this.kingState || !this.visitorState) return;
+    const frame = Math.floor(time / 140) % 6;
+    poseActor(this, this.king, "player", this.kingState.motion, this.kingState.fixed ?? frame, this.kingState.x, this.kingState.feet, this.kingState.facing, this.kingState.height);
+    poseActor(this, this.visitor, this.life, this.visitorState.motion, this.visitorState.fixed ?? frame, this.visitorState.x, this.visitorState.feet, this.visitorState.facing, this.visitorState.height);
+    this.king.setAlpha(this.kingState.alpha); this.visitor.setAlpha(this.visitorState.alpha);
+    reflectActor(this.king, this.kingReflection); reflectActor(this.visitor, this.visitorReflection);
+    this.effects.update(Math.min(delta / 1000, 0.1));
   }
 }

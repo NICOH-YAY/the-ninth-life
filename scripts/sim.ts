@@ -28,7 +28,7 @@ for (const prof of profiles) {
     const endings: Record<string, number> = {};
     let secs = 0;
     for (let seed = 1; seed <= runs; seed++) {
-      const st = await runHeadless({ seed: seed * 101, planner: c.planner(), curveOverride: c.curve, bot: (fi) => (fi === 9 ? "holder" : fi === 8 ? "idle" : prof) });
+      const st = await runHeadless({ seed: seed * 101, planner: c.planner(), curveOverride: c.curve, bot: () => prof });
       for (const s of st.summaries) {
         sums[s.fightIndex] = (sums[s.fightIndex] ?? 0) + s.bossMinHpPct;
         ns[s.fightIndex] = (ns[s.fightIndex] ?? 0) + 1;
@@ -36,7 +36,7 @@ for (const prof of profiles) {
       }
       const p2 = st.summaries.find((s) => s.phase2ReachedAtSec !== null && s.lifeId !== "patchwork");
       firstP2.push(p2 ? p2.fightIndex : 10);
-      const k = st.ending ? (st.ending.kind === "too_soon" ? "soon@" + st.ending.fightIndex : st.ending.held ? "held" : "fought") : "none";
+      const k = st.ending ? (st.ending.kind === "victory" ? "victory" : st.ending.kind + "@" + st.ending.fightIndex) : "none";
       endings[k] = (endings[k] ?? 0) + 1;
     }
     const row = [1, 2, 3, 4, 5, 6, 7].map((f) => (ns[f] ? fmt((sums[f] ?? 0) / (ns[f] ?? 1)) : " -- ")).join("  ");

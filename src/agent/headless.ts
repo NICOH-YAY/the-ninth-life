@@ -12,7 +12,7 @@ import type { Planner } from "./planners";
 export interface HeadlessOptions {
   seed: number;
   planner: Planner;
-  /** Boss profile per fight index. Defaults to "average", with "holder" on fight 9. */
+  /** Boss profile per encounter. The same mobile average policy applies to every life. */
   bot?: (fightIndex: number) => BotProfile | BossBot;
   /** Whether the Immortal picks the open answer after a fight. Defaults to every other fight. */
   open?: (fightIndex: number) => boolean;
@@ -27,7 +27,7 @@ export async function runHeadless(opts: HeadlessOptions): Promise<RunState> {
   while (!isOver(state)) {
     const fi = state.fightIndex;
     const sim = new FightSim(setupFight(state, next));
-    const choice = opts.bot ? opts.bot(fi) : fi === 9 ? "holder" : "average";
+    const choice = opts.bot ? opts.bot(fi) : "average";
     const bot = typeof choice === "function" ? choice : makeBot(choice, opts.seed * 31 + fi);
     runFight(sim, bot);
     const summary = finishFight(state, sim, next);

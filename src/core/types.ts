@@ -55,6 +55,9 @@ export interface ChallengerStats {
 }
 
 export interface BossInput {
+  jump: boolean;
+  dash: boolean;
+  guard: boolean;
   left: boolean;
   right: boolean;
   /** Attack keys are edge-triggered: true only on the tick the key went down. */
@@ -67,6 +70,9 @@ export interface BossInput {
 }
 
 export const NO_INPUT: BossInput = {
+  jump: false,
+  dash: false,
+  guard: false,
   left: false,
   right: false,
   cleave: false,
@@ -79,6 +85,8 @@ export const NO_INPUT: BossInput = {
 export type MoveStage = "tell" | "active" | "recover";
 
 export type FightEvent =
+  | { t: number; type: "jump" | "dash" | "boss_block" | "boredom" }
+  | { t: number; type: "enemy_ability"; kind: "wave" | "orb" | "lunge"; x: number }
   | { t: number; type: "fight_start"; life: LifeId; fightIndex: number; directorAdjust: number }
   | { t: number; type: "boss_move"; move: BossMove; phase: Phase }
   | { t: number; type: "boss_shift"; dir: -1 | 1 }

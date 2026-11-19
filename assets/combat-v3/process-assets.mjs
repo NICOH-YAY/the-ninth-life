@@ -46,4 +46,3 @@ if(spec.kind==='background'){
 }
 const layout={disclosure:'AI-use disclosure: Higgsfield generated the source; Codex processed frame geometry, nearest-neighbor pixels and hard alpha with sharp.',id,source:input,sourceWidth:meta.width,sourceHeight:meta.height,hasSourceAlpha:meta.hasAlpha,...spec,frameCount:spec.cols*spec.rows,width:spec.cols*spec.frameWidth,height:spec.rows*spec.frameHeight,alphaThreshold:spec.kind==='effect'?40:96,processing:'Original preserved. Each frame extracted separately. Characters fit a shared row bounding box to preserve relative animation positions. Effects preserve whole cell. Hard alpha, nearest-neighbor resizing and dither-free palette.'};
 await writeFile('public/combat-v3/'+id+'.json',JSON.stringify(layout,null,2)+'\n');console.log(JSON.stringify(layout));
-

@@ -19,17 +19,6 @@ describe("replay", () => {
   });
 });
 
-describe("kitten", () => {
-  it("dies to a single hit from any base move", () => {
-    for (const p of ["spam_cleave", "spam_throw", "spam_reap", "spam_nova"] as const) {
-      const sim = makeSim("kitten", { fightIndex: 1 });
-      runFight(sim, makeBot(p, 1));
-      expect(sim.outcome, p).toBe("challenger_dead");
-      expect(sim.events.filter((e) => e.type === "challenger_hit")).toHaveLength(1);
-    }
-  });
-});
-
 describe("counters", () => {
   const cases: [LifeId, "spam_cleave" | "spam_throw" | "spam_reap" | "spam_nova", LifeId][] = [
     ["alley", "spam_cleave", "sailor"],
@@ -38,15 +27,16 @@ describe("counters", () => {
     ["witch", "spam_nova", "sailor"],
   ];
   for (const [life, bot, other] of cases) {
-    it(`${life} fares better than a non-counter life against ${bot}`, () => {
+    it(`${life} uses its defense against ${bot}`, () => {
       const counter = makeSim(life, { seed: 4, fightIndex: 4 });
       const control = makeSim(other, { seed: 4, fightIndex: 4 });
       runFight(counter, makeBot(bot, 4));
       runFight(control, makeBot(bot, 4));
       expect(counter.events.some((e) => e.type === "evade")).toBe(true);
-      // Lower boss HP reached, or the same (both won) and faster.
-      const score = (s: typeof counter) => s.minBossEffPct + s.time / 10000;
-      expect(score(counter)).toBeLessThan(score(control));
+      // Defense must negate an actual attack, rather than merely playing a skill animation.
+      const move = bot.slice(5);
+      expect(counter.events.some(e => e.type === "evade" && e.move === move)).toBe(true);
+      expect(control.events.some(e => e.type === "challenger_hit")).toBe(true);
     });
   }
 
@@ -125,40 +115,19 @@ describe("hesitation", () => {
   });
 });
 
-describe("life 8, the quiet one", () => {
-  it("never attacks, talks, and leaves when spared", () => {
+describe("life 8 fights", () => {
+  it("attacks and uses its ability instead of automatically leaving", () => {
     const sim = makeSim("quiet", { fightIndex: 8 });
-    runFight(sim, makeBot("idle"));
-    expect(sim.outcome).toBe("spared");
-    expect(sim.events.some((e) => e.type === "boss_hit")).toBe(false);
-    expect(sim.events.filter((e) => e.type === "say").length).toBeGreaterThanOrEqual(5);
-    expect(sim.boss.phase2Triggered).toBe(false);
+    runFight(sim, makeBot("idle"), 30);
+    expect(sim.outcome).not.toBe("spared");
+    expect(sim.events.some((e) => e.type === "boss_hit")).toBe(true);
+    expect(sim.events.some((e) => e.type === "enemy_ability")).toBe(true);
   });
 
-  it("dies to one strike", () => {
+  it("has a full health bar and can be defeated", () => {
     const sim = makeSim("quiet", { fightIndex: 8 });
-    runFight(sim, makeBot("spam_reap", 1));
+    expect(sim.ch.maxHp).toBeGreaterThan(250);
+    runFight(sim, makeBot("aggressive", 1));
     expect(sim.outcome).toBe("challenger_dead");
-  });
-});
-
-describe("life 9, the hold prompt", () => {
-  it("appears below 25% HP in Phase Two, and holding lets the patchwork cat land the last blow", () => {
-    const sim = makeSim("patchwork", { fightIndex: 9 });
-    runFight(sim, makeBot("holder", 2));
-    const prompt = sim.events.find((e) => e.type === "hold_prompt");
-    const yieldE = sim.events.find((e) => e.type === "yield");
-    expect(prompt).toBeDefined();
-    expect(yieldE).toBeDefined();
-    expect(yieldE!.t).toBeGreaterThan(prompt!.t);
-    expect(sim.boss.yielded).toBe(true);
-    expect(sim.outcome).toBe("boss_dead");
-  });
-
-  it("without holding, the fight still ends in the patchwork win", () => {
-    const sim = makeSim("patchwork", { fightIndex: 9 });
-    runFight(sim, makeBot("fighter", 2));
-    expect(sim.boss.yielded).toBe(false);
-    expect(sim.outcome).toBe("boss_dead");
   });
 });

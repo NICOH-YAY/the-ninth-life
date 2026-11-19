@@ -133,3 +133,6 @@ Agents run in Claude Code as subagents in `.claude/agents/`. Each role has an ex
 1. Exact Gemini model ID and measured latency and cost.
 2. Phaser or plain Canvas.
 3. Worker session state on Durable Objects or KV.
+
+## Mobile combat revision, later Nov 19 [Proposed implementation]
+Current rules and default bindings are in docs/mobile-combat.md and src/core/config.ts. Full-hall movement ranges from x48 to912, floor y464. Jump gravity1700/s² and launch580/s; dash900/s for0.16s with0.65s cooldown and finite invulnerability. Guard reduces ordinary hits78% while energy lasts; low waves require jump/dash. Cooldowns begin when attacks start. The final opponent has ordinary mortal health, no forced damage escalation. Three rule-authored endings replace the former mandatory patchwork loss. Input traces remain deterministic, and planners still run only between encounters.
