@@ -31,6 +31,29 @@ export class BootScene extends Phaser.Scene {
       }
     }
     makeGlowTexture(this);
+    // Pre-scale big images once so the Canvas renderer does not resample them every frame.
+    for (const k of Object.keys(BACKGROUNDS)) this.downscale(k, 960, 540, true);
+    for (const k of Object.keys(SPRITES)) this.downscale(k, 0, k.startsWith("immortal") ? 300 : 170, false);
     this.scene.start("title");
+  }
+
+  private downscale(key: string, w: number, h: number, cover: boolean): void {
+    const tex = this.textures.get(key);
+    const src = tex.getSourceImage() as HTMLImageElement | HTMLCanvasElement;
+    if (!src || !("width" in src) || src.height <= h) return;
+    const scale = cover ? Math.max(w / src.width, h / src.height) : h / src.height;
+    const cw = cover ? w : Math.round(src.width * scale);
+    const ch = cover ? h : h;
+    const canvas = document.createElement("canvas");
+    canvas.width = cw;
+    canvas.height = ch;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    ctx.imageSmoothingQuality = "high";
+    const dw = src.width * scale;
+    const dh = src.height * scale;
+    ctx.drawImage(src, (cw - dw) / 2, (ch - dh) / 2, dw, dh);
+    this.textures.remove(key);
+    this.textures.addCanvas(key, canvas);
   }
 }

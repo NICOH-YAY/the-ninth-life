@@ -40,6 +40,7 @@ export class TitleScene extends Phaser.Scene {
       this.cameras.main.once("camerafadeoutcomplete", () => this.scene.start("fight", { session }));
     };
     this.input.keyboard?.once("keydown", go);
+    if (new URLSearchParams(window.location.search).get("autoplay") === "1") this.time.delayedCall(1200, go);
     this.input.once("pointerdown", go);
   }
 }

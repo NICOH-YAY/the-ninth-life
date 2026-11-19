@@ -7,6 +7,7 @@ import { ARENA, DT, MOVE_GEOMETRY as G, PATCHWORK, RUN } from "../../core/config
 import type { FightSim } from "../../core/fight";
 import { ROSTER } from "../../core/roster";
 import { clampBond, fixedLifeFor } from "../../core/run";
+import { makeBot, type BossBot } from "../../core/bots";
 import { NO_INPUT, type BossInput, type FightEvent, type FightSummary, type LifeId, type PlanResult } from "../../core/types";
 import { INTRO, LIFE9, MUTUAL, PHASE2_BEAT, QUIET_TALK, RESPONSES, quietBand } from "../../content/lines";
 import { DISPLAY_HEIGHT, drawFraming, drawProps, tierLook, tierOf } from "../art";
@@ -41,6 +42,10 @@ export class FightScene extends Phaser.Scene {
   private keys!: Record<"A" | "D" | "S" | "LEFT" | "RIGHT", Phaser.Input.Keyboard.Key>;
   private showHitboxes = false;
   private fightClock = 0;
+  /** Dev options from the URL: ?speed=N runs the sim N times faster, ?autoplay=1 lets a scripted boss play. */
+  private speed = 1;
+  private autoplay = false;
+  private autoBot: BossBot | null = null;
 
   private bgNight!: Phaser.GameObjects.Image;
   private bgDawn!: Phaser.GameObjects.Image;
@@ -133,6 +138,9 @@ export class FightScene extends Phaser.Scene {
     this.debugText = text(22, H - 20, 11, "#8d85a8").setOrigin(0, 1);
     this.overlay = this.add.container(0, 0).setDepth(50);
 
+    const params = new URLSearchParams(window.location.search);
+    this.speed = Math.min(8, Math.max(1, Number(params.get("speed") ?? 1) || 1));
+    this.autoplay = params.get("autoplay") === "1";
     this.setupInput();
     this.applyTierLook(this.session.fightIndex, false);
     this.showIntroCard();
@@ -227,19 +235,17 @@ export class FightScene extends Phaser.Scene {
     this.overlay.add(items);
     this.overlay.setAlpha(0);
     this.tweens.add({ targets: this.overlay, alpha: 1, duration: 500 });
+    // Flow runs on the scene clock. The tween is only the visual fade.
     const go = (): void => {
-      this.tweens.add({
-        targets: this.overlay,
-        alpha: 0,
-        duration: 450,
-        onComplete: () => {
-          this.overlay.removeAll(true);
-          this.overlay.setAlpha(1);
-          this.beginFight();
-        },
+      this.tweens.add({ targets: this.overlay, alpha: 0, duration: 450 });
+      this.time.delayedCall(460, () => {
+        this.overlay.removeAll(true);
+        this.overlay.setAlpha(1);
+        this.beginFight();
       });
     };
     this.overlayAdvance = go;
+    if (this.autoplay) this.time.delayedCall(400, () => this.overlayAdvance === go && (this.overlayAdvance = null, go()));
     this.time.delayedCall(fi === 1 ? 3800 : 2800, () => {
       if (this.overlayAdvance === go) {
         this.overlayAdvance = null;
@@ -256,6 +262,7 @@ export class FightScene extends Phaser.Scene {
     this.bossHpShown = 1;
     this.mode = "fight";
     const life = this.sim.setup.life;
+    if (this.autoplay) this.autoBot = makeBot(life === "patchwork" ? "holder" : life === "quiet" ? "idle" : "average", this.session.state.seed + this.sim.setup.fightIndex);
     this.ch.setTexture(ROSTER[life].sprite).setAlpha(1).setRotation(0);
     this.ch.setScale(DISPLAY_HEIGHT[life] / this.ch.height);
     this.decoy.setTexture(ROSTER[life].sprite).setScale(this.ch.scaleX).setAlpha(0);
@@ -339,6 +346,7 @@ export class FightScene extends Phaser.Scene {
       void this.showLine();
     };
     this.overlayAdvance = next;
+    if (this.autoplay) this.time.delayedCall(500, next);
     this.time.delayedCall(3200, next);
   }
 
@@ -358,6 +366,7 @@ export class FightScene extends Phaser.Scene {
       this.showChoice();
     };
     this.overlayAdvance = next;
+    if (this.autoplay) this.time.delayedCall(500, next);
     this.time.delayedCall(Math.max(2600, 120 * line.length), next);
   }
 
@@ -396,6 +405,10 @@ export class FightScene extends Phaser.Scene {
       },
     };
     this.moveChoice(0);
+    if (this.autoplay) this.time.delayedCall(500, () => {
+      this.moveChoice(this.session.fightIndex % 2);
+      this.confirmChoice();
+    });
   }
 
   private moveChoice(i: number): void {
@@ -508,9 +521,10 @@ export class FightScene extends Phaser.Scene {
     if (sim && this.mode === "fight") {
       if (this.hitstop > 0) this.hitstop -= dt;
       else {
-        this.acc += dt;
+        this.acc += dt * this.speed;
         while (this.acc >= DT && !sim.outcome) {
-          sim.step(this.readInput());
+          const input = this.readInput();
+          sim.step(this.autoBot ? { ...this.autoBot(sim), left: input.left, right: input.right } : input);
           this.acc -= DT;
         }
       }
