@@ -18,9 +18,14 @@ var _old_gain: float = 0.0
 var _duck_level: float = 1.0
 var _step: int = 0
 var _cooldowns: Dictionary = {}
+var _accent: AudioStreamPlayer
+var _tension: float = 0.0
+var _tension_mix: float = 0.0
+var _pulse_breath: float = 0.0
+var _last_pulse: String = ""
 const FADE_SECONDS: float = 1.25
 const TRACK_GAIN: Dictionary = {"menu": 0.30, "years": 0.27, "kitten": 0.33, "alley": 0.35, "sailor": 0.34, "acrobat": 0.34, "witch": 0.34, "knight": 0.35, "thief": 0.32, "quiet": 0.31, "patchwork": 0.36, "finale": 0.32}
-const SFX_GAIN: Dictionary = {"sword-swing": 0.78, "sword-hit": 0.74, "sword-draw": 0.57, "guard": 0.63, "chain": 0.62, "wood": 0.58, "ice": 0.47, "flesh": 0.63, "stab": 0.75, "dash": 0.54, "magic": 0.50, "step1": 0.22, "step2": 0.22, "nova": 0.66, "cloth": 0.28}
+const SFX_GAIN: Dictionary = {"sword-swing": 0.78, "sword-hit": 0.74, "sword-draw": 0.57, "guard": 0.63, "chain": 0.62, "wood": 0.58, "ice": 0.47, "flesh": 0.63, "stab": 0.75, "dash": 0.54, "magic": 0.50, "step1": 0.22, "step2": 0.22, "nova": 0.66, "cloth": 0.28, "perfect": 0.72, "poise-break": 0.60}
 const ALIASES: Dictionary = {"sword": "sword-swing", "swing": "sword-swing", "slash": "sword-swing", "thrust": "sword-swing", "hit": "flesh", "sword_hit": "sword-hit", "metal": "sword-hit", "metal-hit": "sword-hit", "block": "guard", "metal-guard": "guard", "evade": "dash", "jump": "cloth", "cast": "magic", "phase2": "magic", "boom": "nova", "explosion": "nova", "death": "stab"}
 
 func _ready() -> void:
@@ -38,6 +43,11 @@ func _ready() -> void:
         player.playback_type = AudioServer.PLAYBACK_TYPE_SAMPLE if OS.has_feature("web") else AudioServer.PLAYBACK_TYPE_STREAM
         add_child(player)
         _voices.append(player)
+    _accent = AudioStreamPlayer.new()
+    _accent.name = "OrchestralAccent"
+    _accent.playback_type = AudioServer.PLAYBACK_TYPE_STREAM
+    _accent.stream = load("res://audio/sfx/orchestral-accent.ogg")
+    add_child(_accent)
     for kind in SFX_GAIN:
         var path: String = "res://audio/sfx/" + str(kind) + ".ogg"
         if ResourceLoader.exists(path):
@@ -79,7 +89,11 @@ func _start_cue(cue: String, repeating: bool) -> void:
 func _process(delta: float) -> void:
     for key in _cooldowns.keys():
         _cooldowns[key] = maxf(0.0, float(_cooldowns[key]) - delta)
-    var target: float = 0.25 if dialogue_active else 1.0
+    _tension_mix = move_toward(_tension_mix, _tension, delta * 2.5)
+    _pulse_breath = maxf(0.0, _pulse_breath - delta)
+    var target: float = 0.25 if dialogue_active else lerpf(0.48, 1.12, _tension_mix)
+    if _pulse_breath > 0.0:
+        target *= 0.68
     var time_constant: float = 0.12 if dialogue_active else 0.65
     _duck_level = lerpf(_duck_level, target, 1.0 - exp(-delta / time_constant))
     if _index < 0:
@@ -98,6 +112,26 @@ func _process(delta: float) -> void:
         var remaining: float = player.stream.get_length() - player.get_playback_position()
         if remaining < FADE_SECONDS + 0.12 or not player.playing:
             _start_cue(current_cue, true)
+
+func set_tension(value: float) -> void:
+    _tension = clampf(value, 0.0, 1.0) if is_finite(value) else 0.0
+
+func pulse(event: String) -> void:
+    event = event.replace("_", "-")
+    if event not in ["perfect", "perfect-block", "poise-break", "phase-change", "climax"]:
+        return
+    if float(_cooldowns.get("pulse", 0.0)) > 0.0:
+        return
+    _cooldowns["pulse"] = 0.40
+    _last_pulse = event
+    _pulse_breath = 0.90 if event in ["phase-change", "climax"] else 0.45
+    if event in ["perfect", "perfect-block"]:
+        sfx("perfect")
+    elif event == "poise-break":
+        sfx("poise-break")
+    _accent.stop()
+    _accent.volume_db = linear_to_db(0.52 if event in ["phase-change", "climax"] else 0.30)
+    _accent.play()
 
 func dialogue_duck(active: bool) -> void:
     dialogue_active = active
@@ -130,12 +164,18 @@ func debug_state() -> Dictionary:
     var players: Array = []
     for player in _music:
         players.append({"playing": player.playing, "position": player.get_playback_position(), "db": player.volume_db})
-    return {"cue": current_cue, "requested": requested_cue, "ducked": dialogue_active, "duck": _duck_level, "muted": muted, "music_players": players, "foley_loaded": _streams.size()}
+    return {"cue": current_cue, "requested": requested_cue, "ducked": dialogue_active, "duck": _duck_level, "muted": muted, "music_players": players, "foley_loaded": _streams.size(), "tension": _tension, "tension_mix": _tension_mix, "pulse": _last_pulse, "accent_playing": _accent.playing if _accent else false}
 
 func stop_all() -> void:
     _index = -1
     _old_index = -1
     current_cue = ""
+    _tension = 0.0
+    _tension_mix = 0.0
+    _pulse_breath = 0.0
+    if _accent:
+        _accent.stop()
+        _accent.stream = null
     for player in _music:
         player.stop()
         player.stream = null

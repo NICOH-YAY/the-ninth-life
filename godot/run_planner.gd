@@ -7,7 +7,7 @@ const CHOOSABLE: Array[String] = ["alley", "sailor", "acrobat", "witch", "knight
 const COUNTER_LIFE: Dictionary = {"cleave": "alley", "throw": "sailor", "reap": "acrobat", "nova": "witch"}
 const COUNTER_MOVE: Dictionary = {"alley": "cleave", "sailor": "throw", "acrobat": "reap", "witch": "nova"}
 const ALLOWED_FACTS: Array[String] = [
-    "The challenger is one soul returning through different feline lives.",
+    "The anonymous cats embody Morrow the king's own former lives, retained inside the crown.",
     "The Immortal is a sword-bearing cat king. The crown binds the castle, not the chair.",
     "Each returning life wears different accessories and carries its own weapon and defensive skill.",
     "At half health the king adopts a more powerful area-control stance without becoming a monster.",

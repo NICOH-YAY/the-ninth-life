@@ -44,13 +44,19 @@ var _notice: Panel
 var _notice_label: Label
 const ACTIONS: Array[String] = ["left", "right", "jump", "dash", "cleave", "throw", "reap", "nova", "guard", "hold"]
 const DEFAULT_KEYS: Dictionary = {"left": KEY_A, "right": KEY_D, "jump": KEY_SPACE, "dash": KEY_SHIFT, "cleave": KEY_J, "throw": KEY_K, "reap": KEY_L, "nova": KEY_F, "guard": KEY_G, "hold": KEY_S}
-const ACTION_LABELS: Dictionary = {"left": "Move left", "right": "Move right", "jump": "Jump", "dash": "Dash", "cleave": "Sword / Judgement", "throw": "Thrust / Starfall", "reap": "Kneel / Court", "nova": "Procession / Decree", "guard": "Guard", "hold": "Lower guard"}
+const ACTION_LABELS: Dictionary = {"left": "Move left", "right": "Move right", "jump": "Jump", "dash": "Dash", "cleave": "Sword / Gloam Rake", "throw": "Thrust / Crownfall", "reap": "Kneel / Royal Undertow", "nova": "Procession / Last Dominion", "guard": "Guard", "hold": "Lower guard"}
 
 func _ready() -> void:
-    layer = 50
+    layer = 100
     _root = Control.new()
     _root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
     _root.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    _root.theme = Theme.new()
+    var pixel_font: Font = ThemeDB.fallback_font.duplicate()
+    if pixel_font is FontFile:
+        pixel_font.antialiasing = TextServer.FONT_ANTIALIASING_NONE
+        pixel_font.subpixel_positioning = TextServer.SUBPIXEL_POSITIONING_DISABLED
+    _root.theme.default_font = pixel_font
     add_child(_root)
     _load_bindings()
     _make_hud()
@@ -164,7 +170,9 @@ func _make_hud() -> void:
     hide_hud()
 
 func _make_dialogue() -> void:
-    _speech = _box(_root, Vector2(40, 84), Vector2(880, 126), Color(0.025, 0.045, 0.085, 0.97), Color("#b9a37d"))
+    _speech = _box(_root, Vector2(40, 84), Vector2(880, 126), Color("#060c16"), Color("#b9a37d"))
+    _speech.clip_contents = true
+    _speech.z_index = 20
     _portrait = TextureRect.new()
     _portrait.position = Vector2(9, 11)
     _portrait.size = Vector2(102, 102)
@@ -176,7 +184,9 @@ func _make_dialogue() -> void:
     _speaker = _label(_speech, "", Vector2(127, 10), Vector2(735, 23), 14, Color("#efd48e"))
     _body = _label(_speech, "", Vector2(127, 38), Vector2(728, 83), 18)
     _body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-    _choice = _box(_root, Vector2(68, 222), Vector2(824, 128), Color(0.025, 0.045, 0.085, 0.98), Color("#9a9279"))
+    _choice = _box(_root, Vector2(68, 222), Vector2(824, 128), Color("#060c16"), Color("#9a9279"))
+    _choice.clip_contents = true
+    _choice.z_index = 20
     _choice_caption = _label(_choice, "", Vector2(18, 9), Vector2(788, 23), 12, Color("#b4c8cb"))
     _choice_caption.hide()
     for i in range(2):
@@ -296,7 +306,7 @@ func hide_notice() -> void:
 func show_menu(backdrop_path: String = "") -> void:
     reset()
     hide_hud()
-    _backdrop_path = backdrop_path if not backdrop_path.is_empty() else _backdrop_path
+    _backdrop_path = "res://art/menu-memory-v8.png" if ResourceLoader.exists("res://art/menu-memory-v8.png") else (backdrop_path if not backdrop_path.is_empty() else _backdrop_path)
     _clear_menu()
     _menu_page = "main"
     if ResourceLoader.exists(_backdrop_path):
@@ -309,21 +319,31 @@ func show_menu(backdrop_path: String = "") -> void:
         background.mouse_filter = Control.MOUSE_FILTER_IGNORE
         _menu.add_child(background)
     var shade := ColorRect.new()
-    shade.color = Color(0.025, 0.045, 0.075, 0.62)
+    shade.color = Color(0.015, 0.025, 0.04, 0.30)
     shade.position = Vector2.ZERO
-    shade.size = Vector2(425, 540)
+    shade.size = Vector2(360, 540)
     shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
     _menu.add_child(shade)
-    _label(_menu, "THE CROWN REMEMBERS", Vector2(58, 61), Vector2(400, 24), 13, Color("#a9c6c9"))
-    _label(_menu, "THE\nNINTH LIFE", Vector2(54, 104), Vector2(470, 140), 49, Color("#eee0b8"))
-    _label(_menu, "A kingdom that forgot the sun.", Vector2(59, 276), Vector2(400, 30), 15, Color("#b5c6c8"))
-    _button(_menu, "PLAY", Vector2(58, 338), Vector2(285, 42), func() -> void:
+    _label(_menu, "THE NINTH LIFE", Vector2(58, 264), Vector2(345, 44), 28, Color("#eee0b8"))
+    _menu_button("PLAY", Vector2(58, 338), Vector2(285, 42), func() -> void:
         hide_menu()
         play_requested.emit()
     )
-    _button(_menu, "CONTROLS", Vector2(58, 391), Vector2(285, 42), show_controls)
-    _button(_menu, "ATTRIBUTIONS", Vector2(58, 444), Vector2(285, 42), show_credits)
-    _label(_menu, "ENTER  PLAY     M  SOUND", Vector2(60, 509), Vector2(420, 22), 12, Color("#9eb6bb"))
+    _menu_button("CONTROLS", Vector2(58, 391), Vector2(285, 42), show_controls)
+    _menu_button("CREDITS", Vector2(58, 444), Vector2(285, 42), show_credits)
+
+
+func _menu_button(text: String, at: Vector2, dimensions: Vector2, callback: Callable) -> Button:
+    var button := _button(_menu, text, at, dimensions, callback, 17)
+    button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+    for state in ["normal", "hover", "pressed", "focus"]:
+        var style := StyleBoxFlat.new()
+        style.bg_color = Color(0, 0, 0, 0)
+        style.border_color = Color("#d9c28d")
+        style.border_width_left = 2 if state != "normal" else 0
+        style.content_margin_left = 12
+        button.add_theme_stylebox_override(state, style)
+    return button
 
 func hide_menu() -> void:
     _menu.hide()

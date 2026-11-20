@@ -48,6 +48,7 @@ func _run() -> void:
     game.enemy.hp=2.0
     game._hit_enemy(30,"cleave")
     check(game.enemy.hp==1,"Tutorial cannot be skipped by damage before jump dash block")
+    for n in range(4):game._enemy_step(1.0/60.0)
     game.boss.jumps=1;game.boss.dashes=1;game.boss.blocks=1
     game._hit_enemy(30,"cleave")
     check(game.enemy.hp<=0,"Real tutorial actions permit victory")
@@ -64,7 +65,7 @@ func _run() -> void:
     game.enemy.max=5000.0
     game.enemy.x=game.boss.x-350
     game._start_move("throw")
-    for n in range(50):game._move_step(1.0/60.0)
+    for n in range(90):game._move_step(1.0/60.0)
     check(game.projectiles.size()==5,"Crownfall releases five actual descending crown blades")
     check(not ResourceLoader.exists("res://art/boss-monster.png"),"Old six-armed monster is not reused for the new form")
     fixture()
@@ -83,7 +84,7 @@ func _run() -> void:
     tapping.cleave=true;tapping.cleave_taps=2
     game._player_step(tapping,1.0/60.0)
     check(game.boss.combo_queue==1 and not game.move.is_empty(),"Second fast press remains buffered during first slash")
-    for n in range(20):
+    for n in range(40):
         game.combat_clock+=1.0/60.0
         game._player_step(blank_input(),1.0/60.0)
         game._move_step(1.0/60.0)
@@ -112,6 +113,50 @@ func _run() -> void:
     game.enemy.state="attack";game.enemy.x=game.boss.x-60;game.enemy.chain_left=3
     for n in range(90):game._enemy_step(1.0/60.0)
     check(game.enemy.strikes>=2,"Dagger visitor executes repeated real melee attacks")
+    fixture(5)
+    game.enemy.state="attack";game.enemy.windup=0.10;game.enemy.x=game.boss.x-80
+    var hp_before:float=game.enemy.hp
+    game._hit_enemy(28,"cleave")
+    check(game.enemy.hp<hp_before and game.enemy.state=="attack" and game.enemy.windup==0.10,"Armor takes damage without cancelling the committed enemy windup")
+    check(game.enemy.poise<game.enemy.poise_max,"Damage accumulates toward a visible posture break")
+    for n in range(4):
+        for frame in range(4):game._enemy_step(1.0/60.0)
+        game._hit_enemy(28,"cleave")
+    check(game.enemy.poise_breaks==1 and game.enemy.state=="hurt","Enough cumulative damage breaks posture once")
+    var recovery_time:float=game.enemy.t
+    for frame in range(4):game._enemy_step(1.0/60.0)
+    game._hit_enemy(28,"cleave")
+    check(game.enemy.poise_breaks==1 and game.enemy.t<recovery_time,"Repeated hits cannot extend stun or immediately rebreak armor")
+    fixture()
+    game.boss.guarding=true;game.boss.guard_age=0.08
+    hp_before=game.boss.hp
+    game._hurt_boss(20,false,{})
+    check(game.boss.perfect_blocks==1 and game.boss.hp==hp_before,"Fresh precisely timed guard prevents all damage")
+    check(game.boss.counter_window>0 and game.enemy.state=="parried","Perfect guard opens a counter while visibly recoiling the attacker")
+    var counter_input=blank_input();counter_input.guard=true;counter_input.cleave=true
+    game._player_step(counter_input,1.0/60.0)
+    check(game.move.get("counter",false) and game.move.spec.tell<0.08,"A real attack input turns the parry opening into a quick counter animation")
+    for frame in range(14):
+        var held_guard=blank_input();held_guard.guard=true
+        game._player_step(held_guard,1.0/60.0)
+        game._move_step(1.0/60.0)
+    check(game.boss.counter_hits==1,"Holding guard after a parry does not cancel the real counter hit")
+    fixture()
+    game.boss.guarding=true;game.boss.guard_age=0.45
+    game._hurt_boss(20,false,{})
+    check(game.boss.perfect_blocks==0 and game.boss.hp<700,"Holding guard never grants a perfect block")
+    fixture()
+    game._start_move("reap")
+    var locked_target:float=game.move.target
+    game.enemy.x+=180
+    check(game._telegraph_data()[0].x==locked_target,"Ground AoE marks remain locked to the anticipated impact position")
+    var cancel_input=blank_input();cancel_input.dash=true
+    game._player_step(cancel_input,1.0/60.0)
+    check(game.move.is_empty() and game.boss.cancels==1,"Dash can cancel player anticipation")
+    fixture()
+    game._start_move("cleave");game.move.stage="recover";game.move.t=0.01
+    game._player_step(cancel_input,1.0/60.0)
+    check(not game.move.is_empty() and game.boss.dashes==0,"Committed recovery cannot be erased by dash")
     fixture()
     game._hud()
     for label in game.ui.get("_move_labels"):

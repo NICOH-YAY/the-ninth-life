@@ -7,7 +7,7 @@ import type { FightSummary, LifeId } from "../../src/core/types";
 export const CONFIG_VERSION = "challenger-v0.1";
 
 export const SYSTEM = [
-  "You are the shared mind of a small cat's past lives. Each life climbs a tower to face an immortal cat on a throne.",
+  "You are the shared mind of the immortal king's own former feline lives, retained inside his crown. Each embodied memory enters the hall to face him.",
   "Between fights you choose which past life goes next, how it should fight, and one short line it says on arrival.",
   "Rules:",
   "1. next_life must be one of the remaining lives you are given. Never choose any other.",

@@ -1,0 +1,632 @@
+{
+  "aiUseDisclosure": "Higgsfield created the original animated shields/telegraphs. Codex applied fixed whole-cell nearest sampling, binary alpha, limited per-row palette and a two-pixel logical grid.",
+  "input": "assets/memory-v8/combat-tells-original.png",
+  "output": "godot/art/combat-tells-v8.png",
+  "source": [
+    2048,
+    2048
+  ],
+  "frame": [
+    128,
+    128
+  ],
+  "grid": [
+    6,
+    6
+  ],
+  "sha256": "36a1b244f3dfbbd83c246f0fe2bb8752735875eacf6abe347b5cce2f705e678c",
+  "frames": [
+    {
+      "row": 0,
+      "col": 0,
+      "opaqueLogicalPixels": 40,
+      "sourceRect": [
+        0,
+        0,
+        341,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 0,
+      "col": 1,
+      "opaqueLogicalPixels": 140,
+      "sourceRect": [
+        341,
+        0,
+        342,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 0,
+      "col": 2,
+      "opaqueLogicalPixels": 263,
+      "sourceRect": [
+        683,
+        0,
+        341,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 0,
+      "col": 3,
+      "opaqueLogicalPixels": 382,
+      "sourceRect": [
+        1024,
+        0,
+        341,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 0,
+      "col": 4,
+      "opaqueLogicalPixels": 421,
+      "sourceRect": [
+        1365,
+        0,
+        342,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 0,
+      "col": 5,
+      "opaqueLogicalPixels": 60,
+      "sourceRect": [
+        1707,
+        0,
+        341,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 1,
+      "col": 0,
+      "opaqueLogicalPixels": 43,
+      "sourceRect": [
+        0,
+        341,
+        341,
+        342
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 1,
+      "col": 1,
+      "opaqueLogicalPixels": 126,
+      "sourceRect": [
+        341,
+        341,
+        342,
+        342
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 1,
+      "col": 2,
+      "opaqueLogicalPixels": 306,
+      "sourceRect": [
+        683,
+        341,
+        341,
+        342
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 1,
+      "col": 3,
+      "opaqueLogicalPixels": 455,
+      "sourceRect": [
+        1024,
+        341,
+        341,
+        342
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 1,
+      "col": 4,
+      "opaqueLogicalPixels": 585,
+      "sourceRect": [
+        1365,
+        341,
+        342,
+        342
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 1,
+      "col": 5,
+      "opaqueLogicalPixels": 145,
+      "sourceRect": [
+        1707,
+        341,
+        341,
+        342
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 2,
+      "col": 0,
+      "opaqueLogicalPixels": 86,
+      "sourceRect": [
+        0,
+        683,
+        341,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 2,
+      "col": 1,
+      "opaqueLogicalPixels": 208,
+      "sourceRect": [
+        341,
+        683,
+        342,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 2,
+      "col": 2,
+      "opaqueLogicalPixels": 341,
+      "sourceRect": [
+        683,
+        683,
+        341,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 2,
+      "col": 3,
+      "opaqueLogicalPixels": 557,
+      "sourceRect": [
+        1024,
+        683,
+        341,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 2,
+      "col": 4,
+      "opaqueLogicalPixels": 571,
+      "sourceRect": [
+        1365,
+        683,
+        342,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 2,
+      "col": 5,
+      "opaqueLogicalPixels": 221,
+      "sourceRect": [
+        1707,
+        683,
+        341,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 3,
+      "col": 0,
+      "opaqueLogicalPixels": 43,
+      "sourceRect": [
+        0,
+        1024,
+        341,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 3,
+      "col": 1,
+      "opaqueLogicalPixels": 197,
+      "sourceRect": [
+        341,
+        1024,
+        342,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 3,
+      "col": 2,
+      "opaqueLogicalPixels": 331,
+      "sourceRect": [
+        683,
+        1024,
+        341,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 3,
+      "col": 3,
+      "opaqueLogicalPixels": 495,
+      "sourceRect": [
+        1024,
+        1024,
+        341,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 3,
+      "col": 4,
+      "opaqueLogicalPixels": 515,
+      "sourceRect": [
+        1365,
+        1024,
+        342,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 3,
+      "col": 5,
+      "opaqueLogicalPixels": 210,
+      "sourceRect": [
+        1707,
+        1024,
+        341,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 4,
+      "col": 0,
+      "opaqueLogicalPixels": 94,
+      "sourceRect": [
+        0,
+        1365,
+        341,
+        342
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 4,
+      "col": 1,
+      "opaqueLogicalPixels": 227,
+      "sourceRect": [
+        341,
+        1365,
+        342,
+        342
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 4,
+      "col": 2,
+      "opaqueLogicalPixels": 437,
+      "sourceRect": [
+        683,
+        1365,
+        341,
+        342
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 4,
+      "col": 3,
+      "opaqueLogicalPixels": 492,
+      "sourceRect": [
+        1024,
+        1365,
+        341,
+        342
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 4,
+      "col": 4,
+      "opaqueLogicalPixels": 531,
+      "sourceRect": [
+        1365,
+        1365,
+        342,
+        342
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 4,
+      "col": 5,
+      "opaqueLogicalPixels": 216,
+      "sourceRect": [
+        1707,
+        1365,
+        341,
+        342
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 5,
+      "col": 0,
+      "opaqueLogicalPixels": 90,
+      "sourceRect": [
+        0,
+        1707,
+        341,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 5,
+      "col": 1,
+      "opaqueLogicalPixels": 219,
+      "sourceRect": [
+        341,
+        1707,
+        342,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 5,
+      "col": 2,
+      "opaqueLogicalPixels": 394,
+      "sourceRect": [
+        683,
+        1707,
+        341,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 5,
+      "col": 3,
+      "opaqueLogicalPixels": 523,
+      "sourceRect": [
+        1024,
+        1707,
+        341,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 5,
+      "col": 4,
+      "opaqueLogicalPixels": 562,
+      "sourceRect": [
+        1365,
+        1707,
+        342,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    },
+    {
+      "row": 5,
+      "col": 5,
+      "opaqueLogicalPixels": 237,
+      "sourceRect": [
+        1707,
+        1707,
+        341,
+        341
+      ],
+      "frame": [
+        128,
+        128
+      ],
+      "pixelGrid": 2,
+      "clipped": 0
+    }
+  ]
+}

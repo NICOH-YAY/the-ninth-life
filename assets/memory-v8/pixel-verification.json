@@ -1,0 +1,61 @@
+{
+  "aiUseDisclosure": "Codex verifies geometry, nonempty cells, binary alpha and exact square logical pixel clusters of original Higgsfield runtime exports. Seating contact is separately shown by the exact-coordinate arena composite; this component test is not a complete game playthrough.",
+  "checks": [
+    {
+      "id": "menu-memory",
+      "size": [
+        480,
+        270
+      ],
+      "frames": 1,
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "pixelGrid": 1,
+      "sourceSha256": "aad12ef94b9a58f042e1c9196e98723c9bc84d0d458e75af73a82195560c4549",
+      "runtimeSha256": "3c6263aa1cd08e559b594ee159dcbf16ca01d837a7ea6ec3afa484962a24b48b"
+    },
+    {
+      "id": "guard-sigils",
+      "size": [
+        768,
+        1408
+      ],
+      "frames": 66,
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "pixelGrid": 2,
+      "sourceSha256": "2a0e8986583acf8e671c9f9541d2887d3c585c4c6498ff9d17a23222439cec25",
+      "runtimeSha256": "6b74b1eaab8b4321e176e3ccf4a6574857192828a5bf762ee5f2f99d428219e5"
+    },
+    {
+      "id": "combat-tells",
+      "size": [
+        768,
+        768
+      ],
+      "frames": 36,
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "pixelGrid": 2,
+      "sourceSha256": "b7b7d8cfa2b7659ddc095e93f933ff0df20b9fb25c932fe2b7927341325d82d6",
+      "runtimeSha256": "36a1b244f3dfbbd83c246f0fe2bb8752735875eacf6abe347b5cce2f705e678c"
+    },
+    {
+      "id": "seated-contact",
+      "size": [
+        1152,
+        384
+      ],
+      "frames": 12,
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "pixelGrid": 2,
+      "sourceSha256": "7a12078bb31df8e20ed1448279af3f633980dcc49e8d7dd49b49eb226dc1486b",
+      "runtimeSha256": "20f76b338370eb28efeb05a2b11c4ba9132fb521be3d027c819b70963190bba0"
+    }
+  ]
+}

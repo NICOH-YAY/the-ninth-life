@@ -1,0 +1,163 @@
+{
+  "aiUseDisclosure": "Higgsfield generated four original game-art sheets. Codex exported native-grid runtime art, corrected the actual cushion/platform seating geometry, sliced measured shield-row gutters, and verified all frame alpha/pixel clusters. Earlier actor identities retain prior attribution.",
+  "date": "2026-11-20",
+  "model": "gpt_image_2_6",
+  "resolution": "2k",
+  "quality": "medium",
+  "use_unlim": true,
+  "billing": "User-authorized active free unlimited allowance; four sequential submissions, no paid fallback, no app/browser windows opened.",
+  "generated": [
+    {
+      "index": 0,
+      "id": "menu-memory",
+      "job_id": "9ae01dbb-9ac2-463f-b5ea-a9b51c53ebef",
+      "time": "075519",
+      "rows": 1,
+      "prompt": "Original 16-bit pixel-art game MAIN MENU BACKGROUND, widescreen16:9, twilight melancholy dark gothic kingdom. Fine deliberate square pixel clusters, hard edges and limited48-color palette, NO smooth painting, NO antialiasing, NO text or interface. At VERY FAR horizon on rightthird a tiny almost-black ruined castle silhouette through mist, small enough to feel unreachable. Foreground lower right: discarded tarnished cat-sized royal crown half buried in weeds beside a long abandoned steel sword; faded ruby bell/scarf tangled around the sword hilt, dust and wild grass moving in an imagined quiet wind. Old broken stone path leads far from foreground into that distant castle. Vast dusky navy/teal night sky, dim amber horizon, sparse tiny pixel stars, long still shadows and a thin crescent moon. Crucially LEFT HALF remains dark simple negative space, almost empty with only subtle mist, to hold readable title and vertical menu. Narrative atmosphere of someone abandoning a crown after centuries. Objects must be intentionally composed as environmental storytelling, not random clutter. No characters, no arena interior, no UI text, no dominant close-up castle. Designed at native480x270 resolution and displayed nearest-neighbor.",
+      "references": [],
+      "source": "assets/memory-v8/menu-memory-original.png",
+      "runtime": "godot/art/menu-memory-v8.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_075519_9ae01dbb-9ac2-463f-b5ea-a9b51c53ebef.png",
+      "frame": [
+        480,
+        270
+      ],
+      "grid": [
+        1,
+        1
+      ],
+      "pixelGrid": 1,
+      "sourceSha256": "aad12ef94b9a58f042e1c9196e98723c9bc84d0d458e75af73a82195560c4549",
+      "runtimeSha256": "3c6263aa1cd08e559b594ee159dcbf16ca01d837a7ea6ec3afa484962a24b48b"
+    },
+    {
+      "index": 1,
+      "id": "guard-sigils",
+      "job_id": "62b4a344-07bf-42f8-a7b6-511d462d1fc2",
+      "time": "075638",
+      "rows": 11,
+      "prompt": "Original GAME SPRITE SHEET of 11 DIFFERENT shield archetypes, exact6 columns by11rows, transparent background. Every cell one complete centered SHIELD ONLY, no characters, no labels, no environment, no gridlines. Professional hard square pixel clusters in SNES gothic pixel-art style, strong distinct silhouettes and accessories, never a plain solid block or same shape recolored. Every row6animation frames: shield unfolds into view / settles / confident guard hold / visible impact ripple and metal sparks / recoil crack / recovery. Shields face camera at slight3quarter angle, all fully inside equalcells, consistent small64pixel native design enlarged with nearest-neighbor,32colors per shield. Row0 royal GOLD/RED KITE crest with feline crown emboss and two curled side points. Row1 transformed king BROKEN CYAN crescent/hex crest floating as THREE disconnected ornate royal metal fragments around spectral center. Row2 weak novice WOODEN ROUND bell buckler with a tiny brass bell tied to a rope. Row3 alley warrior RUSTED RED small round buckler with irregular spikes. Row4 sailor TEAL/BRONZE anchor-shaped barrier framed in coiled rope. Row5 acrobat JADE double folding-fan shield spread into two scalloped semicircles. Row6 witch VIOLET/GOLD astrolabe star shield with rotating spoked concentric rings. Row7 knight COBALT/SILVER heavy tall plate shield, bevels and cross crest. Row8 thief SILVER MIRROR diamond shield crossed with two small curved daggers, sharp narrow facets. Row9 quiet white cat ICE BLUE hexagonal snowflake shield, six crystal branches. Row10 final patchwork visitor ROSE/GOLD patched crest made of stitched mismatched metal plates with glowing seams. Crisp transparent alpha; limited pixel glows and sparks may surround shield but do not obscure exact material/silhouette. Reference is style/material only.",
+      "references": [
+        "13cf3b8c-deb3-4980-be07-707400612d7c"
+      ],
+      "source": "assets/memory-v8/guard-sigils-original.png",
+      "runtime": "godot/art/guard-sigils-v8.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_075638_62b4a344-07bf-42f8-a7b6-511d462d1fc2.png",
+      "frame": [
+        128,
+        128
+      ],
+      "grid": [
+        6,
+        11
+      ],
+      "pixelGrid": 2,
+      "sourceSha256": "2a0e8986583acf8e671c9f9541d2887d3c585c4c6498ff9d17a23222439cec25",
+      "runtimeSha256": "6b74b1eaab8b4321e176e3ccf4a6574857192828a5bf762ee5f2f99d428219e5"
+    },
+    {
+      "index": 2,
+      "id": "combat-tells",
+      "job_id": "5a3dd38c-8809-41c7-aab2-0a3f85ac0099",
+      "time": "075747",
+      "rows": 6,
+      "prompt": "Original dark-fantasy game PIXEL SPRITE VFX ATLAS. EXACT6columns x6rows, six distinct rows of finite6-frame ground warning animation, TRANSPARENT background, no actors/text/grid/environment. Crisp professional32color pixel art, no blurred bloom, no solid rectangular color blocks. All cells identical square, each warning centered and fully within cell, object composed of actual discrete pixel lines/runes/particles with transparent gaps. Frames: first tiny marker / lines draw outward / readable windup / completed bright outline / strike flash / pixel fragments dissolve. Row0 LONG THIN AMBER CHEVRON thrust warning, tapered broken arrow/rune line pointing right, metallic bead sparks. Row1 RED LOW SWEEP danger arc hugging the ground as a thin crescent of three claw trails. Row2 CYAN LANDING ground ellipse with four corner arrows converging inward and fine dashed rings. Row3 RUBY BURST radial crown sigil, eight narrow pointed rays around a hollow center. Row4 COPPER CHAIN WARNING made of interlocking oval links traveling across a ground line ending in a hooked arrow. Row5 VIOLET/GOLD ROYAL NOVA pressure ring, elegant crown spokes and concentric dashed circles, hollow center stays transparent. These are readable telegraphs before an attack; colorful and detailed, not random flashes. Native128pixel cells; apparent pixel clusters two pixels square after export.",
+      "references": [],
+      "source": "assets/memory-v8/combat-tells-original.png",
+      "runtime": "godot/art/combat-tells-v8.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_075747_5a3dd38c-8809-41c7-aab2-0a3f85ac0099.png",
+      "frame": [
+        128,
+        128
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "pixelGrid": 2,
+      "sourceSha256": "b7b7d8cfa2b7659ddc095e93f933ff0df20b9fb25c932fe2b7927341325d82d6",
+      "runtimeSha256": "36a1b244f3dfbbd83c246f0fe2bb8752735875eacf6abe347b5cce2f705e678c"
+    },
+    {
+      "index": 3,
+      "id": "seated-contact",
+      "job_id": "d1505c62-f6bb-4d83-8609-b9cfd7061ab7",
+      "time": "075414",
+      "rows": 2,
+      "prompt": "Original black feline immortal KING pixel sprite animation, transparent background, EXACT6columns x2rows, no environment/grid/text. Same black humanoid cat with red and gold royal mantle, ruby/gold crown, steel royal sword as reference. Professional sharp SNES pixel-art sprite, no antialiasing/soft paint. Everycellfullbody fixedscale, facing LEFT, feet same baseline; no zoom. Row0 six subtle BORED SAD SEATED breathing poses: torso slumped, head bowed, ears drooped, halfclosed eyes, chin leaning in left paw with elbow supported on invisible chair arm, steel sword held HORIZONTALLY ACROSS LAP, long cloak drapes downward on either side. Very clearly SITTING in a high-backed royal chair, NOT crouching or kneeling: haunches/hips rest on a narrow dark slate stone seat immediately under rump, upperlegs extend horizontally, knees bent90degrees, lowerlegs hang DOWN and paws rest on a step. Seat top must be36pixelunits ABOVE soles for an approximately100pixel-tall full king body, so hips are36 abovefeet. Include only the slim gray/teal stone SEAT CUSHION under the rump, no whole chair/back; cushion can match an existing background throne. Pixel body upperhalf is tall enough that slumped crown is about90pixels above soles. Six resting frames very small breathing/headlower/mantle shifts, samehipcontactpoint on stonecushion throughout. Row1 six slow rises from that exact seat: release chin / grip armrest / straighten back / lift hips off cushion / stand swordlowered / stand weary. Allframes samebody scale. Sad exhausted ruler waiting centuries, never a ready battle stance in row0. Pixel palette charcoal/red/oldgold/slate/teal, crisp readable paws and cushion contact.",
+      "references": [
+        "13cf3b8c-deb3-4980-be07-707400612d7c"
+      ],
+      "source": "assets/memory-v8/seated-contact-original.png",
+      "runtime": "godot/art/seated-contact-v8.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_075414_d1505c62-f6bb-4d83-8609-b9cfd7061ab7.png",
+      "frame": [
+        192,
+        192
+      ],
+      "grid": [
+        6,
+        2
+      ],
+      "pixelGrid": 2,
+      "sourceSha256": "7a12078bb31df8e20ed1448279af3f633980dcc49e8d7dd49b49eb226dc1486b",
+      "runtimeSha256": "20f76b338370eb28efeb05a2b11c4ba9132fb521be3d027c819b70963190bba0"
+    }
+  ],
+  "seating": {
+    "worldFootAnchor": [
+      885,
+      384
+    ],
+    "actorCell": [
+      192,
+      192
+    ],
+    "actorFoot": [
+      96,
+      154
+    ],
+    "bodyReference": 107,
+    "restRows": [
+      0
+    ],
+    "riseRows": [
+      1
+    ],
+    "backgroundThroneCenterX": 885,
+    "backgroundCushionWorldY": [
+      342,
+      354
+    ],
+    "backgroundPlatformWorldY": 384,
+    "seatedHipWorldYApprox": 348,
+    "previousWrongAnchor": [
+      880,
+      422
+    ],
+    "explanation": "The earlier world385 assumption identified the throne platform as its cushion. The actual native cushion is at114..118 in a320x180 background, displayed3x. New generated pose is truly seated with horizontal sword across lap, elbow/cheek support and bent knees; its feet rest on the platform and hips contact the existing cushion. Preview composites the actual frame at exact runtime coordinates."
+  },
+  "guardRows": [
+    "king royal crown kite",
+    "transformed broken spectral crest",
+    "kitten wood bell buckler",
+    "alley rust spiked buckler",
+    "sailor rope anchor shield",
+    "acrobat jade folding fans",
+    "witch violet astrolabe",
+    "knight cobalt plate crest",
+    "thief silver mirror daggers",
+    "quiet ice hex",
+    "patchwork stitched rose crest"
+  ],
+  "tellRows": [
+    "thrust/line/lunge amber chevrons",
+    "sweep/low ruby crescent",
+    "landing/jump cyan ellipse arrows",
+    "burst/radial ruby crown rays",
+    "chain copper links",
+    "nova/royal violet gold pressure ring"
+  ],
+  "exportNotes": "Per-cell nearest only and binary alpha. Shield source has measured uneven row bands; export-fx.mjs slices those recorded boundaries to prevent adjacent-row fragments. No per-frame zoom fitting. Limited per-row shield/tell palettes; native480x270 menu uses48colors.",
+  "preview": "assets/memory-v8/seat-contact-preview.png"
+}

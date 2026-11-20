@@ -187,3 +187,20 @@ AI-use disclosure: Higgsfield generated the original kinetic combat sprites; Cod
 | Other godot/art/*-v7.png siblings | Previously attributed original assets;408 actor/effect frames re-exported with cell-isolated nearest sampling, hard alpha, two-pixel clusters and limited palettes; originals preserved |
 
 All four new images used GPT Image2.6,2k/medium under the user-authorized unlimited allowance. Full prompts, reference jobs, source/runtime SHA256 hashes, fixed geometry and processing scripts: assets/kinetic-v7/manifest.json and ATTRIBUTION.md. Pixel verification checks84new poses for empty frames, clipping, intermediate alpha and off-grid pixels. Actor scales are integers. No PixelLab or third-party character sprites are copied; PixelLab was a style reference in the user's request.
+
+AI-use disclosure: Higgsfield generated the memory/court sprite artwork; Codex authored the combat, story staging and responsive score mix.
+
+## Memory and poise v8
+
+| Asset | Source and changes |
+|---|---|
+| godot/art/menu-memory-v8.png | Original Higgsfield twilight road, discarded royal sword/crown and distant castle; native480x270 export |
+| godot/art/seated-contact-v8.png | Original Higgsfield seated/rising king; fixed contact atworld885/384 with hips at actual throne cushion348 |
+| godot/art/guard-sigils-v8.png | Original Higgsfield66-frame atlas: normal/transformed royal guards and nine distinct visitor shields |
+| godot/art/combat-tells-v8.png | Original Higgsfield36-frame atlas: thrust, sweep, landing, burst, chain and royal area warning lines/runes |
+| godot/audio/sfx/perfect.ogg, poise-break.ogg | Isolated original-pitch Chequered Ink sword-clash/metal-clang edits, same game-use rights as prior Foley |
+| godot/audio/sfx/orchestral-accent.ogg | Original Codex deterministic synthesis; synthesis source, WAV master and processing manifest in assets/court-v8 |
+
+The four Higgsfield generations used the authorized unlimited GPT Image2.6 2k/medium configuration. Full prompts, jobIDs, reference sources, source/runtime hashes, measured shield gutters and pixel-grid verification: assets/memory-v8/manifest.json and ATTRIBUTION.md. Audio processing/source hashes: assets/court-v8/audio-processing.json. Existing twelve Scott Buckley compositions retain their individual CC BY4.0 credits; runtime mix now swells with tension and makes space around impacts/dialogue.
+
+Alan Becker's Animation vs. Math informed anticipation/impact/recovery pacing. Its original score is excluded from the composer's Creative Commons library, per https://www.scottbuckley.com.au/2023/06/animation-vs-math/ . No video/audio from it is bundled. Menu references informed minimal composition only; no Fallout, Persona, Firewatch or Ghost of Tsushima artwork is copied into the game.

@@ -3,6 +3,9 @@ extends Node2D
 const Rules = preload("res://combat_rules.gd")
 const Actor = preload("res://actor_view.gd")
 const FLOOR = 464.0
+const THRONE = Vector2(885,384)
+var tell_markers:Array=[]
+var spirits_released=0
 var ui
 var audio
 var king
@@ -137,8 +140,9 @@ func _menu() -> void:
     _clear_effects()
     ui.reset()
     ui.hide_hud()
-    ui.show_menu("res://art/menu.png")
+    ui.show_menu("res://art/menu-memory-v8.png")
     audio.music("menu")
+    audio.set_tension(0.0)
 
 func _start() -> void:
     epoch+=1
@@ -150,6 +154,7 @@ func _start() -> void:
     bond=0
     completed.clear()
     ending=""
+    spirits_released=0
     ui.reset()
     ui.hide_menu()
     ui.hide_hud()
@@ -165,7 +170,7 @@ func _set_background(id: String) -> void:
 func _reset_bodies() -> void:
     boss={"x":800.0,"y":0.0,"vy":0.0,"vx":0.0,"knock":0.0,"hp":700.0,"max":700.0,
         "facing":-1,"grounded":true,"dash":0.0,"dash_cd":0.0,"invuln":0.0,"guard":1.0,
-        "guarding":false,"flash":0.0,"inactive":0.0,"jumps":0,"dashes":0,"blocks":0,
+        "guard_age":99.0,"guard_held":false,"guard_perfect_used":false,"guard_rearm":0.0,"perfect_blocks":0,"counter_hits":0,"counter_window":0.0,"cancels":0,"guarding":false,"flash":0.0,"inactive":0.0,"jumps":0,"dashes":0,"blocks":0,
         "combo":0,"combo_until":-1.0,"combo_queue":0,"combo_buffer":0.0,"combo_history":[],
         "stride":0.0,"steps":0,"land":0.0,"coyote":0.1,"jump_buffer":0.0,"input_buffer":0.0,"buffered_action":"","transition":0.0,"phase_triggered":false,
         "cooldowns":{"cleave":0.0,"throw":0.0,"reap":0.0,"nova":0.0}}
@@ -185,7 +190,7 @@ func _reset_bodies() -> void:
     enemy={"x":-40.0,"y":0.0,"vy":0.0,"knock":0.0,"hp":stats.hp,"max":stats.hp,
         "damage":stats.damage,"speed":stats.speed,"state":"enter","t":0.0,"decision":0.1,
         "windup":0.0,"ability_cd":2.5,"ability_t":0.0,"ability_serial":0,"attack_flash":0.0,
-        "flash":0.0,"invuln":0.0,"poise":0.0,"evade_cd":0.0,"guard_t":0.0,
+        "flash":0.0,"invuln":0.0,"poise":Rules.POISE[life],"poise_max":Rules.POISE[life],"poise_delay":0.0,"stagger_lock":0.0,"poise_breaks":0,"guard":1.0,"guard_facing":1.0,"attack_dir":1.0,"ability_target":Vector2.ZERO,"evade_cd":0.0,"guard_t":0.0,
         "kneel":0.0,"armored":life==5,"mobility_cd":0.8,"dash_dir":1.0,"chain_left":1,"combo_index":0,
         "dashes":0,"strikes":0,"abilities":0,"stride":0.0,"steps":0}
     move.clear()
@@ -203,7 +208,7 @@ func _opening() -> void:
     king.visible=true
     visitor.visible=true
     king.rotation=0.0
-    king.position=Vector2(880,422)
+    king.position=THRONE
     visitor.setup("alley")
     visitor.position=Vector2(90,FLOOR)
     king.pose("rest",2,-1,143)
@@ -273,7 +278,7 @@ func _opening() -> void:
     king.who="king"
     king.rotation=0.0
     king.modulate=Color.WHITE
-    king.position=Vector2(880,422)
+    king.position=THRONE
     king.pose("rest",2,-1,143)
     await _pause(2.0)
     if token!=epoch:return
@@ -388,15 +393,15 @@ func _physics_process(dt:float) -> void:
             _animate()
             _hud()
     elif mode=="waiting":
-        king.position.x=move_toward(king.position.x,880.0,220.0*dt)
-        var climb=clampf((king.position.x-760.0)/120.0,0.0,1.0)
-        king.position.y=lerpf(FLOOR,422.0,climb)
-        var seated=absf(king.position.x-880.0)<2.0
+        king.position.x=move_toward(king.position.x,THRONE.x,220.0*dt)
+        var climb=clampf((king.position.x-760.0)/125.0,0.0,1.0)
+        king.position.y=lerpf(FLOOR,THRONE.y,climb)
+        var seated=absf(king.position.x-THRONE.x)<2.0
         king.pose("rest" if seated else "run",int(elapsed*(1.3 if seated else 10.0))%6,-1 if seated else 1,143)
     elif mode=="opening" and stage=="arrival":
         visitor.pose("run",int(elapsed*10)%6,1,90)
     publish_t+=dt
-    if publish_t>=0.1:
+    if publish_t>=(0.03 if debug_mode else 0.1):
         publish_t=0.0
         _publish_state()
 
@@ -465,12 +470,25 @@ func _combat_step(dt:float) -> void:
     _move_step(dt)
     _projectile_step(dt)
     _enemy_step(dt)
+    var tension:float=0.30 if enemy.windup>0 or enemy.ability_t>0 or not move.is_empty() and move.stage=="tell" else 0.60
+    if boss.hp/boss.max<0.30:tension=0.88
+    audio.set_tension(tension)
     if boss.hp<=0:_finish("normal")
     elif enemy.hp<=0:_win_encounter()
 
 func _player_step(i:Dictionary,dt:float) -> void:
     var direction=(-1 if i.left else 0)+(1 if i.right else 0)
     var was_grounded:bool=boss.grounded
+    var cancellable:bool=move.is_empty() or move.stage=="tell"
+    var guard_edge:bool=i.guard and not boss.guard_held
+    boss.guard_age+=dt
+    boss.guard_rearm=maxf(0,boss.guard_rearm-dt)
+    boss.counter_window=maxf(0,boss.counter_window-dt)
+    if guard_edge and boss.guard_rearm<=0:
+        boss.guard_age=0.0;boss.guard_perfect_used=false;boss.guard_rearm=0.34
+    boss.guard_held=i.guard
+    if guard_edge and not move.is_empty() and move.stage=="tell":
+        move.clear();boss.combo_queue=0;boss.cancels+=1
     if direction!=0 and direction!=last_direction:
         shift_count+=1
         last_direction=direction
@@ -483,23 +501,25 @@ func _player_step(i:Dictionary,dt:float) -> void:
     var taps:int=int(i.get("cleave_taps",0))
     if taps>0:
         boss.combo_queue=mini(2,int(boss.combo_queue)+taps)
-        boss.combo_buffer=0.70
+        boss.combo_buffer=1.65
     # Short buffers preserve deliberate inputs made during another move's recovery.
     for id in ["nova","reap","throw"]:
         if i[id]:
             boss.buffered_action=id
             boss.input_buffer=0.20
             break
-    if boss.jump_buffer>0 and boss.coyote>0 and boss.dash<=0:
+    if boss.jump_buffer>0 and boss.coyote>0 and boss.dash<=0 and cancellable:
+        if not move.is_empty():move.clear();boss.combo_queue=0;boss.cancels+=1
         boss.vy=580.0;boss.grounded=false;boss.jumps+=1
         boss.jump_buffer=0.0;boss.coyote=0.0
         audio.sfx("jump")
     if not bool(i.get("jump_held",true)) and boss.vy>230:
         boss.vy=move_toward(float(boss.vy),230.0,2600.0*dt)
-    if i.dash and boss.dash_cd<=0:
+    if i.dash and boss.dash_cd<=0 and cancellable:
         if direction!=0:boss.facing=direction
         boss.dash=0.17;boss.dash_cd=0.56;boss.invuln=maxf(boss.invuln,0.17);boss.dashes+=1
         boss.combo_queue=0
+        if not move.is_empty():boss.cancels+=1
         move.clear()
         audio.sfx("dash")
         _trail(king,Color("#6fe7ff") if phase==2 else Color("#ffc976"))
@@ -530,8 +550,12 @@ func _player_step(i:Dictionary,dt:float) -> void:
         audio.sfx("step")
         boss.land=0.09
     boss.land=maxf(0,boss.land-dt)
+    if boss.counter_window>0 and i.cleave and cancellable and boss.dash<=0:
+        boss.guarding=false
+        _start_move("cleave")
+        return
     if not boss.guarding and boss.dash<=0:
-        if not move.is_empty() and move.id=="cleave" and move.stage=="recover" and move.t>=0.035:
+        if not move.is_empty() and move.id=="cleave" and move.stage=="recover" and move.t>=move.spec.recover*0.78:
             if boss.combo_queue>0 or i.cleave:
                 move.clear()
                 _start_move("cleave")
@@ -548,6 +572,10 @@ func _player_step(i:Dictionary,dt:float) -> void:
 
 func _start_move(id:String) -> void:
     var spec=Rules.move_spec(id,phase)
+    var counter:bool=id=="cleave" and boss.counter_window>0
+    if counter:
+        spec.tell=0.055;spec.active=0.075;spec.recover=0.25;spec.damage*=1.55
+        boss.counter_window=0.0
     move_counts[id]=int(move_counts.get(id,0))+1
     phase_counts[str(phase)][id]+=1
     sequence.append(id)
@@ -557,16 +585,16 @@ func _start_move(id:String) -> void:
     if absf(enemy.x-boss.x)<400:boss.facing=-1 if enemy.x<boss.x else 1
     if id=="cleave":
         boss.combo=(boss.combo+1)%3 if combat_clock<=boss.combo_until else 0
-        boss.combo_until=combat_clock+0.88
+        boss.combo_until=combat_clock+1.35
         if boss.combo==1:spec.tell*=0.80;spec.active*=0.90
         elif boss.combo==2:spec.tell*=1.30;spec.damage*=1.25;spec.recover*=1.25
         boss.combo_history.append(boss.combo)
     boss.cooldowns[id]=spec.cooldown
-    move={"id":id,"phase":phase,"spec":spec,"stage":"tell","t":0.0,"direction":boss.facing,"target":enemy.x,"combo":boss.combo,"spawned":0,"hit":false,"marks":[]}
+    move={"id":id,"phase":phase,"spec":spec,"stage":"tell","t":0.0,"direction":boss.facing,"target":enemy.x,"combo":boss.combo,"spawned":0,"hit":false,"marks":[],"counter":counter}
     if id=="reap" and phase==2:move.marks=[boss.x-180,boss.x,boss.x+180]
     if id=="nova" and phase==1:move.marks=[boss.x+boss.facing*90,boss.x+boss.facing*250,boss.x+boss.facing*410]
     audio.sfx("magic" if phase==2 or id in ["nova","reap"] else "sword-draw")
-    if life>0 and enemy.evade_cd<=0:
+    if life>0 and enemy.evade_cd<=0 and not counter and enemy.state not in ["hurt","parried"]:
         if life in [1,8] and id=="cleave" and boss.combo==0:
             enemy.state="evade";enemy.t=0.16;enemy.invuln=0.10;enemy.evade_cd=2.0
             enemy.knock=signf(enemy.x-boss.x)*330
@@ -607,8 +635,8 @@ func _active_hit() -> void:
         var ranges=[166.0,185.0,218.0] if phase==1 else [212.0,248.0,290.0]
         if not move.hit and (enemy.x-boss.x)*move.direction>-24 and absf(enemy.x-boss.x)<ranges[move.combo] and absf(enemy.y-boss.y)<(150 if move.combo==1 else 120):
             _hit_enemy(damage,id)
-            if move.combo==1:enemy.vy=maxf(enemy.vy,320.0)
-            elif move.combo==2:enemy.knock=move.direction*540.0
+            if move.combo==1:enemy.vy=maxf(enemy.vy,320.0) if enemy.state=="hurt" else enemy.vy
+            elif move.combo==2 and enemy.state=="hurt":enemy.knock=move.direction*540.0
             move.hit=true
         if phase==2 and move.spawned==0:
             move.spawned=1
@@ -617,8 +645,7 @@ func _active_hit() -> void:
         if phase==1:
             if not move.hit and (enemy.x-boss.x)*move.direction>-20 and absf(enemy.x-boss.x)<230 and absf(enemy.y-boss.y)<72:
                 move.hit=true
-                if enemy.guard_t<=0:_hit_enemy(damage,id)
-                else:audio.sfx("guard")
+                _hit_enemy(damage,id)
         else:
             # Crown fragments fall as separate physical blades rather than a base-form thrust.
             while move.spawned<5 and move.t>=move.spawned*0.075:
@@ -632,7 +659,7 @@ func _active_hit() -> void:
                 if absf(enemy.x-move.target)<88 and enemy.y<72:
                     var before:float=enemy.hp
                     _hit_enemy(damage,id)
-                    if enemy.hp<before:
+                    if enemy.hp<before and enemy.state=="hurt":
                         enemy.y=0.0;enemy.vy=0.0;enemy.knock=0.0;enemy.kneel=0.42
         else:
             while move.spawned<3 and move.t>=move.spawned*0.16:
@@ -661,31 +688,52 @@ func _active_hit() -> void:
 
 func _hit_enemy(damage:float,id:String) -> void:
     if enemy.hp<=0 or enemy.invuln>0:return
-    if enemy.armored:
-        enemy.armored=false
-        audio.sfx("metal")
-        _fx(3,visitor.position+Vector2(0,-40),110,0.26,"royal")
-        return
+    var guard_hit:bool=enemy.guard_t>0 and enemy.guard>0.05 and enemy.guard_facing*(boss.x-enemy.x)>=0 and id not in ["nova","reap"]
+    if guard_hit:
+        enemy.guard=maxf(0,enemy.guard-0.22)
+        damage*=0.24
+        audio.sfx("guard")
+        _fx(3,visitor.position+Vector2(0,-40),110,0.24,"royal")
     var before_hp:float=enemy.hp
     enemy.hp-=damage
     if life==0 and not _tutorial_complete():enemy.hp=maxf(1,enemy.hp)
     damage_dealt+=maxf(0,before_hp-maxf(0,enemy.hp))
-    enemy.flash=0.14
-    var resisted:bool=id=="cleave" and enemy.poise>0
-    enemy.knock=signf(enemy.x-boss.x)*(60 if resisted else 420 if id=="nova" else 260)
-    if not resisted:
-        enemy.state="hurt";enemy.t=0.20;enemy.windup=0.0
-        if id in ["cleave","nova"]:enemy.vy=maxf(enemy.vy,180.0)
+    if not move.is_empty() and move.get("counter",false):boss.counter_hits+=1
+    enemy.flash=0.12
+    enemy.poise_delay=2.0
+    var impact:float=damage*(1.30 if id=="reap" else 1.0)
+    if enemy.stagger_lock<=0:
+        enemy.poise=maxf(0,enemy.poise-impact)
+        if enemy.poise<=0 or guard_hit and enemy.guard<=0:_break_enemy_poise()
+    # Damage still lands during armor; only a broken posture interrupts the action.
+    if enemy.state=="hurt":
+        enemy.knock=signf(enemy.x-boss.x)*(360 if id=="nova" else 190)
+        if id in ["cleave","nova"]:enemy.vy=maxf(enemy.vy,140.0)
+    else:enemy.knock=signf(enemy.x-boss.x)*28
+    enemy.invuln=0.045
     _blood(Vector2(enemy.x,FLOOR-enemy.y-38))
-    hitstop=0.035
+    hitstop=0.045 if enemy.state=="hurt" else 0.026
     audio.sfx("hit")
+
+func _break_enemy_poise() -> void:
+    enemy.state="hurt";enemy.t=0.48
+    enemy.windup=0.0;enemy.ability_t=0.0
+    enemy.guard_t=0.0
+    enemy.stagger_lock=2.35
+    enemy.poise=enemy.poise_max
+    enemy.poise_breaks+=1
+    audio.pulse("poise-break")
+    _fx(3,Vector2(enemy.x,FLOOR-enemy.y-40),145,0.34,"royal")
 
 func _enemy_step(dt:float) -> void:
     enemy.invuln=maxf(0,enemy.invuln-dt)
     enemy.flash=maxf(0,enemy.flash-dt)
     enemy.attack_flash=maxf(0,enemy.attack_flash-dt)
     enemy.guard_t=maxf(0,enemy.guard_t-dt)
-    enemy.poise=maxf(0,enemy.poise-dt)
+    enemy.stagger_lock=maxf(0,enemy.stagger_lock-dt)
+    enemy.poise_delay=maxf(0,enemy.poise_delay-dt)
+    if enemy.poise_delay<=0:enemy.poise=minf(enemy.poise_max,enemy.poise+18*dt)
+    enemy.guard=minf(1,enemy.guard+0.18*dt)
     enemy.evade_cd=maxf(0,enemy.evade_cd-dt)
     enemy.mobility_cd=maxf(0,enemy.mobility_cd-dt)
     enemy.kneel=maxf(0,enemy.kneel-dt)
@@ -703,14 +751,15 @@ func _enemy_step(dt:float) -> void:
     if enemy.ability_t>0:
         enemy.ability_t-=dt
         if enemy.ability_t<=0:_enemy_ability()
-    elif enemy.ability_cd<=0 and enemy.state not in ["hurt","evade","dash"] and enemy.windup<=0:
+    elif enemy.ability_cd<=0 and enemy.state not in ["hurt","parried","contact","backoff","evade","dash"] and enemy.windup<=0:
         enemy.ability_t=Rules.ABILITY_TELL[life]
+        enemy.ability_target=Vector2(boss.x,boss.y+42)
         enemy.ability_cd=Rules.ABILITY_CD[life]+enemy.ability_t
-    if enemy.state=="hurt":
+    if enemy.state in ["hurt","parried"]:
         enemy.t-=dt
         if enemy.t<=0:
             enemy.state="attack";enemy.windup=0.0
-            if life>0:enemy.poise=0.65
+            enemy.poise=enemy.poise_max
         return
     if enemy.state=="evade":
         enemy.t-=dt
@@ -722,7 +771,7 @@ func _enemy_step(dt:float) -> void:
         if int(combat_clock*24)!=int((combat_clock-dt)*24):_trail(visitor,Rules.COLORS[life])
         if enemy.t<=0 or (absf(enemy.x-boss.x)<80 and life not in [3,6]):
             enemy.state="attack";enemy.windup=0.0;enemy.chain_left=mobility.chain
-            enemy.poise=0.34
+            enemy.stagger_lock=maxf(enemy.stagger_lock,0.25)
     elif enemy.state=="backoff":
         enemy.t-=dt
         if enemy.t<=0:
@@ -745,25 +794,28 @@ func _enemy_step(dt:float) -> void:
                 enemy.x=move_toward(float(enemy.x),target,enemy.speed*1.7*dt)
             if distance<52+melee.reach or enemy.windup>0:
                 enemy.windup+=dt
-                var tell:float=melee.tell*(0.86 if enemy.combo_index>0 else 1.0)
+                if enemy.windup<=dt:
+                    enemy.attack_dir=side
+                var tell:float=melee.tell
                 if enemy.windup>=tell:
-                    enemy.attack_flash=0.18
+                    enemy.state="contact";enemy.t=0.10;enemy.attack_flash=0.10
                     enemy.strikes+=1
-                    _fx(maxi(0,life-1),Vector2(enemy.x+side*melee.reach*0.50,FLOOR-enemy.y-40),110+melee.reach,0.30,"visitor",int(side))
+                    _fx(maxi(0,life-1),Vector2(enemy.x+enemy.attack_dir*melee.reach*0.50,FLOOR-enemy.y-40),110+melee.reach,0.22,"visitor",int(enemy.attack_dir))
                     audio.sfx(_weapon_sound())
-                    if absf(enemy.x-boss.x)<52+melee.reach+20 and absf(enemy.y-boss.y)<melee.height:
+                    if absf(enemy.x-boss.x)<52+melee.reach+20 and (boss.x-enemy.x)*enemy.attack_dir>-16 and absf(enemy.y-boss.y)<melee.height:
                         _hurt_boss(enemy.damage*(0.85 if enemy.combo_index>0 else 1.0),false,melee)
                     enemy.windup=0.0
-                    enemy.chain_left=maxi(0,int(enemy.chain_left)-1)
-                    if enemy.chain_left>0 and life>0:
-                        enemy.combo_index+=1
-                        enemy.state="backoff";enemy.t=0.14
-                        enemy.decision=0.0
-                    else:
-                        enemy.combo_index=0
-                        enemy.state="backoff";enemy.t=0.26 if life>0 else 0.65
-                        var tactics:Dictionary=current_plan.get("tactics",{})
-                        enemy.decision=0.32-0.20*float(tactics.get("aggression",0.55))
+    if enemy.state=="contact":
+        enemy.t-=dt
+        if enemy.t<=0:
+            enemy.chain_left=maxi(0,int(enemy.chain_left)-1)
+            enemy.combo_index=enemy.combo_index+1 if enemy.chain_left>0 else 0
+            enemy.state="backoff";enemy.t=Rules.RECOVERY[life]
+            enemy.decision=0.0 if enemy.chain_left>0 else 0.22
+            if enemy.chain_left<=0 and enemy.guard>0.25:
+                enemy.guard_t=0.28+float(life%3)*0.08
+                enemy.guard_facing=signf(boss.x-enemy.x)
+
     if enemy.y<=0 and enemy.state not in ["dash","hurt"]:
         var old_step:int=int(enemy.stride/34.0)
         enemy.stride+=absf(enemy.x-old_x)
@@ -786,9 +838,9 @@ func _enemy_ability() -> void:
     enemy.abilities+=1
     if life==6 and enemy.mobility_cd<=0:_enemy_dash(signf(boss.x-enemy.x))
     if life==3:enemy.vy=440.0;enemy.y=maxf(1,enemy.y)
-    if life in [2,5,7]:enemy.guard_t=0.65
+    if life in [2,5,7]:enemy.guard_t=0.65;enemy.guard_facing=signf(boss.x-enemy.x)
     var origin=Vector2(enemy.x,enemy.y+42)
-    var target=Vector2(boss.x,boss.y+42)
+    var target:Vector2=enemy.ability_target
     for p in Rules.enemy_shots(life,origin,target,enemy.ability_serial):
         _projectile(p.p,p.v,p.radius,p.low,enemy.damage*p.scale,false,life,p)
     audio.sfx(_weapon_sound())
@@ -801,21 +853,40 @@ func _hurt_boss(damage:float,low:bool,weapon:Dictionary={}) -> void:
     if boss.invuln>0 or boss.transition>0:return
     if low and boss.y>34:return
     var guarded:bool=boss.guarding and not low
+    if guarded and boss.guard_age<=0.12 and not boss.guard_perfect_used:
+        boss.guard_perfect_used=true
+        boss.perfect_blocks+=1
+        boss.blocks+=1
+        boss.guard=minf(1,boss.guard+0.16)
+        boss.counter_window=0.75
+        boss.invuln=0.16
+        enemy.state="parried";enemy.t=0.42
+        enemy.poise=maxf(1,enemy.poise-enemy.poise_max*0.55)
+        enemy.windup=0.0;enemy.ability_t=0.0
+        enemy.knock=signf(enemy.x-boss.x)*160
+        _fx(3,Vector2(boss.x,FLOOR-boss.y-60),190,0.36,"royal")
+        audio.pulse("perfect")
+        hitstop=0.07
+        return
     if guarded:
         damage*=0.22
         boss.blocks+=1
         boss.guard=maxf(0,boss.guard-0.10-float(weapon.get("guard",0)))
         audio.sfx("guard")
-        _fx(3,Vector2(boss.x,FLOOR-boss.y-75),180,0.27,"royal")
+        _fx(3,Vector2(boss.x,FLOOR-boss.y-60),160,0.27,"royal")
     else:
         audio.sfx("hit")
-        _blood(Vector2(boss.x,FLOOR-boss.y-83))
+        _blood(Vector2(boss.x,FLOOR-boss.y-66))
+        if not move.is_empty() and move.stage=="tell":
+            move.clear()
+            boss.combo_queue=0
+            boss.cancels+=1
     boss.hp-=damage
     boss.flash=0.14;boss.invuln=0.28
     boss.knock=signf(boss.x-enemy.x)*float(weapon.get("impulse",240))*(0.25 if guarded else 1.0)
     if not guarded and float(weapon.get("lift",0))>0:
         boss.vy=float(weapon.lift);boss.grounded=false
-    hitstop=0.025
+    hitstop=0.032
     if not boss.phase_triggered and boss.hp<=350 and boss.hp>0:_begin_crown_stance()
 
 func _begin_crown_stance() -> void:
@@ -830,7 +901,7 @@ func _begin_crown_stance() -> void:
         if is_instance_valid(p.sprite):p.sprite.queue_free()
     projectiles.clear()
     _fx(4,Vector2(boss.x,FLOOR-75),350,1.6,"nova")
-    audio.sfx("magic")
+    audio.pulse("phase-change")
 
 func _projectile(pos:Vector2,velocity:Vector2,radius:float,low:bool,damage:float,friendly:bool,style:int,extra:Dictionary={}) -> void:
     var sprite=Sprite2D.new()
@@ -881,7 +952,7 @@ func _animate() -> void:
     var frame=int(elapsed*5)%6
     if mode=="arrival":
         var t=clampf(mode_t/1.3,0,1)
-        king.position=Vector2(lerpf(880,boss.x,t),lerpf(422,FLOOR-boss.y,t))
+        king.position=Vector2(lerpf(THRONE.x,boss.x,t),lerpf(THRONE.y,FLOOR-boss.y,t))
         if t<1:motion="rise"
     else:
         king.position=Vector2(roundf(boss.x),roundf(FLOOR-boss.y))
@@ -889,9 +960,9 @@ func _animate() -> void:
         elif not boss.grounded:motion="jump";frame=1 if boss.vy>180 else 3 if boss.vy> -180 else 5
         elif absf(boss.vx)>20:motion="run";frame=int(boss.stride/13.0)%6
         if not move.is_empty():
-            motion="combo_"+str(move.combo) if move.id=="cleave" else move.id
+            motion="throw" if move.get("counter",false) else "combo_"+str(move.combo) if move.id=="cleave" else move.id
             var duration:float=move.spec[move.stage]
-            frame=mini(1,int(move.t/maxf(0.01,duration)*2)) if move.stage=="tell" else mini(4,2+int(move.t/maxf(0.01,duration)*3)) if move.stage=="active" else 5
+            frame=mini(1,int(move.t/maxf(0.01,duration)*2)) if move.stage=="tell" else mini(4,2+int(move.t/maxf(0.01,duration)*3)) if move.stage=="active" else 4 if move.t<duration*0.72 else 5
         if boss.transition>0:motion="transform";frame=mini(5,int((1-boss.transition/1.8)*6))
     king.who="ascended" if phase==2 or boss.transition<0.9 and boss.transition>0 else "king"
     king.pose(motion,frame,boss.facing,143)
@@ -908,21 +979,24 @@ func _animate() -> void:
     if enemy.windup>0:em="cleave";ef=mini(2,int(enemy.windup/Rules.MELEE[life].tell*3))
     if enemy.ability_t>0:em="throw";ef=mini(2,int((1-enemy.ability_t/Rules.ABILITY_TELL[life])*3))
     elif enemy.attack_flash>0:em="cleave";ef=3+mini(2,int((1-enemy.attack_flash/0.18)*3))
-    if enemy.state=="hurt":em="hurt";ef=mini(5,int((0.20-enemy.t)/0.20*6))
+    if enemy.state in ["hurt","parried"]:em="hurt";ef=mini(5,int((0.48-enemy.t)/0.48*6))
+    elif enemy.state=="backoff":em="cleave";ef=4 if enemy.t>Rules.RECOVERY[life]*0.28 else 5
     visitor.position=Vector2(roundf(enemy.x),roundf(FLOOR-enemy.y))
     visitor.pose(em,ef,1 if boss.x>enemy.x else -1,61 if life==0 else 85 if life==8 else 78)
     visitor.rotation=deg_to_rad(float(enemy.combo_index)*-7.0) if enemy.attack_flash>0 else 0.0
     visitor.modulate=Color("#ffb3ab") if enemy.flash>0 else Color.WHITE
     ward.visible=boss.guarding and mode=="fight"
-    ward.texture=Actor.effect_texture(3,int(elapsed*10)%6,"royal")
+    ward.texture=Actor.guard_texture("king",int(elapsed*10)%6,phase)
     ward.position=Vector2(roundf(boss.x),roundf(FLOOR-boss.y-76))
-    if ward.texture:ward.scale=Vector2.ONE*(170.0/ward.texture.get_width())
+    ward.scale=Vector2.ONE
     ward.modulate=Color("#ffe6a3") if phase==1 else Color("#abebff")
-    enemy_ward.visible=enemy.guard_t>0
-    enemy_ward.texture=ward.texture
+    enemy_ward.visible=enemy.guard_t>0 and enemy.guard>0.05
+    enemy_ward.texture=Actor.guard_texture(Rules.LIVES[life],int(elapsed*10)%6,1)
     enemy_ward.position=Vector2(roundf(enemy.x),roundf(FLOOR-enemy.y-38))
-    if ward.texture:enemy_ward.scale=Vector2.ONE*(110.0/ward.texture.get_width())
-    enemy_ward.modulate=Rules.COLORS[life]
+    enemy_ward.scale=Vector2.ONE
+    enemy_ward.modulate=Color(1,1,1,0.3+0.7*enemy.guard)
+    enemy_ward.flip_h=enemy.guard_facing<0
+    _draw_telegraphs()
 
 func _hud() -> void:
     if mode not in ["fight","arrival","paused"]:return
@@ -990,6 +1064,8 @@ func _clear_effects() -> void:
     for effect in effects:
         if is_instance_valid(effect.sprite):effect.sprite.queue_free()
     effects.clear()
+    for marker in tell_markers:
+        if is_instance_valid(marker):marker.visible=false
     for p in projectiles:
         if is_instance_valid(p.sprite):p.sprite.queue_free()
     projectiles.clear()
@@ -1018,6 +1094,7 @@ func _win_encounter() -> void:
     _clear_effects()
     mode="waiting";stage="centuries";mode_t=0.0
     audio.music("years")
+    audio.set_tension(0.0)
     var old_year:int=Rules.YEARS[fight_index]
     fight_index+=1
     message.text=str(Rules.YEARS[fight_index]-old_year)+" years."
@@ -1055,6 +1132,7 @@ func _finish(kind:String) -> void:
     king.pose("idle",0,-1,143)
     visitor.pose("idle",0,1,100)
     audio.music("finale")
+    audio.set_tension(0.15)
     await _pause(0.65)
     if token!=epoch:return
     if kind=="victory":
@@ -1070,7 +1148,7 @@ func _finish(kind:String) -> void:
         await _pause(1.2)
         if token!=epoch:return
         king.pose("idle",0,-1,143)
-        await ui.speak("THE IMMORTAL","Is there no one else?","king",2.2)
+        await ui.speak("THE IMMORTAL","Every life was mine. I have silenced them all.","king",2.8)
         if token!=epoch:return
     else:
         if phase==2:
@@ -1101,9 +1179,20 @@ func _finish(kind:String) -> void:
             await _pause(0.24)
             if token!=epoch:return
         stage="held-heart"
-        await ui.speak("THE IMMORTAL","Then die with it.","king",2.0)
+        await ui.speak("THE IMMORTAL","Morrow. My name was Morrow.","king",2.4)
+        if token!=epoch:return
+        stage="memory-reveal"
+        await ui.speak("MORROW","The bell. The rain. The sea. Those lives were mine.","king",2.8)
+        if token!=epoch:return
+        stage="spirits"
+        await _release_memories()
+        if token!=epoch:return
+        await _pause(1.6)
+        if token!=epoch:return
+        await ui.speak("MORROW","No more kings.","king",2.0)
         if token!=epoch:return
         stage="decree"
+        audio.set_tension(1.0)
         for n in range(6,10):
             finisher.texture=Actor.finisher_texture(n)
             _blood(Vector2(752,FLOOR-82))
@@ -1112,6 +1201,7 @@ func _finish(kind:String) -> void:
             if token!=epoch:return
         stage="explosion"
         finisher.texture=Actor.finisher_texture(10)
+        audio.pulse("climax")
         audio.sfx("nova")
         _fx(4,Vector2(752,FLOOR-83),850,1.2,"nova")
         for n in range(18):
@@ -1147,11 +1237,15 @@ func _publish_state() -> void:
         "planner_trace":current_plan,"history_size":history.size(),
         "bindings":ui.get_bindings(),"settings":ui.get("_menu_page"),"menu_page":ui.get("_menu_page"),
         "hud_visible":ui.get("_hud").visible,"move_labels":labels,
-        "combo":boss.get("combo",0),"combo_history":boss.get("combo_history",[]),"active_move":move.get("id",""),"move_stage":move.get("stage",""),
+        "combo":boss.get("combo",0),"combo_history":boss.get("combo_history",[]),"active_move":move.get("id",""),"move_stage":move.get("stage",""),"player_move_stage":move.get("stage",""),
         "enemy_state":enemy.get("state",""),"enemy_dashes":enemy.get("dashes",0),"enemy_strikes":enemy.get("strikes",0),"enemy_abilities":enemy.get("abilities",0),
+        "enemy_x":enemy.get("x",0),"enemy_max":enemy.get("max",0),"enemy_guard":enemy.get("guard",1),"poise":enemy.get("poise",0),"poise_breaks":enemy.get("poise_breaks",0),
+        "perfect_blocks":boss.get("perfect_blocks",0),"guard_age":boss.get("guard_age",99),"counter_ready":boss.get("counter_window",0)>0,"counter_hits":boss.get("counter_hits",0),"cancels":boss.get("cancels",0),
+        "enemy_attack_in":maxf(0,Rules.MELEE[life].tell-float(enemy.get("windup",0))) if enemy.get("windup",0)>0 else -1,
+        "dialogue_text":ui.get("dialogue_text"),"spirits_released":spirits_released,"telegraphs":_telegraph_data(),
         "vx":boss.get("vx",0),"vy":boss.get("vy",0),"grounded":boss.get("grounded",true),"king_sprite_path":king.sprite.texture.atlas.resource_path if king.sprite.texture is AtlasTexture else "",
         "player_steps":boss.get("steps",0),"enemy_steps":enemy.get("steps",0),"king_actor":king.who,
-        "waiting_pose":"rest" if mode=="waiting" and absf(king.position.x-880.0)<2 else "",
+        "waiting_pose":"rest" if mode=="waiting" and absf(king.position.x-THRONE.x)<2 else "",
         "music":audio.get("current_cue")}
     JavaScriptBridge.eval("window.ninthState="+JSON.stringify(state)+";",true)
 
@@ -1174,3 +1268,61 @@ func _save_run() -> void:
             "completed":completed,"summaries":history,"last_plan":current_plan,"bond":bond}, "  "))
         file.close()
         if OS.has_feature("web"):JavaScriptBridge.force_fs_sync()
+func _release_memories() -> void:
+    # Recognizable coats and accessories leave the king, rather than unrelated particles.
+    for index in range(9):
+        var spirit=Sprite2D.new()
+        var texture:AtlasTexture=Actor.texture_for(Rules.LIVES[index],"idle",0)
+        spirit.texture=texture
+        spirit.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
+        spirit.position=Vector2(752,FLOOR-76)
+        spirit.modulate=Color(0.60,0.94,1.0,0.70)
+        spirit.z_index=18
+        add_child(spirit)
+        var angle:float=-PI+0.22+float(index)*0.34
+        effects.append({"sprite":spirit,"t":0.0,"duration":3.5,"row":-1,"kind":"","alpha":0.70,"velocity":Vector2(cos(angle)*95,-70-absf(sin(angle))*85)})
+        spirits_released+=1
+        audio.sfx("magic")
+        await _pause(0.16)
+
+func _telegraph_data() -> Array:
+    var entries:Array=[]
+    if mode!="fight":return entries
+    if not move.is_empty() and move.stage=="tell":
+        var ratio:float=clampf(move.t/move.spec.tell,0,1)
+        if move.id=="reap":
+            if phase==2:entries.append({"kind":"nova","x":boss.x,"y":FLOOR-4,"width":620.0,"progress":ratio,"enemy":false,"remaining":move.spec.tell-move.t})
+            var marks:Array=move.marks if phase==2 else [move.target]
+            for x in marks:entries.append({"kind":"royal","x":float(x),"y":FLOOR-4,"width":128.0 if phase==2 else 176.0,"progress":ratio,"enemy":false,"remaining":move.spec.tell-move.t})
+        elif move.id=="throw" and phase==2:
+            for lane in range(-2,3):entries.append({"kind":"landing","x":move.target+lane*60,"y":FLOOR-6,"width":58.0,"progress":ratio,"enemy":false,"remaining":move.spec.tell-move.t})
+        elif move.id=="nova":
+            for x in (move.marks if phase==1 else [boss.x-250,boss.x,boss.x+250]):
+                entries.append({"kind":"nova","x":float(x),"y":FLOOR-10,"width":210.0,"progress":ratio,"enemy":false,"remaining":move.spec.tell-move.t})
+        else:
+            var reach:float=230.0 if move.id=="throw" else [166.0,185.0,218.0][move.combo] if phase==1 else [212.0,248.0,290.0][move.combo]
+            entries.append({"kind":"thrust" if move.id=="throw" else "sweep","x":boss.x+move.direction*reach*0.5,"y":FLOOR-boss.y-40,"width":reach,"progress":ratio,"enemy":false,"remaining":move.spec.tell-move.t})
+    if enemy.windup>0:
+        entries.append({"kind":"sweep","x":enemy.x+enemy.attack_dir*Rules.MELEE[life].reach*0.55,"y":FLOOR-enemy.y-30,"width":Rules.MELEE[life].reach+90,"progress":clampf(enemy.windup/Rules.MELEE[life].tell,0,1),"enemy":true,"remaining":maxf(0,Rules.MELEE[life].tell-enemy.windup)})
+    if enemy.ability_t>0:
+        entries.append({"kind":"low" if life in [0,1,5,7] else "line","x":enemy.ability_target.x,"y":FLOOR-12,"width":170.0,"progress":1-enemy.ability_t/Rules.ABILITY_TELL[life],"enemy":true,"remaining":enemy.ability_t})
+    return entries
+
+func _draw_telegraphs() -> void:
+    var data:Array=_telegraph_data()
+    while tell_markers.size()<data.size():
+        var marker=Sprite2D.new()
+        marker.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
+        marker.z_index=6
+        add_child(marker)
+        tell_markers.append(marker)
+    for n in range(tell_markers.size()):
+        var marker:Sprite2D=tell_markers[n]
+        marker.visible=n<data.size()
+        if not marker.visible:continue
+        var d:Dictionary=data[n]
+        marker.texture=Actor.tell_texture(d.kind,mini(5,int(d.progress*6)))
+        marker.position=Vector2(roundf(d.x),roundf(d.y))
+        marker.scale=Vector2.ONE*(roundf(d.width/128.0*2)/2.0)
+        marker.modulate=Rules.COLORS[life] if d.enemy else Color("#8febff") if phase==2 else Color("#ffdc8f")
+        marker.modulate.a=0.55+0.4*d.progress

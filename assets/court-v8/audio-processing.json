@@ -1,0 +1,30 @@
+{
+  "aiUseDisclosure": "Codex original deterministic synthesis and isolated recorded Foley edits.",
+  "original": "orchestral-accent: original synthesized D-minor open-fifth string/brass-like partials and low drum; no commercial audio or music excerpts.",
+  "recordingAuthor": "Chequered Ink",
+  "source": "https://ci.itch.io/400-sounds-pack",
+  "license": "Use in games permitted; no redistribution of unmodified source pack.",
+  "samples": [
+    {
+      "id": "orchestral-accent",
+      "input": "assets/court-v8/original-orchestral-accent.wav",
+      "output": "godot/audio/sfx/orchestral-accent.ogg",
+      "filter": "atrim=duration=2.6,highpass=f=90,lowpass=f=10500,afade=t=in:d=0.003,afade=t=out:st=2.48:d=0.12,alimiter=limit=0.80:level=0",
+      "sha256": "02ba82eab4a209871d0203da8d12d721e4d6372cff2a7d173d18537143c5a381"
+    },
+    {
+      "id": "perfect",
+      "input": "assets/audio-v5/local-originals/400-sounds/Weapons/sword_clash.wav",
+      "output": "godot/audio/sfx/perfect.ogg",
+      "filter": "atrim=duration=0.9,highpass=f=90,lowpass=f=10500,afade=t=in:d=0.003,afade=t=out:st=0.78:d=0.12,alimiter=limit=0.80:level=0",
+      "sha256": "b613fc21adaff5878762d5657c775bdd70323479549a18b598b7f619e9b0f1bd"
+    },
+    {
+      "id": "poise-break",
+      "input": "assets/audio-v5/local-originals/400-sounds/Materials/metal_clang.wav",
+      "output": "godot/audio/sfx/poise-break.ogg",
+      "filter": "atrim=duration=0.7,highpass=f=90,lowpass=f=10500,afade=t=in:d=0.003,afade=t=out:st=0.58:d=0.12,alimiter=limit=0.80:level=0",
+      "sha256": "5af33dde4574bf7a1f78f9e7f1fd2bd8eb91d7721e4f5a43c4ee17563eb07b1b"
+    }
+  ]
+}

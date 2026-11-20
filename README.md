@@ -2,7 +2,7 @@ AI-use disclosure: Claude built the original prototype; Codex implemented the na
 
 # The Ninth Life
 
-An immortal cat king faces one returning soul across nine lives. Fight freely through centuries of rule, choose how to answer each visitor, and survive or leave a ruined kingdom behind.
+An immortal cat king faces his own past lives, retained by the crown. Fight freely through centuries of rule, choose how to answer each visitor, and survive or leave a ruined kingdom behind.
 
 [Play the published game](https://nicoh-yay.github.io/the-ninth-life/).
 
@@ -19,9 +19,9 @@ This imports, checks and exports the native Godot project, then serves build/web
 
 ## Current game
 
-The sword-bearing king has buffered three-strike combos and transforms into the Hollow Sovereign, a broken-crowned figure with a torn indigo mantle and cyan chest fissure. Its separate moveset combines wide rakes, five falling blades, inward gravity and an expanding wave. Movement uses acceleration, braking, jump buffering and short jumps; visitors have their own rushes, vaults and attack chains. Visitors have different weapons and attacks but anonymous dialogue. Each meeting has two branching exchanges without exchange counters or instructional captions over the story. The durable tutorial requires a jump, dash and real block. Between fights, years pass while the king sits slumped and weary; the hall ages.
+The sword-bearing king has buffered three-strike combos and transforms into the Hollow Sovereign, a broken-crowned figure with a torn indigo mantle and cyan chest fissure. Its separate moveset combines wide rakes, five falling blades, inward gravity and an expanding wave. Movement uses acceleration, braking, jump buffering and short jumps; visitors have their own rushes, vaults and attack chains. Visitors have different weapons and attacks but anonymous dialogue. Each meeting has two branching exchanges without exchange counters or instructional captions over the story. The durable tutorial requires a jump, dash and real block. Enemies resist interruption until their poise breaks; a precisely timed guard opens a physical stab counter. Between fights, years pass while the king sits slumped and weary; the hall ages.
 
-Normal and Do Nothing endings show the challenger gripping the king and physically piercing his torso before the final nova. Dawn reveals the same hall in ruins. Victory follows defeating all nine lives. No outcome is selected by the planner.
+Normal and Do Nothing endings show the challenger gripping the king and physically piercing his torso before nine visible memories leave the body and the final nova erupts. The name Morrow is revealed; dawn returns to the same hall in ruins. Victory follows defeating all nine lives. No outcome is selected by the planner.
 
 Controls can be rebound in the main menu and persist locally. Default movement is A/D, jump Space, dash Shift, sword J, thrust K, decree L, nova F, guard G, and lower guard S. Esc pauses; M mutes. Phase two changes the four attacks. Dialogue reading time is locked before choices become available.
 
@@ -35,12 +35,13 @@ Controls can be rebound in the main menu and persist locally. Default movement i
 | godot/court_ui.gd, court_audio.gd | Native menus, controls, dialogue and mixed audio |
 | godot/run_planner.gd | Offline adaptive planner and optional HTTPS Worker |
 | godot/content/ | Dialogue, credits and native verification scripts |
-| assets/godot-v6/, assets/kinetic-v7/ | Native-port and kinetic-art provenance with reproducible processing |
+| assets/godot-v6/, assets/kinetic-v7/ | Earlier native-port and kinetic-art provenance |
+| assets/memory-v8/, assets/court-v8/ | Current menu, seating, guard and original/edited audio provenance |
 | src/, public/ | Preserved earlier TypeScript/Phaser implementation |
 | worker/, agents/ | Existing optional between-fight AI service |
 | docs/ | Design history, current contract, audit and handoffs |
 
-The active contract is [docs/godot-port.md](docs/godot-port.md); [kinetic combat](docs/kinetic-combat.md) details the current form, movement, attack chains and opening. Older design documents and Phaser code remain historical references. Legacy development commands use the legacy: prefix.
+The active contract is [docs/godot-port.md](docs/godot-port.md); the latest [memory and poise revision](docs/memory-and-poise.md) details the story reveal, committed attack timing, perfect guards and minimal menu. [Kinetic combat](docs/kinetic-combat.md) records the preceding form, movement and opening changes. Older design documents and Phaser code remain historical references. Legacy development commands use the legacy: prefix.
 
 ## Planner and checks
 
@@ -53,6 +54,6 @@ npm run build
 npm run test:browser
 ~~~
 
-The build runs native Godot checks before exporting actual WASM/PCK files. The current native suite passes 136 checks (71 court, 37 game, 28 planner). Browser QA covers native menus, rebinding, opening, two dialogue choices, combat, sad waiting, three endings and a separate adaptive nine-life run. Complete routes passed before the latest visual revision; final browser and visual QA of the kinetic revision is pending. Debug shortcuts require ?debug=1. Autoplay QA uses ordinary inputs with ?autoplay=1&speed=8&bot=victory (or normal/idle).
+The build runs native Godot checks before exporting actual WASM/PCK files. The final native suite passed161 checks (84 court,49 game,28 planner). Browser QA covers native menus, rebinding, opening, two dialogue choices, combat, sad waiting, three endings and a separate adaptive nine-life run. Both final browser suites passed with zero game errors or warnings, including perfect-block counters, shield/poise retaliation, fixed AoE targets and nine released memories. Debug shortcuts require ?debug=1. Autoplay QA uses ordinary inputs with ?autoplay=1&speed=8&bot=victory (or normal/idle).
 
 GitHub Pages publishes build/web from prototype/first-playable. Private context, source audio archives, build caches and local evidence stay ignored. The [full change audit](docs/agent-sessions/FULL-CHAT-CHANGE-AUDIT.md) records historical and current code changes line by line, with evidence boundaries. Asset rights and AI use are in [ATTRIBUTION.md](ATTRIBUTION.md).

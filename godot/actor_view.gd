@@ -59,7 +59,7 @@ static func _descriptor(actor: String, motion: String, frame: int) -> Dictionary
         return {"path":"res://art/previous-v7.png","cell":96,"foot":94,"body":86.0,"frame":row*6+f,"left":true}
     if _is_king(actor) and (motion in ["rest","sit","wait","rise"] or (actor == "rest" and motion == "idle")):
         var waiting_row: int = 1 if motion == "rise" else 0
-        return {"path":"res://art/waiting-v7.png","cell":192,"foot":154,"body":107.0,"frame":waiting_row*6+f,"left":true}
+        return {"path":"res://art/seated-contact-v8.png","cell":192,"foot":154,"body":107.0,"frame":waiting_row*6+f,"left":true}
     if _is_king(actor) and motion == "transform":
         return {"path":"res://art/transformation-v7.png","cell":192,"foot":154,"body":130.0,"frame":f,"left":true}
     if actor in ["ascended","king_aoe","immortal-ascended"]:
@@ -168,3 +168,16 @@ static func transition_texture(frame: int) -> Texture2D:
 
 static func opening_duel_texture(frame: int) -> Texture2D:
     return _region("res://art/opening-duel-v7.png",Vector2i(320,256),clampi(frame,0,11))
+
+static func guard_texture(actor: String, frame: int, phase: int = 1) -> Texture2D:
+    var row: int = 0
+    if _is_king(actor):
+        row = 1 if phase > 1 or actor in ["ascended","king_aoe","immortal-ascended"] else 0
+    else:
+        row = 2 + maxi(0,LIVES.find(actor))
+    return _region("res://art/guard-sigils-v8.png",Vector2i(128,128),row*6+clampi(frame,0,5))
+
+static func tell_texture(kind: String, frame: int) -> Texture2D:
+    var kinds: Dictionary = {"thrust":0,"line":0,"lunge":0,"sweep":1,"low":1,"landing":2,"jump":2,"burst":3,"radial":3,"chain":4,"nova":5,"royal":5}
+    var row: int = int(kinds.get(kind,0))
+    return _region("res://art/combat-tells-v8.png",Vector2i(128,128),row*6+clampi(frame,0,5))

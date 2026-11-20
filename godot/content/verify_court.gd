@@ -51,7 +51,8 @@ func _run() -> void:
     ui = UI_SCRIPT.new()
     ui.audio = audio
     root.add_child(ui)
-    check(audio._streams.size() == 15, "All fifteen clean recorded Foley clips must load.")
+    check(audio._streams.size() == 17, "All seventeen recorded Foley clips must load, including perfect-block and poise-break accents.")
+    check(audio._accent.stream != null and audio._accent.stream.get_length() > 2.0, "The original orchestral accent must load as a real audio asset.")
     for cue in audio.TRACK_GAIN:
         var stream: AudioStream = load("res://audio/music/" + str(cue) + ".mp3")
         check(stream != null and stream.get_length() > 80.0, "Every score cue must be a real recording.")
@@ -69,19 +70,43 @@ func _run() -> void:
         if player.playing:
             playing += 1
     check(playing == 1, "Crossfade must stop the previous score.")
+    audio.set_tension(0.0)
+    await create_timer(0.9).timeout
+    var quiet_mix: float = audio._duck_level
+    check(quiet_mix < 0.75, "Quiet scenes leave room before the orchestral swell.")
+    audio.set_tension(2.0)
+    check(audio._tension == 1.0, "Tension must clamp to a valid mix range.")
+    await create_timer(1.2).timeout
+    check(audio._duck_level > quiet_mix + 0.15, "High tension must swell the orchestra above quiet waiting.")
+    audio.pulse("perfect-block")
+    check(audio._accent.playing and audio._last_pulse == "perfect-block", "Perfect block must trigger the bounded original accent.")
+    audio.pulse("climax")
+    check(audio._last_pulse == "perfect-block", "Rapid impact accents must respect their cooldown.")
+    check(audio._music.size() == 2, "Tension and accents must not allocate full-song layers.")
+    audio.set_tension(0.0)
     audio.dialogue_duck(true)
     await create_timer(0.45).timeout
     check(audio._duck_level < 0.30, "Dialogue must reduce score level.")
     check(audio.toggle_mute(), "Mute should turn on.")
     check(AudioServer.is_bus_mute(0), "Mute must include every sound bus.")
     check(not audio.toggle_mute(), "Unmute should turn sound back on.")
+    var previous_voice: int = audio._voice_index
     audio.sfx("sword")
     audio.sfx("guard")
     audio.sfx("stab")
-    check(audio._voice_index == 3, "Sword, guard and stab must use recorded playback voices.")
+    check(audio._voice_index == (previous_voice + 3) % audio._voices.size(), "Sword, guard and stab must use recorded playback voices.")
     ui.set_hud({"phase": 2})
     check(ui._player_label.text == "THE HOLLOW SOVEREIGN", "The transformed form must use its new name.")
     check(ui._move_labels[0].text == "Gloam Rake" and ui._move_labels[1].text == "Crownfall" and ui._move_labels[2].text == "Royal Undertow" and ui._move_labels[3].text == "Last Dominion", "The transformed HUD must use the revised attack names.")
+    check(ui.layer >= 100 and ui._speech.clip_contents and ui._choice.clip_contents, "Dialogue must render above gameplay and clip contained artwork.")
+    check(ui._speech.get_theme_stylebox("panel").bg_color.a == 1.0 and ui._choice.get_theme_stylebox("panel").bg_color.a == 1.0, "Story panels must fully occlude swords and effects.")
+    ui.show_menu()
+    var menu_items: Array[String] = []
+    for child in ui._menu.get_children():
+        if child is Button:
+            menu_items.append(child.text)
+            check(child.get_theme_stylebox("normal").bg_color.a == 0.0, "Main menu items must remain unboxed.")
+    check(menu_items == ["PLAY", "CONTROLS", "CREDITS"], "The main menu must expose three minimal items.")
     ui.show_controls()
     ui._capturing = "jump"
     _press(KEY_W)
