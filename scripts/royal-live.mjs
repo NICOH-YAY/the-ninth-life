@@ -82,7 +82,7 @@ try {
     return { key, exists: !!texture, source: image?.currentSrc || image?.src || '', width: image?.width, height: image?.height };
   }), textureKeys);
   assert(report.checks.textures.every(texture => texture.exists && texture.width > 0 && texture.height > 0), 'Every royal texture, including dawn ruins, must load');
-  assert(report.checks.textures.find(texture => texture.key === 'royal-dawn-ruins').source.includes('/the-ninth-life/royal-v4/dawn-ruins.png'));
+  assert(await page.evaluate(() => performance.getEntriesByType("resource").some(entry => entry.name.includes("/the-ninth-life/royal-v4/dawn-ruins.png"))), "The deployed ruin PNG must be fetched; Phaser may convert its image source to a blob URL.");
   report.checks.productionBundles = await page.evaluate(() => performance.getEntriesByType('resource').map(entry => entry.name).filter(name => /\/assets\/index-.*\.js/.test(name)));
   assert(report.checks.productionBundles.length > 0, 'Verify an actual deployed production bundle');
   await shot('published-menu');
