@@ -24,6 +24,8 @@ func _press(code: int) -> void:
 func _answer_choice() -> void:
     await process_frame
     check(ui.choosing, "Choices must remain interactive until an explicit answer.")
+    check(ui.caption.is_empty() and not ui._choice_caption.visible and ui._choice_caption.text.is_empty(), "Story choices must not expose counters, eyebrows or control captions.")
+    check(ui._choice_buttons[0].text == "Remember the crown." and ui._choice_buttons[1].text == "Deny the memory.", "Choice text must contain only authored dialogue.")
     _press(KEY_DOWN)
     check(ui.selected_choice == 1, "Down selects the second answer.")
     _press(KEY_UP)
@@ -77,6 +79,9 @@ func _run() -> void:
     audio.sfx("guard")
     audio.sfx("stab")
     check(audio._voice_index == 3, "Sword, guard and stab must use recorded playback voices.")
+    ui.set_hud({"phase": 2})
+    check(ui._player_label.text == "THE HOLLOW SOVEREIGN", "The transformed form must use its new name.")
+    check(ui._move_labels[0].text == "Gloam Rake" and ui._move_labels[1].text == "Crownfall" and ui._move_labels[2].text == "Royal Undertow" and ui._move_labels[3].text == "Last Dominion", "The transformed HUD must use the revised attack names.")
     ui.show_controls()
     ui._capturing = "jump"
     _press(KEY_W)

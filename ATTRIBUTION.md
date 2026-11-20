@@ -173,3 +173,17 @@ The active project is godot/project.godot. Engine: Godot4.7.2, MIT; exported lic
 | godot/audio/sfx/ | Chequered Ink 400+ Sounds Pack; fifteen edited single-source OGG derivatives with native pitch, trimming and fades; exact processing and provenance in assets/godot-v6/audio-processing.json and audio-note.md |
 
 Quaternius Universal Animation Library2, Clockwork Raven Fantasy Icons and Deep-Fold Pixel Planet Generator were reference research only. Their downloaded asset content is not included in the active game. No commercial reference recordings are included. Runtime monster atlas is omitted: the second stance uses the sword-bearing king.
+
+AI-use disclosure: Higgsfield generated the original kinetic combat sprites; Codex implemented native gameplay and pixel exports.
+
+## Kinetic v7 revision
+
+| Asset | Source and processing |
+|---|---|
+| godot/art/king-combo-v7.png | Higgsfield job5d13baf1-9299-4c78-b3b7-dd27d0686226; three distinct connecting sword cuts,18frames |
+| godot/art/hollow-sovereign-v7.png | Higgsfield job8aa9715e-f7b6-47fd-a9cc-1b4929ed7ac3; original broken-crown, torn-mantle, cyan-fissure transformed king,48frames |
+| godot/art/opening-duel-v7.png | Higgsfield jobdc573fd2-7477-407a-8f4f-5205925de6c4; two-actor crossed-sword/blast-back/physical stab opening,12frames |
+| godot/art/transformation-v7.png | Higgsfield job7c2b909b-bb8d-48c1-b90f-8a6524496947; six actual crown/body transformation poses |
+| Other godot/art/*-v7.png siblings | Previously attributed original assets;408 actor/effect frames re-exported with cell-isolated nearest sampling, hard alpha, two-pixel clusters and limited palettes; originals preserved |
+
+All four new images used GPT Image2.6,2k/medium under the user-authorized unlimited allowance. Full prompts, reference jobs, source/runtime SHA256 hashes, fixed geometry and processing scripts: assets/kinetic-v7/manifest.json and ATTRIBUTION.md. Pixel verification checks84new poses for empty frames, clipping, intermediate alpha and off-grid pixels. Actor scales are integers. No PixelLab or third-party character sprites are copied; PixelLab was a style reference in the user's request.

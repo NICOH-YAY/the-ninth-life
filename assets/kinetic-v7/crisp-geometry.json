@@ -1,0 +1,4314 @@
+{
+  "aiUseDisclosure": "Codex exported existing original sprite artwork on fixed two-source-pixel clusters, independently per cell, hard alpha, nearest only and a coherent limited palette per animation/visitor row. Originals remain unchanged.",
+  "pixelGrid": 2,
+  "records": [
+    {
+      "id": "king",
+      "input": "godot/art/king.png",
+      "output": "godot/art/king-v7.png",
+      "frame": [
+        192,
+        192
+      ],
+      "grid": [
+        6,
+        8
+      ],
+      "logicalPixelBlock": 2,
+      "coloursPerRow": 32,
+      "sourceSha256": "54a0325063f93737e177a0169ba81e88cfd898db3b0f3277b85d69336696ba68",
+      "outputSha256": "45a4bbd81597d88d01ebe491b922832d2e3cb9fe4085e227a7a3937405c86588",
+      "frames": [
+        {
+          "row": 0,
+          "col": 0,
+          "opaqueLogicalPixels": 1084,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "opaqueLogicalPixels": 1096,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "opaqueLogicalPixels": 1136,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "opaqueLogicalPixels": 1146,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "opaqueLogicalPixels": 1104,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "opaqueLogicalPixels": 1090,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "opaqueLogicalPixels": 1043,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "opaqueLogicalPixels": 1069,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "opaqueLogicalPixels": 1061,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "opaqueLogicalPixels": 1088,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "opaqueLogicalPixels": 1078,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "opaqueLogicalPixels": 1034,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "opaqueLogicalPixels": 959,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "opaqueLogicalPixels": 1043,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "opaqueLogicalPixels": 928,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "opaqueLogicalPixels": 864,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "opaqueLogicalPixels": 1007,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "opaqueLogicalPixels": 998,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "opaqueLogicalPixels": 982,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "opaqueLogicalPixels": 1067,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "opaqueLogicalPixels": 1070,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "opaqueLogicalPixels": 1009,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "opaqueLogicalPixels": 1048,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "opaqueLogicalPixels": 1056,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "opaqueLogicalPixels": 1071,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "opaqueLogicalPixels": 1178,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "opaqueLogicalPixels": 1235,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "opaqueLogicalPixels": 1260,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "opaqueLogicalPixels": 1112,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 5,
+          "opaqueLogicalPixels": 1113,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 0,
+          "opaqueLogicalPixels": 1056,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "opaqueLogicalPixels": 1054,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "opaqueLogicalPixels": 967,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "opaqueLogicalPixels": 1078,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 4,
+          "opaqueLogicalPixels": 1074,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 5,
+          "opaqueLogicalPixels": 1078,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 0,
+          "opaqueLogicalPixels": 1048,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "opaqueLogicalPixels": 1045,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 2,
+          "opaqueLogicalPixels": 993,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 3,
+          "opaqueLogicalPixels": 1082,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 4,
+          "opaqueLogicalPixels": 1084,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 5,
+          "opaqueLogicalPixels": 1130,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 0,
+          "opaqueLogicalPixels": 1044,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 1,
+          "opaqueLogicalPixels": 1155,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 2,
+          "opaqueLogicalPixels": 1185,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 3,
+          "opaqueLogicalPixels": 1147,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 4,
+          "opaqueLogicalPixels": 1160,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 5,
+          "opaqueLogicalPixels": 1149,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        }
+      ]
+    },
+    {
+      "id": "visitors-walk",
+      "input": "godot/art/visitors-walk.png",
+      "output": "godot/art/visitors-walk-v7.png",
+      "frame": [
+        144,
+        144
+      ],
+      "grid": [
+        6,
+        9
+      ],
+      "logicalPixelBlock": 2,
+      "coloursPerRow": 32,
+      "sourceSha256": "25b4d6e025ca1094d69f7752380a3ec9fa258050bdc266bfc1046f6f1ff77451",
+      "outputSha256": "af652a9eef5da409a4181c00f2a9fde29348330c394d3987fa5770ba887579cf",
+      "frames": [
+        {
+          "row": 0,
+          "col": 0,
+          "opaqueLogicalPixels": 612,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "opaqueLogicalPixels": 581,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "opaqueLogicalPixels": 575,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "opaqueLogicalPixels": 551,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "opaqueLogicalPixels": 547,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "opaqueLogicalPixels": 584,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "opaqueLogicalPixels": 717,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "opaqueLogicalPixels": 715,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "opaqueLogicalPixels": 701,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "opaqueLogicalPixels": 679,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "opaqueLogicalPixels": 669,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "opaqueLogicalPixels": 708,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "opaqueLogicalPixels": 704,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "opaqueLogicalPixels": 735,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "opaqueLogicalPixels": 696,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "opaqueLogicalPixels": 721,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "opaqueLogicalPixels": 686,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "opaqueLogicalPixels": 697,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "opaqueLogicalPixels": 714,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "opaqueLogicalPixels": 723,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "opaqueLogicalPixels": 732,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "opaqueLogicalPixels": 705,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "opaqueLogicalPixels": 686,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "opaqueLogicalPixels": 710,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "opaqueLogicalPixels": 771,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "opaqueLogicalPixels": 805,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "opaqueLogicalPixels": 778,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "opaqueLogicalPixels": 743,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "opaqueLogicalPixels": 735,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 5,
+          "opaqueLogicalPixels": 756,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 0,
+          "opaqueLogicalPixels": 908,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "opaqueLogicalPixels": 906,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "opaqueLogicalPixels": 910,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "opaqueLogicalPixels": 865,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 4,
+          "opaqueLogicalPixels": 890,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 5,
+          "opaqueLogicalPixels": 909,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 0,
+          "opaqueLogicalPixels": 749,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "opaqueLogicalPixels": 737,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 2,
+          "opaqueLogicalPixels": 721,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 3,
+          "opaqueLogicalPixels": 716,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 4,
+          "opaqueLogicalPixels": 710,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 5,
+          "opaqueLogicalPixels": 767,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 0,
+          "opaqueLogicalPixels": 916,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 1,
+          "opaqueLogicalPixels": 864,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 2,
+          "opaqueLogicalPixels": 894,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 3,
+          "opaqueLogicalPixels": 876,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 4,
+          "opaqueLogicalPixels": 825,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 5,
+          "opaqueLogicalPixels": 897,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 8,
+          "col": 0,
+          "opaqueLogicalPixels": 869,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 8,
+          "col": 1,
+          "opaqueLogicalPixels": 838,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 8,
+          "col": 2,
+          "opaqueLogicalPixels": 829,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 8,
+          "col": 3,
+          "opaqueLogicalPixels": 785,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 8,
+          "col": 4,
+          "opaqueLogicalPixels": 806,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 8,
+          "col": 5,
+          "opaqueLogicalPixels": 881,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        }
+      ]
+    },
+    {
+      "id": "visitors-combat",
+      "input": "godot/art/visitors-combat.png",
+      "output": "godot/art/visitors-combat-v7.png",
+      "frame": [
+        144,
+        144
+      ],
+      "grid": [
+        6,
+        9
+      ],
+      "logicalPixelBlock": 2,
+      "coloursPerRow": 32,
+      "sourceSha256": "9361cef215b21b86effdeb52f2e5db178ef82d657ea80298bb3e57561e067645",
+      "outputSha256": "b9d8fdd3ba3628247018b5467f90b016728501102adc868b3a1836884b0705d3",
+      "frames": [
+        {
+          "row": 0,
+          "col": 0,
+          "opaqueLogicalPixels": 591,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "opaqueLogicalPixels": 591,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "opaqueLogicalPixels": 532,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "opaqueLogicalPixels": 514,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "opaqueLogicalPixels": 464,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "opaqueLogicalPixels": 591,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "opaqueLogicalPixels": 673,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "opaqueLogicalPixels": 673,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "opaqueLogicalPixels": 630,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "opaqueLogicalPixels": 603,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "opaqueLogicalPixels": 545,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "opaqueLogicalPixels": 667,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "opaqueLogicalPixels": 669,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "opaqueLogicalPixels": 701,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "opaqueLogicalPixels": 566,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "opaqueLogicalPixels": 630,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "opaqueLogicalPixels": 630,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "opaqueLogicalPixels": 680,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "opaqueLogicalPixels": 671,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "opaqueLogicalPixels": 781,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "opaqueLogicalPixels": 780,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "opaqueLogicalPixels": 776,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "opaqueLogicalPixels": 636,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "opaqueLogicalPixels": 650,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "opaqueLogicalPixels": 704,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "opaqueLogicalPixels": 842,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "opaqueLogicalPixels": 767,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "opaqueLogicalPixels": 800,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "opaqueLogicalPixels": 782,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 5,
+          "opaqueLogicalPixels": 717,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 0,
+          "opaqueLogicalPixels": 780,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "opaqueLogicalPixels": 864,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "opaqueLogicalPixels": 873,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "opaqueLogicalPixels": 830,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 4,
+          "opaqueLogicalPixels": 741,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 5,
+          "opaqueLogicalPixels": 818,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 0,
+          "opaqueLogicalPixels": 676,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "opaqueLogicalPixels": 676,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 2,
+          "opaqueLogicalPixels": 746,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 3,
+          "opaqueLogicalPixels": 756,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 4,
+          "opaqueLogicalPixels": 666,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 5,
+          "opaqueLogicalPixels": 670,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 0,
+          "opaqueLogicalPixels": 873,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 1,
+          "opaqueLogicalPixels": 853,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 2,
+          "opaqueLogicalPixels": 782,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 3,
+          "opaqueLogicalPixels": 774,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 4,
+          "opaqueLogicalPixels": 614,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 5,
+          "opaqueLogicalPixels": 880,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 8,
+          "col": 0,
+          "opaqueLogicalPixels": 830,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 8,
+          "col": 1,
+          "opaqueLogicalPixels": 830,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 8,
+          "col": 2,
+          "opaqueLogicalPixels": 767,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 8,
+          "col": 3,
+          "opaqueLogicalPixels": 877,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 8,
+          "col": 4,
+          "opaqueLogicalPixels": 636,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 8,
+          "col": 5,
+          "opaqueLogicalPixels": 837,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        }
+      ]
+    },
+    {
+      "id": "visitors-idle-hurt",
+      "input": "godot/art/visitors-idle-hurt.png",
+      "output": "godot/art/visitors-idle-hurt-v7.png",
+      "frame": [
+        144,
+        144
+      ],
+      "grid": [
+        6,
+        9
+      ],
+      "logicalPixelBlock": 2,
+      "coloursPerRow": 32,
+      "sourceSha256": "7c0527902da131ae4d6f4e01f3450362319ff9f9db16d3b005278765a0990677",
+      "outputSha256": "074925301898d03b0cdd8ce6a0d24dfacad3476ef8e70b697956ae88c7f13574",
+      "frames": [
+        {
+          "row": 0,
+          "col": 0,
+          "opaqueLogicalPixels": 621,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "opaqueLogicalPixels": 634,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "opaqueLogicalPixels": 613,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "opaqueLogicalPixels": 578,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "opaqueLogicalPixels": 562,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "opaqueLogicalPixels": 595,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "opaqueLogicalPixels": 708,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "opaqueLogicalPixels": 730,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "opaqueLogicalPixels": 683,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "opaqueLogicalPixels": 671,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "opaqueLogicalPixels": 692,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "opaqueLogicalPixels": 692,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "opaqueLogicalPixels": 685,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "opaqueLogicalPixels": 721,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "opaqueLogicalPixels": 677,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "opaqueLogicalPixels": 679,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "opaqueLogicalPixels": 683,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "opaqueLogicalPixels": 688,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "opaqueLogicalPixels": 694,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "opaqueLogicalPixels": 717,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "opaqueLogicalPixels": 708,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "opaqueLogicalPixels": 672,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "opaqueLogicalPixels": 691,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "opaqueLogicalPixels": 698,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "opaqueLogicalPixels": 647,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "opaqueLogicalPixels": 677,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "opaqueLogicalPixels": 648,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "opaqueLogicalPixels": 625,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "opaqueLogicalPixels": 586,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 5,
+          "opaqueLogicalPixels": 642,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 0,
+          "opaqueLogicalPixels": 849,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "opaqueLogicalPixels": 859,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "opaqueLogicalPixels": 847,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "opaqueLogicalPixels": 818,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 4,
+          "opaqueLogicalPixels": 826,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 5,
+          "opaqueLogicalPixels": 843,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 0,
+          "opaqueLogicalPixels": 688,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "opaqueLogicalPixels": 704,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 2,
+          "opaqueLogicalPixels": 674,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 3,
+          "opaqueLogicalPixels": 608,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 4,
+          "opaqueLogicalPixels": 628,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 5,
+          "opaqueLogicalPixels": 682,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 0,
+          "opaqueLogicalPixels": 862,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 1,
+          "opaqueLogicalPixels": 841,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 2,
+          "opaqueLogicalPixels": 817,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 3,
+          "opaqueLogicalPixels": 781,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 4,
+          "opaqueLogicalPixels": 798,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 5,
+          "opaqueLogicalPixels": 872,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 8,
+          "col": 0,
+          "opaqueLogicalPixels": 823,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 8,
+          "col": 1,
+          "opaqueLogicalPixels": 815,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 8,
+          "col": 2,
+          "opaqueLogicalPixels": 776,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 8,
+          "col": 3,
+          "opaqueLogicalPixels": 727,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 8,
+          "col": 4,
+          "opaqueLogicalPixels": 709,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 8,
+          "col": 5,
+          "opaqueLogicalPixels": 823,
+          "cell": [
+            144,
+            144
+          ],
+          "pixelGrid": 2
+        }
+      ]
+    },
+    {
+      "id": "waiting",
+      "input": "godot/art/waiting.png",
+      "output": "godot/art/waiting-v7.png",
+      "frame": [
+        192,
+        192
+      ],
+      "grid": [
+        6,
+        2
+      ],
+      "logicalPixelBlock": 2,
+      "coloursPerRow": 32,
+      "sourceSha256": "ff6f9c99d13920805762ee2a7f8048c3eab4bf9a086963ed6e5a7b0f2744e52a",
+      "outputSha256": "41c4a570341d491a8ca3d2266466945677e4ea48d2a3ff15976cb16c52505128",
+      "frames": [
+        {
+          "row": 0,
+          "col": 0,
+          "opaqueLogicalPixels": 875,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "opaqueLogicalPixels": 834,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "opaqueLogicalPixels": 828,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "opaqueLogicalPixels": 873,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "opaqueLogicalPixels": 853,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "opaqueLogicalPixels": 856,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "opaqueLogicalPixels": 825,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "opaqueLogicalPixels": 818,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "opaqueLogicalPixels": 819,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "opaqueLogicalPixels": 843,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "opaqueLogicalPixels": 840,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "opaqueLogicalPixels": 891,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        }
+      ]
+    },
+    {
+      "id": "previous",
+      "input": "godot/art/previous.png",
+      "output": "godot/art/previous-v7.png",
+      "frame": [
+        96,
+        96
+      ],
+      "grid": [
+        6,
+        4
+      ],
+      "logicalPixelBlock": 2,
+      "coloursPerRow": 32,
+      "sourceSha256": "dfc400f4219c3eeb5201b852163fb7b2b9a746e52e270502400419720edd0221",
+      "outputSha256": "741d978dd9db2b82da450e8beeaa8225d31b1dddad3f25279ef46f4493593f11",
+      "frames": [
+        {
+          "row": 0,
+          "col": 0,
+          "opaqueLogicalPixels": 450,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "opaqueLogicalPixels": 443,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "opaqueLogicalPixels": 453,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "opaqueLogicalPixels": 456,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "opaqueLogicalPixels": 418,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "opaqueLogicalPixels": 434,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "opaqueLogicalPixels": 434,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "opaqueLogicalPixels": 435,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "opaqueLogicalPixels": 482,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "opaqueLogicalPixels": 464,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "opaqueLogicalPixels": 428,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "opaqueLogicalPixels": 429,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "opaqueLogicalPixels": 430,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "opaqueLogicalPixels": 439,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "opaqueLogicalPixels": 433,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "opaqueLogicalPixels": 402,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "opaqueLogicalPixels": 374,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "opaqueLogicalPixels": 428,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "opaqueLogicalPixels": 433,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "opaqueLogicalPixels": 414,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "opaqueLogicalPixels": 400,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "opaqueLogicalPixels": 348,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "opaqueLogicalPixels": 391,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "opaqueLogicalPixels": 308,
+          "cell": [
+            96,
+            96
+          ],
+          "pixelGrid": 2
+        }
+      ]
+    },
+    {
+      "id": "coronation",
+      "input": "godot/art/coronation.png",
+      "output": "godot/art/coronation-v7.png",
+      "frame": [
+        192,
+        192
+      ],
+      "grid": [
+        6,
+        2
+      ],
+      "logicalPixelBlock": 2,
+      "coloursPerRow": 32,
+      "sourceSha256": "b6255ec38e78b35e3ec01d2ed0746a6a395ffc8a636ceb9d46fab908d2e8549e",
+      "outputSha256": "93b1192af92861245d56e61b7e1036a265cd39cc633081db3d12190ad56d4398",
+      "frames": [
+        {
+          "row": 0,
+          "col": 0,
+          "opaqueLogicalPixels": 1017,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "opaqueLogicalPixels": 933,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "opaqueLogicalPixels": 936,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "opaqueLogicalPixels": 988,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "opaqueLogicalPixels": 1046,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "opaqueLogicalPixels": 1060,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "opaqueLogicalPixels": 1059,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "opaqueLogicalPixels": 1081,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "opaqueLogicalPixels": 1287,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "opaqueLogicalPixels": 1740,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "opaqueLogicalPixels": 1526,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "opaqueLogicalPixels": 1543,
+          "cell": [
+            192,
+            192
+          ],
+          "pixelGrid": 2
+        }
+      ]
+    },
+    {
+      "id": "held-impalement",
+      "input": "godot/art/held-impalement.png",
+      "output": "godot/art/held-impalement-v7.png",
+      "frame": [
+        320,
+        256
+      ],
+      "grid": [
+        6,
+        2
+      ],
+      "logicalPixelBlock": 2,
+      "coloursPerRow": 48,
+      "sourceSha256": "dda3315771936297625fcf09360595a3d4055d6302382a4a482c0a13bb03097c",
+      "outputSha256": "739970fd47a94d7eb9268d67b7e13e0d933dfae112de65488acca6768e5e3f54",
+      "frames": [
+        {
+          "row": 0,
+          "col": 0,
+          "opaqueLogicalPixels": 2650,
+          "cell": [
+            320,
+            256
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "opaqueLogicalPixels": 2771,
+          "cell": [
+            320,
+            256
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "opaqueLogicalPixels": 2808,
+          "cell": [
+            320,
+            256
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "opaqueLogicalPixels": 2745,
+          "cell": [
+            320,
+            256
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "opaqueLogicalPixels": 2742,
+          "cell": [
+            320,
+            256
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "opaqueLogicalPixels": 2732,
+          "cell": [
+            320,
+            256
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "opaqueLogicalPixels": 2723,
+          "cell": [
+            320,
+            256
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "opaqueLogicalPixels": 2678,
+          "cell": [
+            320,
+            256
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "opaqueLogicalPixels": 2594,
+          "cell": [
+            320,
+            256
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "opaqueLogicalPixels": 2611,
+          "cell": [
+            320,
+            256
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "opaqueLogicalPixels": 2568,
+          "cell": [
+            320,
+            256
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "opaqueLogicalPixels": 2586,
+          "cell": [
+            320,
+            256
+          ],
+          "pixelGrid": 2
+        }
+      ]
+    },
+    {
+      "id": "effects",
+      "input": "godot/art/effects.png",
+      "output": "godot/art/effects-v7.png",
+      "frame": [
+        128,
+        128
+      ],
+      "grid": [
+        6,
+        8
+      ],
+      "logicalPixelBlock": 2,
+      "coloursPerRow": 24,
+      "sourceSha256": "91fa399dc27e03b398903507a6a02e4ee7381eb2dba30d678ef5e4345739dc9c",
+      "outputSha256": "4d57c686f46937738e276f0f24d5f79f8351c5eead3cd088090af7ad6afd5c03",
+      "frames": [
+        {
+          "row": 0,
+          "col": 0,
+          "opaqueLogicalPixels": 280,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "opaqueLogicalPixels": 673,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "opaqueLogicalPixels": 1420,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "opaqueLogicalPixels": 692,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "opaqueLogicalPixels": 365,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "opaqueLogicalPixels": 36,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "opaqueLogicalPixels": 232,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "opaqueLogicalPixels": 394,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "opaqueLogicalPixels": 541,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "opaqueLogicalPixels": 482,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "opaqueLogicalPixels": 460,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "opaqueLogicalPixels": 255,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "opaqueLogicalPixels": 624,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "opaqueLogicalPixels": 817,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "opaqueLogicalPixels": 1506,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "opaqueLogicalPixels": 1003,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "opaqueLogicalPixels": 832,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "opaqueLogicalPixels": 692,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "opaqueLogicalPixels": 1387,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "opaqueLogicalPixels": 1638,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "opaqueLogicalPixels": 1971,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "opaqueLogicalPixels": 1731,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "opaqueLogicalPixels": 1469,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "opaqueLogicalPixels": 1386,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "opaqueLogicalPixels": 483,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "opaqueLogicalPixels": 1052,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "opaqueLogicalPixels": 1503,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "opaqueLogicalPixels": 1057,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "opaqueLogicalPixels": 670,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 5,
+          "opaqueLogicalPixels": 237,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 0,
+          "opaqueLogicalPixels": 375,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "opaqueLogicalPixels": 1178,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "opaqueLogicalPixels": 2038,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "opaqueLogicalPixels": 1244,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 4,
+          "opaqueLogicalPixels": 696,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 5,
+          "opaqueLogicalPixels": 318,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 0,
+          "opaqueLogicalPixels": 463,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "opaqueLogicalPixels": 1042,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 2,
+          "opaqueLogicalPixels": 1894,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 3,
+          "opaqueLogicalPixels": 1290,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 4,
+          "opaqueLogicalPixels": 675,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 5,
+          "opaqueLogicalPixels": 341,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 0,
+          "opaqueLogicalPixels": 209,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 1,
+          "opaqueLogicalPixels": 296,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 2,
+          "opaqueLogicalPixels": 408,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 3,
+          "opaqueLogicalPixels": 421,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 4,
+          "opaqueLogicalPixels": 517,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 5,
+          "opaqueLogicalPixels": 334,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        }
+      ]
+    },
+    {
+      "id": "royal-effects",
+      "input": "godot/art/royal-effects.png",
+      "output": "godot/art/royal-effects-v7.png",
+      "frame": [
+        128,
+        128
+      ],
+      "grid": [
+        6,
+        5
+      ],
+      "logicalPixelBlock": 2,
+      "coloursPerRow": 24,
+      "sourceSha256": "c4f4f4c68703fd0dd1525410f62c7be2a375c4f7d581203a4d29d68679db0626",
+      "outputSha256": "594cc6e6e0e97cba6f58c3b9f40001e113c43570f1982943bb11633e3991edaf",
+      "frames": [
+        {
+          "row": 0,
+          "col": 0,
+          "opaqueLogicalPixels": 139,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "opaqueLogicalPixels": 605,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "opaqueLogicalPixels": 940,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "opaqueLogicalPixels": 1132,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "opaqueLogicalPixels": 486,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "opaqueLogicalPixels": 184,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "opaqueLogicalPixels": 617,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "opaqueLogicalPixels": 590,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "opaqueLogicalPixels": 868,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "opaqueLogicalPixels": 815,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "opaqueLogicalPixels": 802,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "opaqueLogicalPixels": 695,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "opaqueLogicalPixels": 524,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "opaqueLogicalPixels": 807,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "opaqueLogicalPixels": 1167,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "opaqueLogicalPixels": 1367,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "opaqueLogicalPixels": 797,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "opaqueLogicalPixels": 559,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "opaqueLogicalPixels": 238,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "opaqueLogicalPixels": 796,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "opaqueLogicalPixels": 1819,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "opaqueLogicalPixels": 2175,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "opaqueLogicalPixels": 1890,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "opaqueLogicalPixels": 435,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "opaqueLogicalPixels": 60,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "opaqueLogicalPixels": 584,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "opaqueLogicalPixels": 1576,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "opaqueLogicalPixels": 3076,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "opaqueLogicalPixels": 1533,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 5,
+          "opaqueLogicalPixels": 408,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        }
+      ]
+    },
+    {
+      "id": "visitor-effects",
+      "input": "godot/art/visitor-effects.png",
+      "output": "godot/art/visitor-effects-v7.png",
+      "frame": [
+        128,
+        128
+      ],
+      "grid": [
+        6,
+        8
+      ],
+      "logicalPixelBlock": 2,
+      "coloursPerRow": 24,
+      "sourceSha256": "f20084dfca1d2f971770e2f2113307c9b7891eee34b86edeba0c1f6d1f13a024",
+      "outputSha256": "2c38b43094fe08ae1b795ee6b6735a3ef2880660f3cb9ff10e22740826ccb4cb",
+      "frames": [
+        {
+          "row": 0,
+          "col": 0,
+          "opaqueLogicalPixels": 138,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "opaqueLogicalPixels": 424,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "opaqueLogicalPixels": 792,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "opaqueLogicalPixels": 1020,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "opaqueLogicalPixels": 443,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "opaqueLogicalPixels": 37,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "opaqueLogicalPixels": 520,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "opaqueLogicalPixels": 568,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "opaqueLogicalPixels": 654,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "opaqueLogicalPixels": 884,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "opaqueLogicalPixels": 589,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "opaqueLogicalPixels": 174,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "opaqueLogicalPixels": 441,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "opaqueLogicalPixels": 594,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "opaqueLogicalPixels": 704,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "opaqueLogicalPixels": 683,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "opaqueLogicalPixels": 415,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "opaqueLogicalPixels": 215,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "opaqueLogicalPixels": 124,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "opaqueLogicalPixels": 234,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "opaqueLogicalPixels": 344,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "opaqueLogicalPixels": 495,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "opaqueLogicalPixels": 283,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "opaqueLogicalPixels": 63,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "opaqueLogicalPixels": 602,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "opaqueLogicalPixels": 774,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "opaqueLogicalPixels": 865,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "opaqueLogicalPixels": 1130,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "opaqueLogicalPixels": 598,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 4,
+          "col": 5,
+          "opaqueLogicalPixels": 210,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 0,
+          "opaqueLogicalPixels": 531,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "opaqueLogicalPixels": 644,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "opaqueLogicalPixels": 743,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "opaqueLogicalPixels": 672,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 4,
+          "opaqueLogicalPixels": 352,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 5,
+          "col": 5,
+          "opaqueLogicalPixels": 158,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 0,
+          "opaqueLogicalPixels": 283,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "opaqueLogicalPixels": 482,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 2,
+          "opaqueLogicalPixels": 598,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 3,
+          "opaqueLogicalPixels": 699,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 4,
+          "opaqueLogicalPixels": 416,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 6,
+          "col": 5,
+          "opaqueLogicalPixels": 159,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 0,
+          "opaqueLogicalPixels": 635,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 1,
+          "opaqueLogicalPixels": 732,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 2,
+          "opaqueLogicalPixels": 805,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 3,
+          "opaqueLogicalPixels": 1090,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 4,
+          "opaqueLogicalPixels": 496,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 7,
+          "col": 5,
+          "opaqueLogicalPixels": 179,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        }
+      ]
+    },
+    {
+      "id": "blood",
+      "input": "godot/art/blood.png",
+      "output": "godot/art/blood-v7.png",
+      "frame": [
+        128,
+        128
+      ],
+      "grid": [
+        6,
+        2
+      ],
+      "logicalPixelBlock": 2,
+      "coloursPerRow": 16,
+      "sourceSha256": "d0f98255cb22a4d6db367c48e66585e4a9cf1e6915c128ca381867e041bfa667",
+      "outputSha256": "0e3bb4e165ba316fb8081f72263b99997552b22250dd1aa63b862e531e9394e4",
+      "frames": [
+        {
+          "row": 0,
+          "col": 0,
+          "opaqueLogicalPixels": 151,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "opaqueLogicalPixels": 275,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "opaqueLogicalPixels": 266,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "opaqueLogicalPixels": 172,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "opaqueLogicalPixels": 112,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "opaqueLogicalPixels": 46,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "opaqueLogicalPixels": 51,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "opaqueLogicalPixels": 295,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "opaqueLogicalPixels": 616,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "opaqueLogicalPixels": 333,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "opaqueLogicalPixels": 155,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "opaqueLogicalPixels": 30,
+          "cell": [
+            128,
+            128
+          ],
+          "pixelGrid": 2
+        }
+      ]
+    }
+  ]
+}

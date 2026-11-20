@@ -40,13 +40,14 @@ func pose(motion: String, frame: int, facing: int, height: float) -> void:
     sprite.texture = texture_for(who,motion,frame)
     sprite.position = Vector2(0.0,float(cell) * 0.5 - float(d.foot))
     sprite.flip_h = facing > 0 if bool(d.left) else facing < 0
-    var amount: float = height / maxf(1.0,source_body_height)
+    var amount: float = maxf(1.0,floorf(height / maxf(1.0,source_body_height)))
+    visible_body_height = source_body_height * amount
     scale = Vector2(amount,amount)
     sprite.rotation = 0.0
     if motion == "hurt":
-        sprite.rotation = deg_to_rad(float(-facing) * 8.0)
-    # The second stance preserves the feline king, his sword and silhouette.
-    sprite.modulate = Color(1.0,0.94,0.75,1.0) if who in ["ascended","king_aoe","immortal-ascended"] else Color.WHITE
+        sprite.position.x -= float(facing) * 4.0
+    # Different drawn silhouette, not a tint of the base king; pixels keep an integer scale.
+    sprite.modulate = Color.WHITE
 
 static func _is_king(actor: String) -> bool:
     return actor in ["player","king","immortal-base","ascended","king_aoe","immortal-ascended","rest","previous"]
@@ -55,10 +56,19 @@ static func _descriptor(actor: String, motion: String, frame: int) -> Dictionary
     var f: int = clampi(frame,0,5)
     if actor == "previous":
         var row: int = 0 if motion in ["idle","run","walk"] else 1 if motion in ["cleave","strike","thrust"] else 3 if motion == "dash" else 2
-        return {"path":"res://art/previous.png","cell":96,"foot":94,"body":86.0,"frame":row*6+f,"left":true}
+        return {"path":"res://art/previous-v7.png","cell":96,"foot":94,"body":86.0,"frame":row*6+f,"left":true}
     if _is_king(actor) and (motion in ["rest","sit","wait","rise"] or (actor == "rest" and motion == "idle")):
         var waiting_row: int = 1 if motion == "rise" else 0
-        return {"path":"res://art/waiting.png","cell":192,"foot":154,"body":107.0,"frame":waiting_row*6+f,"left":true}
+        return {"path":"res://art/waiting-v7.png","cell":192,"foot":154,"body":107.0,"frame":waiting_row*6+f,"left":true}
+    if _is_king(actor) and motion == "transform":
+        return {"path":"res://art/transformation-v7.png","cell":192,"foot":154,"body":130.0,"frame":f,"left":true}
+    if actor in ["ascended","king_aoe","immortal-ascended"]:
+        var ascended_row: int = int(ROWS.get(motion,0))
+        if motion in ["combo_0","combo_1","combo_2"]:
+            ascended_row = 4 + int(motion.right(1))
+        return {"path":"res://art/hollow-sovereign-v7.png","cell":192,"foot":154,"body":130.0,"frame":ascended_row*6+f,"left":true}
+    if _is_king(actor) and motion in ["combo_0","combo_1","combo_2"]:
+        return {"path":"res://art/king-combo-v7.png","cell":192,"foot":154,"body":107.0,"frame":int(motion.right(1))*6+f,"left":true}
     if _is_king(actor):
         var row: int = int(ROWS.get(motion,0))
         if actor == "rest" and motion == "idle":
@@ -66,14 +76,14 @@ static func _descriptor(actor: String, motion: String, frame: int) -> Dictionary
             f = 2 + floori(float(f) / 4.0)
         if motion == "hurt":
             f = 5
-        return {"path":"res://art/king.png","cell":192,"foot":154,"body":107.0,"frame":row*6+f,"left":true}
+        return {"path":"res://art/king-v7.png","cell":192,"foot":154,"body":107.0,"frame":row*6+f,"left":true}
     var row: int = maxi(0,LIVES.find(actor))
-    var path: String = "res://art/visitors-combat.png"
+    var path: String = "res://art/visitors-combat-v7.png"
     var pose_frame: int = f
     if motion in ["run","walk"]:
-        path = "res://art/visitors-walk.png"
+        path = "res://art/visitors-walk-v7.png"
     elif motion in ["idle","hurt"]:
-        path = "res://art/visitors-idle-hurt.png"
+        path = "res://art/visitors-idle-hurt-v7.png"
         pose_frame = f % 3 if motion == "idle" else 3 + f % 3
     return {"path":path,"cell":144,"foot":110,"body":BODY_HEIGHTS[row],"frame":row*6+pose_frame,"left":false}
 
@@ -132,23 +142,29 @@ static func portrait_texture(actor: String) -> Texture2D:
     return atlas
 
 static func effect_texture(row: int, frame: int, kind: String = "royal") -> Texture2D:
-    var path: String = "res://art/effects.png"
+    var path: String = "res://art/effects-v7.png"
     var rows: int = 8
     if kind in ["nova","legacy"]:
-        path = "res://art/royal-effects.png"
+        path = "res://art/royal-effects-v7.png"
         rows = 5
     elif kind in ["visitor","enemy"]:
-        path = "res://art/visitor-effects.png"
+        path = "res://art/visitor-effects-v7.png"
     elif kind in ["blood","impact"]:
-        path = "res://art/blood.png"
+        path = "res://art/blood-v7.png"
         rows = 2
     return _region(path,Vector2i(128,128),clampi(row,0,rows-1)*6+clampi(frame,0,5))
 
 static func coronation_texture(frame: int) -> Texture2D:
-    return _region("res://art/coronation.png",Vector2i(192,192),clampi(frame,0,11))
+    return _region("res://art/coronation-v7.png",Vector2i(192,192),clampi(frame,0,11))
 
 static func finisher_texture(frame: int) -> Texture2D:
-    return _region("res://art/held-impalement.png",Vector2i(320,256),clampi(frame,0,11))
+    return _region("res://art/held-impalement-v7.png",Vector2i(320,256),clampi(frame,0,11))
 
 static func skill_icon(index: int) -> Texture2D:
     return _region("res://art/skill-icons.png",Vector2i(32,32),clampi(index,0,3),4)
+
+static func transition_texture(frame: int) -> Texture2D:
+    return _region("res://art/transformation-v7.png",Vector2i(192,192),clampi(frame,0,5))
+
+static func opening_duel_texture(frame: int) -> Texture2D:
+    return _region("res://art/opening-duel-v7.png",Vector2i(320,256),clampi(frame,0,11))

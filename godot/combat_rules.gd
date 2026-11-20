@@ -17,15 +17,29 @@ const MELEE = [
 const ABILITY_TELL = [0.85,0.42,0.64,0.50,0.60,0.78,0.58,0.57,0.62]
 const ABILITY_CD = [3.8,2.15,3.1,2.7,2.8,3.5,2.9,2.4,2.25]
 const MOVES = {
- "cleave":{"name":"Crownsteel","tell":0.10,"active":0.14,"recover":0.14,"cooldown":0.30,"damage":28.0},
+ "cleave":{"name":"Crownsteel","tell":0.07,"active":0.13,"recover":0.14,"cooldown":0.26,"damage":28.0},
  "throw":{"name":"Oathpiercer","tell":0.20,"active":0.13,"recover":0.19,"cooldown":1.05,"damage":34.0},
  "reap":{"name":"Kneel","tell":0.42,"active":0.18,"recover":0.16,"cooldown":1.10,"damage":32.0},
  "nova":{"name":"Procession","tell":0.40,"active":0.44,"recover":0.20,"cooldown":8.0,"damage":36.0}}
 const CROWN_MOVES = {
- "cleave":{"name":"Judgement","tell":0.19,"active":0.27,"recover":0.13,"cooldown":0.38,"damage":22.0},
- "throw":{"name":"Starfall","tell":0.22,"active":0.42,"recover":0.13,"cooldown":0.88,"damage":13.0},
- "reap":{"name":"The Court","tell":0.50,"active":0.52,"recover":0.16,"cooldown":0.98,"damage":32.0},
- "nova":{"name":"Final Decree","tell":0.46,"active":0.58,"recover":0.20,"cooldown":7.0,"damage":84.0}}
+ "cleave":{"name":"Gloam Rake","tell":0.12,"active":0.23,"recover":0.14,"cooldown":0.28,"damage":22.0},
+ "throw":{"name":"Crownfall","tell":0.22,"active":0.42,"recover":0.13,"cooldown":0.88,"damage":13.0},
+ "reap":{"name":"Royal Undertow","tell":0.50,"active":0.52,"recover":0.16,"cooldown":0.98,"damage":32.0},
+ "nova":{"name":"Last Dominion","tell":0.46,"active":0.58,"recover":0.20,"cooldown":7.0,"damage":84.0}}
+
+# Per-life footwork: grounded practice, rushes, anchor slide, vault, blink-step,
+# armored charge, crossing dash, ice glide and the returning sword's pursuit.
+const MOBILITY = [
+ {"speed":220.0,"duration":0.14,"cooldown":3.4,"chain":1,"hop":0.0},
+ {"speed":650.0,"duration":0.22,"cooldown":1.55,"chain":2,"hop":0.0},
+ {"speed":430.0,"duration":0.24,"cooldown":2.40,"chain":1,"hop":0.0},
+ {"speed":610.0,"duration":0.26,"cooldown":1.75,"chain":2,"hop":480.0},
+ {"speed":720.0,"duration":0.17,"cooldown":2.15,"chain":1,"hop":0.0},
+ {"speed":560.0,"duration":0.27,"cooldown":2.40,"chain":2,"hop":220.0},
+ {"speed":820.0,"duration":0.20,"cooldown":1.45,"chain":3,"hop":0.0},
+ {"speed":490.0,"duration":0.30,"cooldown":2.20,"chain":2,"hop":0.0},
+ {"speed":720.0,"duration":0.25,"cooldown":1.35,"chain":3,"hop":280.0}
+]
 
 static func move_spec(id: String, phase: int) -> Dictionary:
  return (CROWN_MOVES[id] if phase == 2 else MOVES[id]).duplicate()

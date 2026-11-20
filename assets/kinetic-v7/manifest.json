@@ -1,0 +1,176 @@
+{
+  "aiUseDisclosure": "Original Higgsfield-generated character/paired-action artwork. Codex exported native hard-alpha pixel-grid atlases and limited palettes, cleaned detached source-cell border fragments, and preserved runtime foot anchors. Earlier original assets retain their prior attribution.",
+  "date": "2026-11-20",
+  "billing": "User-authorized active free unlimited allowance. GPT Image 2.6, 2k medium. No paid fallback.",
+  "model": "gpt_image_2_6",
+  "quality": "medium",
+  "resolution": "2k",
+  "use_unlim": true,
+  "generationAttempts": "First batch accepted index1; indices0/2/3 were explicitly rejected with429 and no job. These three rejected requests were then submitted sequentially; four unique successful jobs total.",
+  "pixelContract": {
+    "actorCell": [
+      192,
+      192
+    ],
+    "actorFoot": [
+      96,
+      154
+    ],
+    "baseBody": 107,
+    "transformedBody": 130,
+    "pairedCell": [
+      320,
+      256
+    ],
+    "pairedFoot": [
+      160,
+      240
+    ],
+    "nativeIntegerScale": 1,
+    "logicalPixelBlock": 2,
+    "alpha": "Hard binary 0/255",
+    "palette": "32 colors per generated actor cell;48 per paired-action cell; existing sprites32per animation/visitor row, VFX16-24",
+    "filter": "nearest only, each cell sampled independently to prevent texture bleed",
+    "sourceGeometry": "Fixed whole-cell source scale per atlas; vertical translation foot alignment only. Detached border fragments smaller than200 logical pixels removed; no per-frame zoom fitting."
+  },
+  "generated": [
+    {
+      "index": 0,
+      "id": "king-combo",
+      "job_id": "5d13baf1-9299-4c78-b3b7-dd27d0686226",
+      "time": "065156",
+      "rows": 3,
+      "model": "gpt_image_2_6",
+      "prompt": "Production sprite-sheet asset for an original side-view dark-fantasy pixel game. The reference supplies the black feline immortal king, ruby/gold crown and royal sword design, but render TRUE SNES/Metroidvania pixel art, sharp square pixel clusters, no antialiasing, no gradients, no painterly textures. Exact 6 columns, evenly spaced identical cells, transparent canvas, no labels/gridlines, every pose fully inside its own cell. Character faces LEFT, fixed camera, full body, feet share same baseline each row; sword may extend sideways but nothing cropped. 32-color palette: charcoal, indigo, ruby, old gold, ivory, spectral cyan. Clear animation poses, hold identity and body scale through frames. Generate 6 columns x 3 rows. Three DIFFERENT connecting steel-sword attacks, NOT the same slash rotated. Black cat royal king in red mantle and gold crown. Row 0 six-frame horizontal drawing cut: crouched hips, sword drawn from right-back, twist/extend horizontal swing to left, recoil. Row 1 six-frame rising backhand: low sword across body, knee push, rising leftward diagonal, shoulders turn, coat lifts, regain stance. Row 2 six-frame heavy overhead finisher: both paws grip sword above crown, deep forward step, powerful descending blade, knees bend with weight, cape follows, recovery. Each row frames anticipation / launch / contact / follow-through / recovery / neutral. Thin pixel arc traces only at contact, do not replace the solid blade with magic. No repeated identical poses. Detailed readable feline ears/paws/tail, muscular squash and stretch, limited-color clusters.",
+      "references": [
+        "13cf3b8c-deb3-4980-be07-707400612d7c"
+      ],
+      "source": "assets/kinetic-v7/king-combo-original.png",
+      "runtime": "godot/art/king-combo-v7.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_065156_5d13baf1-9299-4c78-b3b7-dd27d0686226.png",
+      "layout": {
+        "cols": 6,
+        "rows": 3,
+        "frame": [
+          192,
+          192
+        ],
+        "foot": [
+          96,
+          154
+        ]
+      },
+      "sourceSha256": "498a1e0f46c5c3e3e30a2d2018d0b32dfa9e982d7df417cbf4d815971392c98b",
+      "runtimeSha256": "7001bd46b8d73919690c3bb2f2dedf290c5eb4546d1183f41e37ab42f909c22e"
+    },
+    {
+      "index": 1,
+      "id": "hollow-sovereign",
+      "job_id": "8aa9715e-f7b6-47fd-a9cc-1b4929ed7ac3",
+      "time": "064914",
+      "rows": 8,
+      "model": "gpt_image_2_6",
+      "prompt": "Production sprite-sheet asset for an original side-view dark-fantasy pixel game. The reference supplies the black feline immortal king, ruby/gold crown and royal sword design, but render TRUE SNES/Metroidvania pixel art, sharp square pixel clusters, no antialiasing, no gradients, no painterly textures. Exact 6 columns, evenly spaced identical cells, transparent canvas, no labels/gridlines, every pose fully inside its own cell. Character faces LEFT, fixed camera, full body, feet share same baseline each row; sword may extend sideways but nothing cropped. 32-color palette: charcoal, indigo, ruby, old gold, ivory, spectral cyan. Clear animation poses, hold identity and body scale through frames. Generate 6 columns x 8 rows. NEW TRANSFORMED Hollow Sovereign silhouette, recognize same immortal cat but dramatically altered: tall lean black feline torso; broken royal crown floating in 5 fragments above feline ears; shredded indigo mantle spreads into angular wings/tattered ribbons; cyan chest fissure; one longer clawed sword arm gripping massive chipped royal sword; long crescent tail; gold chains hanging from ribs. TWO arms only, cat head, not a many-arm monster. Entire body feels 25 percent taller with heavier asymmetric silhouette. Eight six-frame animations: row0 haunted hovering breathing idle but feet on ground; row1 powerful running gait; row2 jump ascent/apex/landing; row3 explosive spectral dash with discrete cyan afterimages; row4 huge two-handed crescent cleave; row5 spear-like sword thrust plus narrow cyan blade projectile; row6 royal gravity command raising claw and forcing stone shards down in concentric pressure; row7 full-body decree, floating crown fragments open and spectral sword pillars erupt around body. Strong distinct physical poses and large body movement. Keep flash shapes separate from silhouette, solid steel sword always readable.",
+      "references": [
+        "13cf3b8c-deb3-4980-be07-707400612d7c"
+      ],
+      "source": "assets/kinetic-v7/hollow-sovereign-original.png",
+      "runtime": "godot/art/hollow-sovereign-v7.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_064914_8aa9715e-f7b6-47fd-a9cc-1b4929ed7ac3.png",
+      "layout": {
+        "cols": 6,
+        "rows": 8,
+        "frame": [
+          192,
+          192
+        ],
+        "foot": [
+          96,
+          154
+        ]
+      },
+      "sourceSha256": "24f9f1c631886bcd7727d7c9ce1f830694e45896ad31a8f2277955e389659a06",
+      "runtimeSha256": "0c6f6ac68bc88280cfa46911834342de501328d6f6e889e926eb40a6c6926355"
+    },
+    {
+      "index": 2,
+      "id": "opening-duel",
+      "job_id": "dc573fd2-7477-407a-8f4f-5205925de6c4",
+      "time": "065319",
+      "rows": 2,
+      "model": "gpt_image_2_6",
+      "prompt": "Original dark gothic action game paired-character pixel sprite storyboard. Exact 6 columns x 2 rows on transparent background, equal cells, no text/grid/environment. Every cell contains TWO FULL BODY humanoid cats with consistent proportions: LEFT a young orange/patchwork cat with red neck scarf and steel sword facing RIGHT; RIGHT a larger black feline old king in purple royal mantle and crown facing LEFT. 32-color hard pixel art with large clear square clusters like a professional SNES sprite, no smooth illustration. Fixed side-view camera. Both feet anchored same baseline and character heights identical across frames; each cell wide enough both fighters, weapons never cropped. Row0 six successive action frames: challenger steps close / swords meet with steel sparks / blade lock both paws straining / king releases a short red royal pressure blast / challenger blown backward with lifted paws and scarf trailing / challenger lands crouched then leans forward. Row1 six successive frames: challenger dashes in low / king sword raised exposing torso / challenger grips king mantle and drives solid STEEL sword visibly through upper chest / blade tip exits back with red blood spray, torso folds around blade / challenger supports the impaled king with paw gripping collar, blood down chest / old king collapses to knees as his crown lifts free, challenger pulls physical blade out. Actual solid blade passing through body, not a light beam. Feline faces and grips readable, raw but stylized blood, clean transparent silhouette. Keep blade contact anatomically clear. Reference only for old king identity; challenger is anonymous orange/patchwork.",
+      "references": [
+        "13cf3b8c-deb3-4980-be07-707400612d7c"
+      ],
+      "source": "assets/kinetic-v7/opening-duel-original.png",
+      "runtime": "godot/art/opening-duel-v7.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_065319_dc573fd2-7477-407a-8f4f-5205925de6c4.png",
+      "layout": {
+        "cols": 6,
+        "rows": 2,
+        "frame": [
+          320,
+          256
+        ],
+        "foot": [
+          160,
+          240
+        ]
+      },
+      "sourceSha256": "138b0ca417dd842bf8b343b19295e360577d6e8bab7907c486ed2c2aae2fec08",
+      "runtimeSha256": "b836627cf648bf166fdde0ba1f34d9baca5a602d9b65c524d93afaba9202e2d9"
+    },
+    {
+      "index": 3,
+      "id": "transformation",
+      "job_id": "7c2b909b-bb8d-48c1-b90f-8a6524496947",
+      "time": "065450",
+      "rows": 1,
+      "model": "gpt_image_2_6",
+      "prompt": "Production sprite-sheet asset for an original side-view dark-fantasy pixel game. The reference supplies the black feline immortal king, ruby/gold crown and royal sword design, but render TRUE SNES/Metroidvania pixel art, sharp square pixel clusters, no antialiasing, no gradients, no painterly textures. Exact 6 columns, evenly spaced identical cells, transparent canvas, no labels/gridlines, every pose fully inside its own cell. Character faces LEFT, fixed camera, full body, feet share same baseline each row; sword may extend sideways but nothing cropped. 32-color palette: charcoal, indigo, ruby, old gold, ivory, spectral cyan. Clear animation poses, hold identity and body scale through frames. Generate exactly 6 columns x 1 row, full body transformation sequence original black feline king in red/gold cloak with sword. Frame0 kneels sword planted head bowed. Frame1 mantle tightens and chest splits with thin cyan fissure. Frame2 crown fractures into 5 floating gold pieces and indigo smoke squares rise, not blurred smoke. Frame3 torso lengthens and torn indigo mantle unfurls with cyan seam, long tail curves. Frame4 stands as Hollow Sovereign with crown fragments orbiting, one long clawed sword arm and massive chipped royal blade, TWO arms. Frame5 settles into haunted broad silhouette, cyan fissure, ragged mantle and floating crown, feet firmly planted. Strong visible silhouette change, professional limited-palette pixel sprites with no antialiasing.",
+      "references": [
+        "8aa9715e-f7b6-47fd-a9cc-1b4929ed7ac3",
+        "13cf3b8c-deb3-4980-be07-707400612d7c"
+      ],
+      "source": "assets/kinetic-v7/transformation-original.png",
+      "runtime": "godot/art/transformation-v7.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_065450_7c2b909b-bb8d-48c1-b90f-8a6524496947.png",
+      "layout": {
+        "cols": 6,
+        "rows": 1,
+        "frame": [
+          192,
+          192
+        ],
+        "foot": [
+          96,
+          154
+        ]
+      },
+      "sourceSha256": "bfd46552f82da3bfc9f06f493ff540fad458e21f40f18a1a59618ee9a9ea8589",
+      "runtimeSha256": "378e924de090cb55a962e71dc2313bf5f81ce42eb6cd2438e9c1108310790d35"
+    }
+  ],
+  "sourceManifests": [
+    "assets/gothic-v5/manifest.json",
+    "assets/royal-v4/manifest.json",
+    "assets/combat-v3/manifest.json",
+    "assets/godot-v6/manifest.json"
+  ],
+  "runtimeHelpers": {
+    "baseCombos": [
+      "combo_0 horizontal draw",
+      "combo_1 rising backhand",
+      "combo_2 overhead finisher"
+    ],
+    "transformedCombos": [
+      "combo_0 crescent cleave row4",
+      "combo_1 piercing thrust row5",
+      "combo_2 royal gravity row6"
+    ],
+    "transformation": "ActorView.transition_texture(frame0..5)",
+    "opening": "ActorView.opening_duel_texture(frame0..11)",
+    "physicalOpening": "Frames1/2 steel clash/lock;3 pressure burst;4 blastback;6 dash-in;8/9 steel-through-chest blood;10 mantle-grip hold;11 collapse and crown release."
+  }
+}

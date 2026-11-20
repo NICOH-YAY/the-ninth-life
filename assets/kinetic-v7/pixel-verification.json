@@ -1,0 +1,49 @@
+{
+  "aiUseDisclosure": "Codex verified runtime atlas geometry, binary alpha and uniform two-by-two pixel clusters after palette export. This is component evidence, not a full combat playthrough.",
+  "checks": [
+    {
+      "id": "king-combo",
+      "frames": 18,
+      "clipped": 0,
+      "empty": 0,
+      "removedBorderPixels": 311,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "sourceSha256": "498a1e0f46c5c3e3e30a2d2018d0b32dfa9e982d7df417cbf4d815971392c98b",
+      "runtimeSha256": "7001bd46b8d73919690c3bb2f2dedf290c5eb4546d1183f41e37ab42f909c22e"
+    },
+    {
+      "id": "hollow-sovereign",
+      "frames": 48,
+      "clipped": 0,
+      "empty": 0,
+      "removedBorderPixels": 319,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "sourceSha256": "24f9f1c631886bcd7727d7c9ce1f830694e45896ad31a8f2277955e389659a06",
+      "runtimeSha256": "0c6f6ac68bc88280cfa46911834342de501328d6f6e889e926eb40a6c6926355"
+    },
+    {
+      "id": "opening-duel",
+      "frames": 12,
+      "clipped": 0,
+      "empty": 0,
+      "removedBorderPixels": 412,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "sourceSha256": "138b0ca417dd842bf8b343b19295e360577d6e8bab7907c486ed2c2aae2fec08",
+      "runtimeSha256": "b836627cf648bf166fdde0ba1f34d9baca5a602d9b65c524d93afaba9202e2d9"
+    },
+    {
+      "id": "transformation",
+      "frames": 6,
+      "clipped": 0,
+      "empty": 0,
+      "removedBorderPixels": 591,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "sourceSha256": "bfd46552f82da3bfc9f06f493ff540fad458e21f40f18a1a59618ee9a9ea8589",
+      "runtimeSha256": "378e924de090cb55a962e71dc2313bf5f81ce42eb6cd2438e9c1108310790d35"
+    }
+  ]
+}

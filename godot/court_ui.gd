@@ -176,11 +176,12 @@ func _make_dialogue() -> void:
     _speaker = _label(_speech, "", Vector2(127, 10), Vector2(735, 23), 14, Color("#efd48e"))
     _body = _label(_speech, "", Vector2(127, 38), Vector2(728, 83), 18)
     _body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-    _choice = _box(_root, Vector2(68, 222), Vector2(824, 154), Color(0.025, 0.045, 0.085, 0.98), Color("#9a9279"))
-    _choice_caption = _label(_choice, "YOUR ANSWER", Vector2(18, 9), Vector2(788, 23), 12, Color("#b4c8cb"))
+    _choice = _box(_root, Vector2(68, 222), Vector2(824, 128), Color(0.025, 0.045, 0.085, 0.98), Color("#9a9279"))
+    _choice_caption = _label(_choice, "", Vector2(18, 9), Vector2(788, 23), 12, Color("#b4c8cb"))
+    _choice_caption.hide()
     for i in range(2):
         var index: int = i
-        var button := _button(_choice, "", Vector2(16, 39 + i * 51), Vector2(792, 45), func() -> void: _pick(index == 0), 15)
+        var button := _button(_choice, "", Vector2(16, 16 + i * 51), Vector2(792, 45), func() -> void: _pick(index == 0), 15)
         button.alignment = HORIZONTAL_ALIGNMENT_LEFT
         _choice_buttons.append(button)
         button.mouse_entered.connect(func() -> void:
@@ -247,13 +248,14 @@ func speak(speaker: String, text: String, portrait_key: String = "", min_secs: f
     if audio:
         audio.dialogue_duck(false)
 
-func choose(options: Array, caption_text: String = "YOUR ANSWER") -> bool:
+func choose(options: Array, _caption_text: String = "") -> bool:
     if options.size() != 2:
         push_error("CourtUI expects exactly two authored replies.")
         return false
     choice_options = options.duplicate()
-    caption = caption_text
-    _choice_caption.text = caption_text + "     UP / DOWN TO CHOOSE   ENTER TO ANSWER"
+    caption = ""
+    _choice_caption.text = ""
+    _choice_caption.hide()
     selected_choice = 0
     choosing = true
     _choice.show()
@@ -271,9 +273,12 @@ func choose(options: Array, caption_text: String = "YOUR ANSWER") -> bool:
 
 func _refresh_choices() -> void:
     for i in range(_choice_buttons.size()):
-        var prefix: String = ">  " if selected_choice == i else "   "
-        _choice_buttons[i].text = prefix + str(choice_options[i]) if i < choice_options.size() else ""
+        _choice_buttons[i].text = str(choice_options[i]) if i < choice_options.size() else ""
         _choice_buttons[i].add_theme_color_override("font_color", Color("#ffdfa0") if selected_choice == i else Color("#b4c5cc"))
+        var normal: StyleBoxFlat = _choice_buttons[i].get_theme_stylebox("normal").duplicate()
+        normal.border_color = Color("#dbc58f") if selected_choice == i else Color("#536477")
+        normal.bg_color = Color("#1a293b") if selected_choice == i else Color("#0d1928")
+        _choice_buttons[i].add_theme_stylebox_override("normal", normal)
 
 func _pick(open: bool) -> void:
     if not choosing:
@@ -370,7 +375,7 @@ func set_hud(data: Dictionary) -> void:
     var player_hp: float = float(data.get("player_hp", data.get("hp", 1.0)))
     var player_max: float = maxf(1.0, float(data.get("player_max", data.get("max_hp", 1.0))))
     _enemy_label.text = str(data.get("enemy_name", "?? // ??"))
-    _player_label.text = "THE IMMORTAL" if int(data.get("phase", 1)) == 1 else "THE CROWN UNBOUND"
+    _player_label.text = "THE IMMORTAL" if int(data.get("phase", 1)) == 1 else "THE HOLLOW SOVEREIGN"
     _enemy_fill.size.x = 242.0 * clampf(enemy_hp / enemy_max, 0.0, 1.0)
     _enemy_fill.color = Color(str(data.get("enemy_color", "#73c8ab")))
     _player_fill.size.x = 300.0 * clampf(player_hp / player_max, 0.0, 1.0)
@@ -379,7 +384,7 @@ func set_hud(data: Dictionary) -> void:
     _year_label.text = "YEAR " + str(data.get("year", 1000))
     _hint.text = str(data.get("hint", ""))
     var moves: Array[String] = ["cleave", "throw", "reap", "nova"]
-    var names: Array = data.get("move_names", ["STEEL", "THRUST", "KNEEL", "PROCESSION"] if int(data.get("phase", 1)) == 1 else ["JUDGEMENT", "STARFALL", "COURT", "DECREE"])
+    var names: Array = data.get("move_names", ["STEEL", "THRUST", "KNEEL", "PROCESSION"] if int(data.get("phase", 1)) == 1 else ["Gloam Rake", "Crownfall", "Royal Undertow", "Last Dominion"])
     var cooldowns: Dictionary = data.get("cooldowns", {})
     for i in range(4):
         var action: String = moves[i]

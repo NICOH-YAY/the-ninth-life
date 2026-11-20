@@ -29,7 +29,7 @@ func _run() -> void:
     var input=blank_input()
     input.left=true
     for n in range(30):game._player_step(input,1.0/60.0)
-    check(game.boss.x<650,"Royal movement crosses the arena independently of throne")
+    check(game.boss.x<675,"Royal movement crosses the arena independently of throne")
     input=blank_input();input.jump=true
     game._player_step(input,1.0/60.0)
     check(game.boss.y>0 and game.boss.jumps==1,"Jump has actual upward velocity")
@@ -54,7 +54,9 @@ func _run() -> void:
     fixture()
     game._start_move("throw")
     var before:float=game.boss.x
-    for n in range(25):game._move_step(1.0/60.0)
+    for n in range(25):
+        game._player_step(blank_input(),1.0/60.0)
+        game._move_step(1.0/60.0)
     check(game.boss.x<before and game.projectiles.is_empty(),"Base sword thrust is physical lunge")
     fixture()
     game.phase=2
@@ -63,8 +65,8 @@ func _run() -> void:
     game.enemy.x=game.boss.x-350
     game._start_move("throw")
     for n in range(50):game._move_step(1.0/60.0)
-    check(game.projectiles.size()==5,"Second royal stance throws a five-sword fan")
-    check(not ResourceLoader.exists("res://art/boss-monster.png"),"No monster art is shipped in Godot runtime")
+    check(game.projectiles.size()==5,"Crownfall releases five actual descending crown blades")
+    check(not ResourceLoader.exists("res://art/boss-monster.png"),"Old six-armed monster is not reused for the new form")
     fixture()
     game.boss.hp=345.0
     game._begin_crown_stance()
@@ -76,6 +78,40 @@ func _run() -> void:
     for index in range(9):
         var shots=game.Rules.enemy_shots(index,Vector2(200,42),Vector2(800,42),0)
         check(shots.size()>0,"Each visitor has actual ranged patterns")
+    fixture()
+    var tapping=blank_input()
+    tapping.cleave=true;tapping.cleave_taps=2
+    game._player_step(tapping,1.0/60.0)
+    check(game.boss.combo_queue==1 and not game.move.is_empty(),"Second fast press remains buffered during first slash")
+    for n in range(20):
+        game.combat_clock+=1.0/60.0
+        game._player_step(blank_input(),1.0/60.0)
+        game._move_step(1.0/60.0)
+    check(game.boss.combo_history==[0,1],"Buffered follow-up starts a different second slash")
+    fixture()
+    game._start_move("cleave");game._start_move("cleave");game._start_move("cleave")
+    check(game.boss.combo_history==[0,1,2],"Three successive attacks use all three combo stages")
+    game.combat_clock=2.0;game._start_move("cleave")
+    check(game.boss.combo==0,"A pause resets combo to its opening slash")
+    fixture()
+    var moving=blank_input();moving.right=true
+    game._player_step(moving,1.0/60.0)
+    check(game.boss.vx>0 and game.boss.vx<310,"Movement eases into full speed")
+    for n in range(30):game._player_step(moving,1.0/60.0)
+    check(game.boss.steps>0,"Ground travel generates actual foot contacts")
+    game.boss.grounded=false;game.boss.y=100;game.boss.vy=0
+    var steps:int=game.boss.steps
+    for n in range(6):game._player_step(moving,1.0/60.0)
+    check(game.boss.steps==steps,"Airborne travel produces no running footsteps")
+    fixture(3)
+    game.enemy.x=200;game.enemy.state="attack";game.enemy.mobility_cd=0
+    game._enemy_step(1.0/60.0)
+    check(game.enemy.state=="dash" and game.enemy.dashes==1,"Acrobat proactively vault-dashes from range")
+    check(game.enemy.vy>0,"Acrobat mobility includes a real ballistic vault")
+    fixture(6)
+    game.enemy.state="attack";game.enemy.x=game.boss.x-60;game.enemy.chain_left=3
+    for n in range(90):game._enemy_step(1.0/60.0)
+    check(game.enemy.strikes>=2,"Dagger visitor executes repeated real melee attacks")
     fixture()
     game._hud()
     for label in game.ui.get("_move_labels"):
@@ -93,5 +129,6 @@ func _run() -> void:
     game.queue_free()
     await process_frame
     await process_frame
+    await create_timer(0.15).timeout
     print(JSON.stringify({"native_game_checks":checks,"ok":true}))
     quit(0)
