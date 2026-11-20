@@ -20,6 +20,8 @@ import {
   type MoveSpec,
 } from "./config";
 import { Rng } from "./rng";
+import { ENEMY_ABILITIES, enemyShots } from "./enemy-patterns";
+import { ROYAL_GRAVITY } from "./royal-gravity";
 import { ROSTER, SKILL_FOR_MOVE } from "./roster";
 import type {
   BossInput,
@@ -74,6 +76,12 @@ export interface Projectile {
   canHit: boolean;
   damage: number;
   dead: boolean;
+  /** Visitor weapon identity and collision/motion geometry. */
+  style?: LifeId;
+  radius?: number;
+  low?: boolean;
+  gravity?: number;
+  returnAtDistance?: number;
 }
 
 export type ChState =
@@ -117,6 +125,10 @@ export interface BossState {
 export interface ChallengerState {
   knockVx: number; abilityT: number; abilityTellT: number; abilityKind: "wave" | "orb" | "lunge";
   attackSerial: number; abilitySerial: number;
+  /** Brief light-stagger resistance after recovering, never damage immunity. */
+  staggerResistT: number;
+  /** Remaining grounded royal-gravity stun; presentation may use a kneeling pose. */
+  kneelT: number;
   life: LifeId;
   x: number;
   y: number;
@@ -193,7 +205,7 @@ export class FightSim {
     for (const s of ALL_SKILLS) skillCd[s] = 0;
     this.ch = {
       life: setup.life,
-      knockVx: 0, abilityT: 2.5, abilityTellT: 0, abilityKind: "wave", attackSerial: 0, abilitySerial: 0,
+      knockVx: 0, abilityT: 2.5, abilityTellT: 0, abilityKind: "wave", attackSerial: 0, abilitySerial: 0, staggerResistT: 0, kneelT: 0,
       x: ARENA.spawnX,
       y: 0,
       vy: 0,
@@ -422,10 +434,6 @@ export class FightSim {
       this.projectiles.push({ kind: "glaive", move: "throw", x: this.bossFront, y: b.y + 44,
         vx: m.direction * G.throwSpeed, vy: 0, ttl: 4, traveled: 0, returning: false, canHit: true, damage: m.spec.damage, dead: false });
     }
-    if (m.id === "reap") {
-      this.projectiles.push({ kind: "blade", move: "reap", x: b.x + m.direction * 40, y: 20,
-        vx: m.direction * (m.phase === 2 ? 650 : 540), vy: 0, ttl: 2, traveled: 0, returning: false, canHit: true, damage: m.spec.damage, dead: false });
-    }
   }
 
   chCenterY(): number {
@@ -473,10 +481,17 @@ export class FightSim {
         return;
       }
       case "reap": {
-        if (m.phase === 2 && m.spawned === 0 && m.t >= 0.25) {
-          m.spawned++;
-          this.projectiles.push({ kind: "blade", move: "reap", x: this.boss.x + m.direction * 36, y: 20,
-            vx: m.direction * 650, vy: 0, ttl: 2, traveled: 0, returning: false, canHit: true, damage: m.spec.damage, dead: false });
+        if (m.spawned > 0) return;
+        m.spawned = 1;
+        const seal = ROYAL_GRAVITY[m.phase];
+        // Snapshot at input: leaving its horizontal radius or rising above the seal avoids it.
+        if (Math.abs(ch.x - m.targetX) > seal.radius || ch.y >= seal.height) return;
+        const before = ch.hp;
+        this.hitChallenger(m, m.spec.damage, t);
+        if (ch.hp < before && ch.hp > 0) {
+          ch.y = 0; ch.vy = 0; ch.knockVx = 0; ch.doubleJumpAt = null;
+          ch.kneelT = seal.kneelS; ch.state = "hitstun"; ch.stateT = seal.kneelS;
+          ch.staggerResistT = 0; ch.pending = null;
         }
         return;
       }
@@ -520,6 +535,15 @@ export class FightSim {
         p.vx = dx / len * G.throwSpeed; p.vy = dy / len * G.throwSpeed;
         if (len < 25) p.dead = true;
       }
+      if (p.returnAtDistance !== undefined) {
+        if (p.traveled >= p.returnAtDistance) p.returning = true;
+        if (p.returning) {
+          const dx = ch.x - p.x, dy = ch.y + 42 - p.y, distance = Math.hypot(dx, dy) || 1;
+          if (distance < 24) p.dead = true;
+          p.vx = dx / distance * 390; p.vy = dy / distance * 390;
+        }
+      }
+      if (p.gravity !== undefined) p.vy -= p.gravity * DT;
       p.x += p.vx * DT; p.y += p.vy * DT; p.traveled += Math.hypot(p.vx, p.vy) * DT;
       if (p.kind === "glaive" && !p.returning && (p.traveled >= G.throwRange || p.x < 12 || p.x > 948)) {
         p.returning = true; p.canHit = true;
@@ -527,8 +551,9 @@ export class FightSim {
       if (p.ttl <= 0 || (p.kind !== "glaive" && (p.x < -100 || p.x > 1060))) p.dead = true;
       if (p.dead || !p.canHit || this.outcome) continue;
       if (p.kind === "enemy-wave" || p.kind === "enemy-orb") {
-        const hit = Math.abs(b.x - p.x) < 35 && (p.kind === "enemy-wave" ? b.y < 35 : Math.abs(b.y + 42 - p.y) < 42);
-        if (hit) { this.damageBoss(p.damage, t, p.kind === "enemy-wave"); p.dead = true; }
+        const low = p.low ?? p.kind === "enemy-wave", radius = p.radius ?? 16;
+        const hit = Math.abs(b.x - p.x) < radius + 18 && (low ? b.y < 35 : Math.abs(b.y + 42 - p.y) < radius + 22);
+        if (hit) { this.damageBoss(p.damage, t, low); p.dead = true; }
         continue;
       }
       const r = p.kind === "blade" ? 34 : p.kind === "glaive" ? G.throwRadius : G.wispRadius;
@@ -574,17 +599,20 @@ export class FightSim {
     if (this.isQuiet) d = ch.hp;
     ch.hp -= d;
     if (ch.life === "kitten" && !this.tutorialComplete) ch.hp = Math.max(1, ch.hp);
-    ch.knockVx = Math.sign(ch.x - this.boss.x || -this.boss.facing) * (move === "nova" ? 420 : 260);
-    if (move === "cleave" || move === "nova") { ch.vy = Math.max(ch.vy, 180); ch.y = Math.max(ch.y, 0.1); }
+    // Repeated light hits still hurt and flinch, but cannot erase every counterattack.
+    const resistsLightStagger = move === "cleave" && ch.staggerResistT > 0;
+    ch.knockVx = Math.sign(ch.x - this.boss.x || -this.boss.facing) * (move === "nova" ? 420 : resistsLightStagger ? 60 : 260);
+    if ((move === "cleave" && !resistsLightStagger) || move === "nova") { ch.vy = Math.max(ch.vy, 180); ch.y = Math.max(ch.y, 0.1); }
     ch.hitFlashT = 0.2;
     this.log({ t, type: "challenger_hit", move, dmg: Math.round(d), hpAfter: Math.max(0, Math.round(ch.hp)), hesitating: hes });
     if (ch.hp <= 0) {
       this.endChallenger(t, move);
       return;
     }
-    if (!this.isQuiet) {
+    if (!this.isQuiet && !resistsLightStagger) {
+      ch.staggerResistT = 0;
       ch.state = "hitstun";
-      ch.stateT = CHALLENGER.hitstunS;
+      ch.stateT = Math.max(CHALLENGER.hitstunS, ch.kneelT);
       ch.pending = null;
       ch.punishReady = false;
     }
@@ -626,6 +654,8 @@ export class FightSim {
   private challengerSeesTell(move: BossMove, tellS: number, t: number): void {
     const ch = this.ch;
     if (this.isQuiet || ch.state === "dead" || ch.state === "enter" || this.hesitating) return;
+    // A recovered counter commits through light pressure; its normal windup remains dodgeable.
+    if (move === "cleave" && ch.state === "attack" && ch.staggerResistT > 0) return;
     const tac = this.setup.tactics;
     const inPriority = tac.dodge_priority.includes(move);
     const jitter = 1 + this.rng.range(-CHALLENGER.reactionJitter, CHALLENGER.reactionJitter);
@@ -806,26 +836,31 @@ export class FightSim {
 
   private updateAbility(t: number): void {
     const ch = this.ch;
-    if (this.boss.transitionT > 0 || this.hesitating || ch.state === "dead" || ch.state === "enter") return;
+    if (this.boss.transitionT > 0 || this.hesitating || ch.state === "dead" || ch.state === "enter" || ch.state === "hitstun") return;
     if (ch.abilityTellT > 0) {
       ch.abilityTellT = Math.max(0, ch.abilityTellT - DT);
       if (ch.abilityTellT === 0) {
-        const side = this.boss.x < ch.x ? -1 : 1;
-        const orb = ch.abilityKind === "orb";
-        this.projectiles.push({ kind: orb ? "enemy-orb" : "enemy-wave", move: orb ? "throw" : "reap",
-          x: ch.x + side * 20, y: orb ? ch.y + 45 : 13, vx: side * (orb ? 280 : 360), vy: 0, ttl: 4,
-          traveled: 0, returning: false, canHit: true, damage: this.setup.stats.damage * (orb ? 0.85 : 0.7), dead: false });
+        if (ch.life === "thief") {
+          const flank = ch.x < this.boss.x ? 1 : -1;
+          ch.x = Math.max(ARENA.leftWall + 16, Math.min(ARENA.width - 32, this.boss.x + flank * 205));
+          ch.decoyT = 0.5;
+        }
+        for (const shot of enemyShots(ch.life, ch, this.boss, ch.abilitySerial)) {
+          const { damageScale, ...geometry } = shot;
+          this.projectiles.push({ ...geometry, move: shot.low ? "reap" : "throw", traveled: 0,
+            returning: false, canHit: true, damage: this.setup.stats.damage * damageScale, dead: false });
+        }
         ch.abilitySerial++;
-        if (ch.life === "sailor" || ch.life === "knight" || ch.life === "quiet") ch.blockT = 0.65;
-        if (ch.life === "acrobat") { ch.vy = 500; ch.y = 0.1; }
-        if (ch.life === "thief") ch.decoyT = 0.5;
+        if (ch.life === "sailor" || ch.life === "knight") ch.blockT = 0.5;
+        if (ch.life === "acrobat") { ch.vy = 500; ch.y = Math.max(ch.y, 0.1); }
       }
       return;
     }
     ch.abilityT -= DT;
     if (ch.abilityT <= 0) {
-      ch.abilityT = ch.life === "kitten" ? 3.2 : Math.max(1.8, 4.2 - this.setup.fightIndex * 0.16);
-      ch.abilityTellT = ch.life === "kitten" ? 0.85 : 0.48;
+      const profile = ENEMY_ABILITIES[ch.life];
+      ch.abilityT = profile.cooldownS;
+      ch.abilityTellT = profile.tellS;
       ch.abilityKind = ch.life === "witch" || ch.life === "sailor" || ch.life === "quiet" ? "orb" : "wave";
       this.log({ t, type: "enemy_ability", kind: ch.abilityKind, x: ch.x });
     }
@@ -844,6 +879,8 @@ export class FightSim {
     }
     ch.hitFlashT = Math.max(0, ch.hitFlashT - DT);
     ch.attackFlashT = Math.max(0, ch.attackFlashT - DT);
+    ch.staggerResistT = Math.max(0, ch.staggerResistT - DT);
+    ch.kneelT = Math.max(0, ch.kneelT - DT);
     for (const s of ALL_SKILLS) ch.skillCd[s] = Math.max(0, ch.skillCd[s] - DT);
 
     if (ch.y > 0 || ch.vy > 0) {
@@ -863,23 +900,7 @@ export class FightSim {
     this.updateAbility(t);
 
     const transition = this.boss.transitionT > 0;
-    const combat = !this.isQuiet;
-    const s = ch.state;
-    const lowerable = s === "wait" || s === "approach" || s === "backoff";
-    if (
-      combat &&
-      lowerable &&
-      !transition &&
-      !this.boss.yielded &&
-      this.setup.fightIndex >= HESITATION.mutualFromFight &&
-      t - this.lastPlayerAttackT >= HESITATION.mutualIdleS
-    ) {
-      ch.state = "lowered";
-      ch.loweredAt = t;
-      ch.pending = null;
-      this.log({ t, type: "mutual_lower" });
-      this.log({ t, type: "say", key: "mutual.lower" });
-    }
+    // Defensive movement and guarding never request a narrative ceasefire.
 
     switch (ch.state) {
       case "enter": {
@@ -954,7 +975,12 @@ export class FightSim {
         break;
       case "hitstun":
         ch.stateT -= DT;
-        if (ch.stateT <= 0) ch.state = "backoff";
+        if (ch.stateT <= 0) {
+          const retaliates = ch.life !== "kitten" && !transition;
+          ch.state = retaliates ? "attack" : "backoff";
+          ch.windupT = 0;
+          ch.staggerResistT = retaliates ? 0.9 : 0;
+        }
         break;
       case "hesitate":
         ch.stateT -= DT;

@@ -1,0 +1,570 @@
+{
+  "disclosure": "AI-use disclosure: Higgsfield generated source artwork; Codex processed native pixels, atlas geometry and alpha with sharp.",
+  "id": "visitor-vfx",
+  "source": "assets/royal-v4/visitor-vfx.png",
+  "sourceWidth": 1744,
+  "sourceHeight": 2336,
+  "hasSourceAlpha": true,
+  "job_id": "cd4c7bd3-2a2d-4f51-86ef-e4fa48a73533",
+  "cols": 6,
+  "rows": 8,
+  "frameWidth": 128,
+  "frameHeight": 128,
+  "width": 768,
+  "height": 1024,
+  "frameCount": 48,
+  "rowNames": [
+    "hooked-slash",
+    "chain-flail",
+    "chakram-fan",
+    "astral-needles",
+    "hammer-shock",
+    "mirror-cuts",
+    "frost-lances",
+    "broken-sword"
+  ],
+  "sourceCellScale": 128,
+  "footX": null,
+  "footY": null,
+  "anchor": {
+    "x": 64,
+    "y": 64
+  },
+  "alphaThreshold": 40,
+  "totalClippedOpaque": 0,
+  "frameRemaps": [],
+  "anchors": [
+    {
+      "index": 0,
+      "row": 0,
+      "col": 0,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 552,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 1,
+      "row": 0,
+      "col": 1,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 1730,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 2,
+      "row": 0,
+      "col": 2,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 3160,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 3,
+      "row": 0,
+      "col": 3,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 4066,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 4,
+      "row": 0,
+      "col": 4,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 1771,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 5,
+      "row": 0,
+      "col": 5,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 150,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 6,
+      "row": 1,
+      "col": 0,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2070,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 7,
+      "row": 1,
+      "col": 1,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2258,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 8,
+      "row": 1,
+      "col": 2,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2606,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 9,
+      "row": 1,
+      "col": 3,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 3511,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 10,
+      "row": 1,
+      "col": 4,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2374,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 11,
+      "row": 1,
+      "col": 5,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 697,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 12,
+      "row": 2,
+      "col": 0,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 1759,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 13,
+      "row": 2,
+      "col": 1,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2379,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 14,
+      "row": 2,
+      "col": 2,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2769,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 15,
+      "row": 2,
+      "col": 3,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2784,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 16,
+      "row": 2,
+      "col": 4,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 1658,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 17,
+      "row": 2,
+      "col": 5,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 845,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 18,
+      "row": 3,
+      "col": 0,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 504,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 19,
+      "row": 3,
+      "col": 1,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 929,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 20,
+      "row": 3,
+      "col": 2,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 1366,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 21,
+      "row": 3,
+      "col": 3,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 1984,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 22,
+      "row": 3,
+      "col": 4,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 1109,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 23,
+      "row": 3,
+      "col": 5,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 250,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 24,
+      "row": 4,
+      "col": 0,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2399,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 25,
+      "row": 4,
+      "col": 1,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 3097,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 26,
+      "row": 4,
+      "col": 2,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 3464,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 27,
+      "row": 4,
+      "col": 3,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 4514,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 28,
+      "row": 4,
+      "col": 4,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2394,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 29,
+      "row": 4,
+      "col": 5,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 835,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 30,
+      "row": 5,
+      "col": 0,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2121,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 31,
+      "row": 5,
+      "col": 1,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2628,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 32,
+      "row": 5,
+      "col": 2,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2988,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 33,
+      "row": 5,
+      "col": 3,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2697,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 34,
+      "row": 5,
+      "col": 4,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 1408,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 35,
+      "row": 5,
+      "col": 5,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 631,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 36,
+      "row": 6,
+      "col": 0,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 1146,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 37,
+      "row": 6,
+      "col": 1,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 1928,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 38,
+      "row": 6,
+      "col": 2,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2382,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 39,
+      "row": 6,
+      "col": 3,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2790,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 40,
+      "row": 6,
+      "col": 4,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 1670,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 41,
+      "row": 6,
+      "col": 5,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 641,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 42,
+      "row": 7,
+      "col": 0,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2522,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 43,
+      "row": 7,
+      "col": 1,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2914,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 44,
+      "row": 7,
+      "col": 2,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 3250,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 45,
+      "row": 7,
+      "col": 3,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 4373,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 46,
+      "row": 7,
+      "col": 4,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2001,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 47,
+      "row": 7,
+      "col": 5,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 722,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    }
+  ],
+  "processing": "Uniform128x128 whole-cell nearest-neighbor effects. Hard alpha, 48-color dither-free palette, transparent negative space preserved.",
+  "rowAnchors": [
+    {
+      "row": 0,
+      "name": "hooked-slash",
+      "x": 64,
+      "y": 64
+    },
+    {
+      "row": 1,
+      "name": "chain-flail",
+      "x": 64,
+      "y": 64
+    },
+    {
+      "row": 2,
+      "name": "chakram-fan",
+      "x": 64,
+      "y": 64
+    },
+    {
+      "row": 3,
+      "name": "astral-needles",
+      "x": 64,
+      "y": 64
+    },
+    {
+      "row": 4,
+      "name": "hammer-shock",
+      "x": 64,
+      "y": 104
+    },
+    {
+      "row": 5,
+      "name": "mirror-cuts",
+      "x": 64,
+      "y": 64
+    },
+    {
+      "row": 6,
+      "name": "frost-lances",
+      "x": 64,
+      "y": 64
+    },
+    {
+      "row": 7,
+      "name": "broken-sword",
+      "x": 64,
+      "y": 64
+    }
+  ],
+  "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_020521_cd4c7bd3-2a2d-4f51-86ef-e4fa48a73533.png"
+}

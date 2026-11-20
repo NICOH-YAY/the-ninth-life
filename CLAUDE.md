@@ -1,3 +1,5 @@
+AI-use disclosure: project instructions authored by Claude; Codex updated the current revision references.
+
 # The Ninth Life: instructions for Claude Code
 
 This is Nicoh Koehly's (`nicoh-yay`) final project for COMS E6998 sec 014, AI in Practice: Game Design and Development (Fall 2026). Nicoh is Executive Producer and Creative Director. Agents recommend and build. Nicoh decides and merges.
@@ -8,7 +10,7 @@ This is Nicoh Koehly's (`nicoh-yay`) final project for COMS E6998 sec 014, AI in
 @CONFIG.md
 @PLAN.md
 
-Current combat and story contract: @docs/mobile-combat.md. Its later user-directed mobility, tutorial and three-ending rules replace the older forced-loss rules.
+Current combat and story contract: @docs/royal-revision.md and @docs/mobile-combat.md. The royal revision is the later contract for anonymous reincarnation, lethal finales, distinct weapons and licensed music. Its later user-directed mobility, tutorial and three-ending rules replace the older forced-loss rules.
 
 Newer design docs that override GDD.md where they conflict (update GDD.md to match): docs/story-bible.md, docs/phase-two.md, docs/challenger-progression.md, docs/art-direction.md, docs/prototype-brief.md. Simple mechanical work goes to the Haiku subagents in `.claude/agents/`.
 

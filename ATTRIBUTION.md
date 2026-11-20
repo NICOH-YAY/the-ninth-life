@@ -73,3 +73,35 @@ AI-use disclosure: these original assets were generated through Higgsfield GPT I
 |---|---|---|
 | assets/combat-v3/immortal-rest.png | Higgsfield GPT Image 2.6, job 3af32e0d-8ea8-419e-be54-149b0a6ded2d; six seated waiting poses and six rising poses using the approved base-motion reference, free unlimited allowance | 2026-11-19 |
 | public/combat-v3/immortal-rest.png and immortal-rest.json | Codex/sharp uniform whole-cell contain scale, twelve 96x96 frames, feet at (48,94), hard alpha and 32-color palette; seated body stays physically lower; no chair or environment baked in | 2026-11-19 |
+
+## Licensed soundtrack — 19 November 2026
+
+AI-use disclosure: Codex researched and selected existing human-composed recordings, verified the composer's download and license pages, and processed runtime copies with FFmpeg. The music itself was not AI generated.
+
+| Recording | Composer and original source | License | Runtime derivative |
+|---|---|---|---|
+| At Rest | [Kevin MacLeod / Incompetech](https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100748) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | public/audio/years-at-rest.mp3 |
+| Five Armies | [Kevin MacLeod / Incompetech](https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100875) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | public/audio/combat-five-armies.mp3 |
+| Virtutes Vocis | [Kevin MacLeod / Incompetech](https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100800) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | public/audio/finale-virtutes-vocis.mp3 |
+
+Changes to each runtime recording: loudness normalization toward -20 LUFS / -2 dBTP, 0.6-second fade-in, 2-second fade-out, metadata removal and stereo MP3 compression to 128 kbps / 44.1 kHz. Full compositions retained. Official downloads are preserved in assets/audio/originals. Exact download URLs, hashes, license snapshots, required credit strings and loop limitations are in assets/audio/manifest.json. The artist's [free license option](https://incompetech.com/music/royalty-free/licenses/) requires visible credit; the game must also display these credits in Attributions.
+
+Hiroyuki Sawano's Voices of the Chord (86 EIGHTY-SIX original soundtrack; Aniplex) and Radiohead's Let Down were mood references only. Neither reference recording was downloaded, copied or bundled.
+
+## Royal combat polish assets
+
+AI-use disclosure: the six original royal-v4 images were generated with Higgsfield GPT Image 2.6 using the user-authorized free unlimited allowance. Exact prompts, references, model parameters, job IDs, URLs, processing layouts and runtime frame substitutions are recorded in assets/royal-v4/manifest.json. Prior assets are preserved.
+
+| Royal asset | Source and processing | Date |
+|---|---|---|
+| assets/royal-v4/visitor-combat.png | Higgsfield GPT Image 2.6, job 2c947798-d004-4c29-a68d-d29b3b65e4bc; redesigned nine-cat weapon roster, no umbrella | 2026-11-19 |
+| assets/royal-v4/visitor-walk.png | Higgsfield GPT Image 2.6, job 54bff2e4-8f54-410d-8329-0994c75bec09; matching walk cycles using new combat reference | 2026-11-19 |
+| assets/royal-v4/royal-vfx.png | Higgsfield GPT Image 2.6, job 587f0043-6ffe-42da-8442-6e084217ef85; sentence, returning blade, gravity seal, circular aegis and final nova | 2026-11-19 |
+| assets/royal-v4/visitor-vfx.png | Higgsfield GPT Image 2.6, job cd4c7bd3-2a2d-4f51-86ef-e4fa48a73533; eight distinct weapon effect families | 2026-11-19 |
+| assets/royal-v4/blood-hit.png | Higgsfield GPT Image 2.6, job f64b2ac8-5eb9-459e-a9a9-0328522ee975; directional blood droplets and white/crimson impact bursts | 2026-11-19 |
+| assets/royal-v4/dawn-ruins.png | Higgsfield GPT Image 2.6 reference edit, job 61a71415-7ae2-4c70-8db1-c5edfeafba48; shattered hall and destroyed kingdom at dawn | 2026-11-19 |
+| public/royal-v4/visitor-combat.png and visitor-walk.png | Codex/sharp uniform96px source-cell mapping,144px frames,foot(72,110),binary alpha,32-color per-frame palette,isolated edge-fleck cleanup. Combat chain-warden col4 reuses col3 and thief col1 reuses col0 to keep weapon continuity; originals unchanged | 2026-11-19 |
+| public/royal-v4/royal-vfx.png, visitor-vfx.png and blood-hit.png | Codex/sharp128px effect cells,nearest-neighbor,binary alpha,48-color per-frame palette; true transparent negative space | 2026-11-19 |
+| public/royal-v4/dawn-ruins.png and assets/royal-v4/dawn-ruins-native320x180.png | Codex/sharp320x180,32-color native export,exact3x nearest enlargement;6native-pixel vertical floor registration,reflected roof/sky padding; original and unregistered native derivative preserved | 2026-11-19 |
+| public/royal-v4/arena-night.png, arena-mid.png and arena-late.png | Existing Higgsfield arena art processed by Codex into32-color320x180 nearest-neighbor exports; provenance assets/royal-arena-manifest.json,original art assets/combat-v3 and referenced prior sources | 2026-11-19 |
+| public/royal-v4/*.json and assets/royal-v4/process-assets.mjs | Codex-authored geometry,anchors,provenance and repeatable processing helper | 2026-11-19 |

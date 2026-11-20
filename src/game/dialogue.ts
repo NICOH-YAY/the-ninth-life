@@ -1,8 +1,11 @@
 // AI-use disclosure: Codex-authored portrait dialogue presentation and cancellation handling.
 import Phaser from "phaser";
 import { getAudio } from "./audio";
+import { VOICE_CUES } from "./voice-cues";
+import { LIFE_ORDER } from "./presentation";
+import type { LifeId } from "../core/types";
 
-export interface DialogueLine { speaker: string; text: string; portrait: string }
+export interface DialogueLine { speaker: string; text: string; portrait: string; cue?: string }
 
 /** Timed story dialogue. Keys and clicks never shorten a line's required reading time. */
 export class PortraitDialogue {
@@ -40,11 +43,12 @@ export class PortraitDialogue {
     const generation = ++this.generation;
     this.cancelPending();
     this.panel.setVisible(lines.length > 0);
+    getAudio().dialogue(lines.length > 0);
     for (const line of lines) {
       if (this.disposed || generation !== this.generation) break;
       await this.showLine(line, generation, Math.max(0, minReadMs));
     }
-    if (!this.disposed && generation === this.generation) this.panel.setVisible(false);
+    if (!this.disposed && generation === this.generation) { this.panel.setVisible(false); getAudio().dialogue(false); }
   }
 
   hide(): void {
@@ -52,6 +56,7 @@ export class PortraitDialogue {
     this.generation++;
     this.cancelPending();
     this.panel.setVisible(false);
+    getAudio().dialogue(false);
   }
 
   dispose(): void {
@@ -61,10 +66,12 @@ export class PortraitDialogue {
     this.cancelPending();
     this.scene.events.off(Phaser.Scenes.Events.SHUTDOWN, this.onSceneEnd);
     this.scene.events.off(Phaser.Scenes.Events.DESTROY, this.onSceneEnd);
+    getAudio().dialogue(false);
     this.panel.destroy(true);
   }
 
   private showLine(line: DialogueLine, generation: number, minReadMs: number): Promise<void> {
+    getAudio().playVoice(line.cue ? VOICE_CUES[line.cue] : undefined);
     this.speaker.setText(line.speaker.toUpperCase());
     this.body.setText("");
     this.portrait.setTexture(this.headTexture(line.portrait)).setDisplaySize(96, 96);
@@ -108,8 +115,10 @@ export class PortraitDialogue {
 
   /** Cached head crops use opaque body bounds rather than the source image's transparent padding. */
   private headTexture(requested: string): string {
-    const sourceKey = this.scene.textures.exists(requested) ? requested : this.scene.textures.exists("immortal-base") ? "immortal-base" : "";
-    const name = "dialogue-head-v2:" + (sourceKey || "fallback");
+    const royalRow = LIFE_ORDER.indexOf(requested as LifeId);
+    const royal = royalRow >= 0 && this.scene.textures.exists("royal-visitor-walk");
+    const sourceKey = royal ? "royal-visitor-walk" : this.scene.textures.exists(requested) ? requested : this.scene.textures.exists("immortal-base") ? "immortal-base" : "";
+    const name = "dialogue-head-v3:" + (sourceKey || "fallback") + ":" + royalRow;
     if (this.scene.textures.exists(name)) return name;
     const texture = this.scene.textures.createCanvas(name, 96, 96)!;
     const context = texture.getContext();
@@ -117,7 +126,13 @@ export class PortraitDialogue {
     context.fillStyle = "#142232";
     context.fillRect(0, 0, 96, 96);
     if (sourceKey) {
-      const image = this.scene.textures.get(sourceKey).getSourceImage() as HTMLImageElement | HTMLCanvasElement;
+      let image = this.scene.textures.get(sourceKey).getSourceImage() as HTMLImageElement | HTMLCanvasElement;
+      if (royal) {
+        const frame = this.scene.textures.get(sourceKey).get(royalRow * 6);
+        const cell = document.createElement("canvas"); cell.width = frame.cutWidth; cell.height = frame.cutHeight;
+        cell.getContext("2d")!.drawImage(image, frame.cutX, frame.cutY, frame.cutWidth, frame.cutHeight, 0, 0, cell.width, cell.height);
+        image = cell;
+      }
       const width = Number(image.width), height = Number(image.height);
       if (width > 0 && height > 0) {
         const sample = document.createElement("canvas");

@@ -1,9 +1,10 @@
 {
+  "aiUseDisclosure": "Claude scaffolded the package; Codex updated the project description and browser verification commands.",
   "name": "the-ninth-life",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "A short story boss fight where you play an immortal cat and your past lives come back to let you rest.",
+  "description": "An immortal cat king faces one returning soul across centuries of rule and ruin.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -15,7 +16,7 @@
     "assets:key": "node scripts/chroma-key.mjs",
     "assets:crop": "node scripts/crop-lineup.mjs && node scripts/resize-sprites.mjs",
     "assets:pixel": "node scripts/export-pixel-sprites.mjs",
-    "test:browser": "npm run build && node scripts/mobile-smoke.mjs"
+    "test:browser": "npm run build && node scripts/royal-smoke.mjs && node scripts/royal-routes.mjs"
   },
   "dependencies": {
     "phaser": "3.88.2"

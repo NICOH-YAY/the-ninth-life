@@ -6,6 +6,8 @@ A short story boss fight for COMS E6998 sec 014 (Fall 2026). You play a tall, lo
 
 Design: `GDD.md`, `CONFIG.md`, `docs/story-bible.md`, `docs/phase-two.md`, `docs/challenger-progression.md`, `docs/art-direction.md`. Status of the first playable: `docs/prototype-notes.md`.
 
+Play the published game: https://nicoh-yay.github.io/the-ninth-life/ .
+
 ## Run it
 
 On this computer, double-click `PLAY.cmd`, then open the local address it prints. Or use:
@@ -15,9 +17,9 @@ npm install
 npm run dev
 ```
 
-Open the address Vite prints (usually http://localhost:5173). Click Play or press Enter. C opens Attributions. Esc skips the opening or returns from Attributions.
+Open the address Vite prints (usually http://localhost:5173). Click Play or press Enter. C opens Attributions. R opens Settings; Esc returns from Attributions. The opening dialogue cannot be skipped.
 
-The opening shows you entering the hall, defeating the previous king, hearing his warning and taking the crown. Portrait dialogue cannot be skipped. A thousand years later, interactive play starts with a weak but durable tutorial kitten; you must jump, dash and block a real hit before finishing it. The current gameplay contract is in docs/mobile-combat.md.
+The opening shows you entering the hall, defeating the previous king, hearing his warning and taking the crown. Portrait dialogue cannot be skipped. A thousand years later, interactive play starts with a weak but durable tutorial kitten; you must jump, dash and block a real hit before finishing it. The current gameplay contracts are docs/royal-revision.md and docs/mobile-combat.md. Anonymous visitors offer dialogue choices before fighting. The king can be killed, with a final nova destroying the hall, or survive all nine lives.
 
 ## Project map
 

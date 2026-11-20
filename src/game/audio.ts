@@ -1,24 +1,74 @@
-// AI-use disclosure: written by Claude Code. Placeholder procedural audio with WebAudio:
-// a low drone (tier 1), a melody layer (tier 2), a fuller pad (tier 3), a Phase Two pulse,
-// a resolving chord for the ending, a syllable murmur for dialogue, and small effects.
-// Real music and voices come later. Starts only after a key press. M mutes.
-
-type Layer = { gain: GainNode; nodes: AudioScheduledSourceNode[] };
-
-const A_MINOR_PENTA = [220, 261.63, 293.66, 329.63, 392, 440, 523.25];
+// AI-use disclosure: Claude authored procedural combat effects; Codex added licensed music, crossfades, dialogue ducking and optional voice recordings.
 
 export class Audio {
   private ctx: AudioContext | null = null;
   private master: GainNode | null = null;
   private music: GainNode | null = null;
-  private drone: Layer | null = null;
-  private pad: Layer | null = null;
-  private pulse: Layer | null = null;
-  private melodyGain: GainNode | null = null;
-  private melodyTimer: ReturnType<typeof setInterval> | null = null;
-  private melodyStep = 0;
   muted: boolean;
   private tier = 1;
+  private cue: "years" | "combat" | "finale" = "years";
+  private tracks: HTMLAudioElement[] = [];
+  private track: HTMLAudioElement | null = null;
+  private fadeTimer: ReturnType<typeof setInterval> | null = null;
+  private ducked = false;
+  private duckTimer: ReturnType<typeof setInterval> | null = null;
+  private voice: HTMLAudioElement | null = null;
+
+  /** Browser-relative paths work on GitHub Pages and local preview. */
+  soundtrack(cue: "years" | "combat" | "finale"): void {
+    const changed = this.cue !== cue;
+    this.cue = cue;
+    if (!this.ctx || (!changed && this.track)) return;
+    const files = { years: "years-at-rest.mp3", combat: "combat-five-armies.mp3", finale: "finale-virtutes-vocis.mp3" };
+    const next = new window.Audio("audio/" + files[cue]);
+    next.loop = cue !== "finale"; next.volume = 0; next.preload = "auto";
+    next.dataset.gain = cue === "combat" ? "0.60" : "0.48";
+    this.tracks.push(next); this.track = next;
+    void next.play().catch(() => { /* A later user gesture retries playback. */ });
+    if (this.duckTimer) { clearInterval(this.duckTimer); this.duckTimer = null; }
+    if (this.fadeTimer) clearInterval(this.fadeTimer);
+    const started = performance.now();
+    const levels = new Map(this.tracks.map(t => [t, t.volume]));
+    this.fadeTimer = setInterval(() => {
+      const p = Math.min(1, (performance.now() - started) / 2500);
+      for (const t of this.tracks) {
+        const target = t === next ? this.musicLevel(t) : 0;
+        t.volume = this.muted ? 0 : Math.max(0, Math.min(1, (levels.get(t) ?? 0) * (1 - p) + target * p));
+      }
+      if (p === 1) {
+        this.tracks.filter(t => t !== next).forEach(t => { t.pause(); t.removeAttribute("src"); t.load(); });
+        this.tracks = [next]; clearInterval(this.fadeTimer!); this.fadeTimer = null;
+      }
+    }, 40);
+  }
+
+  private musicLevel(track: HTMLAudioElement): number {
+    return this.muted ? 0 : Number(track.dataset.gain ?? 0.48) * (this.ducked ? 0.28 : 1);
+  }
+
+  dialogue(on: boolean): void {
+    this.ducked = on;
+    if (this.duckTimer) clearInterval(this.duckTimer);
+    if (!this.fadeTimer && this.track) {
+      const track = this.track, from = track.volume, start = performance.now(), duration = on ? 150 : 800;
+      this.duckTimer = setInterval(() => {
+        if (track !== this.track) { clearInterval(this.duckTimer!); this.duckTimer = null; return; }
+        const p = Math.min(1, (performance.now() - start) / duration);
+        track.volume = this.muted ? 0 : from + (this.musicLevel(track) - from) * p;
+        if (p === 1) { clearInterval(this.duckTimer!); this.duckTimer = null; }
+      }, 30);
+    }
+    if (!on && this.voice) { this.voice.pause(); this.voice = null; }
+  }
+
+  /** Optional supplied voice recordings; an absent cue never requests a missing file. */
+  playVoice(path?: string): void {
+    if (this.voice) this.voice.pause();
+    this.voice = null;
+    if (!path || !/^audio\/voices\/[a-z0-9/_-]+\.(mp3|ogg|wav)$/i.test(path)) return;
+    this.voice = new window.Audio(path); this.voice.volume = this.muted ? 0 : 0.85;
+    void this.voice.play().catch(() => {});
+  }
 
   constructor(startMuted: boolean) {
     this.muted = startMuted;
@@ -26,7 +76,7 @@ export class Audio {
 
   /** Call from a key or click handler. Browsers block audio before a gesture. */
   start(): void {
-    if (this.ctx) return;
+    if (this.ctx) { void this.ctx.resume(); if (this.track?.paused) void this.track.play().catch(() => {}); return; }
     const AC = window.AudioContext ?? (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
     if (!AC) return;
     try {
@@ -40,129 +90,22 @@ export class Audio {
     this.music = this.ctx.createGain();
     this.music.gain.value = 0.5;
     this.music.connect(this.master);
-    this.drone = this.makeDrone();
-    this.setTier(this.tier);
+    this.soundtrack(this.cue);
   }
 
   toggleMute(): boolean {
     this.muted = !this.muted;
     if (this.master && this.ctx) this.master.gain.setTargetAtTime(this.muted ? 0 : 0.8, this.ctx.currentTime, 0.05);
+    for (const track of this.tracks) track.volume = track === this.track ? this.musicLevel(track) : 0;
+    if (this.voice) this.voice.volume = this.muted ? 0 : 0.85;
     return this.muted;
   }
 
-  private makeDrone(): Layer {
-    const ctx = this.ctx!;
-    const gain = ctx.createGain();
-    gain.gain.value = 0;
-    const filter = ctx.createBiquadFilter();
-    filter.type = "lowpass";
-    filter.frequency.value = 320;
-    gain.connect(filter);
-    filter.connect(this.music!);
-    const nodes: AudioScheduledSourceNode[] = [];
-    for (const [f, type, g] of [
-      [55, "sawtooth", 0.18],
-      [55.4, "sawtooth", 0.14],
-      [82.41, "sine", 0.25],
-    ] as [number, OscillatorType, number][]) {
-      const o = ctx.createOscillator();
-      o.type = type;
-      o.frequency.value = f;
-      const og = ctx.createGain();
-      og.gain.value = g;
-      o.connect(og);
-      og.connect(gain);
-      o.start();
-      nodes.push(o);
-    }
-    gain.gain.setTargetAtTime(0.5, ctx.currentTime, 1.5);
-    return { gain, nodes };
-  }
+  setTier(tier: number): void { this.tier = tier; }
 
-  private makePad(freqs: number[], level: number, type: OscillatorType = "sine"): Layer {
-    const ctx = this.ctx!;
-    const gain = ctx.createGain();
-    gain.gain.value = 0;
-    gain.connect(this.music!);
-    const nodes: AudioScheduledSourceNode[] = [];
-    for (const f of freqs) {
-      const o = ctx.createOscillator();
-      o.type = type;
-      o.frequency.value = f;
-      const og = ctx.createGain();
-      og.gain.value = 1 / freqs.length;
-      o.connect(og);
-      og.connect(gain);
-      o.start();
-      nodes.push(o);
-    }
-    gain.gain.setTargetAtTime(level, ctx.currentTime, 2.5);
-    return { gain, nodes };
-  }
+  phase2(on: boolean): void { if (on) this.boom(0.6); }
 
-  private stopLayer(layer: Layer | null, fade = 1.5): void {
-    if (!layer || !this.ctx) return;
-    const t = this.ctx.currentTime;
-    layer.gain.gain.setTargetAtTime(0, t, fade / 3);
-    for (const n of layer.nodes) n.stop(t + fade * 2);
-  }
-
-  /** Tier 1 drone only, tier 2 adds the melody, tier 3 adds the pad. */
-  setTier(tier: number): void {
-    this.tier = tier;
-    if (!this.ctx) return;
-    if (tier >= 2 && !this.melodyTimer) {
-      this.melodyGain = this.ctx.createGain();
-      this.melodyGain.gain.value = 0.12;
-      this.melodyGain.connect(this.music!);
-      this.melodyTimer = setInterval(() => this.melodyNote(), 950);
-    }
-    if (tier >= 3 && !this.pad) this.pad = this.makePad([220, 261.63, 329.63, 440], 0.12, "triangle");
-  }
-
-  private melodyNote(): void {
-    if (!this.ctx || !this.melodyGain) return;
-    const pattern = [0, 2, 3, 2, 4, 3, 1, -1, 0, 2, 4, 5, 4, 3, 1, -1];
-    const idx = pattern[this.melodyStep % pattern.length]!;
-    this.melodyStep++;
-    if (idx < 0) return;
-    const f = A_MINOR_PENTA[idx]!;
-    this.tone(f, 0.8, "triangle", 0.5, this.melodyGain);
-  }
-
-  phase2(on: boolean): void {
-    if (!this.ctx) return;
-    if (on && !this.pulse) {
-      this.pulse = this.makePad([110, 164.81], 0.08, "square");
-      const lfo = this.ctx.createOscillator();
-      lfo.frequency.value = 3;
-      const lg = this.ctx.createGain();
-      lg.gain.value = 0.06;
-      lfo.connect(lg);
-      lg.connect(this.pulse.gain.gain);
-      lfo.start();
-      this.pulse.nodes.push(lfo);
-      this.boom(0.6);
-    } else if (!on && this.pulse) {
-      this.stopLayer(this.pulse, 0.5);
-      this.pulse = null;
-    }
-  }
-
-  /** The ending: the theme resolves to a major chord, then silence. */
-  resolve(): void {
-    if (!this.ctx) return;
-    this.phase2(false);
-    if (this.melodyTimer) clearInterval(this.melodyTimer);
-    this.melodyTimer = null;
-    this.stopLayer(this.drone, 3);
-    this.drone = null;
-    this.stopLayer(this.pad, 3);
-    this.pad = null;
-    const chord = this.makePad([220, 277.18, 329.63, 440, 554.37], 0.2, "sine");
-    setTimeout(() => this.stopLayer(chord, 4), 7000);
-  }
-
+  resolve(): void { this.soundtrack("finale"); }
   private tone(freq: number, dur: number, type: OscillatorType, level: number, dest?: AudioNode): void {
     if (!this.ctx) return;
     const t = this.ctx.currentTime;

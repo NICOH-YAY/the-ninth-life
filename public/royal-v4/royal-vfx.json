@@ -1,0 +1,369 @@
+{
+  "disclosure": "AI-use disclosure: Higgsfield generated source artwork; Codex processed native pixels, atlas geometry and alpha with sharp.",
+  "id": "royal-vfx",
+  "source": "assets/royal-v4/royal-vfx.png",
+  "sourceWidth": 2240,
+  "sourceHeight": 1792,
+  "hasSourceAlpha": true,
+  "job_id": "587f0043-6ffe-42da-8442-6e084217ef85",
+  "cols": 6,
+  "rows": 5,
+  "frameWidth": 128,
+  "frameHeight": 128,
+  "width": 768,
+  "height": 640,
+  "frameCount": 30,
+  "rowNames": [
+    "royal-sentence",
+    "returning-blade",
+    "gravity-seal",
+    "aegis",
+    "last-breath"
+  ],
+  "sourceCellScale": 128,
+  "footX": null,
+  "footY": null,
+  "anchor": {
+    "x": 64,
+    "y": 64
+  },
+  "alphaThreshold": 40,
+  "totalClippedOpaque": 0,
+  "frameRemaps": [],
+  "anchors": [
+    {
+      "index": 0,
+      "row": 0,
+      "col": 0,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 554,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 1,
+      "row": 0,
+      "col": 1,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2437,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 2,
+      "row": 0,
+      "col": 2,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 3772,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 3,
+      "row": 0,
+      "col": 3,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 4547,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 4,
+      "row": 0,
+      "col": 4,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 1927,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 5,
+      "row": 0,
+      "col": 5,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 703,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 6,
+      "row": 1,
+      "col": 0,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2474,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 7,
+      "row": 1,
+      "col": 1,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2359,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 8,
+      "row": 1,
+      "col": 2,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 3468,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 9,
+      "row": 1,
+      "col": 3,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 3270,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 10,
+      "row": 1,
+      "col": 4,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 3215,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 11,
+      "row": 1,
+      "col": 5,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2778,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 12,
+      "row": 2,
+      "col": 0,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2119,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 13,
+      "row": 2,
+      "col": 1,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 3290,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 14,
+      "row": 2,
+      "col": 2,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 4645,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 15,
+      "row": 2,
+      "col": 3,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 5503,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 16,
+      "row": 2,
+      "col": 4,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 3191,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 17,
+      "row": 2,
+      "col": 5,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2236,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 18,
+      "row": 3,
+      "col": 0,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 964,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 19,
+      "row": 3,
+      "col": 1,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 3223,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 20,
+      "row": 3,
+      "col": 2,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 7285,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 21,
+      "row": 3,
+      "col": 3,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 8679,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 22,
+      "row": 3,
+      "col": 4,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 7558,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 23,
+      "row": 3,
+      "col": 5,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 1753,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 24,
+      "row": 4,
+      "col": 0,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 234,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 25,
+      "row": 4,
+      "col": 1,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2321,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 26,
+      "row": 4,
+      "col": 2,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 6305,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 27,
+      "row": 4,
+      "col": 3,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 12339,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 28,
+      "row": 4,
+      "col": 4,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 6177,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 29,
+      "row": 4,
+      "col": 5,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 1658,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    }
+  ],
+  "processing": "Uniform128x128 whole-cell nearest-neighbor effects. Hard alpha, 48-color dither-free palette, transparent negative space preserved.",
+  "rowAnchors": [
+    {
+      "row": 0,
+      "name": "royal-sentence",
+      "x": 64,
+      "y": 64
+    },
+    {
+      "row": 1,
+      "name": "returning-blade",
+      "x": 64,
+      "y": 64
+    },
+    {
+      "row": 2,
+      "name": "gravity-seal",
+      "x": 64,
+      "y": 110
+    },
+    {
+      "row": 3,
+      "name": "aegis",
+      "x": 64,
+      "y": 64
+    },
+    {
+      "row": 4,
+      "name": "last-breath",
+      "x": 64,
+      "y": 64
+    }
+  ],
+  "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_020412_587f0043-6ffe-42da-8442-6e084217ef85.png"
+}

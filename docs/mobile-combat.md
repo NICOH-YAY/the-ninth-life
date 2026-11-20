@@ -3,6 +3,8 @@ AI-use disclosure: written by Codex from Nicoh's revised gameplay request. Dialo
 # Mobile combat and the crown's curse
 This revision supersedes the old throne restriction, one-hit opening kitten, automatic quiet-life sparing and guaranteed last loss. Those older documents and session records remain historical.
 
+Later changes to visitor identities, weapon patterns, dialogue choices, lethal endings and music are documented in [royal-revision.md](royal-revision.md). That contract supersedes the corresponding historical descriptions below.
+
 ## Player
 The Immortal can move across the whole hall, jump, dash through attacks and hold a magic guard. The throne is a place to rest, not a movement boundary. The curse binds the king to the castle's doors.
 Default controls: A/D move, Space jump, left Shift dash, J light attack (hold to chain), K glaive/wisps, L travelling ground blade/tide, F nova/bell, G guard, S voluntary yielding when available. Esc pauses combat. The castle menu's Controls screen supports persistent remapping, duplicate-key swapping and resetting.

@@ -33,16 +33,16 @@ export interface MoveSpec {
 }
 
 export const BASE_MOVES: Record<BossMove, MoveSpec> = {
-  cleave: { name: "Crescent Cleave", tellS: 0.10, activeS: 0.14, recoverS: 0.14, cooldownS: 0.30, damage: 28 },
-  throw: { name: "Glaive Throw", tellS: 0.16, activeS: 0.10, recoverS: 0.15, cooldownS: 0.90, damage: 24 },
-  reap: { name: "Low Reap", tellS: 0.18, activeS: 0.18, recoverS: 0.16, cooldownS: 1.10, damage: 32 },
-  nova: { name: "Nine-Lives Nova", tellS: 0.55, activeS: 0.25, recoverS: 0.20, cooldownS: 0, damage: 75 },
+  cleave: { name: "Royal Sentence", tellS: 0.10, activeS: 0.14, recoverS: 0.14, cooldownS: 0.30, damage: 28 },
+  throw: { name: "Crown Recall", tellS: 0.16, activeS: 0.10, recoverS: 0.15, cooldownS: 0.90, damage: 24 },
+  reap: { name: "Kneel", tellS: 0.42, activeS: 0.18, recoverS: 0.16, cooldownS: 1.10, damage: 32 },
+  nova: { name: "Last Decree", tellS: 0.55, activeS: 0.25, recoverS: 0.20, cooldownS: 0, damage: 75 },
 };
 
 export const ASCENDED_MOVES: Record<BossMove, MoveSpec> = {
   cleave: { name: "Pounce Rift", tellS: 0.28, activeS: 0.18, recoverS: 0.16, cooldownS: 0.6, damage: 30 },
   throw: { name: "Soul Wisps", tellS: 0.20, activeS: 0.40, recoverS: 0.15, cooldownS: 1.2, damage: 10 },
-  reap: { name: "Shadow Tide", tellS: 0.20, activeS: 0.65, recoverS: 0.15, cooldownS: 1.3, damage: 26 },
+  reap: { name: "Sovereign Gravity", tellS: 0.62, activeS: 0.65, recoverS: 0.15, cooldownS: 1.3, damage: 26 },
   nova: { name: "Ninth Bell", tellS: 0.55, activeS: 0.25, recoverS: 0.20, cooldownS: 0, damage: 70 },
 };
 

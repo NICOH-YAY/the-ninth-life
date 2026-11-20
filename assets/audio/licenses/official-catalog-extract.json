@@ -1,0 +1,53 @@
+[
+  {
+    "title": "Five Armies",
+    "filename": "Five Armies.mp3",
+    "length": "00:02:36",
+    "instruments": "Cellos, French Horns, Trombones, Violins, Marimba, Trumpets, Percussion, Oboes, Clarinets, Flutes, Basses",
+    "genre": "22",
+    "bpm": "238",
+    "description": "Big giant building piece starting in 6/4 alternating to 4/4 and back. Soaring ending with a lot of brass.",
+    "feel": "Action, Aggressive, Dark, Driving, Epic, Intense",
+    "uploaded": "2011-11-06",
+    "isrc": "USUAN1100875",
+    "collection": "33",
+    "sheetmusic": "Five Armies Brass Band Score.pdf",
+    "video": null,
+    "itunes": "https://itunes.apple.com/us/album/five-armies/id942772858?i=942772870",
+    "filmmusicURL": null
+  },
+  {
+    "title": "Virtutes Vocis",
+    "filename": "Virtutes Vocis.mp3",
+    "length": "00:04:19",
+    "instruments": "Voice",
+    "genre": "4",
+    "bpm": "56",
+    "description": "Based on 11th century sacred music, this pieces carries melodies only, and no words.",
+    "feel": "Calming, Mystical, Somber, Uplifting",
+    "uploaded": "2011-03-03",
+    "isrc": "USUAN1100800",
+    "collection": null,
+    "sheetmusic": null,
+    "video": null,
+    "itunes": "https://itunes.apple.com/us/album/virtutes-vocis/id945460654?i=945460753",
+    "filmmusicURL": null
+  },
+  {
+    "title": "At Rest",
+    "filename": "At Rest.mp3",
+    "length": "00:03:27",
+    "instruments": "Piano, Voice, Strings, Choir",
+    "genre": "22",
+    "bpm": "57",
+    "description": "A recurring voice melody cascades over piano chords that sway in the breeze. Strings and horns then play the melody as the piano is slightly more forceful before settling again. It is suggestive of sadness, but with a sense of closure and peace.",
+    "feel": "Relaxed, Somber",
+    "uploaded": "2010-08-08",
+    "isrc": "USUAN1100748",
+    "collection": "20",
+    "sheetmusic": null,
+    "video": null,
+    "itunes": null,
+    "filmmusicURL": "https://incompetech.filmmusic.io/song/3388-at-rest/"
+  }
+]

@@ -2,7 +2,7 @@
 import Phaser from "phaser";
 import { ACTIONS, keyLabel, loadBindings, rebind, resetBindings, type Action, type Bindings } from "../controls";
 
-const LABELS: Record<Action, string> = { left: "Move left", right: "Move right", jump: "Jump", dash: "Dash", cleave: "Crescent Cleave", throw: "Glaive Throw", reap: "Low Reap", nova: "Nova / Ninth Bell", guard: "Guard", hold: "Lower guard / yield" };
+const LABELS: Record<Action, string> = { left: "Move left", right: "Move right", jump: "Jump", dash: "Dash", cleave: "Royal Sentence", throw: "Crown Recall", reap: "Kneel", nova: "Last Decree", guard: "Guard", hold: "Lower guard / yield" };
 export class SettingsScene extends Phaser.Scene {
   private bindings!: Bindings;
   private capturing: Action | null = null;
@@ -16,7 +16,6 @@ export class SettingsScene extends Phaser.Scene {
     this.capturing = null;
     this.values.clear(); this.boxes.clear();
     this.add.rectangle(480, 270, 960, 540, 0x091321);
-    if (this.textures.exists("hf-castle-exterior")) this.add.image(480, 270, "hf-castle-exterior").setDisplaySize(960, 540).setAlpha(0.18);
     this.add.rectangle(480, 270, 910, 490, 0x0c1727, 0.92).setStrokeStyle(1, 0x3d5664);
     this.add.text(64, 49, "CONTROLS", { fontFamily: "monospace", fontSize: "27px", color: "#ead8af" });
     this.add.text(64, 88, "Click an action, then press its new key. Reusing a key swaps the actions.", { fontFamily: "monospace", fontSize: "12px", color: "#aebfc5" });

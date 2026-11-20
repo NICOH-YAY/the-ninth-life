@@ -1,4 +1,4 @@
-// AI-use disclosure: Codex-authored castle-exterior menu and credits for the existing game.
+// AI-use disclosure: Codex-authored pixel castle menu, navigation and credits for the existing game.
 import Phaser from "phaser";
 import { getAudio } from "../audio";
 import { Session } from "../session";
@@ -12,34 +12,46 @@ export class TitleScene extends Phaser.Scene {
     this.started = false;
     this.credits = false;
     this.cameras.main.fadeIn(600, 3, 7, 16);
-    if (this.textures.exists("hf-castle-exterior")) {
-      const castle = this.add.image(480, 270, "hf-castle-exterior").setDisplaySize(960, 540);
-      this.tweens.add({ targets: castle, scaleX: castle.scaleX * 1.025, scaleY: castle.scaleY * 1.025, duration: 24000, yoyo: true, repeat: -1, ease: "Sine.InOut" });
-    } else this.drawDistantCastle();
-    this.add.rectangle(238, 270, 476, 540, 0x070e1b, 0.79);
-    this.add.rectangle(238, 270, 476, 540, 0x101b2a, 0.13);
-    this.add.text(68, 78, "THE CROWN REMEMBERS.", { fontFamily: "monospace", fontSize: "12px", color: "#b8c9c6", letterSpacing: 2 });
-    this.add.text(64, 125, "THE\nNINTH LIFE", { fontFamily: "Georgia, serif", fontSize: "64px", color: "#e9e1c8", lineSpacing: -6 });
-    this.add.rectangle(68, 287, 48, 2, 0xb6d3c4).setOrigin(0);
-    this.add.text(68, 309, "A kingdom that forgot the sun.", { fontFamily: "Georgia, serif", fontSize: "18px", color: "#a6b8bc" });
-    const button = (label: string, y: number, fn: () => void): void => {
-      const text = this.add.text(68, y, label, { fontFamily: "monospace", fontSize: "18px", color: "#dbe7d1" }).setPadding(0, 10, 34, 10).setInteractive({ useHandCursor: true });
-      text.on("pointerover", () => text.setColor("#f3d58d"));
-      text.on("pointerout", () => text.setColor("#dbe7d1"));
-      text.on("pointerdown", fn);
+    this.drawDistantCastle();
+    getAudio().soundtrack("years");
+    this.add.text(68, 73, "THE CROWN REMEMBERS", { fontFamily: "monospace", fontSize: "11px", color: "#91aaa9", letterSpacing: 2 });
+    this.add.text(64, 118, "THE\nNINTH LIFE", { fontFamily: "monospace", fontSize: "55px", fontStyle: "bold", color: "#e1e0c9", lineSpacing: -4 });
+    this.add.rectangle(68, 270, 42, 3, 0xb5b88b).setOrigin(0);
+    this.add.text(68, 298, "A kingdom that forgot the sun.", { fontFamily: "monospace", fontSize: "13px", color: "#8fa5aa" });
+    const actions = [() => this.play(), () => this.openSettings(), () => this.showCredits()];
+    const labels = ["PLAY", "SETTINGS", "ATTRIBUTIONS"];
+    const buttons: Phaser.GameObjects.Text[] = [];
+    const marker = this.add.rectangle(69, 367, 6, 6, 0xd0b77a);
+    let focused = 0;
+    const focus = (index: number): void => {
+      focused = index;
+      marker.setY(367 + index * 44);
+      buttons.forEach((text, i) => text.setColor(i === focused ? "#f0dfae" : "#9eafb0"));
     };
-    button("[ Enter ]  Play", 352, () => this.play());
-    button("[ R ]      Controls", 398, () => this.openSettings());
-    button("[ C ]      Attributions", 444, () => this.showCredits());
+    labels.forEach((label, index) => {
+      const text = this.add.text(89, 347 + index * 44, label, { fontFamily: "monospace", fontSize: "17px", color: "#9eafb0", letterSpacing: 1 }).setPadding(0, 10, 45, 10).setInteractive({ useHandCursor: true });
+      text.on("pointerover", () => { if (!this.credits) focus(index); });
+      text.on("pointerdown", () => { if (!this.credits) { getAudio().start(); getAudio().soundtrack("years"); actions[index]?.(); } });
+      buttons.push(text);
+    });
+    focus(0);
+    this.add.text(68, 491, "↑ ↓  SELECT     ENTER  CONFIRM", { fontFamily: "monospace", fontSize: "10px", color: "#6e888e" });
     const controls = loadBindings();
     const footer = keyLabel(controls.left) + " / " + keyLabel(controls.right) + " MOVE    " + keyLabel(controls.jump) + " JUMP    " + keyLabel(controls.dash) + " DASH";
-    this.add.text(68, 513, footer, { fontFamily: "monospace", fontSize: "10px", color: "#a2b2b8" });
+    this.add.text(68, 514, footer, { fontFamily: "monospace", fontSize: "10px", color: "#83989d" });
     const onKey = (event: KeyboardEvent): void => {
       if (event.repeat) return;
+      getAudio().start();
+      getAudio().soundtrack("years");
       if (event.code === "Escape" && this.credits) { event.preventDefault(); this.scene.restart(); }
+      else if (!this.credits && ["ArrowUp", "ArrowDown", "Tab"].includes(event.code)) {
+        event.preventDefault();
+        const direction = event.code === "ArrowUp" || (event.code === "Tab" && event.shiftKey) ? -1 : 1;
+        focus((focused + direction + buttons.length) % buttons.length);
+      }
       else if (!this.credits && event.code === "KeyC") this.showCredits();
       else if (!this.credits && event.code === "KeyR") this.openSettings();
-      else if (!this.credits && event.code === "Enter") { event.preventDefault(); this.play(); }
+      else if (!this.credits && event.code === "Enter") { event.preventDefault(); actions[focused]?.(); }
     };
     const keyboard = this.input.keyboard;
     keyboard?.on("keydown", onKey);
@@ -47,30 +59,54 @@ export class TitleScene extends Phaser.Scene {
     if (new URLSearchParams(location.search).get("autoplay") === "1") this.time.delayedCall(600, () => this.play());
   }
   private drawDistantCastle(): void {
+    // One 320 x 180 art grid enlarged exactly three times. No camera breathing or fractional art scales.
     const g = this.add.graphics();
-    g.fillStyle(0x0b1528, 1).fillRect(0, 0, 960, 540);
-    g.fillStyle(0x2a4356, 0.5).fillCircle(720, 130, 88);
-    g.fillStyle(0xa0beb9, 1).fillCircle(720, 130, 58);
-    g.fillStyle(0xbad1c7, 1).fillCircle(710, 124, 45);
-    for (let i = 0; i < 65; i++) {
-      const x = (i * 173 + 31) % 960, y = (i * 67 + 23) % 330;
-      g.fillStyle(i % 5 ? 0x8ba5b1 : 0xcbdcc6, i % 3 ? 0.55 : 0.25).fillRect(x, y, i % 7 ? 1 : 2, 1);
+    const rect = (x: number, y: number, width: number, height: number, colour: number): void => {
+      g.fillStyle(colour, 1).fillRect(x * 3, y * 3, width * 3, height * 3);
+    };
+    rect(0, 0, 320, 180, 0x0b1420);
+    rect(0, 70, 320, 38, 0x101e2b);
+    rect(0, 108, 320, 72, 0x172a34);
+    // The moon is drawn as horizontal pixel spans, never as a smooth high-resolution circle.
+    for (let y = -15; y <= 15; y++) {
+      const span = Math.floor(Math.sqrt(225 - y * y));
+      rect(247 - span, 49 + y, span * 2 + 1, 1, 0x9caeac);
     }
-    g.fillStyle(0x172438, 1).fillTriangle(270, 420, 590, 240, 960, 420);
-    g.fillStyle(0x111c2c, 1).fillTriangle(520, 485, 790, 290, 960, 485);
-    g.fillStyle(0x070f1e, 1).fillRect(590, 265, 282, 187);
-    const towers = [[596, 205, 35, 230], [650, 160, 43, 280], [747, 185, 40, 255], [822, 220, 37, 220]];
-    for (const [x, y, w, h] of towers as [number, number, number, number][]) {
-      g.fillStyle(0x0a1324, 1).fillRect(x, y, w, h);
-      g.fillStyle(0x080e1b, 1).fillTriangle(x - 9, y, x + w / 2, y - 52, x + w + 9, y);
-      for (let j = 0; j < 3; j++) g.fillStyle(0xb5a275, 0.75).fillRect(x + w / 2 - 2, y + 26 + j * 43, 4, 10);
+    rect(240, 38, 4, 2, 0x899e9f); rect(253, 53, 5, 3, 0x8ba0a0);
+    for (let i = 0; i < 35; i++) {
+      const x = (i * 71 + 41) % 320, y = (i * 23 + 7) % 91;
+      if (x > 150 && Math.abs(x - 247) + Math.abs(y - 49) > 30) rect(x, y, 1, 1, i % 4 ? 0x425b66 : 0x829a9d);
     }
-    g.fillStyle(0x070e1a, 1).fillTriangle(465, 540, 628, 400, 945, 540).fillRect(610, 400, 350, 140);
-    g.fillStyle(0x040a14, 1).fillRect(0, 508, 960, 32);
-    for (let i = 0; i < 3; i++) {
-      const fog = this.add.ellipse(620 + i * 90, 445 + i * 21, 570, 34, 0x6a8f94, 0.07);
-      this.tweens.add({ targets: fog, x: fog.x - 80, alpha: 0.02, duration: 13000 + i * 3000, yoyo: true, repeat: -1, ease: "Sine.InOut" });
+    for (let x = 120; x < 320; x++) {
+      const y = Math.round(112 + Math.sin(x * 0.035) * 8 + Math.sin(x * 0.079) * 4);
+      rect(x, y, 1, 180 - y, 0x1b3039);
     }
+    for (let x = 131; x < 320; x++) {
+      const y = Math.round(140 - 34 * Math.exp(-Math.pow((x - 247) / 53, 2)) + Math.sin(x * 0.11) * 2);
+      rect(x, y, 1, 180 - y, 0x101e29);
+    }
+    // Distant, deliberately small architecture. A single ember is the only warm focal point.
+    rect(216, 92, 64, 21, 0x08131e);
+    rect(230, 81, 30, 32, 0x08131e);
+    const towers: [number, number, number][] = [[212, 81, 7], [228, 69, 9], [253, 74, 8], [274, 85, 7]];
+    for (const [x, y, width] of towers) {
+      rect(x, y, width, 114 - y, 0x08131e);
+      for (let row = 0; row < 8; row++) {
+        const inset = Math.min(Math.floor(width / 2), Math.floor(row / 2));
+        rect(x + inset, y - row, width - inset * 2, 1, 0x08131e);
+      }
+      rect(x + 1, y - 1, 1, 2, 0x08131e);
+    }
+    rect(232, 58, 1, 5, 0x08131e); rect(233, 59, 5, 2, 0x08131e);
+    rect(246, 95, 2, 4, 0xb4a277);
+    rect(197, 121, 102, 2, 0x213740); rect(225, 124, 83, 1, 0x213740);
+    for (let x = 110; x < 320; x++) {
+      const y = Math.round(164 + Math.sin(x * 0.034) * 7 + Math.sin(x * 0.071) * 3);
+      rect(x, y, 1, 180 - y, 0x070f19);
+    }
+    // The reading area belongs to the same flat palette; no translucent full-image wash.
+    rect(0, 0, 145, 180, 0x0b1420);
+    for (let x = 145; x < 171; x++) rect(x, 145 + Math.floor((x - 145) / 3), 1, 35, 0x0b1420);
   }
   private play(): void {
     if (this.started || this.credits) return;
@@ -85,10 +121,22 @@ export class TitleScene extends Phaser.Scene {
   private showCredits(): void {
     if (this.credits || this.started) return;
     this.credits = true;
-    this.add.rectangle(480, 270, 860, 470, 0x0a1221, 0.98).setStrokeStyle(1, 0x677d85).setInteractive();
-    this.add.text(100, 78, "ATTRIBUTIONS", { fontFamily: "monospace", fontSize: "25px", color: "#ead8af" });
-    this.add.text(100, 137, ["The Ninth Life — a game by Nicoh", "", "Design inspiration: The Dark Queen of Mortholme, by Mosu.", "Mood references: Scaredy Cats, Ori, dark fantasy environments.", "Reference characters and compositions are not reproduced.", "", "Original concept images: Higgsfield (z_image).", "Pixel scenes, sprites and effects: Higgsfield; see ATTRIBUTION.md.", "Animation integration and procedural effects: Codex.", "Prototype code and audio: Claude Code; revisions: Codex.", "Engine: Phaser 3 (MIT). Full asset log: ATTRIBUTION.md."].join("\n"), { fontFamily: "monospace", fontSize: "13px", color: "#bdcbd0", lineSpacing: 5 });
-    const back = this.add.text(100, 452, "[ Esc ]  Back", { fontFamily: "monospace", fontSize: "17px", color: "#f3d58d" }).setInteractive({ useHandCursor: true });
+    this.add.rectangle(480, 270, 860, 470, 0x0a1221, 1).setStrokeStyle(2, 0x526e76).setInteractive();
+    this.add.text(100, 73, "ATTRIBUTIONS", { fontFamily: "monospace", fontSize: "25px", color: "#ead8af" });
+    this.add.text(100, 122, [
+      "The Ninth Life — a game by Nicoh", "",
+      "Design inspiration: The Dark Queen of Mortholme, by Mosu.",
+      "Mood references: Scaredy Cats, Ori, dark fantasy environments.",
+      "Original concepts, character sprites and effects: Higgsfield.",
+      "Pixel castle menu, integration and procedural effects: Codex.",
+      "Prototype code/SFX: Claude Code; revisions: Codex.", "",
+      "At Rest, Five Armies, Virtutes Vocis — Kevin MacLeod",
+      "(incompetech.com), CC BY 4.0. Audio normalized/compressed.",
+      "https://creativecommons.org/licenses/by/4.0/", "",
+      "Engine: Phaser 3 (MIT). Full asset log: ATTRIBUTION.md.",
+      "M toggles music and effects."
+    ].join("\n"), { fontFamily: "monospace", fontSize: "12px", color: "#bdcbd0", lineSpacing: 5 });
+    const back = this.add.text(100, 452, "[ Esc ]  Back", { fontFamily: "monospace", fontSize: "17px", color: "#f3d58d" }).setPadding(0, 5, 40, 5).setInteractive({ useHandCursor: true });
     back.on("pointerdown", () => this.scene.restart());
   }
 }

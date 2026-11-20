@@ -1,0 +1,27 @@
+{
+  "disclosure": "AI-use disclosure: Higgsfield generated source artwork; Codex processed native pixels, atlas geometry and alpha with sharp.",
+  "id": "dawn-ruins",
+  "source": "assets/royal-v4/dawn-ruins.png",
+  "sourceWidth": 2688,
+  "sourceHeight": 1520,
+  "hasSourceAlpha": false,
+  "job_id": "61a71415-7ae2-4c70-8db1-c5edfeafba48",
+  "cols": 1,
+  "rows": 1,
+  "frameWidth": 960,
+  "frameHeight": 540,
+  "width": 960,
+  "height": 540,
+  "frameCount": 1,
+  "nativeWidth": 320,
+  "nativeHeight": 180,
+  "paletteColors": 32,
+  "floorRegistration": {
+    "sourceNativeY": 147,
+    "referenceNativeY": 153,
+    "shiftNativeY": 6,
+    "shiftOutputY": 18
+  },
+  "processing": "Native320x180 nearest-neighbor, dither-free32-color palette, then exact3x nearest-neighbor enlargement.",
+  "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_020745_61a71415-7ae2-4c70-8db1-c5edfeafba48.png"
+}

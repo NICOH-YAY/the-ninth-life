@@ -1,0 +1,2 @@
+# AI-use disclosure: Codex preserves verbatim upstream license-page evidence without whitespace rewriting.
+assets/audio/licenses/*.html -whitespace

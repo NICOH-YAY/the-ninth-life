@@ -1,0 +1,13 @@
+{
+  "aiUseDisclosure": "Codex authored 320x180 nearest-neighbor pixel processing; Higgsfield original provenance retained in ATTRIBUTION.md.",
+  "native": [
+    320,
+    180
+  ],
+  "colors": 32,
+  "files": [
+    "arena-night",
+    "arena-mid",
+    "arena-late"
+  ]
+}

@@ -1,7 +1,6 @@
 // AI-use disclosure: written by Claude Code. Combat rules, replay, skills, and hesitation.
 
 import { describe, expect, it } from "vitest";
-import { HESITATION } from "../src/core/config";
 import { makeBot, runFight } from "../src/core/bots";
 import { NO_INPUT, type LifeId } from "../src/core/types";
 import { makeSim } from "./helpers";
@@ -81,31 +80,27 @@ describe("hesitation", () => {
   });
 
   it("a hit during hesitation does extra damage", () => {
-    for (let seed = 1; seed <= 30; seed++) {
-      const sim = makeSim("witch", { seed, fightIndex: 7, tier: 3, bond: 8 });
-      runFight(sim, makeBot("aggressive", seed));
-      const hit = sim.events.find((e) => e.type === "challenger_hit" && e.hesitating);
-      if (hit && hit.type === "challenger_hit") {
-        const normal = sim.events.find((e) => e.type === "challenger_hit" && !e.hesitating && e.move === hit.move);
-        if (normal && normal.type === "challenger_hit") {
-          expect(hit.dmg).toBeGreaterThan(normal.dmg);
-          return;
-        }
-      }
-    }
-    throw new Error("no hesitation hit found");
+    const damage = (hesitating: boolean) => {
+      const sim = makeSim("quiet", { fightIndex: 8, tier: 3, stats: { speed: 0 } });
+      sim.ch.x = sim.boss.x - 80; sim.ch.state = hesitating ? "hesitate" : "wait";
+      sim.ch.stateT = 5; sim.ch.decisionT = 100; sim.ch.abilityT = 100;
+      sim.step({ ...NO_INPUT, cleave: true });
+      for (let i = 0; i < 30; i++) sim.step(NO_INPUT);
+      const hit = sim.events.find(e => e.type === "challenger_hit");
+      expect(hit?.type).toBe("challenger_hit");
+      return hit?.type === "challenger_hit" ? hit.dmg : 0;
+    };
+    expect(damage(true)).toBeGreaterThan(damage(false));
   });
 
-  it("from life 6, idling for 4 s makes the challenger lower its weapon, and attacking resumes the fight", () => {
-    const sim = makeSim("knight", { fightIndex: 6 });
-    while (!sim.events.some((e) => e.type === "mutual_lower") && sim.tick < 60 * 30) sim.step(NO_INPUT);
-    const lower = sim.events.find((e) => e.type === "mutual_lower");
-    expect(lower).toBeDefined();
-    expect(lower!.t).toBeGreaterThanOrEqual(HESITATION.mutualIdleS);
-    expect(sim.ch.state).toBe("lowered");
-    sim.step({ ...NO_INPUT, cleave: true });
-    expect(sim.ch.state).not.toBe("lowered");
-    expect(sim.events.some((e) => e.type === "mutual_raise")).toBe(true);
+  it("late challengers keep attacking while the player guards without attacking", () => {
+    for (const life of ["knight", "quiet", "patchwork"] as LifeId[]) {
+      const sim = makeSim(life, { fightIndex: 8, tier: 1, stats: { damage: 1 } });
+      for (let i = 0; i < 60 * 16; i++) sim.step({ ...NO_INPUT, guard: true });
+      expect(sim.events.some(e => e.type === "mutual_lower"), life).toBe(false);
+      expect(sim.ch.attackSerial, life).toBeGreaterThan(2);
+      expect(sim.events.some(e => e.type === "boss_hit"), life).toBe(true);
+    }
   });
 
   it("before life 6, idling does not lower the weapon", () => {

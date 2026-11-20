@@ -1,0 +1,154 @@
+{
+  "disclosure": "AI-use disclosure: Higgsfield generated source artwork; Codex processed native pixels, atlas geometry and alpha with sharp.",
+  "id": "blood-hit",
+  "source": "assets/royal-v4/blood-hit.png",
+  "sourceWidth": 2688,
+  "sourceHeight": 1152,
+  "hasSourceAlpha": true,
+  "job_id": "f64b2ac8-5eb9-459e-a9a9-0328522ee975",
+  "cols": 6,
+  "rows": 2,
+  "frameWidth": 128,
+  "frameHeight": 128,
+  "width": 768,
+  "height": 256,
+  "frameCount": 12,
+  "rowNames": [
+    "blood-spray",
+    "impact-burst"
+  ],
+  "sourceCellScale": 128,
+  "footX": null,
+  "footY": null,
+  "anchor": {
+    "x": 64,
+    "y": 64
+  },
+  "alphaThreshold": 40,
+  "totalClippedOpaque": 0,
+  "frameRemaps": [],
+  "anchors": [
+    {
+      "index": 0,
+      "row": 0,
+      "col": 0,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 593,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 1,
+      "row": 0,
+      "col": 1,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 1112,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 2,
+      "row": 0,
+      "col": 2,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 1050,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 3,
+      "row": 0,
+      "col": 3,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 688,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 4,
+      "row": 0,
+      "col": 4,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 482,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 5,
+      "row": 0,
+      "col": 5,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 175,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 6,
+      "row": 1,
+      "col": 0,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 211,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 7,
+      "row": 1,
+      "col": 1,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 1218,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 8,
+      "row": 1,
+      "col": 2,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 2480,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 9,
+      "row": 1,
+      "col": 3,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 1381,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 10,
+      "row": 1,
+      "col": 4,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 620,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    },
+    {
+      "index": 11,
+      "row": 1,
+      "col": 5,
+      "sourceFeetY": null,
+      "shiftY": 0,
+      "opaquePixels": 106,
+      "clippedOpaque": 0,
+      "removedEdgePixels": 0
+    }
+  ],
+  "processing": "Uniform128x128 whole-cell nearest-neighbor effects. Hard alpha, 48-color dither-free palette, transparent negative space preserved.",
+  "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_020631_f64b2ac8-5eb9-459e-a9a9-0328522ee975.png"
+}
