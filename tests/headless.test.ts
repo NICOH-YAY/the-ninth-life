@@ -7,7 +7,7 @@ import { NO_INPUT } from "../src/core/types";
 describe("mobile headless runs",()=>{
   for(const [name,make] of [["scripted",()=>new ScriptedPlanner()],["heuristic",()=>new HeuristicPlanner()]] as const){
     it(`${name}: can defeat all nine mortal challengers`,async()=>{
-      const state=await runHeadless({seed:42,planner:make(),bot:()=>"aggressive"});
+      const state=await runHeadless({seed:42,planner:make(),bot:()=>"fighter"});
       expect(state.ending).toMatchObject({kind:"victory",defeated:9});
       expect(state.summaries).toHaveLength(9);
       expect(new Set(state.summaries.map(s=>s.lifeId)).size).toBe(9);

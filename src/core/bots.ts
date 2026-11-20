@@ -1,6 +1,7 @@
 // AI-use disclosure: Codex-authored deterministic mobile combat bots for regression and evaluation.
 import { ARENA, CHALLENGER, MOVE_GEOMETRY } from "./config";
 import type { FightSim } from "./fight";
+import { ENEMY_MELEE } from "./enemy-patterns";
 import { Rng } from "./rng";
 import { NO_INPUT, type BossInput, type BossMove } from "./types";
 
@@ -39,8 +40,12 @@ export function makeBot(profile: BotProfile, seed = 1): BossBot {
       const orb = incoming.some(p => p.kind === "enemy-orb" && Math.abs(p.x - b.x) < 100);
       input.jump = wave && b.grounded;
       input.dash = orb && b.dashCooldown <= 0;
-      input.guard = !input.jump && !input.dash && ch.state === "attack" && distance < ARENA.bossHalfWidth + CHALLENGER.reach + 25 && b.guardEnergy > 0.2;
-      const reach = aggressive ? 240 : defensive ? 230 : 180;
+      input.guard = !input.jump && !input.dash && ch.state === "attack" && distance < ARENA.bossHalfWidth + ENEMY_MELEE[ch.life].reach + 25 && b.guardEnergy > 0.2;
+      const contactSoon = ch.state === "attack" && ch.windupT > 0 && ENEMY_MELEE[ch.life].tellS - ch.windupT < 0.11;
+      if (contactSoon && distance < ARENA.bossHalfWidth + ENEMY_MELEE[ch.life].reach + 20 && b.dashCooldown <= 0) {
+        input.dash = true; input.guard = false;
+      }
+      const reach = aggressive ? 135 : defensive ? 230 : 170;
       input.left = distance > reach + 35 && ch.x < b.x || distance < reach && ch.x > b.x;
       input.right = distance > reach + 35 && ch.x > b.x || distance < reach && ch.x < b.x;
       if (aggressive && distance < 200 && b.dashCooldown <= 0 && ((b.x < 90 && ch.x > b.x) || (b.x > 870 && ch.x < b.x))) {
@@ -51,8 +56,8 @@ export function makeBot(profile: BotProfile, seed = 1): BossBot {
     let move: BossMove | null = null;
     if (spam) move = sim.canUse(spam) ? spam : null;
     else if (sim.canUse("nova")) move = "nova";
+    else if (distance < (b.phase === 2 ? 310 : 190) && sim.canUse("cleave")) move = "cleave";
     else if (sim.canUse("reap")) move = "reap";
-    else if (distance < MOVE_GEOMETRY.cleaveReach + ARENA.bossHalfWidth && sim.canUse("cleave")) move = "cleave";
     else if (sim.canUse("throw")) move = "throw";
     else if (sim.canUse("reap")) move = "reap";
     if (move) {

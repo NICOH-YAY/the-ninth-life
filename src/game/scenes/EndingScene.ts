@@ -21,6 +21,10 @@ export class EndingScene extends Phaser.Scene {
   private visitorState!: ActorState;
   private dialogue!: PortraitDialogue;
   private effects!: SpriteEffects;
+  private heartBlade: Phaser.GameObjects.Container | null = null;
+  private impaled = false;
+  private finaleStage = "words";
+  private readonly heartPosition = { x: 728, y: FLOOR - 83 };
   private epoch = 0;
   private ready = false;
   private exiting = false;
@@ -35,7 +39,8 @@ export class EndingScene extends Phaser.Scene {
     this.session = data.session;
     this.ending = data.ending ?? data.session.state.ending;
     this.life = data.life ?? "patchwork";
-    this.ready = false; this.exiting = false; this.ruined = false;
+    this.ready = false; this.exiting = false; this.ruined = false; this.impaled = false; this.heartBlade = null; this.finaleStage = "words";
+    this.heartPosition.x = 728; this.heartPosition.y = FLOOR - 83;
   }
   create(): void {
     const epoch = ++this.epoch;
@@ -99,56 +104,79 @@ export class EndingScene extends Phaser.Scene {
     this.input.on("pointerdown", this.returnClick);
   }
   private async kingDies(epoch: number): Promise<void> {
+    // A single committed thrust is held through the heart until the final decree releases.
+    this.finaleStage = "approach";
     this.visitorState.motion = "run";
-    this.tweens.add({ targets: this.visitorState, x: 663, duration: 650, ease: "Cubic.In" });
-    await this.pause(650);
+    this.tweens.add({ targets: this.visitorState, x: 620, duration: 540, ease: "Cubic.In" });
+    await this.pause(540);
     if (!this.alive(epoch)) return;
-    this.visitorState.motion = "cleave"; this.visitorState.fixed = 1;
-    getAudio().swing();
-    this.effects.spawn(0, 704, FLOOR - 75, 170, 380, 1, 0xf4ad9f);
-    await this.pause(180);
+    this.visitorState.motion = "throw"; this.visitorState.fixed = 1;
+    await this.pause(320);
     if (!this.alive(epoch)) return;
-    this.visitorState.fixed = 4;
-    this.bloodAt(732, FLOOR - 85);
-    this.kingState.motion = "reap"; this.kingState.fixed = 1;
-    this.king.setTint(0xffb1b5);
-    this.tweens.add({ targets: this.kingState, x: 758, feet: FLOOR + 10, angle: 12, duration: 230, ease: "Cubic.Out" });
-    this.dropCrown();
-    this.cameras.main.shake(180, 0.005);
-    await this.pause(460);
-    if (!this.alive(epoch)) return;
-    this.king.clearTint();
-    this.visitorState.motion = "throw"; this.visitorState.fixed = 2;
-    getAudio().swing();
-    this.effects.spawn(0, 744, FLOOR - 64, 200, 360, 1, 0xf6dcc2).setAngle(-20);
+    this.finaleStage = "heart-thrust";
+    this.visitorState.fixed = 2; getAudio().swing();
+    this.makeHeartBlade();
+    this.tweens.add({ targets: this.heartBlade, scaleX: 1, duration: 160, ease: "Cubic.In" });
+    this.tweens.add({ targets: this.visitorState, x: 688, feet: FLOOR - 34, duration: 160, ease: "Cubic.In" });
     await this.pause(160);
     if (!this.alive(epoch)) return;
-    this.visitorState.fixed = 5;
-    this.bloodAt(755, FLOOR - 65);
-    this.cameras.main.shake(220, 0.007);
-    this.tweens.add({ targets: this.kingState, x: 786, feet: FLOOR + 18, angle: 28, duration: 300 });
-    await this.pause(500);
+    this.finaleStage = "heart-held";
+    this.impaled = true; this.visitorState.fixed = 3;
+    this.kingState.motion = "idle"; this.kingState.fixed = 0;
+    this.king.setTint(0xffd1ce);
+    getAudio().stab();
+    this.bloodAt(this.kingState.x - 15, this.heartPosition.y + 1, false);
+    this.effects.burst(this.kingState.x + 19, this.heartPosition.y - 2, true);
+    this.tweens.add({ targets: this.kingState, x: 757, height: 143, duration: 220, ease: "Cubic.Out" });
+    this.tweens.add({ targets: this.visitorState, feet: FLOOR - 30, duration: 240, ease: "Sine.In" });
+    this.dropCrown(); this.cameras.main.shake(220, 0.008);
+    await this.pause(800);
     if (!this.alive(epoch)) return;
-    this.visitorState.motion = "idle"; this.visitorState.fixed = null;
-    await this.dialogue.play([{ speaker: "The Immortal", text: "The crown takes everything. Even now.", portrait: "immortal-base" }], 2400);
+    this.king.clearTint();
+    await this.dialogue.play([
+      { speaker: "#? // ??", text: "I will hold it here. You will not close this wound.", portrait: this.life, cue: "ending." + this.life + ".heart-held" },
+      { speaker: "The Immortal", text: "Then hold. Let the kingdom hear my last decree.", portrait: "immortal-base", cue: "ending.king.last-decree" },
+    ], 2200);
     if (!this.alive(epoch)) return;
+    this.finaleStage = "decree";
     this.kingState.motion = "nova"; this.kingState.fixed = null;
-    this.king.setTint(0xdab7ff);
+    this.king.setTint(0xf4d4ff);
     getAudio().tell("nova", 1);
-    this.effects.spawn(3, 776, FLOOR - 78, 230, 1000, 1, 0xd3afff);
-    this.effects.spawn(5, 776, FLOOR - 78, 130, 850, 1, 0xffedb2);
-    await this.pause(850);
+    this.effects.spawn(3, this.heartPosition.x, this.heartPosition.y, 250, 1500, 1, 0xe2b7ff);
+    this.effects.spawn(5, this.heartPosition.x, this.heartPosition.y, 145, 1350, 1, 0xffe8a4);
+    this.cameras.main.shake(1450, 0.003);
+    // The challenger never withdraws the sword or walks away.
+    await this.pause(1450);
     if (!this.alive(epoch)) return;
+    this.finaleStage = "explosion";
     this.lastNova();
     await this.pause(850);
     if (!this.alive(epoch)) return;
-    // The white blast masks the destruction cut; no living character walks out of the hall.
+    this.finaleStage = "ruins";
+    this.impaled = false; this.heartBlade?.setVisible(false);
     this.kingState.alpha = 0; this.visitorState.alpha = 0;
     this.showRuins();
     this.cameras.main.flash(1100, 255, 246, 218, true);
     await this.pause(2400);
   }
+  private makeHeartBlade(): void {
+    const blade = this.add.graphics();
+    // Pixel-edged light sword, visibly passing through the body rather than a crescent slash.
+    blade.fillStyle(0x9f6fd4, 0.24).fillRect(-4, -9, 160, 18);
+    blade.fillStyle(0xe9b95e, 0.9).fillRect(3, -5, 145, 10);
+    blade.fillStyle(0xffe9ae, 1).fillRect(4, -3, 146, 6);
+    blade.fillStyle(0xffffff, 1).fillRect(6, -1, 148, 2);
+    blade.fillTriangle(150, -3, 164, 0, 150, 3);
+    blade.fillStyle(0xf9d17e).fillRect(-2, -13, 5, 26).fillRect(-19, -3, 19, 6);
+    blade.fillStyle(0x665080).fillRect(-20, -2, 15, 4);
+    this.heartBlade = this.add.container(this.visitorState.x - 4, this.heartPosition.y + 7, [blade]).setName("heart-piercing-light-sword").setRotation(-0.10).setScale(0.25, 1).setDepth(11);
+    if (this.textures.exists("gothic-vfx")) {
+      const aura = this.add.image(79, 0, "gothic-vfx", 42).setDisplaySize(180, 96).setAlpha(0.55);
+      this.heartBlade.addAt(aura, 0);
+    }
+  }
   private async kingSurvives(epoch: number): Promise<void> {
+    this.finaleStage = "victory-kill";
     this.kingState.motion = "cleave"; this.kingState.fixed = 1;
     getAudio().tell("cleave", 1);
     await this.pause(420);
@@ -176,8 +204,8 @@ export class EndingScene extends Phaser.Scene {
     this.add.rectangle(480, 270, 960, 540, 0x030813, 0.2).setDepth(17);
     await this.pause(750);
   }
-  private bloodAt(x: number, y: number): void {
-    getAudio().hit(true);
+  private bloodAt(x: number, y: number, sound = true): void {
+    if (sound) getAudio().hit(true);
     this.effects.burst(x, y, true);
     this.effects.burst(x + 9, y + 18, true);
     const blood = this.add.graphics().setDepth(3);
@@ -191,15 +219,15 @@ export class EndingScene extends Phaser.Scene {
     getAudio().boom(1);
     this.cameras.main.shake(1200, 0.018);
     this.cameras.main.flash(250, 244, 218, 255, true);
-    this.effects.spawn(3, 776, FLOOR - 75, 720, 1150, 1, 0xf3d9ff);
-    const blast = this.add.graphics().setPosition(776, FLOOR - 75).setDepth(18);
+    this.effects.spawn(3, this.heartPosition.x, this.heartPosition.y, 720, 1150, 1, 0xf3d9ff);
+    const blast = this.add.graphics().setPosition(this.heartPosition.x, this.heartPosition.y).setDepth(18);
     blast.lineStyle(8, 0xddb6ff, 1).strokeCircle(0, 0, 26);
     blast.lineStyle(3, 0xffe9ac, 1).strokeCircle(0, 0, 19);
     this.tweens.add({ targets: blast, scaleX: 45, scaleY: 45, alpha: 0, duration: 1350, ease: "Cubic.Out", onComplete: () => blast.destroy() });
     for (let i = 0; i < 28; i++) {
-      const debris = this.add.rectangle(776, FLOOR - 75, 6 + i % 4 * 3, 3 + i % 3 * 3, i % 3 ? 0xb0a6bd : 0xf6dfab).setDepth(19);
+      const debris = this.add.rectangle(this.heartPosition.x, this.heartPosition.y, 6 + i % 4 * 3, 3 + i % 3 * 3, i % 3 ? 0xb0a6bd : 0xf6dfab).setDepth(19);
       const angle = i * 2.39996;
-      this.tweens.add({ targets: debris, x: 776 + Math.cos(angle) * (400 + i * 18), y: FLOOR - 75 + Math.sin(angle) * (240 + i * 11), angle: i * 51, alpha: 0, duration: 900 + i % 5 * 100, onComplete: () => debris.destroy() });
+      this.tweens.add({ targets: debris, x: this.heartPosition.x + Math.cos(angle) * (400 + i * 18), y: this.heartPosition.y + Math.sin(angle) * (240 + i * 11), angle: i * 51, alpha: 0, duration: 900 + i % 5 * 100, onComplete: () => debris.destroy() });
     }
   }
   private showRuins(): void {
@@ -294,7 +322,7 @@ export class EndingScene extends Phaser.Scene {
       const resolve = this.wait.resolve; this.wait = null; resolve();
     }
     this.tweens.killAll();
-    this.dialogue?.dispose(); this.effects?.clear();
+    this.dialogue?.dispose(); this.effects?.clear(); this.heartBlade?.destroy(true); this.heartBlade = null;
     if (this.returnKey) this.input.keyboard?.off("keydown", this.returnKey);
     if (this.returnClick) this.input.off("pointerdown", this.returnClick);
     this.returnKey = null; this.returnClick = null; this.ready = false;
@@ -302,11 +330,26 @@ export class EndingScene extends Phaser.Scene {
   override update(time: number, delta: number): void {
     if (!this.kingState || !this.visitorState) return;
     const frame = Math.floor(time / 140) % 6;
-    poseActor(this, this.king, "player", this.kingState.motion, this.kingState.fixed ?? frame, this.kingState.x, this.kingState.feet, this.kingState.facing, this.kingState.height);
+    poseActor(this, this.king, "player", this.impaled ? "idle" : this.kingState.motion, this.impaled ? 0 : this.kingState.fixed ?? frame, this.kingState.x, this.kingState.feet, this.kingState.facing, this.kingState.height);
     poseActor(this, this.visitor, this.life, this.visitorState.motion, this.visitorState.fixed ?? frame, this.visitorState.x, this.visitorState.feet, this.visitorState.facing, this.visitorState.height);
     this.king.setAlpha(this.kingState.alpha).setAngle(this.kingState.angle);
     this.visitor.setAlpha(this.visitorState.alpha).setAngle(this.visitorState.angle);
     if (this.visitorState.angle < -70 && this.visitorState.feet >= FLOOR - 1) this.groundCorpse(this.visitor);
+    if (this.heartBlade && !this.ruined) {
+      // The new king's heart lies 83px above the feet in the upright 143px pose.
+      // The visitor remains suspended from the committed blade after a deliberate leap.
+      this.heartPosition.x = this.kingState.x - 2;
+      this.heartPosition.y = this.kingState.feet - 83;
+      const gripX = this.visitorState.x - 4;
+      const gripY = this.heartPosition.y + Math.tan(0.10) * (this.heartPosition.x - gripX);
+      this.heartBlade.setPosition(Math.round(gripX), Math.round(gripY));
+      if (this.impaled) {
+        const pulse = 0.88 + Math.sin(time / 95) * 0.12;
+        this.heartBlade.setAlpha(pulse);
+        const aura = this.heartBlade.list[0];
+        if (aura instanceof Phaser.GameObjects.Image) aura.setFrame(42 + Math.floor(time / 100) % 6);
+      }
+    }
     reflectActor(this.king, this.kingReflection); reflectActor(this.visitor, this.visitorReflection);
     if (this.ruined) { this.kingReflection.setAlpha(0); this.visitorReflection.setAlpha(0); }
     this.effects.update(Math.min(delta / 1000, 0.1));

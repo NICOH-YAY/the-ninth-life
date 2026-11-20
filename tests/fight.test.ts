@@ -54,25 +54,21 @@ describe("counters", () => {
 });
 
 describe("hesitation", () => {
-  it("never starts during a boss tell or active frames", () => {
-    let seen = 0;
-    for (let seed = 1; seed <= 12; seed++) {
-      const sim = makeSim("acrobat", { seed, fightIndex: 7, tier: 3, bond: 8 });
-      const bot = makeBot("average", seed);
-      let prev = sim.ch.state;
-      while (!sim.outcome && sim.tick < 60 * 200) {
-        sim.step(bot(sim));
-        if (sim.ch.state === "hesitate" && prev !== "hesitate") {
-          seen++;
-          expect(sim.boss.move?.stage === "tell" || sim.boss.move?.stage === "active").toBe(false);
-        }
-        prev = sim.ch.state;
-      }
-      for (const e of sim.events) if (e.type === "hesitate") expect(["idle", "recover"]).toContain(e.bossStage);
+  it("never starts during a boss tell or active frames, but remains possible in recovery", () => {
+    const sim = makeSim("acrobat", { seed: 7, fightIndex: 7, tier: 3, bond: 8 });
+    sim.ch.state = "wait"; sim.ch.abilityT = 100;
+    sim.step({ ...NO_INPUT, cleave: true });
+    const hesitate = () => (sim as unknown as { maybeHesitate(t: number): boolean }).maybeHesitate(sim.time);
+    for (const stage of ["tell", "active"] as const) {
+      sim.boss.move!.stage = stage;
+      for (let i = 0; i < 40; i++) expect(hesitate()).toBe(false);
     }
-    expect(seen).toBeGreaterThan(0);
+    sim.boss.move!.stage = "recover";
+    let seen = false;
+    for (let i = 0; i < 80; i++) seen = hesitate() || seen;
+    expect(seen).toBe(true);
+    for (const e of sim.events) if (e.type === "hesitate") expect(e.bossStage).toBe("recover");
   });
-
   it("does not happen in tier 1", () => {
     const sim = makeSim("alley", { fightIndex: 2, tier: 1, bond: 8 });
     runFight(sim, makeBot("average", 3));

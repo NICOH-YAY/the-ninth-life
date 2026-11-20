@@ -20,7 +20,8 @@ import {
   type MoveSpec,
 } from "./config";
 import { Rng } from "./rng";
-import { ENEMY_ABILITIES, enemyShots } from "./enemy-patterns";
+import { ENEMY_ABILITIES, ENEMY_MELEE, enemyShots } from "./enemy-patterns";
+import { KING_KIT } from "./king-kit";
 import { ROYAL_GRAVITY } from "./royal-gravity";
 import { ROSTER, SKILL_FOR_MOVE } from "./roster";
 import type {
@@ -50,6 +51,7 @@ export interface FightSetup {
 }
 
 export interface ActiveMove {
+  combo: number;
   id: BossMove;
   phase: Phase;
   stage: MoveStage;
@@ -64,6 +66,7 @@ export interface ActiveMove {
 }
 
 export interface Projectile {
+  homing?: boolean;
   kind: "glaive" | "wisp" | "blade" | "enemy-wave" | "enemy-orb";
   move: BossMove;
   x: number;
@@ -100,6 +103,7 @@ export type ChState =
   | "dead";
 
 export interface BossState {
+  comboStep: number; comboUntil: number;
   y: number; vy: number; vx: number; facing: -1 | 1; grounded: boolean;
   dashT: number; dashCooldown: number; invulnT: number; coyoteT: number; jumpBufferT: number;
   guardEnergy: number; guarding: boolean; knockVx: number;
@@ -191,6 +195,7 @@ export class FightSim {
       phase2Triggered: false,
       transitionT: 0,
       move: null,
+      comboStep: 0, comboUntil: -1,
       cooldowns: { cleave: 0, throw: 0, reap: 0, nova: 0 },
       novaCharge: 0,
       buffered: null,
@@ -397,8 +402,14 @@ export class FightSim {
     const spec = this.moveSpec(id, b.phase);
     if (id !== "nova") b.cooldowns[id] = spec.cooldownS;
     const ch = this.ch;
-    const pillars = id === "nova" && b.phase === 2 ? [ch.x, ch.x - G.bellPillarSpacing, ch.x + G.bellPillarSpacing] : [];
-    b.move = { id, phase: b.phase, stage: "tell", t: 0, spec, direction: b.facing, targetX: ch.x, pillars, hitCh: false, waveHits: 0, spawned: 0 };
+    const pillars = id === "reap" && b.phase === 2
+      ? [ch.x, ch.x - KING_KIT.pillarSpacing, ch.x + KING_KIT.pillarSpacing]
+      : id === "nova" && b.phase === 1 ? [b.x + b.facing * 90, b.x + b.facing * 250, b.x + b.facing * 410] : [];
+    if (id === "cleave" && b.phase === 1) {
+      b.comboStep = t <= b.comboUntil ? (b.comboStep + 1) % 3 : 0;
+      b.comboUntil = t + KING_KIT.comboWindow;
+    }
+    b.move = { id, combo: b.comboStep, phase: b.phase, stage: "tell", t: 0, spec, direction: b.facing, targetX: ch.x, pillars, hitCh: false, waveHits: 0, spawned: 0 };
     if (id === "nova") b.novaCharge = 0;
     this.log({ t, type: "boss_move", move: id, phase: b.phase });
     this.challengerSeesTell(id, spec.tellS, t);
@@ -429,62 +440,70 @@ export class FightSim {
 
   private onActiveStart(m: ActiveMove): void {
     const b = this.boss;
-    if (m.id === "cleave" && m.phase === 1) b.x = Math.max(48, Math.min(912, b.x + m.direction * 14));
-    if (m.id === "throw" && m.phase === 1) {
-      this.projectiles.push({ kind: "glaive", move: "throw", x: this.bossFront, y: b.y + 44,
-        vx: m.direction * G.throwSpeed, vy: 0, ttl: 4, traveled: 0, returning: false, canHit: true, damage: m.spec.damage, dead: false });
-    }
+    let step = 0;
+    if (m.id === "cleave" && m.phase === 1) step = 14 + m.combo * 8;
+    if (m.id === "throw" && m.phase === 1) step = Math.min(KING_KIT.lungeDistance, Math.max(0, Math.abs(this.ch.x - b.x) - 80));
+    if (m.id === "cleave" && m.phase === 2) step = Math.min(KING_KIT.clawPounce, Math.max(0, Math.abs(m.targetX - b.x) - 90));
+    b.x = Math.max(ARENA.bossMinX, Math.min(ARENA.bossMaxX, b.x + m.direction * step));
   }
-
   chCenterY(): number {
     return this.ch.y + 26;
   }
 
   private activeHits(m: ActiveMove, t: number): void {
-    const ch = this.ch;
+    const ch = this.ch, b = this.boss;
     if (ch.state === "dead" || this.outcome) return;
-    const front = this.bossFront;
-    switch (m.id) {
-      case "cleave": {
-        if (m.hitCh) return;
-        const inZone =
-          m.phase === 1
-            ? (ch.x - this.boss.x) * m.direction > -20 && Math.abs(ch.x - this.boss.x) < G.cleaveReach && Math.abs(ch.y - this.boss.y) < G.cleaveHeight
-            : Math.abs(ch.x - m.targetX) <= G.riftRadius && ch.y < G.cleaveHeight;
-        if (inZone) this.hitChallenger(m, m.spec.damage, t);
-        return;
-      }
-      case "throw": {
-        if (m.phase === 2) {
-          while (m.spawned < G.wispCount && m.t >= m.spawned * G.wispIntervalS) {
-            const sy = 110 + (m.spawned % 2) * 40;
-            const dx = ch.x - front;
-            const dy = this.chCenterY() - sy;
-            const len = Math.hypot(dx, dy) || 1;
-            this.projectiles.push({
-              kind: "wisp",
-              move: "throw",
-              x: front,
-              y: sy,
-              vx: (dx / len) * G.wispSpeed,
-              vy: (dy / len) * G.wispSpeed,
-              ttl: G.wispTtlS,
-              traveled: 0,
-              returning: false,
-              canHit: true,
-              damage: m.spec.damage,
-              dead: false,
-            });
-            m.spawned++;
+    if (m.id === "cleave") {
+      if (m.phase === 1) {
+        if (!m.hitCh && (ch.x - b.x) * m.direction > -20
+          && Math.abs(ch.x - b.x) < KING_KIT.comboReach[m.combo]!
+          && Math.abs(ch.y - b.y) < KING_KIT.comboHeight[m.combo]!) {
+          this.hitChallenger(m, m.spec.damage * (m.combo === 2 ? 1.15 : 1), t);
+          if (ch.hp > 0 && m.combo === 1) ch.vy = Math.max(ch.vy, 300);
+        }
+      } else {
+        while (m.spawned < 2 && m.t >= m.spawned * KING_KIT.clawStepS) {
+          m.spawned++;
+          if (Math.abs(ch.x - m.targetX) <= KING_KIT.clawRadius && Math.abs(ch.y - b.y) < 155) {
+            this.hitChallenger(m, m.spec.damage * 0.65, t);
+            m.waveHits++;
           }
         }
-        return;
       }
-      case "reap": {
+      return;
+    }
+    if (m.id === "throw") {
+      if (m.phase === 1) {
+        if (m.hitCh || (ch.x - b.x) * m.direction < -20 || Math.abs(ch.x - b.x) > KING_KIT.thrustReach || Math.abs(ch.y - b.y) > KING_KIT.thrustHeight) return;
+        m.hitCh = true;
+        if (ch.blockT > 0) { this.log({ t, type: "evade", move: "throw", how: "umbrella" }); return; }
+        this.hitChallenger(m, m.spec.damage, t);
+      } else {
+        while (m.spawned < KING_KIT.fangCount && m.t >= m.spawned * KING_KIT.fangStepS) {
+          const originY = b.y + 96, spread = (m.spawned - 2) * 0.15;
+          const angle = Math.atan2(this.chCenterY() - originY, ch.x - b.x) + spread;
+          this.projectiles.push({ kind: "wisp", move: "throw", homing: false, x: b.x + m.direction * 45, y: originY,
+            vx: Math.cos(angle) * KING_KIT.fangSpeed, vy: Math.sin(angle) * KING_KIT.fangSpeed,
+            ttl: 2.8, radius: 13, traveled: 0, returning: false, canHit: true, damage: m.spec.damage, dead: false });
+          m.spawned++;
+        }
+      }
+      return;
+    }
+    if (m.id === "reap") {
+      if (m.phase === 2) {
+        while (m.spawned < m.pillars.length && m.t >= m.spawned * KING_KIT.pillarStepS) {
+          const x = m.pillars[m.spawned++]!;
+          if (Math.abs(ch.x - x) > KING_KIT.pillarRadius || ch.y > KING_KIT.pillarHeight) continue;
+          const hp = ch.hp;
+          this.hitChallenger(m, m.spec.damage, t);
+          if (ch.hp < hp && ch.hp > 0) { ch.vy = 360; ch.y = Math.max(1, ch.y); ch.knockVx = Math.sign(ch.x - b.x || 1) * 220; }
+          m.waveHits++;
+        }
+      } else {
         if (m.spawned > 0) return;
         m.spawned = 1;
-        const seal = ROYAL_GRAVITY[m.phase];
-        // Snapshot at input: leaving its horizontal radius or rising above the seal avoids it.
+        const seal = ROYAL_GRAVITY[1];
         if (Math.abs(ch.x - m.targetX) > seal.radius || ch.y >= seal.height) return;
         const before = ch.hp;
         this.hitChallenger(m, m.spec.damage, t);
@@ -493,20 +512,21 @@ export class FightSim {
           ch.kneelT = seal.kneelS; ch.state = "hitstun"; ch.stateT = seal.kneelS;
           ch.staggerResistT = 0; ch.pending = null;
         }
-        return;
       }
-      case "nova": {
-        if (m.hitCh) return;
-        let dmg = m.spec.damage;
-        if (m.phase === 2 && m.pillars.some((px) => Math.abs(ch.x - px) <= G.bellPillarHalfWidth)) {
-          dmg += G.bellPillarDamage * this.cfg.phase2.PHASE2_DAMAGE_MULT;
+      return;
+    }
+    if (m.phase === 1) {
+      while (m.spawned < m.pillars.length && m.t >= m.spawned * KING_KIT.processionStepS) {
+        const x = m.pillars[m.spawned++]!;
+        if (Math.abs(ch.x - x) <= KING_KIT.processionRadius && ch.y < 130) {
+          this.hitChallenger(m, m.spec.damage, t); m.waveHits++;
         }
-        this.hitChallenger(m, dmg, t);
-        return;
       }
+    } else if (!m.hitCh) {
+      const radius = KING_KIT.eclipseRadius * Math.min(1, m.t / m.spec.activeS);
+      if (Math.abs(Math.abs(ch.x - b.x) - radius) <= KING_KIT.eclipseBand && ch.y < KING_KIT.eclipseHeight) this.hitChallenger(m, m.spec.damage, t);
     }
   }
-
   /** At the end of the active frames: did a skill carry the challenger through the move? */
   private onMoveResolved(m: ActiveMove, t: number): void {
     const ch = this.ch;
@@ -523,7 +543,7 @@ export class FightSim {
     for (const p of this.projectiles) {
       if (p.dead) continue;
       p.ttl -= DT;
-      if (p.kind === "wisp") {
+      if (p.kind === "wisp" && p.homing !== false) {
         const dx = ch.x - p.x, dy = this.chCenterY() - p.y, len = Math.hypot(dx, dy) || 1;
         p.vx += dx / len * G.wispSpeed * G.wispTurn * DT;
         p.vy += dy / len * G.wispSpeed * G.wispTurn * DT;
@@ -799,11 +819,19 @@ export class FightSim {
   private strikeBoss(t: number): void {
     const ch = this.ch;
     ch.attackFlashT = 0.18; ch.attackSerial++;
+    const weapon = ENEMY_MELEE[ch.life];
     const dx = Math.abs(ch.x - this.boss.x);
-    if (dx > ARENA.bossHalfWidth + CHALLENGER.reach + 12 || Math.abs(ch.y - this.boss.y) > 65) return;
+    if (dx > ARENA.bossHalfWidth + weapon.reach + 12 || Math.abs(ch.y - this.boss.y) > weapon.height) return;
     const damage = this.setup.stats.damage * (ch.punishReady ? CHALLENGER.punishDamageMult : 1);
     ch.punishReady = false;
+    const hp = this.boss.hp, guarded = this.boss.guarding;
     this.damageBoss(damage, t);
+    if (this.boss.hp < hp && this.boss.transitionT <= 0 && !this.outcome) {
+      this.boss.knockVx = Math.sign(this.boss.x - ch.x || 1) * weapon.impulse * (guarded ? 0.25 : 1);
+      if (!guarded && weapon.lift > 0) { this.boss.vy = Math.max(this.boss.vy, weapon.lift); this.boss.grounded = false; }
+      if (guarded) this.boss.guardEnergy = Math.max(0, this.boss.guardEnergy - weapon.guardCost);
+      if (ch.life === "acrobat") { ch.vy = 300; ch.y = Math.max(1, ch.y); ch.knockVx = -Math.sign(this.boss.x - ch.x || 1) * 160; }
+    }
   }
 
   private damageBoss(damage: number, t: number, low = false): void {
@@ -938,11 +966,11 @@ export class FightSim {
           ch.state = "backoff";
           break;
         }
-        const side = ch.x < this.boss.x ? -1 : 1; const target = this.boss.x + side * (ARENA.bossHalfWidth + CHALLENGER.reach * 0.45);
+        const side = ch.x < this.boss.x ? -1 : 1; const target = this.boss.x + side * (ARENA.bossHalfWidth + ENEMY_MELEE[ch.life].reach * 0.45);
         const arrived = this.moveToward(target, ch.punishReady ? CHALLENGER.punishDashMult : CHALLENGER.attackDashMult);
-        if (arrived || Math.abs(ch.x - this.boss.x) <= ARENA.bossHalfWidth + CHALLENGER.reach) {
+        if (arrived || Math.abs(ch.x - this.boss.x) <= ARENA.bossHalfWidth + ENEMY_MELEE[ch.life].reach) {
           ch.windupT += DT;
-          if (ch.windupT >= CHALLENGER.attackWindupS) {
+          if (ch.windupT >= ENEMY_MELEE[ch.life].tellS) {
             this.strikeBoss(t);
             if (this.outcome) break;
             if (ch.state === "attack") ch.state = "backoff";

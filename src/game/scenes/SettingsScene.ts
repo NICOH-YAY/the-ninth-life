@@ -2,7 +2,7 @@
 import Phaser from "phaser";
 import { ACTIONS, keyLabel, loadBindings, rebind, resetBindings, type Action, type Bindings } from "../controls";
 
-const LABELS: Record<Action, string> = { left: "Move left", right: "Move right", jump: "Jump", dash: "Dash", cleave: "Royal Sentence", throw: "Crown Recall", reap: "Kneel", nova: "Last Decree", guard: "Guard", hold: "Lower guard / yield" };
+const LABELS: Record<Action, string> = { left: "Move left", right: "Move right", jump: "Jump", dash: "Dash", cleave: "Crownsteel / Rend", throw: "Oathpiercer / Choir", reap: "Kneel / Grave Hands", nova: "Procession / Eclipse", guard: "Guard", hold: "Lower guard / yield" };
 export class SettingsScene extends Phaser.Scene {
   private bindings!: Bindings;
   private capturing: Action | null = null;

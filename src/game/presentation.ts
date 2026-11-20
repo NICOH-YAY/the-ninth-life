@@ -4,8 +4,8 @@ import type { LifeId } from "../core/types";
 
 export const FLOOR = 464;
 export const LIFE_ORDER: LifeId[] = ["kitten", "alley", "sailor", "acrobat", "witch", "knight", "thief", "quiet", "patchwork"];
-export type Motion = "idle" | "run" | "jump" | "dash" | "cleave" | "throw" | "reap" | "nova";
-const ROW: Record<Motion, number> = { idle: 0, run: 1, jump: 2, dash: 3, cleave: 4, throw: 5, reap: 6, nova: 7 };
+export type Motion = "idle" | "run" | "jump" | "dash" | "cleave" | "throw" | "reap" | "nova" | "hurt";
+const ROW: Record<Motion, number> = { idle: 0, run: 1, jump: 2, dash: 3, cleave: 4, throw: 5, reap: 6, nova: 7, hurt: 2 };
 const bodyCache = new WeakMap<Phaser.Scene, Map<string, number>>();
 
 function bodyHeight(scene: Phaser.Scene, key: string, frame: number, foot: number): number {
@@ -36,6 +36,11 @@ export function poseActor(scene: Phaser.Scene, image: Phaser.GameObjects.Image, 
   frame = Math.max(0, Math.min(5, frame | 0));
   const boss = who === "player" || who === "ascended" || who === "previous" || who === "rest";
   if (boss) {
+    const modern = who === "player" || who === "rest" ? "gothic-base" : who === "ascended" ? "gothic-monster" : "";
+    if (modern && scene.textures.exists(modern)) {
+      image.setTexture(modern, (who === "rest" && motion === "idle" ? 6 : ROW[motion]) * 6 + (who === "rest" && motion === "idle" ? 2 + (frame >> 2) : frame)).setOrigin(0.5, 154 / 192).setPosition(Math.round(x), Math.round(feetY)).setFlipX(facing > 0).setScale(targetHeight / bodyHeight(scene, modern, 0, 154)).setRotation(0);
+      return;
+    }
     const key = who === "rest" ? "combat-rest" : who === "previous" ? "combat-previous" : who === "ascended" ? "combat-ascended" : "combat-player";
     if (scene.textures.exists(key)) {
       const row = who === "previous" ? motion === "idle" || motion === "run" ? 0 : motion === "cleave" ? 1 : motion === "dash" ? 3 : 2 : who === "rest" ? motion === "idle" ? 0 : 1 : ROW[motion];
@@ -46,14 +51,25 @@ export function poseActor(scene: Phaser.Scene, image: Phaser.GameObjects.Image, 
     image.setTexture(who === "ascended" ? "immortal-ascended" : "immortal-base");
   } else {
     const row = LIFE_ORDER.indexOf(who);
+    if ((motion === "idle" || motion === "hurt") && scene.textures.exists("gothic-visitors")) {
+      const pose = motion === "idle" ? frame % 3 : 3 + frame % 3;
+      image.setTexture("gothic-visitors", row * 6 + pose).setOrigin(0.5, 110 / 144).setPosition(Math.round(x), Math.round(feetY)).setFlipX(facing < 0)
+        .setScale(targetHeight / bodyHeight(scene, "royal-visitor-walk", row * 6, 110)).setRotation(0);
+      return;
+    }
     const walk = motion === "idle" || motion === "run";
     const royalKey = walk ? "royal-visitor-walk" : "royal-visitor-combat";
     if (scene.textures.exists(royalKey)) {
-      const pose = walk && motion === "idle" ? 0 : frame;
+      const pose = walk && motion === "idle" ? Math.floor(frame / 3) : motion === "hurt" ? 5 : frame;
       const base = scene.textures.exists("royal-visitor-walk") ? "royal-visitor-walk" : royalKey;
       image.setTexture(royalKey, row * 6 + pose).setOrigin(0.5, 110 / 144)
         .setPosition(Math.round(x), Math.round(feetY)).setFlipX(facing < 0)
         .setScale(targetHeight / bodyHeight(scene, base, row * 6, 110)).setRotation(0);
+      if (motion === "idle") image.setAngle(Math.sin(frame / 6 * Math.PI * 2) * 1.1);
+      if (motion === "hurt") {
+        image.setAngle(-facing * 13);
+        image.setScale(image.scaleX * 1.06, image.scaleY * 0.85);
+      }
       return;
     }
     if (motion !== "idle" && motion !== "run" && scene.textures.exists("combat-enemy")) {
@@ -99,6 +115,27 @@ export class SpriteEffects {
     if (life === "kitten") image.setTint(0xe1c594).setDisplaySize(70, 70);
     this.active.push({image, row, start: this.scene.time.now, duration: 340, vx: direction * 90, vy: 0, alpha: 1});
   }
+  skill(move: "cleave" | "throw" | "reap" | "nova", phase: number, x: number, y: number, width = 180, direction = 1): Phaser.GameObjects.Image {
+    if (!this.scene.textures.exists("gothic-vfx")) return this.spawn(move === "cleave" ? 0 : move === "throw" ? 1 : move === "reap" ? 2 : 3, x, y, width, 420, direction);
+    const row = phase === 2 ? move === "reap" ? 6 : 5 : move === "throw" ? 1 : move === "reap" ? 2 : 0;
+    const image = this.scene.add.image(x, y, "gothic-vfx", row * 6).setDepth(16).setDisplaySize(width, width).setFlipX(row === 1 ? direction > 0 : direction < 0);
+    if (phase === 2) image.setTint(0xf6baff);
+    this.active.push({image, row, start:this.scene.time.now, duration:move === "reap" ? 430 : 300, vx:move === "nova" && phase === 1 ? direction * 190 : 0, vy:0, alpha:1});
+    return image;
+  }
+  dash(actor: Phaser.GameObjects.Image, tint: number, direction: number): void {
+    this.trail(actor, tint);
+    if (this.scene.textures.exists("gothic-vfx")) {
+      const image = this.scene.add.image(actor.x, actor.y - 48, "gothic-vfx", 24).setTint(tint).setDepth(6).setDisplaySize(205, 100).setFlipX(direction < 0);
+      this.active.push({image,row:4,start:this.scene.time.now,duration:250,vx:-direction*120,vy:0,alpha:0.9});
+    }
+  }
+  trail(actor: Phaser.GameObjects.Image, tint: number): void {
+    const image = this.scene.add.image(actor.x, actor.y, actor.texture.key, actor.frame.name).setDepth(actor.depth - 1)
+      .setOrigin(actor.originX, actor.originY).setScale(actor.scaleX, actor.scaleY).setFlipX(actor.flipX)
+      .setRotation(actor.rotation).setTint(tint).setAlpha(0.55);
+    this.active.push({image, row:-1, start:this.scene.time.now, duration:230, vx:0, vy:0, alpha:0.55});
+  }
   burst(x: number, y: number, blood = false): void {
     if (blood && this.scene.textures.exists("royal-blood")) {
       const image = this.scene.add.image(x, y, "royal-blood", 0).setDepth(16).setDisplaySize(130, 130).setFlipX(x > 480);
@@ -108,12 +145,13 @@ export class SpriteEffects {
       return;
     }
     this.spawn(blood ? 4 : 5, x, y, blood ? 110 : 95, 260);
-  }  update(delta: number): void {
+  }
+  update(delta: number): void {
     const now = this.scene.time.now;
     this.active = this.active.filter(e => {
       const p = (now - e.start) / e.duration;
       if (p >= 1 || !e.image.active) { e.image.destroy(); return false; }
-      if (["combat-vfx", "royal-vfx", "royal-visitor-vfx", "royal-blood"].includes(e.image.texture.key)) e.image.setFrame(e.row * 6 + Math.min(5, Math.floor(p * 6)));
+      if (e.row >= 0 && ["gothic-vfx", "combat-vfx", "royal-vfx", "royal-visitor-vfx", "royal-blood"].includes(e.image.texture.key)) e.image.setFrame(e.row * 6 + Math.min(5, Math.floor(p * 6)));
       e.image.x += e.vx * delta; e.image.y += e.vy * delta;
       e.image.setAlpha(e.alpha * (p > 0.8 ? (1 - p) * 5 : 1));
       return true;

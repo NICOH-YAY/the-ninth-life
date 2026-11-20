@@ -1,0 +1,163 @@
+{
+  "aiUseDisclosure": "Higgsfield generated original actor/effect art. Codex selected and prepared fixed-grid pixel exports and composed existing human-drawn CC0 environments. Exact provider job IDs and source URLs retained; promptSummary fields summarize the submitted creative instructions.",
+  "date": "2026-11-20",
+  "billing": "User-authorized free unlimited allowance; no paid fallback.",
+  "assets": [
+    {
+      "id": "boss-monster",
+      "job_id": "0e006191-9604-4af2-87e2-18367eb2c625",
+      "at": "045457",
+      "rows": 8,
+      "cols": 6,
+      "frame": 192,
+      "foot": [
+        96,
+        154
+      ],
+      "promptSummary": "Six-column/eight-row transparent pixel atlas of an original upright monstrous immortal cat king: shattered floating gold crown halo, six phantom arms, cyan ribcage rune, magenta claws, ink-purple mantle/thorn roots. Face left, uniform grounded bipedal scale, hard SNES/GBA pixel clusters, 32-color export. Rows: idle, stalk/run, jump, feline-comet dash, spectral claw rake, shadow-lance thrust, crown/grave hand pillars, Last Decree burst.",
+      "status": "completed_selected",
+      "model": "gpt_image_2_6",
+      "use_unlim": true,
+      "source": "assets/gothic-v5/boss-monster.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_045457_0e006191-9604-4af2-87e2-18367eb2c625.png",
+      "runtime": "public/gothic-v5/boss-monster.png"
+    },
+    {
+      "id": "boss-base",
+      "job_id": "13cf3b8c-deb3-4980-be07-707400612d7c",
+      "at": "045603",
+      "rows": 8,
+      "cols": 6,
+      "frame": 192,
+      "foot": [
+        96,
+        154
+      ],
+      "promptSummary": "Six-column/eight-row transparent pixel atlas of tall lean upright black cat king, fractured gold crown, ivory eyes, crimson-purple embroidered mantle, blue-steel gauntlets/boots, ceremonial white-gold greatsword. Face left. Six consecutive unique animation poses per row: breathing/weight-shift idle, forward-lean run with planted footfalls and cloth lag, jump/landing, dash/skid, sweep/rise/thrust sword combo, long lunge thrust, sword stamp commanding Kneel, King's Procession spectral sword command.",
+      "status": "completed_selected",
+      "model": "gpt_image_2_6",
+      "use_unlim": true,
+      "source": "assets/gothic-v5/boss-base.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_045603_13cf3b8c-deb3-4980-be07-707400612d7c.png",
+      "runtime": "public/gothic-v5/boss-base.png"
+    },
+    {
+      "id": "coronation",
+      "job_id": "7de8c56b-d99f-4343-8853-15e3680a3cdc",
+      "at": "045713",
+      "rows": 2,
+      "cols": 6,
+      "frame": 192,
+      "foot": [
+        96,
+        154
+      ],
+      "requestedAspect": "3:1",
+      "actualAspect": "21:9",
+      "promptSummary": "Twelve consecutive full-body transparent pixel frames: orange tabby hero with red scarf kneels, grasps gold crown with both paws, lifts to chest, stands, examines at eye level, holds above head, places on head, freezes as light enters eyes, dark fur spreads, scarf becomes mantle, shadow arms unfurl, revealed crowned black immortal king stabilizes. Stable square-cell padding and foot scale. No environment or text. Crown physically held before transformation.",
+      "status": "completed_selected",
+      "model": "gpt_image_2_6",
+      "use_unlim": true,
+      "source": "assets/gothic-v5/coronation.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_045713_7de8c56b-d99f-4343-8853-15e3680a3cdc.png",
+      "runtime": "public/gothic-v5/coronation.png"
+    },
+    {
+      "id": "effects",
+      "job_id": "01cb2025-a4bd-4821-b527-78055b2ff8b7",
+      "at": "045807",
+      "rows": 8,
+      "cols": 6,
+      "frame": 128,
+      "foot": null,
+      "promptSummary": "Six-column/eight-row transparent hard-pixel VFX atlas with six temporal phases per row. Rows: 0 white-gold steel sword crescents and crimson sparks; 1 physical long straight Oathpiercer thrust points left; 2 gold/purple Kneel crown-pressure seal; 3 full symmetric segmented stained-glass blue/gold Aegis; 4 cyan/gold cat-king dash afterimages; 5 crossed magenta/cyan spectral monster claws; 6 clawed spectral Grave Hands emerging/grabbing/retracting; 7 physical straight ivory-gold heart-piercing sword points right, held and charged before breaking into light. No actors or backgrounds.",
+      "status": "completed_selected",
+      "model": "gpt_image_2_6",
+      "use_unlim": true,
+      "source": "assets/gothic-v5/effects.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_045807_01cb2025-a4bd-4821-b527-78055b2ff8b7.png",
+      "runtime": "public/gothic-v5/effects.png"
+    },
+    {
+      "id": "visitors-rejected-weapon-contamination",
+      "job_id": "ae28c6f4-41b3-48fa-ac3b-45cc2c381273",
+      "at": "050135",
+      "rows": 9,
+      "cols": 6,
+      "frame": 144,
+      "foot": [
+        72,
+        110
+      ],
+      "reference": "2c947798-d004-4c29-a68d-d29b3b65e4bc",
+      "promptSummary": "Nine-row/six-column visitor idle/hurt sheet referencing the prior combat roster; first three idle, last three flinch/recoil/recovery. Requested preserved unique accessories/weapons and shared fractured-crown pendants.",
+      "status": "rejected",
+      "reason": "Several hurt poses inherited an incoming hooked sickle or wrong hammer from other rows; original preserved for provenance, never loaded.",
+      "model": "gpt_image_2_6",
+      "use_unlim": true,
+      "source": "assets/gothic-v5/visitors-rejected-weapon-contamination.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_050135_ae28c6f4-41b3-48fa-ac3b-45cc2c381273.png",
+      "runtime": null
+    },
+    {
+      "id": "visitors",
+      "job_id": "37987577-6178-469a-95a9-f5fa338e86a0",
+      "at": "050704",
+      "rows": 9,
+      "cols": 6,
+      "frame": 144,
+      "foot": [
+        72,
+        110
+      ],
+      "reference": "54bff2e4-8f54-410d-8329-0994c75bec09",
+      "promptSummary": "Corrected nine-row/six-column transparent visitor atlas referencing the identity-consistent walk sheet. Columns 0-2 calm breathing/weight-shift/tail idle; columns 3-5 physical hurt jolt, buckling recoil, recovery. Invisible impact with no incoming weapon; weapons stowed or retained per identity. Rows: cream staff kitten; orange red-scarf hooked sickle; tuxedo ochre chain/censer warden; calico bell/jade chakrams; charcoal violet astral needle; brown blue-armored hammer/shield; silver emerald-hood mirror daggers; white frost spear/lantern; black-white patchwork broken royal sword. Shared broken-crown pendant. No effects/environment/text.",
+      "status": "completed_selected",
+      "model": "gpt_image_2_6",
+      "use_unlim": true,
+      "source": "assets/gothic-v5/visitors.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_050704_37987577-6178-469a-95a9-f5fa338e86a0.png",
+      "runtime": "public/gothic-v5/visitors.png"
+    }
+  ],
+  "environment": {
+    "artist": "Luis Zuno / Ansimuz",
+    "license": "CC0",
+    "originalPack": "https://ansimuz.itch.io/gothicvania-patreon-collection",
+    "licensePDF": "assets/gothic-v5/public-license.pdf",
+    "sourceManifest": "assets/gothic-v5/tile-sources.json",
+    "layout": "assets/gothic-v5/environment-layout.json",
+    "processing": "assets/gothic-v5/compose-environments.mjs",
+    "native": [
+      480,
+      270
+    ],
+    "display": [
+      960,
+      540
+    ],
+    "visibleFloor": [
+      232,
+      464
+    ],
+    "notes": [
+      "Actual fully opaque source floor contact begins at source(416,154); native floor contact at232, not a decorative line above empty tile padding.",
+      "Night/mid/late share the same architecture and physical floor; vines/cracks increase with age.",
+      "Menu and arenas use hand-drawn source artwork, not a quantized AI painting."
+    ],
+    "palette": "Night51/mid55/late55/dawn72 colors; menu1245 tones after text-area shading. Human-drawn source colors retained; no32-color environment claim."
+  },
+  "animationReference": {
+    "url": "https://ozzbit-games.itch.io/action-platformer-character-template",
+    "usage": "Public motion-design inspiration only: weight transfer, anticipation, cloth lag, hurt deformation. No Ozzbit files were copied or bundled; free/pro license distinction is respected."
+  },
+  "processing": "assets/gothic-v5/process-sprites.mjs",
+  "verification": {
+    "selectedFrames": 210,
+    "emptyFrames": 0,
+    "clippedOpaquePixels": 0,
+    "alpha": "Binary0/255 after sourcealpha threshold160",
+    "characterScale": "Uniform whole-cell source mapping128px for king/monster/coronation and96px for visitors; no per-frame bounding-box scaling.",
+    "visitorCleanup": "Disconnected neighboring edge flecks removed without changing body scale."
+  }
+}

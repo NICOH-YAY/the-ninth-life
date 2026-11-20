@@ -1,0 +1,169 @@
+{
+  "aiUseDisclosure": "Codex edited and layered creator-authored Foley sounds for synchronization inside this game; no raw asset-pack redistribution.",
+  "author": "Chequered Ink",
+  "page": "https://ci.itch.io/400-sounds-pack",
+  "creatorLinkedDownload": "https://www.dropbox.com/scl/fo/6y7hlsyisit2rb0bjepzh/AKOfmeyr1gS2wtKC-a34_U0?dl=1&rlkey=rjgot7j72sdcktk7q411xjwbo",
+  "license": "Any uses including commercial, with or without credit; unaltered assets must not be redistributed as own game assets.",
+  "rawPack": "Local-only ignored source files; excluded from Git/public distribution.",
+  "samples": [
+    {
+      "id": "sword-swing",
+      "sources": [
+        "Weapons/sword_slice.wav"
+      ],
+      "runtime": "public/audio-v5/sfx/sword-swing.mp3",
+      "sha256": "282e92121782e62a944c2569df2ec51d1af49858036df9b083923d41bc5e2535",
+      "processing": "Edited/trimmed, speed-adjusted 0.95x, optional material-layer mix, highpass65-70Hz, peak limiter.88, short tail fade, mono96kbps44.1kHzMP3.",
+      "bytes": 10388
+    },
+    {
+      "id": "sword-light",
+      "sources": [
+        "Weapons/sword_light.wav"
+      ],
+      "runtime": "public/audio-v5/sfx/sword-light.mp3",
+      "sha256": "fdc19ef7713e934e909c6ba09f33ffc0b0c34c3323050578391e30cfeb51f649",
+      "processing": "Edited/trimmed, speed-adjusted 0.85x, optional material-layer mix, highpass65-70Hz, peak limiter.88, short tail fade, mono96kbps44.1kHzMP3.",
+      "bytes": 5999
+    },
+    {
+      "id": "sword-draw",
+      "sources": [
+        "Weapons/sword_unsheath.wav"
+      ],
+      "runtime": "public/audio-v5/sfx/sword-draw.mp3",
+      "sha256": "1d1aa14421e510bc9b7174d699d06e30b553ddd25736d3f0bcf65b5741be6642",
+      "processing": "Edited/trimmed, speed-adjusted 0.7x, optional material-layer mix, highpass65-70Hz, peak limiter.88, short tail fade, mono96kbps44.1kHzMP3.",
+      "bytes": 12896
+    },
+    {
+      "id": "metal-guard",
+      "sources": [
+        "Weapons/sword_clash.wav",
+        "Materials/glass_ping_big.wav"
+      ],
+      "runtime": "public/audio-v5/sfx/metal-guard.mp3",
+      "sha256": "c96becca2c8f9f2f30be80a9edfba73f56e3709df03925d5a37a5fc731038d83",
+      "processing": "Edited/trimmed, speed-adjusted 0.9x, optional material-layer mix, highpass65-70Hz, peak limiter.88, short tail fade, mono96kbps44.1kHzMP3.",
+      "bytes": 16344
+    },
+    {
+      "id": "metal-hit",
+      "sources": [
+        "Weapons/sword_clash_2.wav"
+      ],
+      "runtime": "public/audio-v5/sfx/metal-hit.mp3",
+      "sha256": "7d910fab4955a4860478a0bc746ff069379a242f8ba2cb905cc8d2e1fc2c91d9",
+      "processing": "Edited/trimmed, speed-adjusted 0.75x, optional material-layer mix, highpass65-70Hz, peak limiter.88, short tail fade, mono96kbps44.1kHzMP3.",
+      "bytes": 5059
+    },
+    {
+      "id": "chain",
+      "sources": [
+        "Materials/metal_clang.wav",
+        "Other/whoosh_2.wav"
+      ],
+      "runtime": "public/audio-v5/sfx/chain.mp3",
+      "sha256": "b10937a8d53e666bc2378df176e5fab65bbaeba6e4f49876c7407e4628ac24ea",
+      "processing": "Edited/trimmed, speed-adjusted 0.75x, optional material-layer mix, highpass65-70Hz, peak limiter.88, short tail fade, mono96kbps44.1kHzMP3.",
+      "bytes": 13209
+    },
+    {
+      "id": "wood",
+      "sources": [
+        "Materials/wood_small_hollow.wav",
+        "Materials/wood_small_drop.wav"
+      ],
+      "runtime": "public/audio-v5/sfx/wood.mp3",
+      "sha256": "bcd1d55dc799f72fbcf941c17e19290369191928414ed4514411eb2e61866064",
+      "processing": "Edited/trimmed, speed-adjusted 0.9x, optional material-layer mix, highpass65-70Hz, peak limiter.88, short tail fade, mono96kbps44.1kHzMP3.",
+      "bytes": 7880
+    },
+    {
+      "id": "ice",
+      "sources": [
+        "Materials/glass_ping_small.wav",
+        "Combat and Gore/crunch_quick.wav"
+      ],
+      "runtime": "public/audio-v5/sfx/ice.mp3",
+      "sha256": "0830df146592c5b6dee8a7cb306e6bb5ba24fbef47224dcfe2bfaefdefe11c3b",
+      "processing": "Edited/trimmed, speed-adjusted 1.05x, optional material-layer mix, highpass65-70Hz, peak limiter.88, short tail fade, mono96kbps44.1kHzMP3.",
+      "bytes": 8507
+    },
+    {
+      "id": "flesh",
+      "sources": [
+        "Combat and Gore/crunch_splat.wav",
+        "Combat and Gore/punch_2.wav"
+      ],
+      "runtime": "public/audio-v5/sfx/flesh.mp3",
+      "sha256": "80606c03fa0f51ca63b23201e8e5864c140fc5a6618d057f20dab5cbbc57837e",
+      "processing": "Edited/trimmed, speed-adjusted 0.88x, optional material-layer mix, highpass65-70Hz, peak limiter.88, short tail fade, mono96kbps44.1kHzMP3.",
+      "bytes": 11015
+    },
+    {
+      "id": "stab",
+      "sources": [
+        "Materials/cork_stabbed.wav",
+        "Combat and Gore/splat_quick.wav"
+      ],
+      "runtime": "public/audio-v5/sfx/stab.mp3",
+      "sha256": "44db668a58ddca8776eed1e485d20bc808f2abc5e6eade2cc5e80995f1c358db",
+      "processing": "Edited/trimmed, speed-adjusted 0.85x, optional material-layer mix, highpass65-70Hz, peak limiter.88, short tail fade, mono96kbps44.1kHzMP3.",
+      "bytes": 5686
+    },
+    {
+      "id": "dash",
+      "sources": [
+        "Other/whoosh_1.wav",
+        "Materials/clothing_1.wav"
+      ],
+      "runtime": "public/audio-v5/sfx/dash.mp3",
+      "sha256": "ab8a01ca8d0b544c7a3cf9f1444878f6ef8fcde95877ba05d5cc627dfabfd0d1",
+      "processing": "Edited/trimmed, speed-adjusted 1x, optional material-layer mix, highpass65-70Hz, peak limiter.88, short tail fade, mono96kbps44.1kHzMP3.",
+      "bytes": 15404
+    },
+    {
+      "id": "dash-magic",
+      "sources": [
+        "Environment/air_burst.wav",
+        "Materials/glass_ping_big.wav"
+      ],
+      "runtime": "public/audio-v5/sfx/dash-magic.mp3",
+      "sha256": "fccf451874fe9feb9cf8e1607a9260b362c8d524e6cf7b74dddb3be0775771e8",
+      "processing": "Edited/trimmed, speed-adjusted 0.9x, optional material-layer mix, highpass65-70Hz, peak limiter.88, short tail fade, mono96kbps44.1kHzMP3.",
+      "bytes": 16344
+    },
+    {
+      "id": "footstep-1",
+      "sources": [
+        "Footsteps/foley_footstep_concrete_1.wav"
+      ],
+      "runtime": "public/audio-v5/sfx/footstep-1.mp3",
+      "sha256": "3ca58df3d8356904290c468885dc676a345a951cde05682c75f55b69f18d93f0",
+      "processing": "Edited/trimmed, speed-adjusted 0.95x, optional material-layer mix, highpass65-70Hz, peak limiter.88, short tail fade, mono96kbps44.1kHzMP3.",
+      "bytes": 4432
+    },
+    {
+      "id": "footstep-2",
+      "sources": [
+        "Footsteps/foley_footstep_concrete_2.wav"
+      ],
+      "runtime": "public/audio-v5/sfx/footstep-2.mp3",
+      "sha256": "e0397cf61ea40c3e7eac42e82014af54b39f254da33859e06e0e0c5de77d25e7",
+      "processing": "Edited/trimmed, speed-adjusted 1x, optional material-layer mix, highpass65-70Hz, peak limiter.88, short tail fade, mono96kbps44.1kHzMP3.",
+      "bytes": 4119
+    },
+    {
+      "id": "nova",
+      "sources": [
+        "Weapons/harsh_thud.wav",
+        "Retro/explosion_large.wav"
+      ],
+      "runtime": "public/audio-v5/sfx/nova.mp3",
+      "sha256": "94b40f32eedfbc0e5a66aa40d809c24cccfe57e50730ec17af26b3910fd1221f",
+      "processing": "Edited/trimmed, speed-adjusted 0.7x, optional material-layer mix, highpass65-70Hz, peak limiter.88, short tail fade, mono96kbps44.1kHzMP3.",
+      "bytes": 22300
+    }
+  ]
+}

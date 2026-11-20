@@ -1,34 +1,25 @@
 // AI-use disclosure: Codex-authored mobile combat presentation; deterministic rules stay in src/core.
 import Phaser from "phaser";
-import { ENEMY_ABILITIES } from "../../core/enemy-patterns";
+import { ENEMY_ABILITIES, ENEMY_MELEE } from "../../core/enemy-patterns";
 import { ARENA, DT, BASE_MOVES, ASCENDED_MOVES, MOBILITY, CHALLENGER } from "../../core/config";
 import type { FightSim, Projectile } from "../../core/fight";
 import { NO_INPUT, type BossInput, type FightEvent, type LifeId, type BossMove } from "../../core/types";
 import { makeBot, type BossBot } from "../../core/bots";
 import { ROSTER } from "../../core/roster";
+import { KING_KIT } from "../../core/king-kit";
+import { visitorTurn } from "../visitor-dialogue";
 import { ROYAL_GRAVITY } from "../../core/royal-gravity";
 import { loadBindings, keyLabel, type Bindings } from "../controls";
 import { PortraitDialogue, type DialogueLine } from "../dialogue";
 import { chooseReply } from "../choices";
 import { FLOOR, LIFE_ORDER, SpriteEffects, poseActor, reflectActor, type Motion } from "../presentation";
 import { getAudio } from "../audio";
+import { LIFE_WEAPON } from "../soundtrack";
 import type { Session } from "../session";
 
 type Mode = "arrival" | "fight" | "death" | "waiting" | "paused";
 const YEARS = [1000, 1089, 1193, 1324, 1488, 1672, 1880, 2116, 2400];
 const NAMES: Record<LifeId, string> = { kitten: "? / ??", alley: "?? // #", sailor: "#? / ??", acrobat: "?## / ?", witch: "// ?? #", knight: "# / ???", thief: "?? # //", quiet: "? // ?", patchwork: "?? / ??" };
-// PLACEHOLDER: Nicoh to review. One returning soul; its names have worn away.
-const ARRIVALS: Record<LifeId, [string, string]> = {
-  kitten: ["The village sent me to bring back its king. Why do you hide here?", "The crown will not let me cross the gate. The chair has never held me."],
-  alley: ["I dreamed of your blade before I learned to hold this one.", "You had different fur when I last heard that voice."],
-  sailor: ["The river swallowed our graves. I dragged these chains out of it.", "Nothing buried beneath this castle stays buried."],
-  acrobat: ["I learned the rhythm of your killing. This time I will move between it.", "You remember the blows. Do you remember who gave them?"],
-  witch: ["Nine lives. The same door. Something in me always knows the way.", "Something in me always opens it."],
-  knight: ["The stones outside bear your seal. There is no one left to read it.", "A thousand years of rule, and nothing left to rule."],
-  thief: ["I found the warning carved beneath your throne. You knew.", "I thought a crown would mean I could never lose anything again."],
-  quiet: ["Snow falls through the roof now. I remember when it was whole.", "Then you remember more of my kingdom than I do."],
-  patchwork: ["I have no name left for you to take. Only this last life.", "Then come. Let us finish what the crown began."],
-};
 export class FightScene extends Phaser.Scene {
   private session!: Session;
   private sim: FightSim | null = null;
@@ -38,6 +29,11 @@ export class FightScene extends Phaser.Scene {
   private queued: Partial<BossInput> = {};
   private accumulator = 0;
   private hitstop = 0;
+  private trailAt = 0;
+  private footAt = 0;
+  private eclipseAt = 0;
+  private stageMove: object | null = null;
+  private stageCount = 0;
   private eventIndex = 0;
   private epoch = 0;
   private modeAt = 0;
@@ -57,6 +53,7 @@ export class FightScene extends Phaser.Scene {
   private ui!: Phaser.GameObjects.Graphics;
   private ground!: Phaser.GameObjects.Graphics;
   private royalSeal!: Phaser.GameObjects.Graphics;
+  private regalia!: Phaser.GameObjects.Graphics;
   private healthLeft!: Phaser.GameObjects.Text;
   private healthRight!: Phaser.GameObjects.Text;
   private yearText!: Phaser.GameObjects.Text;
@@ -81,6 +78,7 @@ export class FightScene extends Phaser.Scene {
     this.aged = this.add.image(480, 270, "combat-aged-mid").setDisplaySize(960, 540).setAlpha(0);
     this.ground = this.add.graphics().setDepth(1);
     this.royalSeal = this.add.graphics().setDepth(5);
+    this.regalia = this.add.graphics().setDepth(9);
     this.kingReflection = this.add.image(800, FLOOR, "immortal-base").setDepth(2);
     this.chReflection = this.add.image(120, FLOOR, "kitten").setDepth(2);
     this.king = this.add.image(800, FLOOR, "immortal-base").setDepth(8);
@@ -157,7 +155,7 @@ export class FightScene extends Phaser.Scene {
     const requestedBot = new URLSearchParams(location.search).get("bot") ?? "average";
     if (this.autoplay && requestedBot === "normal" && fi > 1) this.bot = () => ({ ...NO_INPUT, guard: true });
     else if (this.autoplay) {
-      const profile = requestedBot === "victory" ? "aggressive" : requestedBot === "normal" ? "aggressive" :
+      const profile = requestedBot === "victory" ? "fighter" : requestedBot === "normal" ? "aggressive" :
         ["average", "aggressive", "defensive", "idle", "holder", "fighter", "spam_cleave", "spam_throw", "spam_reap", "spam_nova"].includes(requestedBot) ? requestedBot : "average";
       this.bot = makeBot(profile as Parameters<typeof makeBot>[0], this.session.state.seed + fi);
     } else this.bot = null;
@@ -167,27 +165,23 @@ export class FightScene extends Phaser.Scene {
     this.aged.setAlpha(fi >= 7 ? Math.min(1, 0.5 + (fi - 7) * 0.25) : age);
     await this.wait(this.autoplay ? 250 : 1700);
     if (epoch !== this.epoch) return;
-    const pair = ARRIVALS[life];
-    if (!await this.speak([
-      { speaker: NAMES[life], text: pair[0], portrait: life },
-      { speaker: "THE IMMORTAL", text: pair[1], portrait: "immortal-base" },
-    ], epoch)) return;
-    if (fi === 1 && !await this.speak([
-      { speaker: NAMES.kitten, text: "I cannot hurt you much. Show me a leap, a dash, and your guard.", portrait: "kitten" },
-      { speaker: "THE IMMORTAL", text: "Watch the low wave. A king can move. The curse binds the castle, not the chair.", portrait: "immortal-base" },
-    ], epoch)) return;
-    if (!this.autoplay) {
-      const open = await chooseReply(this, fi === 1
-        ? ["I wanted to protect them. I no longer know how.", "A king owes no explanation. Raise your weapon."]
-        : ["I remember you. That is why this must end.", "Whatever you were, you came here to kill me."]);
+    if (fi === 1 && !await this.speak([{ speaker: "THE IMMORTAL", portrait: "immortal-base",
+      text: "The crown binds me to these walls. The chair never did.", cue: "intro/curse" }], epoch)) return;
+    const history: boolean[] = [];
+    for (const step of [0, 1] as const) {
+      const turn = visitorTurn(life, step, history, this.session.state.bond);
+      if (!await this.speak([{ speaker: NAMES[life], text: turn.question, portrait: life, cue: turn.cuePrefix + "/question" }], epoch)) return;
+      const open = this.autoplay ? true : await chooseReply(this, turn.choices, "YOUR ANSWER  " + (step + 1) + " / 2");
       if (open === null || epoch !== this.epoch) return;
-      this.session.respond(open);
-      if (!await this.speak([{ speaker: NAMES[life], portrait: life, text: open
-        ? "Then remember this life when you take it."
-        : "You said that before. I remember." }], epoch)) return;
-    } else this.session.respond(true);
-    getAudio().soundtrack("combat");
-    this.mode = "fight"; this.modeAt = this.time.now; this.held.clear(); this.queued = {};
+      history.push(open); this.session.respond(open);
+      if (!await this.speak([
+        { speaker: "THE IMMORTAL", portrait: "immortal-base", text: turn.choices[open ? 0 : 1], cue: turn.cuePrefix + (open ? "/king-open" : "/king-guarded") },
+        { speaker: NAMES[life], portrait: life, text: turn.responses[open ? 0 : 1], cue: turn.cuePrefix + (open ? "/answer-open" : "/answer-guarded") },
+      ], epoch)) return;
+    }
+    if (fi === 1 && !await this.speak([{ speaker: NAMES.kitten, portrait: "kitten",
+      text: "Show me a jump, a dash, and a guarded hit. I need to learn how to survive you.", cue: "kitten/tutorial" }], epoch)) return;
+    getAudio().combat(life);    this.mode = "fight"; this.modeAt = this.time.now; this.held.clear(); this.queued = {};
   }
 
   private async finishEncounter(): Promise<void> {
@@ -224,15 +218,16 @@ export class FightScene extends Phaser.Scene {
     if (e.type === "boss_move") getAudio().tell(e.move, e.phase);
     if (e.type === "challenger_hit") {
       this.fx.burst(sim.ch.x, FLOOR - sim.ch.y - 35, true); this.hitstop = 0.035;
-      this.cameras.main.shake(90, 0.0025); getAudio().hit(e.dmg > 25);
+      this.cameras.main.shake(90, 0.0025); getAudio().weaponHit("flesh", e.dmg > 25);
     }
-    if (e.type === "boss_hit") { this.fx.burst(sim.boss.x, FLOOR - sim.boss.y - 65, true); this.hitstop = 0.025; getAudio().hit(false); }
-    if (e.type === "boss_block") { this.fx.spawn(5, sim.boss.x, FLOOR - sim.boss.y - 65, 175, 300); getAudio().bell(); }
-    if (e.type === "dash") { this.fx.spawn(0, sim.boss.x, FLOOR - sim.boss.y - 35, 150, 240, -sim.boss.facing, 0x8bd5df); getAudio().evade(); }
+    if (e.type === "boss_hit") { this.fx.burst(sim.boss.x, FLOOR - sim.boss.y - 65, true); this.hitstop = 0.025; getAudio().weaponHit("flesh", false); }
+    if (e.type === "boss_block") { this.fx.spawn(5, sim.boss.x, FLOOR - sim.boss.y - 65, 175, 300); getAudio().guard(); }
+    if (e.type === "dash") { this.fx.dash(this.king, sim.boss.phase === 2 ? 0xff45b4 : 0xffd97a, sim.boss.facing); getAudio().dash("king"); }
     if (e.type === "jump") this.fx.spawn(5, sim.boss.x, FLOOR - 8, 80, 220);
     if (e.type === "phase2_start") { getAudio().phase2(true); this.cameras.main.flash(180, 150, 210, 210); this.fx.spawn(3, sim.boss.x, FLOOR - 80, 380, 1100); this.cameras.main.shake(400, 0.005); }
-    if (e.type === "evade") this.fx.spawn(5, sim.ch.x, FLOOR - sim.ch.y - 30, 80, 200);
-    if (e.type === "enemy_ability") this.fx.weapon(sim.ch.life, sim.ch.x, FLOOR - sim.ch.y - 35, 135, sim.boss.x > sim.ch.x ? 1 : -1);
+    if (e.type === "evade") { this.fx.trail(this.ch, ROSTER[sim.ch.life].color); if (e.how === "umbrella") getAudio().guard(); else getAudio().dash(sim.ch.life); }
+    if (e.type === "armor_break") { getAudio().weaponHit("metal", true); this.fx.weapon("knight", sim.ch.x, FLOOR - sim.ch.y - 35, 120); }
+    if (e.type === "enemy_ability") { this.fx.weapon(sim.ch.life, sim.ch.x, FLOOR - sim.ch.y - 35, 135, sim.boss.x > sim.ch.x ? 1 : -1); getAudio().swing(sim.ch.life === "sailor" ? "chain" : sim.ch.life === "kitten" ? "wood" : sim.ch.life === "quiet" ? "ice" : "sword"); }
     if (e.type === "boredom") this.fx.spawn(4, sim.boss.x, FLOOR - 60, 350, 700);
   }
 
@@ -262,7 +257,7 @@ export class FightScene extends Phaser.Scene {
     let kingMotion: Motion = b.dashT > 0 ? "dash" : !b.grounded ? "jump" : Math.abs(b.vx) > 10 ? "run" : "idle";
     let kingFrame = Math.floor(t * (kingMotion === "run" ? 12 : 6)) % 6;
     if (move) {
-      kingMotion = move.id;
+      kingMotion = move.id === "cleave" && b.phase === 1 && move.combo === 2 ? "throw" : move.id;
       const duration = move.stage === "tell" ? move.spec.tellS : move.stage === "active" ? move.spec.activeS : move.spec.recoverS;
       const progress = Math.min(0.999, move.t / duration);
       kingFrame = move.stage === "tell" ? Math.min(2, Math.floor(progress * 3)) : move.stage === "active" ? 3 + Math.min(1, Math.floor(progress * 2)) : 5;
@@ -278,52 +273,93 @@ export class FightScene extends Phaser.Scene {
       kx = Phaser.Math.Linear(880, b.x, p); ky = Phaser.Math.Linear(385, FLOOR - b.y, p);
       if (p < 1) { kingMotion = "run"; kingFrame = Math.floor(t * 10) % 6; }
     }
-    if (b.phase === 2 && b.grounded && this.mode !== "waiting") ky -= 10 + Math.sin(t * 3) * 3;
-    poseActor(this, this.king, this.mode === "waiting" && this.time.now - this.modeAt >= 1600 ? "rest" : b.phase === 2 ? "ascended" : "player", kingMotion, kingFrame, kx, ky, move?.direction ?? b.facing, 143);
+    // The transformed monster has weight: its feet remain on the physical floor.
+    poseActor(this, this.king, this.mode === "waiting" && this.time.now - this.modeAt >= 1600 ? "rest" : b.phase === 2 ? "ascended" : "player", kingMotion, kingFrame, kx, ky, move?.direction ?? b.facing, b.phase === 2 ? 196 : 143);
     if (b.transitionT > 0) {
       const progress = 1 - b.transitionT / sim.cfg.phase2.PHASE2_TRANSITION_S;
       const frame = Math.min(11, Math.floor(progress * 12));
       const key = "immortal-transform:" + (frame < 6 ? "idle" : "run") + ":" + frame % 6;
-      if (this.textures.exists(key)) this.king.setTexture(key).setOrigin(0.5, 71 / 72).setScale(170 / 72);
+      if (this.textures.exists("gothic-monster") && progress > 0.35) {
+        poseActor(this, this.king, "ascended", "nova", Math.min(5, Math.floor(progress * 6)), kx, FLOOR, b.facing, 143 + progress * 53);
+      } else if (this.textures.exists(key)) this.king.setTexture(key).setOrigin(0.5, 71 / 72).setScale(170 / 72);
     }
-    this.king.setTint(b.hitFlashT > 0 ? 0xffb2c8 : 0xffffff);
+    this.king.setTint(b.hitFlashT > 0 ? 0xffd0a3 : 0xffffff);
+    if (b.hitFlashT > 0) this.king.setAngle(-b.facing * 7).setScale(this.king.scaleX * 1.05, this.king.scaleY * 0.93);
     let cm: Motion = c.y > 3 ? "jump" : c.abilityTellT > 0 || (c.state === "attack" && c.windupT > 0) || c.attackFlashT > 0 ? "cleave" :
       ["approach", "enter", "attack", "backoff", "flee", "leave", "evade"].includes(c.state) ? "run" : "idle";
-    let cf = Math.floor(t * 10) % 6;
+    let cf = Math.floor(t * (cm === "idle" ? 3.5 : 10)) % 6;
     if (c.abilityTellT > 0) cf = 1 + Math.floor((1 - c.abilityTellT / ENEMY_ABILITIES[c.life].tellS) * 2);
     else if (c.attackFlashT > 0) cf = 3 + Math.min(2, Math.floor((1 - c.attackFlashT / 0.18) * 3));
-    else if (c.state === "attack" && c.windupT > 0) cf = Math.min(2, Math.floor(c.windupT / CHALLENGER.attackWindupS * 3));
-    if (c.state === "hitstun") { cm = "cleave"; cf = 5; }
+    else if (c.state === "attack" && c.windupT > 0) cf = Math.min(2, Math.floor(c.windupT / ENEMY_MELEE[c.life].tellS * 3));
+    if (c.state === "hitstun") { cm = "hurt"; cf = 5; }
     poseActor(this, this.ch, c.life, cm, cf, c.x, FLOOR - c.y, b.x > c.x ? 1 : -1, c.life === "kitten" ? 61 : c.life === "patchwork" ? 85 : 78);
     if (this.mode === "death" && sim.outcome !== "boss_dead") this.ch.setAlpha(Math.max(0, 1 - (this.time.now - this.modeAt) / 900));
     else if (this.mode !== "waiting") this.ch.setAlpha(c.iframes > 0 ? 0.65 : 1);
     this.ch.setTint(c.hitFlashT > 0 ? 0xffb2bf : 0xffffff);
     if (c.kneelT > 0) this.ch.setScale(this.ch.scaleX, this.ch.scaleY * 0.72);
+    this.regalia.clear();
+    if (this.mode !== "waiting" && this.ch.alpha > 0.3) {
+      const x = Math.round(c.x), y = Math.round(FLOOR - c.y - (c.life === "kitten" ? 32 : 42));
+      this.regalia.fillStyle(0x38284e, 1).fillRect(x - 4, y - 2, 8, 8);
+      this.regalia.fillStyle(0xffd27d, 1).fillRect(x - 3, y, 6, 3)
+        .fillRect(x - 3, y - 2, 1, 2).fillRect(x, y - 3, 1, 3).fillRect(x + 2, y - 2, 1, 2);
+      this.regalia.fillStyle(ROSTER[c.life].color, 1).fillRect(x - 1, y + 3, 2, 2);
+    }
+    const gothicGuard = this.textures.exists("gothic-vfx");
     const aegis = this.textures.exists("royal-vfx");
-    this.shield.setTexture(aegis ? "royal-vfx" : "combat-vfx"); this.enemyShield.setTexture(aegis ? "royal-vfx" : "combat-vfx");
-    this.shield.setVisible(b.guarding && this.mode === "fight").setPosition(b.x + (aegis ? 0 : b.facing * 34), FLOOR - b.y - 66).setFlipX(b.facing < 0).setFrame((aegis ? 18 : 30) + Math.floor(t * 10) % 6).setDisplaySize(170, 170).setAlpha(0.8);
-    this.enemyShield.setVisible(c.blockT > 0).setPosition(c.x + (aegis ? 0 : b.x > c.x ? 22 : -22), FLOOR - c.y - 37).setFlipX(b.x < c.x).setFrame((aegis ? 18 : 30) + Math.floor(t * 10) % 6).setDisplaySize(115, 115).setAlpha(0.85);
+    this.shield.setTexture(gothicGuard ? "gothic-vfx" : aegis ? "royal-vfx" : "combat-vfx"); this.enemyShield.setTexture(gothicGuard ? "gothic-vfx" : aegis ? "royal-vfx" : "combat-vfx");
+    this.shield.setVisible(b.guarding && this.mode === "fight").setPosition(b.x + (aegis ? 0 : b.facing * 34), FLOOR - b.y - (b.phase === 2 ? 99 : 73)).setFlipX(b.facing < 0).setFrame((aegis ? 18 : 30) + Math.floor(t * 10) % 6).setDisplaySize(b.phase === 2 ? 210 : 170, b.phase === 2 ? 210 : 170).setTint(b.phase === 2 ? 0xfa80ff : 0xffe6a0).setAlpha(0.9);
+    this.enemyShield.setVisible(c.blockT > 0).setPosition(c.x + (aegis ? 0 : b.x > c.x ? 22 : -22), FLOOR - c.y - 37).setFlipX(b.x < c.x).setFrame((aegis ? 18 : 30) + Math.floor(t * 10) % 6).setDisplaySize(115, 115).setTint(ROSTER[c.life].color).setAlpha(0.9);
     this.royalSeal.clear();
     if (move?.id === "reap" && move.stage !== "recover") {
-      const radius = ROYAL_GRAVITY[b.phase].radius;
-      const x = Math.round(move.targetX), y = FLOOR - 3;
-      const active = move.stage === "active";
-      this.royalSeal.fillStyle(active ? 0xf0d58a : 0xa58cd5, active ? 0.9 : 0.45);
-      this.royalSeal.fillRect(x - radius, y, radius * 2, 3);
-      for (let i = -2; i <= 2; i++) this.royalSeal.fillRect(x + i * radius / 2 - 2, y - 8, 4, 11);
-      // The crown points downward: the king's command has weight and a clear footprint.
-      this.royalSeal.fillRect(x - 15, y - 52, 30, 3).fillRect(x - 15, y - 52, 3, 12)
-        .fillRect(x - 2, y - 52, 4, 18).fillRect(x + 12, y - 52, 3, 12);
-      if (active) for (let i = -2; i <= 2; i++) this.royalSeal.fillRect(x + i * radius / 2 - 1, y - 90, 2, 76);
+      const positions = b.phase === 2 ? move.pillars : [move.targetX];
+      const radius = b.phase === 2 ? KING_KIT.pillarRadius : ROYAL_GRAVITY[1].radius;
+      positions.forEach((target, index) => {
+        const x = Math.round(target), y = FLOOR - 3;
+        const erupted = move.stage === "active" && (b.phase === 1 || move.spawned > index);
+        this.royalSeal.fillStyle(erupted ? 0xff78d6 : b.phase === 2 ? 0xb985ff : 0xffd681, erupted ? 0.9 : 0.5);
+        this.royalSeal.fillRect(x - radius, y, radius * 2, 3);
+        for (let i = -2; i <= 2; i++) this.royalSeal.fillRect(x + i * radius / 2 - 2, y - 8, 4, 11);
+        if (b.phase === 1) this.royalSeal.fillRect(x - 15, y - 52, 30, 3).fillRect(x - 15, y - 52, 3, 12).fillRect(x - 2, y - 52, 4, 18).fillRect(x + 12, y - 52, 3, 12);
+      });
     }
-    if (move?.stage === "active" && move !== this.released) {
-      this.released = move;
-      const row = move.id === "nova" ? 3 : move.id === "throw" ? 1 : move.id === "reap" ? 2 : 0;
-      this.fx.spawn(row, move.id === "reap" || move.id === "cleave" && b.phase === 2 ? move.targetX : b.x + move.direction * 60, FLOOR - b.y - 55, move.id === "nova" ? 600 : 240, move.id === "nova" ? 600 : 340, move.direction);
-      getAudio().swing();
+    if (move?.stage === "active") {
+      if (this.stageMove !== move) { this.stageMove = move; this.stageCount = 0; }
+      const staged = (move.id === "nova" && b.phase === 1) || (move.id === "reap" && b.phase === 2) || (move.id === "cleave" && b.phase === 2);
+      if (staged) {
+        while (this.stageCount < move.spawned) {
+          const index = this.stageCount++;
+          const x = move.id === "cleave" ? move.targetX + (index ? 25 : -25) : move.pillars[index]!;
+          this.fx.skill(move.id, b.phase, x, FLOOR - (move.id === "reap" ? 65 : 60), move.id === "reap" ? 200 : 230, move.direction)
+            .setAngle(move.id === "cleave" ? index ? -20 : 20 : 0);
+          getAudio().swing(b.phase === 2 ? "magic" : "sword");
+        }
+      } else if (move !== this.released) {
+        this.released = move;
+        if (!(move.id === "throw" && b.phase === 2)) {
+          this.fx.skill(move.id, b.phase, move.id === "reap" ? move.targetX : b.x + move.direction * 75, FLOOR - b.y - 65, move.id === "nova" ? 360 : 240, move.direction);
+          getAudio().swing(b.phase === 2 ? "magic" : "sword");
+        }
+      }
+      if (move.id === "nova" && b.phase === 2) {
+        const radius = KING_KIT.eclipseRadius * Math.min(1, move.t / move.spec.activeS);
+        if (this.time.now - this.eclipseAt > 50) {
+          this.eclipseAt = this.time.now;
+          this.fx.skill("nova", 2, b.x - radius, FLOOR - 55, 165, -1);
+          this.fx.skill("nova", 2, b.x + radius, FLOOR - 55, 165, 1);
+        }
+        this.royalSeal.lineStyle(3, 0xffb8fa, 0.4).strokeEllipse(b.x, FLOOR - 45, radius * 2, 145);
+        this.royalSeal.lineStyle(2, 0xaebfff, 0.7).strokeEllipse(b.x, FLOOR - 45, radius * 2 + 18, 165);
+      }
     }
-    if (c.attackFlashT > 0 && c.attackSerial !== this.lastAttackSerial) {
+    if (b.dashT > 0 && this.time.now - this.trailAt > 38) {
+      this.trailAt = this.time.now; this.fx.trail(this.king, b.phase === 2 ? 0xff4dc4 : 0xffd675);
+    }
+    if (this.mode === "fight" && b.grounded && Math.abs(b.vx) > 30 && b.dashT <= 0 && this.time.now - this.footAt > (b.phase === 2 ? 270 : 190)) {
+      this.footAt = this.time.now; getAudio().footstep();
+    }    if (c.attackFlashT > 0 && c.attackSerial !== this.lastAttackSerial) {
       this.lastAttackSerial = c.attackSerial;
+      getAudio().swing(LIFE_WEAPON[c.life]);
       this.fx.weapon(c.life, c.x + (b.x > c.x ? 38 : -38), FLOOR - c.y - 35, 155, b.x > c.x ? 1 : -1);
     }
     reflectActor(this.king, this.kingReflection); reflectActor(this.ch, this.chReflection);
@@ -343,16 +379,18 @@ export class FightScene extends Phaser.Scene {
       let image = this.projectileImages.get(p);
       if (!image) { image = this.add.image(p.x, FLOOR - p.y, "combat-vfx", 0).setDepth(14); this.projectileImages.set(p, image); }
       const enemy = p.kind === "enemy-wave" || p.kind === "enemy-orb";
+      const gothicFang = !enemy && sim.boss.phase === 2 && this.textures.exists("gothic-vfx");
       const royal = !enemy && this.textures.exists("royal-vfx");
       const custom = enemy && (p.style ?? sim.ch.life) !== "kitten" && this.textures.exists("royal-visitor-vfx");
-      const row = custom ? Math.max(0, LIFE_ORDER.indexOf(p.style ?? sim.ch.life) - 1)
+      const row = gothicFang ? 5 : custom ? Math.max(0, LIFE_ORDER.indexOf(p.style ?? sim.ch.life) - 1)
         : royal ? p.kind === "glaive" ? 1 : 2
         : p.kind === "glaive" ? 1 : p.kind === "blade" || p.kind === "enemy-wave" ? 2 : 3;
-      image.setTexture(custom ? "royal-visitor-vfx" : royal ? "royal-vfx" : "combat-vfx",
+      image.setTexture(gothicFang ? "gothic-vfx" : custom ? "royal-visitor-vfx" : royal ? "royal-vfx" : "combat-vfx",
         row * 6 + Math.floor(t * 15) % 6).setPosition(p.x, FLOOR - p.y).setFlipX(p.vx < 0);
       const wave = p.kind === "blade" || p.kind === "enemy-wave";
       const width = enemy ? Math.max(58, (p.radius ?? 16) * 4) : wave ? 215 : p.kind === "glaive" ? 118 : 76;
       image.setDisplaySize(width, wave ? width * 0.65 : width);
+      if (gothicFang) image.setFlipX(false).setAngle(Math.atan2(-p.vy, p.vx) * 180 / Math.PI).setTint(0xf0adff);
       if (enemy && !custom) image.setTint(ROSTER[p.style ?? sim.ch.life].color); else image.clearTint();
     }
   }
@@ -376,7 +414,7 @@ export class FightScene extends Phaser.Scene {
       this.ui.fillStyle(0x091526, 0.95).fillRect(x, 502, 94, 29);
       this.ui.lineStyle(1, cd <= 0 ? 0x9bc8b4 : 0x3b4b63, 1).strokeRect(x, 502, 94, 29);
       this.ui.fillStyle(cd <= 0 ? 0x94d3ba : 0x647da1, 1).fillRect(x + 2, 527, 90 * Math.max(0, 1 - cd / full), 2);
-      this.docks[i]!.setText(keyLabel(this.bindings[move]) + " " + (cd > 0 ? cd.toFixed(1) : ({ cleave: "SENTENCE", throw: "RECALL", reap: "KNEEL", nova: "DECREE" })[move])).setColor(cd > 0 ? "#8796ac" : "#d8e9da");
+      this.docks[i]!.setText(keyLabel(this.bindings[move]) + " " + (cd > 0 ? cd.toFixed(1) : (b.phase === 2 ? { cleave: "REND", throw: "CHOIR", reap: "HANDS", nova: "ECLIPSE" } : { cleave: "STEEL", throw: "PIERCE", reap: "KNEEL", nova: "PROCESSION" })[move])).setColor(cd > 0 ? "#8796ac" : "#d8e9da");
     });
     if (this.mode === "fight") {
       if (sim.setup.life === "kitten" && !sim.tutorialComplete) this.hint.setText(

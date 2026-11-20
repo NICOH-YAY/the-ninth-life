@@ -57,3 +57,16 @@ export function enemyShots(life: LifeId, origin: { x: number; y: number }, targe
     ];
   }
 }
+
+/** Contact attacks preserve each weapon's reach, weight and reaction. */
+export const ENEMY_MELEE: Record<LifeId, { reach: number; tellS: number; height: number; impulse: number; lift: number; guardCost: number }> = {
+  kitten: { reach:44,tellS:0.50,height:60,impulse:80,lift:0,guardCost:0 },
+  alley: { reach:64,tellS:0.30,height:65,impulse:-220,lift:0,guardCost:0 },
+  sailor: { reach:112,tellS:0.46,height:75,impulse:310,lift:0,guardCost:0.12 },
+  acrobat: { reach:60,tellS:0.24,height:110,impulse:180,lift:0,guardCost:0 },
+  witch: { reach:86,tellS:0.48,height:100,impulse:130,lift:230,guardCost:0 },
+  knight: { reach:96,tellS:0.55,height:70,impulse:460,lift:190,guardCost:0.18 },
+  thief: { reach:52,tellS:0.20,height:60,impulse:120,lift:0,guardCost:0 },
+  quiet: { reach:140,tellS:0.38,height:105,impulse:270,lift:0,guardCost:0 },
+  patchwork: { reach:90,tellS:0.31,height:88,impulse:340,lift:100,guardCost:0.10 },
+};

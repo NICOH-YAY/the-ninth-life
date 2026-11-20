@@ -1,0 +1,8 @@
+# AI-use disclosure: Codex keeps downloaded archives and ephemeral itch session pages local.
+legacy/
+legacy-collection.zip
+*.html
+itch-bundle.js
+download-response.json
+floor-detail.png
+download-itch.mjs

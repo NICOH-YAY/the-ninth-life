@@ -1,0 +1,32 @@
+{
+  "aiUseDisclosure": "Codex composed human-drawn Ansimuz CC0 layers; no generated painting is used in these environments.",
+  "native": [
+    480,
+    270
+  ],
+  "display": [
+    960,
+    540
+  ],
+  "floorY": 232,
+  "displayFloorY": 464,
+  "throneFeetY": 193,
+  "filter": "nearest",
+  "artist": "Luis Zuno / Ansimuz",
+  "sources": "assets/gothic-v5/tile-sources.json",
+  "files": [
+    "arena-night",
+    "arena-mid",
+    "arena-late",
+    "menu-castle",
+    "dawn-ruins"
+  ],
+  "palette": {
+    "menu": 1245,
+    "night": 51,
+    "mid": 55,
+    "late": 55,
+    "dawn": 72,
+    "note": "Original hand-drawn tile palettes retained through vivid color remapping. Menu text-area shading adds dark tones. No broad 32-color limit is claimed for environments; all use a hard native pixel grid and nearest-neighbor display."
+  }
+}

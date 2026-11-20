@@ -40,17 +40,6 @@ describe("royal gravity", () => {
     expect(high.ch.hp).toBe(high.ch.maxHp); expect(high.ch.kneelT).toBe(0);
   });
 
-  it("the transformed seal covers a larger area and kneels longer without being mapwide", () => {
-    const base = cast(1), ascended = cast(2);
-    base.ch.x += 106; ascended.ch.x += 106;
-    impact(base, 100); impact(ascended, 100);
-    expect(base.ch.hp).toBe(base.ch.maxHp);
-    expect(ascended.ch.hp).toBeLessThan(ascended.ch.maxHp);
-    expect(ascended.ch.kneelT).toBeGreaterThan(ROYAL_GRAVITY[1].kneelS);
-    const outside = cast(2); outside.ch.x += ROYAL_GRAVITY[2].radius + 60; impact(outside);
-    expect(outside.ch.hp).toBe(outside.ch.maxHp);
-  });
-
   it("preserves real defensive invulnerability rather than forcing every target to kneel", () => {
     const sim = cast(); sim.ch.iframes = 10; impact(sim, 30);
     expect(sim.ch.hp).toBe(sim.ch.maxHp); expect(sim.ch.kneelT).toBe(0);

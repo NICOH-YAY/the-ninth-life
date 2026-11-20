@@ -32,7 +32,7 @@ async function route(expected,bot){
    const finale=await page.evaluate(()=>{const s=window.ninth.scene.getScene('ending');return {ready:s.ready,ruined:s.ruined,kingAlpha:s.king.alpha,visitorAlpha:s.visitor.alpha,visitorAngle:s.visitorState.angle}});
    assert(finale.ready);if(expected==='victory'){assert(!finale.ruined);assert(finale.kingAlpha>0);assert(Math.abs(finale.visitorAngle)>60)}else{assert(finale.ruined);assert.equal(finale.kingAlpha,0);assert.equal(finale.visitorAlpha,0)}
    await page.screenshot({path:`${out}/${expected}-ruins.png`});
-   report.routes[expected]={...state,finale,firstLife:first,debugJump:false,durationMs:Date.now()-started};await save();
+   report.routes[expected]={...state,finale,firstLife:first,debugJump:false,productionBundles:await page.evaluate(()=>performance.getEntriesByType("resource").map(entry=>entry.name).filter(name=>/assets\/index-.*\.js/.test(name))),durationMs:Date.now()-started};await save();
    console.log(JSON.stringify({route:expected,complete:true,finale,durationMs:Date.now()-started}));
    await page.keyboard.press('Enter');await page.waitForFunction(()=>window.ninth.scene.isActive('title'),null,{timeout:10000});
    await page.close();return;

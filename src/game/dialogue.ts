@@ -115,10 +115,20 @@ export class PortraitDialogue {
 
   /** Cached head crops use opaque body bounds rather than the source image's transparent padding. */
   private headTexture(requested: string): string {
-    const royalRow = LIFE_ORDER.indexOf(requested as LifeId);
-    const royal = royalRow >= 0 && this.scene.textures.exists("royal-visitor-walk");
-    const sourceKey = royal ? "royal-visitor-walk" : this.scene.textures.exists(requested) ? requested : this.scene.textures.exists("immortal-base") ? "immortal-base" : "";
-    const name = "dialogue-head-v3:" + (sourceKey || "fallback") + ":" + royalRow;
+    const lifeRow = LIFE_ORDER.indexOf(requested as LifeId);
+    const exists = (key: string): boolean => this.scene.textures.exists(key);
+    let sourceKey = exists(requested) ? requested : exists("immortal-base") ? "immortal-base" : "";
+    let selectedFrame: number | null = null;
+    if ((requested === "immortal-base" || requested === "gothic-base") && exists("gothic-base")) {
+      sourceKey = "gothic-base"; selectedFrame = 0;
+    } else if ((requested === "immortal-ascended" || requested === "gothic-monster") && exists("gothic-monster")) {
+      sourceKey = "gothic-monster"; selectedFrame = 0;
+    } else if (lifeRow >= 0 && exists("gothic-visitors")) {
+      sourceKey = "gothic-visitors"; selectedFrame = lifeRow * 6;
+    } else if (lifeRow >= 0 && exists("royal-visitor-walk")) {
+      sourceKey = "royal-visitor-walk"; selectedFrame = lifeRow * 6;
+    }
+    const name = "dialogue-head-v5:" + (sourceKey || "fallback") + ":" + (selectedFrame ?? "image");
     if (this.scene.textures.exists(name)) return name;
     const texture = this.scene.textures.createCanvas(name, 96, 96)!;
     const context = texture.getContext();
@@ -127,8 +137,8 @@ export class PortraitDialogue {
     context.fillRect(0, 0, 96, 96);
     if (sourceKey) {
       let image = this.scene.textures.get(sourceKey).getSourceImage() as HTMLImageElement | HTMLCanvasElement;
-      if (royal) {
-        const frame = this.scene.textures.get(sourceKey).get(royalRow * 6);
+      if (selectedFrame !== null) {
+        const frame = this.scene.textures.get(sourceKey).get(selectedFrame);
         const cell = document.createElement("canvas"); cell.width = frame.cutWidth; cell.height = frame.cutHeight;
         cell.getContext("2d")!.drawImage(image, frame.cutX, frame.cutY, frame.cutWidth, frame.cutHeight, 0, 0, cell.width, cell.height);
         image = cell;

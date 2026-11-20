@@ -1,0 +1,117 @@
+{
+  "aiUseDisclosure": "Higgsfield generated original artwork; Codex exported uniform source-cell pixels, palette and hard alpha.",
+  "id": "coronation",
+  "key": "gothic-coronation",
+  "job": "7de8c56b-d99f-4343-8853-15e3680a3cdc",
+  "rows": 2,
+  "frame": 192,
+  "source": 128,
+  "foot": 154,
+  "cols": 6,
+  "frameWidth": 192,
+  "frameHeight": 192,
+  "footX": 96,
+  "footY": 154,
+  "sourceWidth": 1344,
+  "sourceHeight": 576,
+  "alphaThreshold": 160,
+  "processing": "Same whole-cell contain scale in all frames; no per-frame fit; binary alpha; dither-free palette.",
+  "anchors": [
+    {
+      "row": 0,
+      "col": 0,
+      "sourceFeet": 114,
+      "shiftY": 40,
+      "opaque": 4070,
+      "clipped": 0
+    },
+    {
+      "row": 0,
+      "col": 1,
+      "sourceFeet": 114,
+      "shiftY": 40,
+      "opaque": 3753,
+      "clipped": 0
+    },
+    {
+      "row": 0,
+      "col": 2,
+      "sourceFeet": 114,
+      "shiftY": 40,
+      "opaque": 3764,
+      "clipped": 0
+    },
+    {
+      "row": 0,
+      "col": 3,
+      "sourceFeet": 114,
+      "shiftY": 40,
+      "opaque": 3944,
+      "clipped": 0
+    },
+    {
+      "row": 0,
+      "col": 4,
+      "sourceFeet": 114,
+      "shiftY": 40,
+      "opaque": 4197,
+      "clipped": 0
+    },
+    {
+      "row": 0,
+      "col": 5,
+      "sourceFeet": 114,
+      "shiftY": 40,
+      "opaque": 4248,
+      "clipped": 0
+    },
+    {
+      "row": 1,
+      "col": 0,
+      "sourceFeet": 120,
+      "shiftY": 34,
+      "opaque": 4237,
+      "clipped": 0
+    },
+    {
+      "row": 1,
+      "col": 1,
+      "sourceFeet": 120,
+      "shiftY": 34,
+      "opaque": 4318,
+      "clipped": 0
+    },
+    {
+      "row": 1,
+      "col": 2,
+      "sourceFeet": 120,
+      "shiftY": 34,
+      "opaque": 5144,
+      "clipped": 0
+    },
+    {
+      "row": 1,
+      "col": 3,
+      "sourceFeet": 120,
+      "shiftY": 34,
+      "opaque": 6980,
+      "clipped": 0
+    },
+    {
+      "row": 1,
+      "col": 4,
+      "sourceFeet": 120,
+      "shiftY": 34,
+      "opaque": 6113,
+      "clipped": 0
+    },
+    {
+      "row": 1,
+      "col": 5,
+      "sourceFeet": 120,
+      "shiftY": 34,
+      "opaque": 6196,
+      "clipped": 0
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "aiUseDisclosure": "Codex selected and composed existing human-drawn CC0 artwork; these tile images were not AI generated.",
+  "artist": "Luis Zuno (Ansimuz)",
+  "source": "https://ansimuz.itch.io/gothicvania-patreon-collection",
+  "license": "CC0",
+  "licenseEvidence": "assets/gothic-v5/public-license.pdf",
+  "downloaded": "2026-11-20",
+  "selectedFiles": {
+    "old-wall.png": "Old-dark-Castle-tileset-Files/PNG/old-dark-castle-interior-background.png",
+    "old-tiles.png": "Old-dark-Castle-tileset-Files/PNG/old-dark-castle-interior-tileset.png",
+    "castle-props.png": "Gothic-Castle-Files/PNG/layers/gothic-castle-background.png",
+    "castle-tiles.png": "Gothic-Castle-Files/PNG/layers/gothic-castle-tileset.png"
+  },
+  "nightTownLayers": "night-town-background-files/layers/night-town-background-{sky,clouds,mountains,mountains-lights,far-buildings,forest,town}.png",
+  "sizes": {
+    "old-wall.png": [
+      960,
+      304
+    ],
+    "old-tiles.png": [
+      832,
+      240
+    ],
+    "castle-props.png": [
+      480,
+      336
+    ],
+    "castle-tiles.png": [
+      336,
+      240
+    ],
+    "town-sky.png": [
+      96,
+      224
+    ],
+    "town-clouds.png": [
+      288,
+      224
+    ],
+    "town-mountains.png": [
+      96,
+      224
+    ],
+    "town-mountains-lights.png": [
+      96,
+      224
+    ],
+    "town-far-buildings.png": [
+      320,
+      80
+    ],
+    "town-forest.png": [
+      64,
+      96
+    ],
+    "town-town.png": [
+      512,
+      99
+    ]
+  }
+}
