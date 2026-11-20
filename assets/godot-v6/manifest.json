@@ -1,0 +1,97 @@
+{
+  "aiUseDisclosure": "Higgsfield created original physical paired-actor impalement and weary waiting sprites. Codex prepared native Godot sprite resources, restored earlier arena compositions, and derived weapon/skill HUD icons from the game's own attributed art.",
+  "date": "2026-11-20",
+  "engine": "Godot 4, sprite-only actor/effect presentation; no monster actor atlas shipped.",
+  "generated": [
+    {
+      "id": "held-impalement",
+      "job_id": "0e069eca-93f4-4bbb-96a0-10524803ad05",
+      "model": "gpt_image_2_6",
+      "quality": "medium",
+      "resolution": "2k",
+      "use_unlim": true,
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_054956_0e069eca-93f4-4bbb-96a0-10524803ad05.png",
+      "source": "assets/godot-v6/held-impalement-original.png",
+      "runtime": "godot/art/held-impalement.png",
+      "layout": {
+        "cols": 6,
+        "rows": 2,
+        "frame": [
+          320,
+          256
+        ],
+        "foot": [
+          160,
+          240
+        ]
+      },
+      "promptSummary": "Physical two-actor collar grapple and single steel-sword upper-chest impalement. Actual blade exits back, breastplate splits, blood runs from chest/back and king buckles while challenger supports him. Twelve approach/grab/thrust/recoil/held/charge poses, no light beam or environment."
+    },
+    {
+      "id": "waiting",
+      "job_id": "989d9c3d-0b5d-452c-9c0f-8452c613bd34",
+      "model": "gpt_image_2_6",
+      "quality": "medium",
+      "resolution": "2k",
+      "use_unlim": true,
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_055413_989d9c3d-0b5d-452c-9c0f-8452c613bd34.png",
+      "source": "assets/godot-v6/waiting-original.png",
+      "runtime": "godot/art/waiting.png",
+      "layout": {
+        "cols": 6,
+        "rows": 2,
+        "frame": [
+          192,
+          192
+        ],
+        "foot": [
+          96,
+          154
+        ],
+        "standingBodyReference": 107,
+        "seatedBodyApprox": 79
+      },
+      "promptSummary": "Six slumped seated waiting frames with bowed head, lowered ears, half-lidded/closed eyes, cheek in paw, sword lowered, exhausted and sad; six slow weary rising frames. No chair/environment baked in, fixed source pixel scale and foot baseline."
+    }
+  ],
+  "reused": {
+    "king": "public/gothic-v5/boss-base.png",
+    "visitorsWalk": "public/royal-v4/visitor-walk.png",
+    "visitorsCombat": "public/royal-v4/visitor-combat.png",
+    "visitorsIdleHurt": "public/gothic-v5/visitors.png",
+    "coronation": "public/gothic-v5/coronation.png",
+    "effects": "public/gothic-v5/effects.png",
+    "royalEffects": "public/royal-v4/royal-vfx.png",
+    "visitorEffects": "public/royal-v4/visitor-vfx.png",
+    "blood": "public/royal-v4/blood-hit.png",
+    "previousKing": "public/combat-v3/previous-king.png"
+  },
+  "environments": {
+    "nativeArena": [
+      320,
+      180
+    ],
+    "display": [
+      960,
+      540
+    ],
+    "filter": "nearest",
+    "source": "Restored royal-v4 arena-night/mid/late and matching royal-v4 dawn-ruins. Same gothic room/columns/throne/stairs; ruined interior remains visible, not a town-only cutaway.",
+    "menu": "public/gothic-v5/menu-castle.png, Ansimuz CC0 layers and Codex composition, native480x270."
+  },
+  "references": [
+    {
+      "url": "https://quaternius.itch.io/universal-animation-library-2",
+      "usage": "Public motion/weight/combo preview reference only. No 3D rig is used; actors remain sprite sheets."
+    },
+    {
+      "url": "https://clockworkraven.itch.io/raven-fantasy-icons",
+      "usage": "Public weapon/skill readability reference only. Free-download navigation timed out; no Raven asset files or paid files copied. HUD icons are derived from the game's own art."
+    },
+    {
+      "url": "https://deep-fold.itch.io/pixel-planet-generator",
+      "usage": "Public pixel sky/lighting reference. No planetary generator code or assets are required or bundled in this medieval arena."
+    }
+  ],
+  "validation": "Twelve finisher frames and twelve waiting/rise frames: nonempty, binary alpha, no opaque clipping. All prior visitor anchor corrections are preserved in the copied runtime sheets."
+}

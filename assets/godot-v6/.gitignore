@@ -1,0 +1,4 @@
+# AI-use disclosure: Codex excludes transient free-download sessions and unused source archives.
+local-originals/
+*.html
+*session*.json

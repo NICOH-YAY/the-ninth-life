@@ -1,0 +1,177 @@
+{
+  "aiUseDisclosure": "Higgsfield authored paired physical grapple/heart-impalement poses; Codex applied one fixed pixel export scale, hard alpha and foot alignment.",
+  "job": "0e069eca-93f4-4bbb-96a0-10524803ad05",
+  "frame": [
+    320,
+    256
+  ],
+  "grid": [
+    6,
+    2
+  ],
+  "foot": [
+    160,
+    240
+  ],
+  "kingHeightApprox": 143,
+  "pairWidthApprox": 160,
+  "displayScale": 1,
+  "frames": [
+    {
+      "index": 0,
+      "row": 0,
+      "col": 0,
+      "opaque": 10605,
+      "foot": 240,
+      "translation": [
+        80,
+        82
+      ],
+      "sourceFoot": 158,
+      "clipped": 0
+    },
+    {
+      "index": 1,
+      "row": 0,
+      "col": 1,
+      "opaque": 11128,
+      "foot": 240,
+      "translation": [
+        80,
+        83
+      ],
+      "sourceFoot": 157,
+      "clipped": 0
+    },
+    {
+      "index": 2,
+      "row": 0,
+      "col": 2,
+      "opaque": 11211,
+      "foot": 240,
+      "translation": [
+        80,
+        82
+      ],
+      "sourceFoot": 158,
+      "clipped": 0
+    },
+    {
+      "index": 3,
+      "row": 0,
+      "col": 3,
+      "opaque": 10999,
+      "foot": 240,
+      "translation": [
+        80,
+        83
+      ],
+      "sourceFoot": 157,
+      "clipped": 0
+    },
+    {
+      "index": 4,
+      "row": 0,
+      "col": 4,
+      "opaque": 10909,
+      "foot": 240,
+      "translation": [
+        80,
+        82
+      ],
+      "sourceFoot": 158,
+      "clipped": 0
+    },
+    {
+      "index": 5,
+      "row": 0,
+      "col": 5,
+      "opaque": 10969,
+      "foot": 240,
+      "translation": [
+        80,
+        83
+      ],
+      "sourceFoot": 157,
+      "clipped": 0
+    },
+    {
+      "index": 6,
+      "row": 1,
+      "col": 0,
+      "opaque": 10938,
+      "foot": 240,
+      "translation": [
+        80,
+        82
+      ],
+      "sourceFoot": 158,
+      "clipped": 0
+    },
+    {
+      "index": 7,
+      "row": 1,
+      "col": 1,
+      "opaque": 10688,
+      "foot": 240,
+      "translation": [
+        80,
+        82
+      ],
+      "sourceFoot": 158,
+      "clipped": 0
+    },
+    {
+      "index": 8,
+      "row": 1,
+      "col": 2,
+      "opaque": 10382,
+      "foot": 240,
+      "translation": [
+        80,
+        82
+      ],
+      "sourceFoot": 158,
+      "clipped": 0
+    },
+    {
+      "index": 9,
+      "row": 1,
+      "col": 3,
+      "opaque": 10487,
+      "foot": 240,
+      "translation": [
+        80,
+        82
+      ],
+      "sourceFoot": 158,
+      "clipped": 0
+    },
+    {
+      "index": 10,
+      "row": 1,
+      "col": 4,
+      "opaque": 10296,
+      "foot": 240,
+      "translation": [
+        80,
+        82
+      ],
+      "sourceFoot": 158,
+      "clipped": 0
+    },
+    {
+      "index": 11,
+      "row": 1,
+      "col": 5,
+      "opaque": 10402,
+      "foot": 240,
+      "translation": [
+        80,
+        82
+      ],
+      "sourceFoot": 158,
+      "clipped": 0
+    }
+  ]
+}

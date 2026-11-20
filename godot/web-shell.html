@@ -1,0 +1,16 @@
+<!doctype html>
+<!-- AI-use disclosure: Codex-authored minimal loading shell; all game behavior runs in Godot. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The Ninth Life</title><link rel="icon" type="image/png" href="./favicon.png">
+<style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#080d18;color:#e7d9b7;font-family:monospace}#canvas{display:block;width:100%;height:100%;image-rendering:pixelated;outline:none}#loading{position:absolute;inset:0;display:grid;place-content:center;text-align:center;background:#080d18;gap:18px}#loading p{font-size:12px;color:#aabac4}progress{width:260px;height:4px;accent-color:#d0ad67}#error{max-width:580px;line-height:1.6;padding:24px}</style>
+$GODOT_HEAD_INCLUDE
+</head><body><canvas id="canvas" tabindex="0" aria-label="The Ninth Life"></canvas><div id="loading"><h1>THE NINTH LIFE</h1><progress id="progress"></progress><p id="status">The castle waits.</p><div id="error" hidden></div></div>
+<script src="$GODOT_URL"></script><script>
+const GODOT_CONFIG=$GODOT_CONFIG;
+const engine=new Engine(GODOT_CONFIG);
+const loading=document.getElementById("loading"),progress=document.getElementById("progress");
+function failure(error){document.getElementById("status").textContent="The castle could not open.";const box=document.getElementById("error");box.hidden=false;box.textContent=String(error);console.error(error);}
+const missing=Engine.getMissingFeatures({threads:false});
+if(missing.length)failure("This browser needs WebGL 2 and WebAssembly. "+missing.join(", "));
+else engine.startGame({onProgress:(current,total)=>{if(total>0){progress.max=total;progress.value=current;}}}).then(()=>{loading.style.display="none";document.getElementById("canvas").focus();}).catch(failure);
+window.addEventListener("keydown",event=>{if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].includes(event.code))event.preventDefault();});
+</script></body></html>

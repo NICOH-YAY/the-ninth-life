@@ -1,0 +1,13 @@
+AI-use disclosure: Codex prepared the native Godot credits; original artists are listed below.
+The Ninth Life — a game by Nicoh
+Code: Claude Code and Codex. Native Godot adaptation: Codex.
+Cat sprites and effects: original Higgsfield generations; pixel preparation by Codex.
+Prior castle source assets: Luis Zuno / Ansimuz (CC0); current compositions by Codex.
+Music by Scott Buckley, released under CC BY 4.0 — www.scottbuckley.com.au
+Incantation; Hiraeth; Call To Adventure; Juggernaut; Legionnaire (2022 Remaster);
+Race The Sun; The Summoning; Goliath; Honour Among Thieves; Snowfall; Vanguard; Helios.
+Music excerpts trimmed, normalized and compressed. creativecommons.org/licenses/by/4.0/
+Recorded Foley: Chequered Ink — ci.itch.io/400-sounds-pack. Edited game-only samples.
+Motion references: Quaternius Universal Animation Library 2 (CC0); Ozzbit public previews.
+Weapon/skill reference: Clockwork Raven. Pixel moon/shader reference: Deep-Fold (MIT).
+Engine: Godot (MIT), godotengine.org/license/. Full sources, licenses and AI-use log: ATTRIBUTION.md.

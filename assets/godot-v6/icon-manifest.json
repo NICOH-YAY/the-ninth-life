@@ -1,0 +1,50 @@
+{
+  "aiUseDisclosure": "Codex cropped the game own Higgsfield-authored sword/spell frames into pixel HUD icons. Clockwork Raven public previews informed weapon/skill readability; no Raven asset files were obtained or bundled.",
+  "icons": [
+    {
+      "file": "godot/art/skill-steel.png",
+      "source": "godot/art/king.png",
+      "crop": {
+        "left": 28,
+        "top": 87,
+        "width": 70,
+        "height": 70
+      }
+    },
+    {
+      "file": "godot/art/skill-pierce.png",
+      "source": "godot/art/effects.png",
+      "crop": {
+        "left": 384,
+        "top": 128,
+        "width": 128,
+        "height": 128
+      }
+    },
+    {
+      "file": "godot/art/skill-kneel.png",
+      "source": "godot/art/effects.png",
+      "crop": {
+        "left": 384,
+        "top": 256,
+        "width": 128,
+        "height": 128
+      }
+    },
+    {
+      "file": "godot/art/skill-procession.png",
+      "source": "godot/art/royal-effects.png",
+      "crop": {
+        "left": 384,
+        "top": 512,
+        "width": 128,
+        "height": 128
+      }
+    }
+  ],
+  "frame": [
+    32,
+    32
+  ],
+  "atlas": "godot/art/skill-icons.png"
+}

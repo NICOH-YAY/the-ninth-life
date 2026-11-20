@@ -1,0 +1,158 @@
+{
+  "aiUseDisclosure": "Codex edited creator-authored recordings at native pitch, using one isolated source per sound rather than layered, slowed metallic mixes.",
+  "author": "Chequered Ink",
+  "source": "https://ci.itch.io/400-sounds-pack",
+  "license": "Use in games permitted; unmodified source-pack redistribution excluded.",
+  "samples": [
+    {
+      "id": "sword-swing",
+      "input": "Weapons/sword_slice.wav",
+      "output": "godot/audio/sfx/sword-swing.ogg",
+      "durationLimit": 0.65,
+      "pitch": "unchanged",
+      "processing": "atrim=duration=0.65,asetpts=PTS-STARTPTS,highpass=f=110,lowpass=f=11000,volume=0.82,afade=t=in:d=0.004,afade=t=out:st=0.5800000000000001:d=0.07,alimiter=limit=0.80:level=0",
+      "bytes": 10334,
+      "sha256": "72e84e96e74a0184aab192b8dae57634faff93b3a14e9ed4e6567c78ba0fb417"
+    },
+    {
+      "id": "sword-hit",
+      "input": "Weapons/sword_light.wav",
+      "output": "godot/audio/sfx/sword-hit.ogg",
+      "durationLimit": 0.7,
+      "pitch": "unchanged",
+      "processing": "atrim=duration=0.7,asetpts=PTS-STARTPTS,highpass=f=110,lowpass=f=11000,volume=0.82,afade=t=in:d=0.004,afade=t=out:st=0.6299999999999999:d=0.07,alimiter=limit=0.80:level=0",
+      "bytes": 8307,
+      "sha256": "37bcfc442e7687894fabcc1f8304a6d48febbfcce8606a2309f19d4ade0a865e"
+    },
+    {
+      "id": "sword-draw",
+      "input": "Weapons/sword_unsheath.wav",
+      "output": "godot/audio/sfx/sword-draw.ogg",
+      "durationLimit": 0.75,
+      "pitch": "unchanged",
+      "processing": "atrim=duration=0.75,asetpts=PTS-STARTPTS,highpass=f=110,lowpass=f=11000,volume=0.82,afade=t=in:d=0.004,afade=t=out:st=0.6799999999999999:d=0.07,alimiter=limit=0.80:level=0",
+      "bytes": 12245,
+      "sha256": "4e6a0eac051010cf06ea836c6191aaf7a5353c5d0ee0fe3be98db0f143845d92"
+    },
+    {
+      "id": "guard",
+      "input": "Weapons/sword_clash.wav",
+      "output": "godot/audio/sfx/guard.ogg",
+      "durationLimit": 0.7,
+      "pitch": "unchanged",
+      "processing": "atrim=duration=0.7,asetpts=PTS-STARTPTS,highpass=f=110,lowpass=f=11000,volume=0.82,afade=t=in:d=0.004,afade=t=out:st=0.6299999999999999:d=0.07,alimiter=limit=0.80:level=0",
+      "bytes": 7757,
+      "sha256": "ff82e19dd66599ccffd9a81d444ddc900daae7caf823ba157d2eb3843e56850d"
+    },
+    {
+      "id": "chain",
+      "input": "Materials/metal_clang.wav",
+      "output": "godot/audio/sfx/chain.ogg",
+      "durationLimit": 0.7,
+      "pitch": "unchanged",
+      "processing": "atrim=duration=0.7,asetpts=PTS-STARTPTS,highpass=f=110,lowpass=f=11000,volume=0.82,afade=t=in:d=0.004,afade=t=out:st=0.6299999999999999:d=0.07,alimiter=limit=0.80:level=0",
+      "bytes": 10222,
+      "sha256": "08ce2758fd1309144b1c343df7ea6e39019370086802965529330f13b9756817"
+    },
+    {
+      "id": "wood",
+      "input": "Materials/wood_small_hollow.wav",
+      "output": "godot/audio/sfx/wood.ogg",
+      "durationLimit": 0.65,
+      "pitch": "unchanged",
+      "processing": "atrim=duration=0.65,asetpts=PTS-STARTPTS,highpass=f=110,lowpass=f=11000,volume=0.82,afade=t=in:d=0.004,afade=t=out:st=0.5800000000000001:d=0.07,alimiter=limit=0.80:level=0",
+      "bytes": 8505,
+      "sha256": "b9aa7ea240cacf7f5a5aeea0b7d3d58ee4f2a7ee99c573e723d79567dc3bde43"
+    },
+    {
+      "id": "ice",
+      "input": "Materials/glass_ping_small.wav",
+      "output": "godot/audio/sfx/ice.ogg",
+      "durationLimit": 0.6,
+      "pitch": "unchanged",
+      "processing": "atrim=duration=0.6,asetpts=PTS-STARTPTS,highpass=f=110,lowpass=f=11000,volume=0.82,afade=t=in:d=0.004,afade=t=out:st=0.53:d=0.07,alimiter=limit=0.80:level=0",
+      "bytes": 9982,
+      "sha256": "228847eeb32e833f281c2a2fd27566a4b5661c5b4dfb07b8cc301de00e66a5f2"
+    },
+    {
+      "id": "flesh",
+      "input": "Combat and Gore/punch_2.wav",
+      "output": "godot/audio/sfx/flesh.ogg",
+      "durationLimit": 0.6,
+      "pitch": "unchanged",
+      "processing": "atrim=duration=0.6,asetpts=PTS-STARTPTS,highpass=f=110,lowpass=f=11000,volume=0.82,afade=t=in:d=0.004,afade=t=out:st=0.53:d=0.07,alimiter=limit=0.80:level=0",
+      "bytes": 5899,
+      "sha256": "fe6627cfb7ff2d7d76be014fccb2574c72f4875457be498719657af57f29c22b"
+    },
+    {
+      "id": "stab",
+      "input": "Materials/cork_stabbed.wav",
+      "output": "godot/audio/sfx/stab.ogg",
+      "durationLimit": 0.65,
+      "pitch": "unchanged",
+      "processing": "atrim=duration=0.65,asetpts=PTS-STARTPTS,highpass=f=110,lowpass=f=11000,volume=0.82,afade=t=in:d=0.004,afade=t=out:st=0.5800000000000001:d=0.07,alimiter=limit=0.80:level=0",
+      "bytes": 8563,
+      "sha256": "de3734754cfa686084828db4139556cf95ed87b7ecb5a5c7df9559d2d070ada7"
+    },
+    {
+      "id": "dash",
+      "input": "Other/whoosh_1.wav",
+      "output": "godot/audio/sfx/dash.ogg",
+      "durationLimit": 0.6,
+      "pitch": "unchanged",
+      "processing": "atrim=duration=0.6,asetpts=PTS-STARTPTS,highpass=f=110,lowpass=f=11000,volume=0.82,afade=t=in:d=0.004,afade=t=out:st=0.53:d=0.07,alimiter=limit=0.80:level=0",
+      "bytes": 7094,
+      "sha256": "44684013c401db62f07d8239859a7ae8f728b56a910a5ce9c0973aaa61cbc38e"
+    },
+    {
+      "id": "magic",
+      "input": "Environment/air_burst.wav",
+      "output": "godot/audio/sfx/magic.ogg",
+      "durationLimit": 0.85,
+      "pitch": "unchanged",
+      "processing": "atrim=duration=0.85,asetpts=PTS-STARTPTS,highpass=f=110,lowpass=f=11000,volume=0.82,afade=t=in:d=0.004,afade=t=out:st=0.78:d=0.07,alimiter=limit=0.80:level=0",
+      "bytes": 7410,
+      "sha256": "a6f64fb5e2117a12bacf34e86de7c2e7ea7d21692b492070bba949767de4df45"
+    },
+    {
+      "id": "step1",
+      "input": "Footsteps/foley_footstep_concrete_1.wav",
+      "output": "godot/audio/sfx/step1.ogg",
+      "durationLimit": 0.38,
+      "pitch": "unchanged",
+      "processing": "atrim=duration=0.38,asetpts=PTS-STARTPTS,highpass=f=110,lowpass=f=11000,volume=0.82,afade=t=in:d=0.004,afade=t=out:st=0.31:d=0.07,alimiter=limit=0.80:level=0",
+      "bytes": 7439,
+      "sha256": "5e6003c8ef262470e6a50b8cf8b79df6033a3d82735b10615f61e09b30eaa5f4"
+    },
+    {
+      "id": "step2",
+      "input": "Footsteps/foley_footstep_concrete_2.wav",
+      "output": "godot/audio/sfx/step2.ogg",
+      "durationLimit": 0.38,
+      "pitch": "unchanged",
+      "processing": "atrim=duration=0.38,asetpts=PTS-STARTPTS,highpass=f=110,lowpass=f=11000,volume=0.82,afade=t=in:d=0.004,afade=t=out:st=0.31:d=0.07,alimiter=limit=0.80:level=0",
+      "bytes": 7263,
+      "sha256": "54c9d4d582c3b0e764ad4cf25838cd32488397780f483f6c01add284344ba1e3"
+    },
+    {
+      "id": "nova",
+      "input": "Retro/explosion_large.wav",
+      "output": "godot/audio/sfx/nova.ogg",
+      "durationLimit": 1.1,
+      "pitch": "unchanged",
+      "processing": "atrim=duration=1.1,asetpts=PTS-STARTPTS,highpass=f=110,lowpass=f=11000,volume=0.82,afade=t=in:d=0.004,afade=t=out:st=1.03:d=0.07,alimiter=limit=0.80:level=0",
+      "bytes": 15351,
+      "sha256": "83338a33dca1567cfee3293638f78f5b5e3bf2f056bd706de1bcdf5391afb0ba"
+    },
+    {
+      "id": "cloth",
+      "input": "Materials/clothing_1.wav",
+      "output": "godot/audio/sfx/cloth.ogg",
+      "durationLimit": 0.42,
+      "pitch": "unchanged",
+      "processing": "atrim=duration=0.42,asetpts=PTS-STARTPTS,highpass=f=110,lowpass=f=11000,volume=0.82,afade=t=in:d=0.004,afade=t=out:st=0.35:d=0.07,alimiter=limit=0.80:level=0",
+      "bytes": 8323,
+      "sha256": "1fe76fdeada6c7828e858121f74d6e8c6d9494efa8ec6800eaf4b7bf1149dafb"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+# AI-use disclosure: Codex-authored deterministic Godot combat data port and royal second stance.
+extends RefCounted
+
+const LIVES = ["kitten","alley","sailor","acrobat","witch","knight","thief","quiet","patchwork"]
+const YEARS = [1000,1089,1193,1324,1488,1672,1880,2116,2400]
+const COLORS = [Color("#e0c697"),Color("#ff6979"),Color("#efb95a"),Color("#51e6b2"),Color("#cb8bff"),Color("#7bc9ff"),Color("#50e1a8"),Color("#b0eeff"),Color("#ffb05f")]
+const MELEE = [
+ {"reach":44.0,"tell":0.50,"height":60.0,"impulse":80.0,"lift":0.0,"guard":0.0},
+ {"reach":64.0,"tell":0.30,"height":65.0,"impulse":-220.0,"lift":0.0,"guard":0.0},
+ {"reach":112.0,"tell":0.46,"height":75.0,"impulse":310.0,"lift":0.0,"guard":0.12},
+ {"reach":60.0,"tell":0.24,"height":110.0,"impulse":180.0,"lift":0.0,"guard":0.0},
+ {"reach":86.0,"tell":0.48,"height":100.0,"impulse":130.0,"lift":230.0,"guard":0.0},
+ {"reach":96.0,"tell":0.55,"height":70.0,"impulse":460.0,"lift":190.0,"guard":0.18},
+ {"reach":52.0,"tell":0.20,"height":60.0,"impulse":120.0,"lift":0.0,"guard":0.0},
+ {"reach":140.0,"tell":0.38,"height":105.0,"impulse":270.0,"lift":0.0,"guard":0.0},
+ {"reach":90.0,"tell":0.31,"height":88.0,"impulse":340.0,"lift":100.0,"guard":0.10}]
+const ABILITY_TELL = [0.85,0.42,0.64,0.50,0.60,0.78,0.58,0.57,0.62]
+const ABILITY_CD = [3.8,2.15,3.1,2.7,2.8,3.5,2.9,2.4,2.25]
+const MOVES = {
+ "cleave":{"name":"Crownsteel","tell":0.10,"active":0.14,"recover":0.14,"cooldown":0.30,"damage":28.0},
+ "throw":{"name":"Oathpiercer","tell":0.20,"active":0.13,"recover":0.19,"cooldown":1.05,"damage":34.0},
+ "reap":{"name":"Kneel","tell":0.42,"active":0.18,"recover":0.16,"cooldown":1.10,"damage":32.0},
+ "nova":{"name":"Procession","tell":0.40,"active":0.44,"recover":0.20,"cooldown":8.0,"damage":36.0}}
+const CROWN_MOVES = {
+ "cleave":{"name":"Judgement","tell":0.19,"active":0.27,"recover":0.13,"cooldown":0.38,"damage":22.0},
+ "throw":{"name":"Starfall","tell":0.22,"active":0.42,"recover":0.13,"cooldown":0.88,"damage":13.0},
+ "reap":{"name":"The Court","tell":0.50,"active":0.52,"recover":0.16,"cooldown":0.98,"damage":32.0},
+ "nova":{"name":"Final Decree","tell":0.46,"active":0.58,"recover":0.20,"cooldown":7.0,"damage":84.0}}
+
+static func move_spec(id: String, phase: int) -> Dictionary:
+ return (CROWN_MOVES[id] if phase == 2 else MOVES[id]).duplicate()
+
+static func stats(index: int) -> Dictionary:
+ if index == 0:
+  return {"hp":260.0,"damage":4.0,"speed":145.0}
+ return {"hp":250.0+52.0*(index-1),"damage":16.0+3.5*(index-1),"speed":175.0+12.0*(index-1)}
+
+static func shot(origin: Vector2, target: Vector2, speed: float, angle_offset: float=0.0) -> Dictionary:
+ var angle = (target-origin).angle()+angle_offset
+ return {"p":origin,"v":Vector2.from_angle(angle)*speed,"radius":12.0,"low":false,"ttl":3.0,"scale":0.7,"gravity":0.0,"return_at":0.0}
+
+static func enemy_shots(index: int, origin: Vector2, target: Vector2, serial: int) -> Array:
+ var side = -1.0 if target.x < origin.x else 1.0
+ var out: Array = []
+ var p: Dictionary
+ match index:
+  0:
+   p=shot(Vector2(origin.x,13),Vector2(target.x,13),220);p.low=true;p.scale=0.55;out.append(p)
+  1:
+   p=shot(Vector2(origin.x,16),Vector2(target.x,16),620);p.low=true;p.ttl=0.82;p.scale=0.6;out.append(p)
+   p=shot(origin,target,410);p.gravity=160.0;p.ttl=1.0;p.scale=0.65;out.append(p)
+  2:
+   p=shot(origin,target,390);p.radius=22.0;p.return_at=265.0;p.scale=1.05;out.append(p)
+  3:
+   for spread in [-0.30,0.0,0.30]:
+    p=shot(origin,target,390,spread);p.radius=15.0;p.scale=0.58;out.append(p)
+  4:
+   for n in range(3):
+    p=shot(origin,target,320.0+n*65.0,(n-1)*0.16);p.radius=9.0;p.scale=0.65;out.append(p)
+  5:
+   p=shot(Vector2(origin.x,16),Vector2(target.x,16),265);p.low=true;p.radius=32.0;p.scale=1.35;p.ttl=4.0;out.append(p)
+  6:
+   p=shot(origin,target,540);p.scale=0.8;out.append(p)
+   p=shot(Vector2(origin.x,13),Vector2(target.x,13),365);p.low=true;p.scale=0.65;out.append(p)
+  7:
+   var low = serial%2==0
+   p=shot(Vector2(origin.x,14 if low else 88),Vector2(target.x,14 if low else 88),450 if low else 490);p.low=low;p.scale=0.95;out.append(p)
+  8:
+   for spread in [-0.20,0.20]:
+    p=shot(origin,target,430,spread);p.radius=16.0;p.scale=0.8;out.append(p)
+   p=shot(Vector2(origin.x,14),Vector2(target.x,14),330);p.low=true;p.scale=0.65;out.append(p)
+ for item in out:
+  item.v.x=absf(item.v.x)*side
+ return out

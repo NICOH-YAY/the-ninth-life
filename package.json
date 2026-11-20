@@ -1,14 +1,14 @@
 {
-  "aiUseDisclosure": "Claude scaffolded the package; Codex updated the project description and browser verification commands.",
+  "aiUseDisclosure": "Claude scaffolded the original package; Codex migrated the active build, preview and browser verification commands to native Godot.",
   "name": "the-ninth-life",
   "private": true,
   "version": "0.1.0",
   "type": "module",
   "description": "An immortal cat king faces one returning soul across centuries of rule and ruin.",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
+    "dev": "node scripts/build-godot.mjs && node scripts/serve-godot.mjs",
+    "build": "node scripts/build-godot.mjs",
+    "preview": "node scripts/serve-godot.mjs",
     "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p worker/tsconfig.json",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -16,7 +16,13 @@
     "assets:key": "node scripts/chroma-key.mjs",
     "assets:crop": "node scripts/crop-lineup.mjs && node scripts/resize-sprites.mjs",
     "assets:pixel": "node scripts/export-pixel-sprites.mjs",
-    "test:browser": "npm run build && node scripts/gothic-v5-smoke.mjs && node scripts/royal-routes.mjs"
+    "test:browser": "node scripts/build-godot.mjs && node scripts/godot-smoke.mjs",
+    "legacy:dev": "vite",
+    "legacy:build": "vite build",
+    "legacy:preview": "vite preview",
+    "legacy:test:browser": "npm run legacy:build && node scripts/gothic-v5-smoke.mjs && node scripts/royal-routes.mjs",
+    "build:godot": "node scripts/build-godot.mjs",
+    "godot:install": "node scripts/install-godot.mjs"
   },
   "dependencies": {
     "phaser": "3.88.2"

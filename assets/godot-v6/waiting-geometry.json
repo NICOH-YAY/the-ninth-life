@@ -1,0 +1,117 @@
+{
+  "aiUseDisclosure": "Higgsfield created original slumped seated and slow rising poses; Codex used a fixed whole-cell source128 scale and foot154, never fitting seated poses to standing height.",
+  "job": "989d9c3d-0b5d-452c-9c0f-8452c613bd34",
+  "frame": [
+    192,
+    192
+  ],
+  "grid": [
+    6,
+    2
+  ],
+  "foot": [
+    96,
+    154
+  ],
+  "standingReferenceBody": 107,
+  "seatedBodyApprox": 79,
+  "suggestedThroneFootY": 422,
+  "frames": [
+    {
+      "row": 0,
+      "col": 0,
+      "opaque": 3500,
+      "clipped": 0,
+      "sourceFoot": 114,
+      "shiftY": 40
+    },
+    {
+      "row": 0,
+      "col": 1,
+      "opaque": 3346,
+      "clipped": 0,
+      "sourceFoot": 114,
+      "shiftY": 40
+    },
+    {
+      "row": 0,
+      "col": 2,
+      "opaque": 3304,
+      "clipped": 0,
+      "sourceFoot": 114,
+      "shiftY": 40
+    },
+    {
+      "row": 0,
+      "col": 3,
+      "opaque": 3488,
+      "clipped": 0,
+      "sourceFoot": 114,
+      "shiftY": 40
+    },
+    {
+      "row": 0,
+      "col": 4,
+      "opaque": 3423,
+      "clipped": 0,
+      "sourceFoot": 114,
+      "shiftY": 40
+    },
+    {
+      "row": 0,
+      "col": 5,
+      "opaque": 3430,
+      "clipped": 0,
+      "sourceFoot": 114,
+      "shiftY": 40
+    },
+    {
+      "row": 1,
+      "col": 0,
+      "opaque": 3302,
+      "clipped": 0,
+      "sourceFoot": 115,
+      "shiftY": 39
+    },
+    {
+      "row": 1,
+      "col": 1,
+      "opaque": 3269,
+      "clipped": 0,
+      "sourceFoot": 115,
+      "shiftY": 39
+    },
+    {
+      "row": 1,
+      "col": 2,
+      "opaque": 3253,
+      "clipped": 0,
+      "sourceFoot": 115,
+      "shiftY": 39
+    },
+    {
+      "row": 1,
+      "col": 3,
+      "opaque": 3342,
+      "clipped": 0,
+      "sourceFoot": 115,
+      "shiftY": 39
+    },
+    {
+      "row": 1,
+      "col": 4,
+      "opaque": 3325,
+      "clipped": 0,
+      "sourceFoot": 115,
+      "shiftY": 39
+    },
+    {
+      "row": 1,
+      "col": 5,
+      "opaque": 3548,
+      "clipped": 0,
+      "sourceFoot": 115,
+      "shiftY": 39
+    }
+  ]
+}

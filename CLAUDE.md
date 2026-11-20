@@ -10,15 +10,15 @@ This is Nicoh Koehly's (`nicoh-yay`) final project for COMS E6998 sec 014, AI in
 @CONFIG.md
 @PLAN.md
 
-Current combat and story contract: @docs/gothic-combat.md is the latest user-directed revision for two exchanges, distinct boss kits, heart impalement, hand-drawn tile environments and differentiated score. Historical contracts: @docs/royal-revision.md and @docs/mobile-combat.md. The royal revision is the later contract for anonymous reincarnation, lethal finales, distinct weapons and licensed music. Its later user-directed mobility, tutorial and three-ending rules replace the older forced-loss rules.
+Current native engine contract: @docs/godot-port.md supersedes conflicting historical engine and presentation rules. Open godot/project.godot. Historical combat contract: @docs/gothic-combat.md records the preceding user-directed revision for two exchanges, distinct boss kits, heart impalement, hand-drawn tile environments and differentiated score. Historical contracts: @docs/royal-revision.md and @docs/mobile-combat.md. The royal revision is the later contract for anonymous reincarnation, lethal finales, distinct weapons and licensed music. Its later user-directed mobility, tutorial and three-ending rules replace the older forced-loss rules.
 
 Newer design docs that override GDD.md where they conflict (update GDD.md to match): docs/story-bible.md, docs/phase-two.md, docs/challenger-progression.md, docs/art-direction.md, docs/prototype-brief.md. Simple mechanical work goes to the Haiku subagents in `.claude/agents/`.
 
 `GDD.md` is the current spec. `docs/design-history.md` records the concepts considered, why this one was chosen, decisions, and open critiques.
 
 ## Project rules
-- **Stack (proposed):** TypeScript (strict), Vite, Vitest, Phaser or plain Canvas. Browser game, one arena.
-- **Keep game logic pure.** Combat rules, the challenger controller, roster, validator, and fallback live in `src/core/` with no rendering imports, so they can be tested without a browser. Fights must be replayable from a seed.
+- **Active stack:** Godot 4.7.2, GDScript, Compatibility renderer and native web export. TypeScript/Phaser is preserved historical code; legacy commands use legacy:.
+- **Keep game logic pure.** Native combat profiles live in godot/combat_rules.gd and planning in godot/run_planner.gd; native checks run before export. Historical pure rules remain in src/core/. Fights must be replayable from a seed.
 - **The agent reasons between fights only.** Never put a model call in the combat loop.
 - **Every PR has tests.** `npm test`, `npm run typecheck`, `npm run build` must pass. CI must pass to merge.
 - **Nicoh merges.** Never merge, force-push, or push to `main`. Branch and open a PR.

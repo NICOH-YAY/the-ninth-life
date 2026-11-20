@@ -1,0 +1,23 @@
+{
+  "aiUseDisclosure": "Codex measured existing native pixel bodies at stable foot anchors. No per-frame rescaling.",
+  "kingBody": 107,
+  "visitorBodies": [
+    74,
+    80,
+    71,
+    69,
+    76,
+    79,
+    71,
+    76,
+    85
+  ],
+  "kingFoot": [
+    96,
+    154
+  ],
+  "visitorFoot": [
+    72,
+    110
+  ]
+}

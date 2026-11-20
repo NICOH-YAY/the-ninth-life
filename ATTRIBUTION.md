@@ -156,3 +156,20 @@ AI-use disclosure: Higgsfield generated original feline actor/effect images; Cod
 Ozzbit Games' [Action Platformer Character Animation Template](https://ozzbit-games.itch.io/action-platformer-character-template) informed motion principles through its public previews only. No Ozzbit template files or paid-tier animations are bundled.
 
 Visitor foot-anchor cleanup (Codex): removed confirmed detached neighboring-cell fragments and translated coherent actors to the y110 anchor in22 selected runtime frames. No actor was rescaled or recolored. Unchanged source generations and pre-fix exports remain preserved; reproducible helper, raw-pixel bounds and hashes are in assets/gothic-v5/repair-thief-foot.mjs and foot-anchor-repair.json. The162-frame audit found no remaining coherent-body foot above its intended contact baseline.
+
+AI-use disclosure: Codex implemented the native Godot port and prepared the revised sprite and audio assets.
+
+## Native Godot revision
+
+The active project is godot/project.godot. Engine: Godot4.7.2, MIT; exported license text accompanies the web build. Earlier Phaser assets and attribution records remain historical.
+
+| Asset | Source and changes |
+|---|---|
+| godot/art/held-impalement.png | Higgsfield GPT Image2.6, job0e069eca-93f4-4bbb-96a0-10524803ad05; original joint cat animation with collar grip, solid torso-piercing blade and blood; transparent pixel atlas prepared by Codex |
+| godot/art/waiting.png | Higgsfield original generation; slumped, sad/bored king resting and rising; exact job, prompt, source and export hashes in assets/godot-v6/manifest.json |
+| godot/art/arena-*.png | Restored earlier licensed/composed pixel hall and matching same-interior ruins; provenance and transformations in assets/godot-v6/ATTRIBUTION.md |
+| godot/art/ remaining atlases and skill icons | Reused original Higgsfield king, visitors, effects and coronation; curated/derived pixel skill icons; complete source mapping in assets/godot-v6/ATTRIBUTION.md and manifest.json |
+| godot/audio/music/ | The twelve Scott Buckley compositions credited above, CC BY4.0; native runtime crossfade, gain and dialogue-duck modifications |
+| godot/audio/sfx/ | Chequered Ink 400+ Sounds Pack; fifteen edited single-source OGG derivatives with native pitch, trimming and fades; exact processing and provenance in assets/godot-v6/audio-processing.json and audio-note.md |
+
+Quaternius Universal Animation Library2, Clockwork Raven Fantasy Icons and Deep-Fold Pixel Planet Generator were reference research only. Their downloaded asset content is not included in the active game. No commercial reference recordings are included. Runtime monster atlas is omitted: the second stance uses the sword-bearing king.

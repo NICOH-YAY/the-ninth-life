@@ -8,3 +8,8 @@ start-overnight-build.cmd
 public/sprites/keyed/
 output/
 assets/references/
+
+# Godot native project caches and exported binaries stay local.
+godot/.godot/
+build/
+godot/*.tmp
