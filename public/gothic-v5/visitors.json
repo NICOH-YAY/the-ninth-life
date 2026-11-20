@@ -310,32 +310,148 @@
       "col": 0,
       "sourceFeet": 70,
       "shiftY": 40,
-      "opaque": 2822,
-      "clipped": 0
+      "opaque": 2765,
+      "clipped": 0,
+      "thiefFootRepair": {
+        "atlas": "gothic-idle-hurt",
+        "frame": 36,
+        "col": 0,
+        "beforeBody": {
+          "left": 42,
+          "right": 101,
+          "top": 41,
+          "bottom": 110
+        },
+        "afterBody": {
+          "left": 42,
+          "right": 101,
+          "top": 41,
+          "bottom": 110
+        },
+        "bodyPixels": 2765,
+        "removedPixels": 57,
+        "removedBounds": [
+          {
+            "left": 47,
+            "right": 56,
+            "top": 126,
+            "bottom": 134
+          }
+        ],
+        "translateY": 0,
+        "clippedOpaque": 0
+      }
     },
     {
       "row": 6,
       "col": 1,
       "sourceFeet": 94,
-      "shiftY": 16,
-      "opaque": 2896,
-      "clipped": 0
+      "shiftY": 40,
+      "opaque": 2837,
+      "clipped": 0,
+      "thiefFootRepair": {
+        "atlas": "gothic-idle-hurt",
+        "frame": 37,
+        "col": 1,
+        "beforeBody": {
+          "left": 43,
+          "right": 105,
+          "top": 16,
+          "bottom": 86
+        },
+        "afterBody": {
+          "left": 43,
+          "right": 105,
+          "top": 40,
+          "bottom": 110
+        },
+        "bodyPixels": 2837,
+        "removedPixels": 59,
+        "removedBounds": [
+          {
+            "left": 51,
+            "right": 61,
+            "top": 102,
+            "bottom": 110
+          }
+        ],
+        "translateY": 24,
+        "clippedOpaque": 0
+      }
     },
     {
       "row": 6,
       "col": 2,
       "sourceFeet": 94,
-      "shiftY": 16,
-      "opaque": 2755,
-      "clipped": 0
+      "shiftY": 40,
+      "opaque": 2694,
+      "clipped": 0,
+      "thiefFootRepair": {
+        "atlas": "gothic-idle-hurt",
+        "frame": 38,
+        "col": 2,
+        "beforeBody": {
+          "left": 47,
+          "right": 107,
+          "top": 17,
+          "bottom": 86
+        },
+        "afterBody": {
+          "left": 47,
+          "right": 107,
+          "top": 41,
+          "bottom": 110
+        },
+        "bodyPixels": 2694,
+        "removedPixels": 61,
+        "removedBounds": [
+          {
+            "left": 53,
+            "right": 63,
+            "top": 102,
+            "bottom": 110
+          }
+        ],
+        "translateY": 24,
+        "clippedOpaque": 0
+      }
     },
     {
       "row": 6,
       "col": 3,
       "sourceFeet": 94,
-      "shiftY": 16,
-      "opaque": 2503,
-      "clipped": 0
+      "shiftY": 39,
+      "opaque": 2450,
+      "clipped": 0,
+      "thiefFootRepair": {
+        "atlas": "gothic-idle-hurt",
+        "frame": 39,
+        "col": 3,
+        "beforeBody": {
+          "left": 51,
+          "right": 102,
+          "top": 18,
+          "bottom": 87
+        },
+        "afterBody": {
+          "left": 51,
+          "right": 102,
+          "top": 41,
+          "bottom": 110
+        },
+        "bodyPixels": 2450,
+        "removedPixels": 53,
+        "removedBounds": [
+          {
+            "left": 49,
+            "right": 58,
+            "top": 102,
+            "bottom": 110
+          }
+        ],
+        "translateY": 23,
+        "clippedOpaque": 0
+      }
     },
     {
       "row": 6,
@@ -343,15 +459,66 @@
       "sourceFeet": 71,
       "shiftY": 39,
       "opaque": 2517,
-      "clipped": 0
+      "clipped": 0,
+      "thiefFootRepair": {
+        "atlas": "gothic-idle-hurt",
+        "frame": 40,
+        "col": 4,
+        "beforeBody": {
+          "left": 53,
+          "right": 102,
+          "top": 41,
+          "bottom": 110
+        },
+        "afterBody": {
+          "left": 53,
+          "right": 102,
+          "top": 41,
+          "bottom": 110
+        },
+        "bodyPixels": 2517,
+        "removedPixels": 0,
+        "removedBounds": [],
+        "translateY": 0,
+        "clippedOpaque": 0
+      }
     },
     {
       "row": 6,
       "col": 5,
       "sourceFeet": 94,
-      "shiftY": 16,
-      "opaque": 2774,
-      "clipped": 0
+      "shiftY": 38,
+      "opaque": 2721,
+      "clipped": 0,
+      "thiefFootRepair": {
+        "atlas": "gothic-idle-hurt",
+        "frame": 41,
+        "col": 5,
+        "beforeBody": {
+          "left": 49,
+          "right": 105,
+          "top": 17,
+          "bottom": 88
+        },
+        "afterBody": {
+          "left": 49,
+          "right": 105,
+          "top": 39,
+          "bottom": 110
+        },
+        "bodyPixels": 2721,
+        "removedPixels": 53,
+        "removedBounds": [
+          {
+            "left": 49,
+            "right": 59,
+            "top": 102,
+            "bottom": 110
+          }
+        ],
+        "translateY": 22,
+        "clippedOpaque": 0
+      }
     },
     {
       "row": 7,
@@ -449,5 +616,32 @@
       "opaque": 3304,
       "clipped": 0
     }
-  ]
+  ],
+  "thiefFootRepair": {
+    "version": 1,
+    "row": 6,
+    "footY": 110,
+    "method": "Remove only detached small below-body cell artifact; translate whole actor and legitimate gear vertically. No scaling or recoloring.",
+    "helper": "assets/gothic-v5/repair-thief-foot.mjs",
+    "inputSha256": "9a437792382a0bf0aa29ea6de228b2a75b3ecd18e93ad508aba21fab71c4de74",
+    "outputSha256": "7c0527902da131ae4d6f4e01f3450362319ff9f9db16d3b005278765a0990677",
+    "changedFrames": 5
+  },
+  "footAnchorRepair": {
+    "version": 2,
+    "frames": [
+      36,
+      37,
+      38,
+      39,
+      40,
+      41
+    ],
+    "footY": 110,
+    "method": "Remove confirmed detached below-body neighboring-cell fragment; translate whole actor and legitimate gear. No scaling or recoloring.",
+    "helper": "assets/gothic-v5/repair-thief-foot.mjs",
+    "inputSha256": "7c0527902da131ae4d6f4e01f3450362319ff9f9db16d3b005278765a0990677",
+    "outputSha256": "7c0527902da131ae4d6f4e01f3450362319ff9f9db16d3b005278765a0990677",
+    "additionalChangedFrames": 0
+  }
 }

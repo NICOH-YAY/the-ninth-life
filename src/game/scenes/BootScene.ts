@@ -20,12 +20,12 @@ export class BootScene extends Phaser.Scene {
     this.load.spritesheet("gothic-monster", "gothic-v5/boss-monster.png", { frameWidth: 192, frameHeight: 192 });
     this.load.spritesheet("gothic-coronation", "gothic-v5/coronation.png", { frameWidth: 192, frameHeight: 192 });
     this.load.spritesheet("gothic-vfx", "gothic-v5/effects.png", { frameWidth: 128, frameHeight: 128 });
-    this.load.spritesheet("gothic-visitors", "gothic-v5/visitors.png", { frameWidth: 144, frameHeight: 144 });
+    this.load.spritesheet("gothic-visitors", "gothic-v5/visitors.png?v=feet-2", { frameWidth: 144, frameHeight: 144 });
     this.load.image("higgsfield-arena", "gothic-v5/arena-night.png");
     this.load.image("combat-aged-mid", "gothic-v5/arena-mid.png");
     this.load.image("combat-aged-late", "gothic-v5/arena-late.png");
-    this.load.spritesheet("royal-visitor-combat", "royal-v4/visitor-combat.png", { frameWidth: 144, frameHeight: 144 });
-    this.load.spritesheet("royal-visitor-walk", "royal-v4/visitor-walk.png", { frameWidth: 144, frameHeight: 144 });
+    this.load.spritesheet("royal-visitor-combat", "royal-v4/visitor-combat.png?v=feet-2", { frameWidth: 144, frameHeight: 144 });
+    this.load.spritesheet("royal-visitor-walk", "royal-v4/visitor-walk.png?v=feet-2", { frameWidth: 144, frameHeight: 144 });
     this.load.image("previous-king-portrait", "combat-v3/previous-king-portrait.png");
     this.load.spritesheet("combat-player", "combat-v3/immortal-base-motion.png", { frameWidth: 96, frameHeight: 96 });
     this.load.spritesheet("combat-ascended", "combat-v3/immortal-ascended-motion.png", { frameWidth: 96, frameHeight: 96 });

@@ -159,5 +159,22 @@
     "alpha": "Binary0/255 after sourcealpha threshold160",
     "characterScale": "Uniform whole-cell source mapping128px for king/monster/coronation and96px for visitors; no per-frame bounding-box scaling.",
     "visitorCleanup": "Disconnected neighboring edge flecks removed without changing body scale."
+  },
+  "footAnchorRepair": {
+    "version": 2,
+    "helper": "assets/gothic-v5/repair-thief-foot.mjs",
+    "report": "assets/gothic-v5/foot-anchor-repair.json",
+    "audit": "assets/gothic-v5/foot-anchor-audit.json",
+    "originals": "assets/gothic-v5/foot-repair-inputs",
+    "frames": 22,
+    "footY": 110,
+    "thiefFrames": 18,
+    "additionalFrames": [
+      "royal-walk quiet frame47",
+      "royal-combat alley frame8",
+      "royal-combat acrobat frame20",
+      "royal-combat witch frame26"
+    ],
+    "method": "Remove only confirmed detached below-body neighboring-cell fragments and translate coherent actor/legitimate gear to feet110. No rescaling/recoloring. All other frames unchanged."
   }
 }

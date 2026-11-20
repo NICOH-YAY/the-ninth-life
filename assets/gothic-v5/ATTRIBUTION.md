@@ -13,3 +13,5 @@ AI-use disclosure: Higgsfield generated original feline actor/effect images; Cod
 | assets/gothic-v5/*.mjs, manifests and public/gothic-v5/*.json | Codex | Reproducible selection, composition, palette, alpha, geometry and frame verification |
 
 Ozzbit Games' [Action Platformer Character Animation Template](https://ozzbit-games.itch.io/action-platformer-character-template) informed motion principles through its public previews only. No Ozzbit template files or paid-tier animations are bundled.
+
+Visitor anchor correction: Codex removed only confirmed detached below-body neighboring-cell fragments in22 runtime frames (18thief poses, one frost-keeper walk pose, three aerial attack poses) and translated each coherent actor/legitimate weapon to feet110. No rescaling or recoloring occurred. Originals, before/after bounds and hashes are retained in foot-repair-inputs/ and foot-anchor-repair.json. All frames outside the authorized22 remained byte-identical in rawRGBA. A read-only audit of all162 visitor frames found no remaining largest-body foot below105; every repaired frame ends at110.

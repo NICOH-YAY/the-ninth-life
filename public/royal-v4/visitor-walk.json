@@ -400,60 +400,234 @@
       "row": 6,
       "col": 0,
       "sourceFeetY": 95,
-      "shiftY": 15,
-      "opaquePixels": 3073,
+      "shiftY": 38,
+      "opaquePixels": 3017,
       "clippedOpaque": 0,
-      "removedEdgePixels": 0
+      "removedEdgePixels": 0,
+      "thiefFootRepair": {
+        "atlas": "royal-walk",
+        "frame": 36,
+        "col": 0,
+        "beforeBody": {
+          "left": 38,
+          "right": 107,
+          "top": 16,
+          "bottom": 87
+        },
+        "afterBody": {
+          "left": 38,
+          "right": 107,
+          "top": 39,
+          "bottom": 110
+        },
+        "bodyPixels": 3017,
+        "removedPixels": 56,
+        "removedBounds": [
+          {
+            "left": 49,
+            "right": 58,
+            "top": 103,
+            "bottom": 110
+          }
+        ],
+        "translateY": 23,
+        "clippedOpaque": 0
+      }
     },
     {
       "index": 37,
       "row": 6,
       "col": 1,
       "sourceFeetY": 95,
-      "shiftY": 15,
-      "opaquePixels": 3008,
+      "shiftY": 38,
+      "opaquePixels": 2953,
       "clippedOpaque": 0,
-      "removedEdgePixels": 0
+      "removedEdgePixels": 0,
+      "thiefFootRepair": {
+        "atlas": "royal-walk",
+        "frame": 37,
+        "col": 1,
+        "beforeBody": {
+          "left": 40,
+          "right": 109,
+          "top": 15,
+          "bottom": 87
+        },
+        "afterBody": {
+          "left": 40,
+          "right": 109,
+          "top": 38,
+          "bottom": 110
+        },
+        "bodyPixels": 2953,
+        "removedPixels": 55,
+        "removedBounds": [
+          {
+            "left": 54,
+            "right": 63,
+            "top": 103,
+            "bottom": 110
+          }
+        ],
+        "translateY": 23,
+        "clippedOpaque": 0
+      }
     },
     {
       "index": 38,
       "row": 6,
       "col": 2,
       "sourceFeetY": 95,
-      "shiftY": 15,
-      "opaquePixels": 2962,
+      "shiftY": 38,
+      "opaquePixels": 2909,
       "clippedOpaque": 0,
-      "removedEdgePixels": 0
+      "removedEdgePixels": 0,
+      "thiefFootRepair": {
+        "atlas": "royal-walk",
+        "frame": 38,
+        "col": 2,
+        "beforeBody": {
+          "left": 42,
+          "right": 111,
+          "top": 17,
+          "bottom": 87
+        },
+        "afterBody": {
+          "left": 42,
+          "right": 111,
+          "top": 40,
+          "bottom": 110
+        },
+        "bodyPixels": 2909,
+        "removedPixels": 53,
+        "removedBounds": [
+          {
+            "left": 56,
+            "right": 65,
+            "top": 103,
+            "bottom": 110
+          }
+        ],
+        "translateY": 23,
+        "clippedOpaque": 0
+      }
     },
     {
       "index": 39,
       "row": 6,
       "col": 3,
       "sourceFeetY": 95,
-      "shiftY": 15,
-      "opaquePixels": 2904,
+      "shiftY": 38,
+      "opaquePixels": 2851,
       "clippedOpaque": 0,
-      "removedEdgePixels": 0
+      "removedEdgePixels": 0,
+      "thiefFootRepair": {
+        "atlas": "royal-walk",
+        "frame": 39,
+        "col": 3,
+        "beforeBody": {
+          "left": 41,
+          "right": 112,
+          "top": 18,
+          "bottom": 87
+        },
+        "afterBody": {
+          "left": 41,
+          "right": 112,
+          "top": 41,
+          "bottom": 110
+        },
+        "bodyPixels": 2851,
+        "removedPixels": 53,
+        "removedBounds": [
+          {
+            "left": 52,
+            "right": 61,
+            "top": 103,
+            "bottom": 110
+          }
+        ],
+        "translateY": 23,
+        "clippedOpaque": 0
+      }
     },
     {
       "index": 40,
       "row": 6,
       "col": 4,
       "sourceFeetY": 95,
-      "shiftY": 15,
-      "opaquePixels": 2850,
+      "shiftY": 38,
+      "opaquePixels": 2808,
       "clippedOpaque": 0,
-      "removedEdgePixels": 0
+      "removedEdgePixels": 0,
+      "thiefFootRepair": {
+        "atlas": "royal-walk",
+        "frame": 40,
+        "col": 4,
+        "beforeBody": {
+          "left": 43,
+          "right": 113,
+          "top": 18,
+          "bottom": 87
+        },
+        "afterBody": {
+          "left": 43,
+          "right": 113,
+          "top": 41,
+          "bottom": 110
+        },
+        "bodyPixels": 2808,
+        "removedPixels": 42,
+        "removedBounds": [
+          {
+            "left": 58,
+            "right": 66,
+            "top": 104,
+            "bottom": 110
+          }
+        ],
+        "translateY": 23,
+        "clippedOpaque": 0
+      }
     },
     {
       "index": 41,
       "row": 6,
       "col": 5,
       "sourceFeetY": 95,
-      "shiftY": 15,
-      "opaquePixels": 3127,
+      "shiftY": 38,
+      "opaquePixels": 3079,
       "clippedOpaque": 0,
-      "removedEdgePixels": 0
+      "removedEdgePixels": 0,
+      "thiefFootRepair": {
+        "atlas": "royal-walk",
+        "frame": 41,
+        "col": 5,
+        "beforeBody": {
+          "left": 41,
+          "right": 112,
+          "top": 16,
+          "bottom": 87
+        },
+        "afterBody": {
+          "left": 41,
+          "right": 112,
+          "top": 39,
+          "bottom": 110
+        },
+        "bodyPixels": 3079,
+        "removedPixels": 48,
+        "removedBounds": [
+          {
+            "left": 55,
+            "right": 64,
+            "top": 103,
+            "bottom": 110
+          }
+        ],
+        "translateY": 23,
+        "clippedOpaque": 0
+      }
     },
     {
       "index": 42,
@@ -510,10 +684,40 @@
       "row": 7,
       "col": 5,
       "sourceFeetY": 95,
-      "shiftY": 15,
-      "opaquePixels": 3634,
+      "shiftY": 34,
+      "opaquePixels": 3593,
       "clippedOpaque": 0,
-      "removedEdgePixels": 0
+      "removedEdgePixels": 0,
+      "footAnchorRepair": {
+        "atlas": "royal-walk",
+        "frame": 47,
+        "row": 7,
+        "col": 5,
+        "beforeBody": {
+          "left": 40,
+          "right": 111,
+          "top": 15,
+          "bottom": 91
+        },
+        "afterBody": {
+          "left": 40,
+          "right": 111,
+          "top": 34,
+          "bottom": 110
+        },
+        "bodyPixels": 3593,
+        "removedPixels": 41,
+        "removedBounds": [
+          {
+            "left": 52,
+            "right": 61,
+            "top": 105,
+            "bottom": 110
+          }
+        ],
+        "translateY": 19,
+        "clippedOpaque": 0
+      }
     },
     {
       "index": 48,
@@ -577,5 +781,33 @@
     }
   ],
   "processing": "Uniform96x96 whole-cell nearest-neighbor mapping for every frame/row, no bounding-box scaling. Central feet x33..64 anchored at110. Body scale preserved; frame padded144x144. Hard alpha and dither-free32-color quantization.",
-  "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_014909_54bff2e4-8f54-410d-8329-0994c75bec09.png"
+  "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_014909_54bff2e4-8f54-410d-8329-0994c75bec09.png",
+  "thiefFootRepair": {
+    "version": 1,
+    "row": 6,
+    "footY": 110,
+    "method": "Remove only detached small below-body cell artifact; translate whole actor and legitimate gear vertically. No scaling or recoloring.",
+    "helper": "assets/gothic-v5/repair-thief-foot.mjs",
+    "inputSha256": "5374a7a5db4e268a243ecbd8faa0aaa600c33362c60215bc8a057f21445181f9",
+    "outputSha256": "ecf60f2ba71e03307943a049f1b8bb9957d17236e0d777a5485e7d0f3407ad2e",
+    "changedFrames": 6
+  },
+  "footAnchorRepair": {
+    "version": 2,
+    "frames": [
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      47
+    ],
+    "footY": 110,
+    "method": "Remove confirmed detached below-body neighboring-cell fragment; translate whole actor and legitimate gear. No scaling or recoloring.",
+    "helper": "assets/gothic-v5/repair-thief-foot.mjs",
+    "inputSha256": "ecf60f2ba71e03307943a049f1b8bb9957d17236e0d777a5485e7d0f3407ad2e",
+    "outputSha256": "25b4d6e025ca1094d69f7752380a3ec9fa258050bdc266bfc1046f6f1ff77451",
+    "additionalChangedFrames": 1
+  }
 }

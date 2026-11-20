@@ -154,3 +154,5 @@ AI-use disclosure: Higgsfield generated original feline actor/effect images; Cod
 | assets/gothic-v5/*.mjs, manifests and public/gothic-v5/*.json | Codex | Reproducible selection, composition, palette, alpha, geometry and frame verification |
 
 Ozzbit Games' [Action Platformer Character Animation Template](https://ozzbit-games.itch.io/action-platformer-character-template) informed motion principles through its public previews only. No Ozzbit template files or paid-tier animations are bundled.
+
+Visitor foot-anchor cleanup (Codex): removed confirmed detached neighboring-cell fragments and translated coherent actors to the y110 anchor in22 selected runtime frames. No actor was rescaled or recolored. Unchanged source generations and pre-fix exports remain preserved; reproducible helper, raw-pixel bounds and hashes are in assets/gothic-v5/repair-thief-foot.mjs and foot-anchor-repair.json. The162-frame audit found no remaining coherent-body foot above its intended contact baseline.

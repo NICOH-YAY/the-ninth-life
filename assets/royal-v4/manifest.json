@@ -2554,5 +2554,22 @@
     "Dawn ruins native320x180,32 colors,exact3x scale; floor registered down6native pixels to match native arena y153.",
     "Top registration padding uses reflected roof/sky texture; no new colors or painted rectangles.",
     "No paid fallback, no game source changes by asset helper."
-  ]
+  ],
+  "footAnchorRepair": {
+    "version": 2,
+    "helper": "assets/gothic-v5/repair-thief-foot.mjs",
+    "report": "assets/gothic-v5/foot-anchor-repair.json",
+    "audit": "assets/gothic-v5/foot-anchor-audit.json",
+    "originals": "assets/gothic-v5/foot-repair-inputs",
+    "frames": 22,
+    "footY": 110,
+    "thiefFrames": 18,
+    "additionalFrames": [
+      "royal-walk quiet frame47",
+      "royal-combat alley frame8",
+      "royal-combat acrobat frame20",
+      "royal-combat witch frame26"
+    ],
+    "method": "Remove only confirmed detached below-body neighboring-cell fragments and translate coherent actor/legitimate gear to feet110. No rescaling/recoloring. All other frames unchanged."
+  }
 }

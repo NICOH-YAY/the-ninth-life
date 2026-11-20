@@ -1,0 +1,682 @@
+{
+  "aiUseDisclosure": "Codex removed only confirmed detached below-body neighboring-cell fragments and translated whole actors/legitimate gear to y110. No rescaling, recoloring or other frames were changed.",
+  "row": 6,
+  "footY": 110,
+  "frames": [
+    {
+      "atlas": "gothic-idle-hurt",
+      "frame": 36,
+      "col": 0,
+      "beforeBody": {
+        "left": 42,
+        "right": 101,
+        "top": 41,
+        "bottom": 110
+      },
+      "afterBody": {
+        "left": 42,
+        "right": 101,
+        "top": 41,
+        "bottom": 110
+      },
+      "bodyPixels": 2765,
+      "removedPixels": 57,
+      "removedBounds": [
+        {
+          "left": 47,
+          "right": 56,
+          "top": 126,
+          "bottom": 134
+        }
+      ],
+      "translateY": 0,
+      "clippedOpaque": 0
+    },
+    {
+      "atlas": "gothic-idle-hurt",
+      "frame": 37,
+      "col": 1,
+      "beforeBody": {
+        "left": 43,
+        "right": 105,
+        "top": 16,
+        "bottom": 86
+      },
+      "afterBody": {
+        "left": 43,
+        "right": 105,
+        "top": 40,
+        "bottom": 110
+      },
+      "bodyPixels": 2837,
+      "removedPixels": 59,
+      "removedBounds": [
+        {
+          "left": 51,
+          "right": 61,
+          "top": 102,
+          "bottom": 110
+        }
+      ],
+      "translateY": 24,
+      "clippedOpaque": 0
+    },
+    {
+      "atlas": "gothic-idle-hurt",
+      "frame": 38,
+      "col": 2,
+      "beforeBody": {
+        "left": 47,
+        "right": 107,
+        "top": 17,
+        "bottom": 86
+      },
+      "afterBody": {
+        "left": 47,
+        "right": 107,
+        "top": 41,
+        "bottom": 110
+      },
+      "bodyPixels": 2694,
+      "removedPixels": 61,
+      "removedBounds": [
+        {
+          "left": 53,
+          "right": 63,
+          "top": 102,
+          "bottom": 110
+        }
+      ],
+      "translateY": 24,
+      "clippedOpaque": 0
+    },
+    {
+      "atlas": "gothic-idle-hurt",
+      "frame": 39,
+      "col": 3,
+      "beforeBody": {
+        "left": 51,
+        "right": 102,
+        "top": 18,
+        "bottom": 87
+      },
+      "afterBody": {
+        "left": 51,
+        "right": 102,
+        "top": 41,
+        "bottom": 110
+      },
+      "bodyPixels": 2450,
+      "removedPixels": 53,
+      "removedBounds": [
+        {
+          "left": 49,
+          "right": 58,
+          "top": 102,
+          "bottom": 110
+        }
+      ],
+      "translateY": 23,
+      "clippedOpaque": 0
+    },
+    {
+      "atlas": "gothic-idle-hurt",
+      "frame": 40,
+      "col": 4,
+      "beforeBody": {
+        "left": 53,
+        "right": 102,
+        "top": 41,
+        "bottom": 110
+      },
+      "afterBody": {
+        "left": 53,
+        "right": 102,
+        "top": 41,
+        "bottom": 110
+      },
+      "bodyPixels": 2517,
+      "removedPixels": 0,
+      "removedBounds": [],
+      "translateY": 0,
+      "clippedOpaque": 0
+    },
+    {
+      "atlas": "gothic-idle-hurt",
+      "frame": 41,
+      "col": 5,
+      "beforeBody": {
+        "left": 49,
+        "right": 105,
+        "top": 17,
+        "bottom": 88
+      },
+      "afterBody": {
+        "left": 49,
+        "right": 105,
+        "top": 39,
+        "bottom": 110
+      },
+      "bodyPixels": 2721,
+      "removedPixels": 53,
+      "removedBounds": [
+        {
+          "left": 49,
+          "right": 59,
+          "top": 102,
+          "bottom": 110
+        }
+      ],
+      "translateY": 22,
+      "clippedOpaque": 0
+    },
+    {
+      "atlas": "royal-combat",
+      "frame": 8,
+      "row": 1,
+      "col": 2,
+      "beforeBody": {
+        "left": 45,
+        "right": 110,
+        "top": 18,
+        "bottom": 94
+      },
+      "afterBody": {
+        "left": 45,
+        "right": 110,
+        "top": 34,
+        "bottom": 110
+      },
+      "bodyPixels": 2551,
+      "removedPixels": 198,
+      "removedBounds": [
+        {
+          "left": 39,
+          "right": 71,
+          "top": 100,
+          "bottom": 110
+        }
+      ],
+      "translateY": 16,
+      "clippedOpaque": 0
+    },
+    {
+      "atlas": "royal-combat",
+      "frame": 20,
+      "row": 3,
+      "col": 2,
+      "beforeBody": {
+        "left": 30,
+        "right": 110,
+        "top": 15,
+        "bottom": 84
+      },
+      "afterBody": {
+        "left": 30,
+        "right": 110,
+        "top": 41,
+        "bottom": 110
+      },
+      "bodyPixels": 3131,
+      "removedPixels": 91,
+      "removedBounds": [
+        {
+          "left": 51,
+          "right": 71,
+          "top": 105,
+          "bottom": 110
+        }
+      ],
+      "translateY": 26,
+      "clippedOpaque": 0
+    },
+    {
+      "atlas": "royal-combat",
+      "frame": 26,
+      "row": 4,
+      "col": 2,
+      "beforeBody": {
+        "left": 29,
+        "right": 113,
+        "top": 15,
+        "bottom": 88
+      },
+      "afterBody": {
+        "left": 29,
+        "right": 113,
+        "top": 37,
+        "bottom": 110
+      },
+      "bodyPixels": 3035,
+      "removedPixels": 192,
+      "removedBounds": [
+        {
+          "left": 37,
+          "right": 64,
+          "top": 102,
+          "bottom": 110
+        }
+      ],
+      "translateY": 22,
+      "clippedOpaque": 0
+    },
+    {
+      "atlas": "royal-combat",
+      "frame": 36,
+      "col": 0,
+      "beforeBody": {
+        "left": 35,
+        "right": 104,
+        "top": 42,
+        "bottom": 110
+      },
+      "afterBody": {
+        "left": 35,
+        "right": 104,
+        "top": 42,
+        "bottom": 110
+      },
+      "bodyPixels": 2695,
+      "removedPixels": 36,
+      "removedBounds": [
+        {
+          "left": 46,
+          "right": 54,
+          "top": 128,
+          "bottom": 133
+        }
+      ],
+      "translateY": 0,
+      "clippedOpaque": 0
+    },
+    {
+      "atlas": "royal-combat",
+      "frame": 37,
+      "col": 1,
+      "beforeBody": {
+        "left": 35,
+        "right": 104,
+        "top": 42,
+        "bottom": 110
+      },
+      "afterBody": {
+        "left": 35,
+        "right": 104,
+        "top": 42,
+        "bottom": 110
+      },
+      "bodyPixels": 2695,
+      "removedPixels": 36,
+      "removedBounds": [
+        {
+          "left": 46,
+          "right": 54,
+          "top": 128,
+          "bottom": 133
+        }
+      ],
+      "translateY": 0,
+      "clippedOpaque": 0
+    },
+    {
+      "atlas": "royal-combat",
+      "frame": 38,
+      "col": 2,
+      "beforeBody": {
+        "left": 24,
+        "right": 112,
+        "top": 42,
+        "bottom": 110
+      },
+      "afterBody": {
+        "left": 24,
+        "right": 112,
+        "top": 42,
+        "bottom": 110
+      },
+      "bodyPixels": 2991,
+      "removedPixels": 0,
+      "removedBounds": [],
+      "translateY": 0,
+      "clippedOpaque": 0
+    },
+    {
+      "atlas": "royal-combat",
+      "frame": 39,
+      "col": 3,
+      "beforeBody": {
+        "left": 27,
+        "right": 119,
+        "top": 46,
+        "bottom": 110
+      },
+      "afterBody": {
+        "left": 27,
+        "right": 119,
+        "top": 46,
+        "bottom": 110
+      },
+      "bodyPixels": 3004,
+      "removedPixels": 0,
+      "removedBounds": [],
+      "translateY": 0,
+      "clippedOpaque": 0
+    },
+    {
+      "atlas": "royal-combat",
+      "frame": 40,
+      "col": 4,
+      "beforeBody": {
+        "left": 40,
+        "right": 119,
+        "top": 47,
+        "bottom": 110
+      },
+      "afterBody": {
+        "left": 40,
+        "right": 119,
+        "top": 47,
+        "bottom": 110
+      },
+      "bodyPixels": 2659,
+      "removedPixels": 0,
+      "removedBounds": [],
+      "translateY": 0,
+      "clippedOpaque": 0
+    },
+    {
+      "atlas": "royal-combat",
+      "frame": 41,
+      "col": 5,
+      "beforeBody": {
+        "left": 45,
+        "right": 111,
+        "top": 19,
+        "bottom": 87
+      },
+      "afterBody": {
+        "left": 45,
+        "right": 111,
+        "top": 42,
+        "bottom": 110
+      },
+      "bodyPixels": 2696,
+      "removedPixels": 36,
+      "removedBounds": [
+        {
+          "left": 54,
+          "right": 62,
+          "top": 104,
+          "bottom": 110
+        }
+      ],
+      "translateY": 23,
+      "clippedOpaque": 0
+    },
+    {
+      "atlas": "royal-walk",
+      "frame": 36,
+      "col": 0,
+      "beforeBody": {
+        "left": 38,
+        "right": 107,
+        "top": 16,
+        "bottom": 87
+      },
+      "afterBody": {
+        "left": 38,
+        "right": 107,
+        "top": 39,
+        "bottom": 110
+      },
+      "bodyPixels": 3017,
+      "removedPixels": 56,
+      "removedBounds": [
+        {
+          "left": 49,
+          "right": 58,
+          "top": 103,
+          "bottom": 110
+        }
+      ],
+      "translateY": 23,
+      "clippedOpaque": 0
+    },
+    {
+      "atlas": "royal-walk",
+      "frame": 37,
+      "col": 1,
+      "beforeBody": {
+        "left": 40,
+        "right": 109,
+        "top": 15,
+        "bottom": 87
+      },
+      "afterBody": {
+        "left": 40,
+        "right": 109,
+        "top": 38,
+        "bottom": 110
+      },
+      "bodyPixels": 2953,
+      "removedPixels": 55,
+      "removedBounds": [
+        {
+          "left": 54,
+          "right": 63,
+          "top": 103,
+          "bottom": 110
+        }
+      ],
+      "translateY": 23,
+      "clippedOpaque": 0
+    },
+    {
+      "atlas": "royal-walk",
+      "frame": 38,
+      "col": 2,
+      "beforeBody": {
+        "left": 42,
+        "right": 111,
+        "top": 17,
+        "bottom": 87
+      },
+      "afterBody": {
+        "left": 42,
+        "right": 111,
+        "top": 40,
+        "bottom": 110
+      },
+      "bodyPixels": 2909,
+      "removedPixels": 53,
+      "removedBounds": [
+        {
+          "left": 56,
+          "right": 65,
+          "top": 103,
+          "bottom": 110
+        }
+      ],
+      "translateY": 23,
+      "clippedOpaque": 0
+    },
+    {
+      "atlas": "royal-walk",
+      "frame": 39,
+      "col": 3,
+      "beforeBody": {
+        "left": 41,
+        "right": 112,
+        "top": 18,
+        "bottom": 87
+      },
+      "afterBody": {
+        "left": 41,
+        "right": 112,
+        "top": 41,
+        "bottom": 110
+      },
+      "bodyPixels": 2851,
+      "removedPixels": 53,
+      "removedBounds": [
+        {
+          "left": 52,
+          "right": 61,
+          "top": 103,
+          "bottom": 110
+        }
+      ],
+      "translateY": 23,
+      "clippedOpaque": 0
+    },
+    {
+      "atlas": "royal-walk",
+      "frame": 40,
+      "col": 4,
+      "beforeBody": {
+        "left": 43,
+        "right": 113,
+        "top": 18,
+        "bottom": 87
+      },
+      "afterBody": {
+        "left": 43,
+        "right": 113,
+        "top": 41,
+        "bottom": 110
+      },
+      "bodyPixels": 2808,
+      "removedPixels": 42,
+      "removedBounds": [
+        {
+          "left": 58,
+          "right": 66,
+          "top": 104,
+          "bottom": 110
+        }
+      ],
+      "translateY": 23,
+      "clippedOpaque": 0
+    },
+    {
+      "atlas": "royal-walk",
+      "frame": 41,
+      "col": 5,
+      "beforeBody": {
+        "left": 41,
+        "right": 112,
+        "top": 16,
+        "bottom": 87
+      },
+      "afterBody": {
+        "left": 41,
+        "right": 112,
+        "top": 39,
+        "bottom": 110
+      },
+      "bodyPixels": 3079,
+      "removedPixels": 48,
+      "removedBounds": [
+        {
+          "left": 55,
+          "right": 64,
+          "top": 103,
+          "bottom": 110
+        }
+      ],
+      "translateY": 23,
+      "clippedOpaque": 0
+    },
+    {
+      "atlas": "royal-walk",
+      "frame": 47,
+      "row": 7,
+      "col": 5,
+      "beforeBody": {
+        "left": 40,
+        "right": 111,
+        "top": 15,
+        "bottom": 91
+      },
+      "afterBody": {
+        "left": 40,
+        "right": 111,
+        "top": 34,
+        "bottom": 110
+      },
+      "bodyPixels": 3593,
+      "removedPixels": 41,
+      "removedBounds": [
+        {
+          "left": 52,
+          "right": 61,
+          "top": 105,
+          "bottom": 110
+        }
+      ],
+      "translateY": 19,
+      "clippedOpaque": 0
+    }
+  ],
+  "atlases": [
+    {
+      "id": "royal-walk",
+      "version": 2,
+      "frames": [
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        47
+      ],
+      "footY": 110,
+      "method": "Remove confirmed detached below-body neighboring-cell fragment; translate whole actor and legitimate gear. No scaling or recoloring.",
+      "helper": "assets/gothic-v5/repair-thief-foot.mjs",
+      "inputSha256": "ecf60f2ba71e03307943a049f1b8bb9957d17236e0d777a5485e7d0f3407ad2e",
+      "outputSha256": "25b4d6e025ca1094d69f7752380a3ec9fa258050bdc266bfc1046f6f1ff77451",
+      "additionalChangedFrames": 1
+    },
+    {
+      "id": "royal-combat",
+      "version": 2,
+      "frames": [
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        8,
+        20,
+        26
+      ],
+      "footY": 110,
+      "method": "Remove confirmed detached below-body neighboring-cell fragment; translate whole actor and legitimate gear. No scaling or recoloring.",
+      "helper": "assets/gothic-v5/repair-thief-foot.mjs",
+      "inputSha256": "406e12a43154b93a4f337796c8deab46d4101a2934e065869a573fb55d458c01",
+      "outputSha256": "9361cef215b21b86effdeb52f2e5db178ef82d657ea80298bb3e57561e067645",
+      "additionalChangedFrames": 3
+    },
+    {
+      "id": "gothic-idle-hurt",
+      "version": 2,
+      "frames": [
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "footY": 110,
+      "method": "Remove confirmed detached below-body neighboring-cell fragment; translate whole actor and legitimate gear. No scaling or recoloring.",
+      "helper": "assets/gothic-v5/repair-thief-foot.mjs",
+      "inputSha256": "7c0527902da131ae4d6f4e01f3450362319ff9f9db16d3b005278765a0990677",
+      "outputSha256": "7c0527902da131ae4d6f4e01f3450362319ff9f9db16d3b005278765a0990677",
+      "additionalChangedFrames": 0
+    }
+  ],
+  "authorizedFrames": 22
+}

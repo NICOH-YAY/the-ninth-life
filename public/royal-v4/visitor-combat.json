@@ -133,10 +133,40 @@
       "row": 1,
       "col": 2,
       "sourceFeetY": 95,
-      "shiftY": 15,
-      "opaquePixels": 2749,
+      "shiftY": 31,
+      "opaquePixels": 2551,
       "clippedOpaque": 0,
-      "removedEdgePixels": 0
+      "removedEdgePixels": 0,
+      "footAnchorRepair": {
+        "atlas": "royal-combat",
+        "frame": 8,
+        "row": 1,
+        "col": 2,
+        "beforeBody": {
+          "left": 45,
+          "right": 110,
+          "top": 18,
+          "bottom": 94
+        },
+        "afterBody": {
+          "left": 45,
+          "right": 110,
+          "top": 34,
+          "bottom": 110
+        },
+        "bodyPixels": 2551,
+        "removedPixels": 198,
+        "removedBounds": [
+          {
+            "left": 39,
+            "right": 71,
+            "top": 100,
+            "bottom": 110
+          }
+        ],
+        "translateY": 16,
+        "clippedOpaque": 0
+      }
     },
     {
       "index": 9,
@@ -255,10 +285,40 @@
       "row": 3,
       "col": 2,
       "sourceFeetY": 95,
-      "shiftY": 15,
-      "opaquePixels": 3222,
+      "shiftY": 41,
+      "opaquePixels": 3131,
       "clippedOpaque": 0,
-      "removedEdgePixels": 0
+      "removedEdgePixels": 0,
+      "footAnchorRepair": {
+        "atlas": "royal-combat",
+        "frame": 20,
+        "row": 3,
+        "col": 2,
+        "beforeBody": {
+          "left": 30,
+          "right": 110,
+          "top": 15,
+          "bottom": 84
+        },
+        "afterBody": {
+          "left": 30,
+          "right": 110,
+          "top": 41,
+          "bottom": 110
+        },
+        "bodyPixels": 3131,
+        "removedPixels": 91,
+        "removedBounds": [
+          {
+            "left": 51,
+            "right": 71,
+            "top": 105,
+            "bottom": 110
+          }
+        ],
+        "translateY": 26,
+        "clippedOpaque": 0
+      }
     },
     {
       "index": 21,
@@ -315,10 +375,40 @@
       "row": 4,
       "col": 2,
       "sourceFeetY": 95,
-      "shiftY": 15,
-      "opaquePixels": 3243,
+      "shiftY": 37,
+      "opaquePixels": 3051,
       "clippedOpaque": 0,
-      "removedEdgePixels": 1
+      "removedEdgePixels": 1,
+      "footAnchorRepair": {
+        "atlas": "royal-combat",
+        "frame": 26,
+        "row": 4,
+        "col": 2,
+        "beforeBody": {
+          "left": 29,
+          "right": 113,
+          "top": 15,
+          "bottom": 88
+        },
+        "afterBody": {
+          "left": 29,
+          "right": 113,
+          "top": 37,
+          "bottom": 110
+        },
+        "bodyPixels": 3035,
+        "removedPixels": 192,
+        "removedBounds": [
+          {
+            "left": 37,
+            "right": 64,
+            "top": 102,
+            "bottom": 110
+          }
+        ],
+        "translateY": 22,
+        "clippedOpaque": 0
+      }
     },
     {
       "index": 27,
@@ -416,9 +506,38 @@
       "col": 0,
       "sourceFeetY": 72,
       "shiftY": 38,
-      "opaquePixels": 2731,
+      "opaquePixels": 2695,
       "clippedOpaque": 0,
-      "removedEdgePixels": 0
+      "removedEdgePixels": 0,
+      "thiefFootRepair": {
+        "atlas": "royal-combat",
+        "frame": 36,
+        "col": 0,
+        "beforeBody": {
+          "left": 35,
+          "right": 104,
+          "top": 42,
+          "bottom": 110
+        },
+        "afterBody": {
+          "left": 35,
+          "right": 104,
+          "top": 42,
+          "bottom": 110
+        },
+        "bodyPixels": 2695,
+        "removedPixels": 36,
+        "removedBounds": [
+          {
+            "left": 46,
+            "right": 54,
+            "top": 128,
+            "bottom": 133
+          }
+        ],
+        "translateY": 0,
+        "clippedOpaque": 0
+      }
     },
     {
       "index": 37,
@@ -426,11 +545,40 @@
       "col": 1,
       "sourceFeetY": 72,
       "shiftY": 38,
-      "opaquePixels": 3111,
+      "opaquePixels": 3075,
       "clippedOpaque": 0,
       "removedEdgePixels": 0,
       "reusedFromFrame": 36,
-      "reason": "Replace generated hammer substitution with coherent mirror-dagger pose."
+      "reason": "Replace generated hammer substitution with coherent mirror-dagger pose.",
+      "thiefFootRepair": {
+        "atlas": "royal-combat",
+        "frame": 37,
+        "col": 1,
+        "beforeBody": {
+          "left": 35,
+          "right": 104,
+          "top": 42,
+          "bottom": 110
+        },
+        "afterBody": {
+          "left": 35,
+          "right": 104,
+          "top": 42,
+          "bottom": 110
+        },
+        "bodyPixels": 2695,
+        "removedPixels": 36,
+        "removedBounds": [
+          {
+            "left": 46,
+            "right": 54,
+            "top": 128,
+            "bottom": 133
+          }
+        ],
+        "translateY": 0,
+        "clippedOpaque": 0
+      }
     },
     {
       "index": 38,
@@ -440,7 +588,29 @@
       "shiftY": 38,
       "opaquePixels": 2991,
       "clippedOpaque": 0,
-      "removedEdgePixels": 0
+      "removedEdgePixels": 0,
+      "thiefFootRepair": {
+        "atlas": "royal-combat",
+        "frame": 38,
+        "col": 2,
+        "beforeBody": {
+          "left": 24,
+          "right": 112,
+          "top": 42,
+          "bottom": 110
+        },
+        "afterBody": {
+          "left": 24,
+          "right": 112,
+          "top": 42,
+          "bottom": 110
+        },
+        "bodyPixels": 2991,
+        "removedPixels": 0,
+        "removedBounds": [],
+        "translateY": 0,
+        "clippedOpaque": 0
+      }
     },
     {
       "index": 39,
@@ -450,7 +620,29 @@
       "shiftY": 38,
       "opaquePixels": 3008,
       "clippedOpaque": 0,
-      "removedEdgePixels": 0
+      "removedEdgePixels": 0,
+      "thiefFootRepair": {
+        "atlas": "royal-combat",
+        "frame": 39,
+        "col": 3,
+        "beforeBody": {
+          "left": 27,
+          "right": 119,
+          "top": 46,
+          "bottom": 110
+        },
+        "afterBody": {
+          "left": 27,
+          "right": 119,
+          "top": 46,
+          "bottom": 110
+        },
+        "bodyPixels": 3004,
+        "removedPixels": 0,
+        "removedBounds": [],
+        "translateY": 0,
+        "clippedOpaque": 0
+      }
     },
     {
       "index": 40,
@@ -460,17 +652,68 @@
       "shiftY": 38,
       "opaquePixels": 2660,
       "clippedOpaque": 0,
-      "removedEdgePixels": 75
+      "removedEdgePixels": 75,
+      "thiefFootRepair": {
+        "atlas": "royal-combat",
+        "frame": 40,
+        "col": 4,
+        "beforeBody": {
+          "left": 40,
+          "right": 119,
+          "top": 47,
+          "bottom": 110
+        },
+        "afterBody": {
+          "left": 40,
+          "right": 119,
+          "top": 47,
+          "bottom": 110
+        },
+        "bodyPixels": 2659,
+        "removedPixels": 0,
+        "removedBounds": [],
+        "translateY": 0,
+        "clippedOpaque": 0
+      }
     },
     {
       "index": 41,
       "row": 6,
       "col": 5,
       "sourceFeetY": 95,
-      "shiftY": 15,
-      "opaquePixels": 2732,
+      "shiftY": 38,
+      "opaquePixels": 2696,
       "clippedOpaque": 0,
-      "removedEdgePixels": 66
+      "removedEdgePixels": 66,
+      "thiefFootRepair": {
+        "atlas": "royal-combat",
+        "frame": 41,
+        "col": 5,
+        "beforeBody": {
+          "left": 45,
+          "right": 111,
+          "top": 19,
+          "bottom": 87
+        },
+        "afterBody": {
+          "left": 45,
+          "right": 111,
+          "top": 42,
+          "bottom": 110
+        },
+        "bodyPixels": 2696,
+        "removedPixels": 36,
+        "removedBounds": [
+          {
+            "left": 54,
+            "right": 62,
+            "top": 104,
+            "bottom": 110
+          }
+        ],
+        "translateY": 23,
+        "clippedOpaque": 0
+      }
     },
     {
       "index": 42,
@@ -594,5 +837,35 @@
     }
   ],
   "processing": "Uniform96x96 whole-cell nearest-neighbor mapping for every frame/row, no bounding-box scaling. Central feet x33..64 anchored at110. Body scale preserved; frame padded144x144. Hard alpha and dither-free32-color quantization.",
-  "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_014701_2c947798-d004-4c29-a68d-d29b3b65e4bc.png"
+  "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_014701_2c947798-d004-4c29-a68d-d29b3b65e4bc.png",
+  "thiefFootRepair": {
+    "version": 1,
+    "row": 6,
+    "footY": 110,
+    "method": "Remove only detached small below-body cell artifact; translate whole actor and legitimate gear vertically. No scaling or recoloring.",
+    "helper": "assets/gothic-v5/repair-thief-foot.mjs",
+    "inputSha256": "ebabde34d86bdfe6d051464887eaf3cfa75814261c7e325529a3a551b89b2408",
+    "outputSha256": "406e12a43154b93a4f337796c8deab46d4101a2934e065869a573fb55d458c01",
+    "changedFrames": 3
+  },
+  "footAnchorRepair": {
+    "version": 2,
+    "frames": [
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      8,
+      20,
+      26
+    ],
+    "footY": 110,
+    "method": "Remove confirmed detached below-body neighboring-cell fragment; translate whole actor and legitimate gear. No scaling or recoloring.",
+    "helper": "assets/gothic-v5/repair-thief-foot.mjs",
+    "inputSha256": "406e12a43154b93a4f337796c8deab46d4101a2934e065869a573fb55d458c01",
+    "outputSha256": "9361cef215b21b86effdeb52f2e5db178ef82d657ea80298bb3e57561e067645",
+    "additionalChangedFrames": 3
+  }
 }
