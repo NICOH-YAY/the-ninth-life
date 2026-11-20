@@ -42,6 +42,8 @@ func _run() -> void:
     check(visitors.size() == 9, "All nine branching conversations must be ported.")
     for life in visitors:
         var script: Dictionary = visitors[life]
+        check(script.has("power") and script.has("ultimate") and script.has("sacrifice") and script.has("entrance") and script.get("vow_choice", -1) == 0, "Every life needs an innate power, ultimate, cost, entrance and optional vow branch.")
+        check("15%" in script.first.choices[0] or "Fifteen percent" in script.first.choices[0], "The optional oath must state its strength gain before acceptance.")
         check(script.first.choices.size() == 2 and script.first.responses.size() == 2, "First exchange must contain two actual branches.")
         check(script.second.size() == 2, "Second exchange must depend on the first answer.")
         for branch in script.second:
@@ -107,6 +109,14 @@ func _run() -> void:
             menu_items.append(child.text)
             check(child.get_theme_stylebox("normal").bg_color.a == 0.0, "Main menu items must remain unboxed.")
     check(menu_items == ["PLAY", "CONTROLS", "CREDITS"], "The main menu must expose three minimal items.")
+    ui.set_hud({"guard": 0.5, "guard_max": 0.5, "vow": true, "enemy_ultimate": "This Gate Will Hold"})
+    check(ui._vow_mark.visible and ui._guard_fill.size.x == 90.0, "A vow must show its cracked-shield mark and reduced guard capacity.")
+    check(ui._ultimate_label.text == "THIS GATE WILL HOLD", "Ultimate anticipation must expose the authored move label.")
+    ui.set_hud({"guard": 0.0, "guard_break": false})
+    check(ui._guard_state.text == "GUARD EXPOSED", "Zero stamina alone must not claim the guard is already broken.")
+    ui.set_hud({"guard": 0.0, "guard_break": 0.4})
+    check(ui._guard_state.text == "GUARD BROKEN", "The next-hit guard-break state must have an explicit indicator.")
+    check("Morrow" in visitors.patchwork.first.responses[0] and "Morrow" in visitors.patchwork.first.responses[1], "The final encounter must reveal Morrow on either optional-vow branch.")
     ui.show_controls()
     ui._capturing = "jump"
     _press(KEY_W)

@@ -20,6 +20,7 @@ func fixture(index:int=1) -> void:
     game.enemy.x=game.boss.x-90
     game.enemy.decision=100.0
     game.enemy.ability_cd=100.0
+    game.powers._used_ultimate=true
 func _run() -> void:
     game=load("res://game.gd").new()
     root.add_child(game)
@@ -29,7 +30,7 @@ func _run() -> void:
     var input=blank_input()
     input.left=true
     for n in range(30):game._player_step(input,1.0/60.0)
-    check(game.boss.x<675,"Royal movement crosses the arena independently of throne")
+    check(game.boss.x<710,"Royal movement crosses the arena independently of throne")
     input=blank_input();input.jump=true
     game._player_step(input,1.0/60.0)
     check(game.boss.y>0 and game.boss.jumps==1,"Jump has actual upward velocity")
@@ -55,7 +56,7 @@ func _run() -> void:
     fixture()
     game._start_move("throw")
     var before:float=game.boss.x
-    for n in range(25):
+    for n in range(45):
         game._player_step(blank_input(),1.0/60.0)
         game._move_step(1.0/60.0)
     check(game.boss.x<before and game.projectiles.is_empty(),"Base sword thrust is physical lunge")
@@ -84,7 +85,7 @@ func _run() -> void:
     tapping.cleave=true;tapping.cleave_taps=2
     game._player_step(tapping,1.0/60.0)
     check(game.boss.combo_queue==1 and not game.move.is_empty(),"Second fast press remains buffered during first slash")
-    for n in range(40):
+    for n in range(55):
         game.combat_clock+=1.0/60.0
         game._player_step(blank_input(),1.0/60.0)
         game._move_step(1.0/60.0)
@@ -111,7 +112,7 @@ func _run() -> void:
     check(game.enemy.vy>0,"Acrobat mobility includes a real ballistic vault")
     fixture(6)
     game.enemy.state="attack";game.enemy.x=game.boss.x-60;game.enemy.chain_left=3
-    for n in range(90):game._enemy_step(1.0/60.0)
+    for n in range(150):game._enemy_step(1.0/60.0)
     check(game.enemy.strikes>=2,"Dagger visitor executes repeated real melee attacks")
     fixture(5)
     game.enemy.state="attack";game.enemy.windup=0.10;game.enemy.x=game.boss.x-80

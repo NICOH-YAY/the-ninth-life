@@ -7,6 +7,10 @@
 **Labels:** **[Decided]** Nicoh's decision. **[Proposed]** agent recommendation awaiting Nicoh. **[Open]** unresolved.
 **Companion documents:** `CONFIG.md` (Configuration Document), `PLAN.md` (Project Plan and Risk Profile), `docs/design-history.md` (how the concept developed)
 
+## November20 native fantasy revision [Proposed implementation of Nicoh's request]
+
+The active engine is Godot4.7.2 with native web export. The latest contract is docs/reign-and-exchange.md, superseding conflicting historical sections below. All nine anonymous visitors are the immortal's former lives, carrying losses under tyranny and distinct innate powers, sacrifices, entrances and ultimates. The opening and years of neglect show the player repeating the old king's rule. Combat uses bodily anticipation, committed contact/recovery, twelve-frame gaits, poise, perfect parries and next-hit guard breaks at exhausted stamina. The second form truly floats. One optional per-fight oath exchanges half maximum guard for15% attack power. Three earned endings and the held heart impalement/memory release/nova/ruined hall remain.
+
 ## Latest combat revision [Proposed implementation of Nicoh's new request]
 
 The current implementation contract is docs/mobile-combat.md. It replaces the older immobile player, one-hit kitten, forced patchwork loss and popup intermissions. The player can move, jump, dash and guard; enemies grow gradually and have animated abilities and knockback. The first kitten is a playable movement/defense tutorial. The three endings are Normal, Do Nothing and an earned Victory for defeating all nine lives. The opening actually stages the prior king's defeat before explaining the castle-bound curse. Unskippable portrait dialogue, years of rest, castle decay, reflections and a castle-exterior menu establish the scene. Older sections below are historical where they conflict.
@@ -235,6 +239,7 @@ Targets: the kitten dies in one hit, middle lives last 1 to 2 minutes, and the p
 | Any challenger from life 2 can kill the boss | Nicoh, recorded here [Proposed] | Nov 19 |
 | Two progression curves (agent gentle, scripted steeper and capped) plus an evaluation ablation | Compromise in docs, [Proposed] | Nov 19 |
 | Engine: Phaser 3 with the Canvas renderer | Claude Code, [Proposed] | Nov 19 |
+| Native Godot web export; sacrificed innate mini-boss powers, distinct entrances, floating king and weighted combat with optional oath | Nicoh requested direction; implementation documented [Proposed] | Nov20 |
 
 ## 20. Open questions
 

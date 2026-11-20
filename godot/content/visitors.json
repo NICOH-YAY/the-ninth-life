@@ -1,344 +1,390 @@
 {
-  "aiUseDisclosure": "Codex authored branching conversations revealing the challengers as Morrow's own past lives, retained within the crown.",
+  "aiUseDisclosure": "Codex authored the accepted innate-power victim stories, optional one-fight vows and two-exchange branches; the anonymous visitors are Morrow's past lives retained by the crown.",
   "visitors": {
     "kitten": {
+      "power": "The Last Warmth",
+      "ultimate": "A Little Longer",
+      "sacrifice": "Gave away body heat to children during the old king's winter levy.",
+      "entrance": "A small body crawls from the gutter and warms a dead lantern between its paws.",
+      "vow_choice": 0,
       "first": {
-        "question": "I knew which stair would creak. I have never been inside this castle.",
+        "question": "He took our coal for his palace. I kept the little ones warm until my paws went cold. Your windows are still lit.",
         "choices": [
-          "I used to step over that one.",
-          "Someone told you where to put your paws."
+          "Take half my guard. Let my strikes carry 15% more force.",
+          "I will face you with the strength I have."
         ],
         "responses": [
-          "And you kept your wooden staff under the bed. How do I know that?",
-          "No one came with me. I was afraid you would hear."
+          "For this fight, then. Half your guard; your strikes carry 15% more force. Please make it mean something.",
+          "He kept everything, too. I hoped you would be different."
         ]
       },
-      "remembered": "I remember hiding that staff when the grown cats came home.",
+      "remembered": "The smallest one slept against my chest. I could not feel her breathing through the frost.",
       "second": [
         {
-          "question": "Will you show me how to stand against a sword?",
+          "question": "You can still open the doors. Why does it take a blade to make you listen?",
           "choices": [
-            "Watch my feet. Jump the low strike.",
-            "You can still be afraid. Keep your guard up."
+            "I let the years make the choices for me.",
+            "I cannot undo what he did."
           ],
           "responses": [
-            "Like this? Then do it again.",
-            "I will. Please do not look away."
+            "Then stop letting another winter choose who dies.",
+            "You can stop doing it again. That would be a start."
           ]
         },
         {
-          "question": "Were you this afraid before you wore the crown?",
+          "question": "I am frightened. I came anyway. Will you?",
           "choices": [
-            "Yes. I thought being king would cure it.",
-            "Fear will not stop the blade. Move."
+            "I will stand and hear you.",
+            "Go home. There is nothing for you here."
           ],
           "responses": [
-            "Did it?",
-            "Then I had better learn to jump."
+            "Then do not hide behind that chair.",
+            "There was nothing there either. That is why I came."
           ]
         }
       ]
     },
     "alley": {
+      "power": "The Held Breath",
+      "ultimate": "Nothing Left to Breathe",
+      "sacrifice": "Suffocated while hiding children from crown raids rather than reveal their shelter.",
+      "entrance": "The lamps gutter in order; a sharp inhale reveals a body in the last shadow.",
+      "vow_choice": 0,
       "first": {
-        "question": "The scar under your left eye. Mine hurts when you touch it.",
+        "question": "I held my breath under the floor while his soldiers counted the children. You stopped counting years ago.",
         "choices": [
-          "I got it climbing a broken window.",
-          "You copied a scar. That proves nothing."
+          "Half my guard for 15% stronger strikes. I will pay this time.",
+          "I will not bargain with another life."
         ],
         "responses": [
-          "In winter. The red scarf caught on the latch.",
-          "Then why did you reach for your eye before I did?"
+          "Only your guard. Only this fight. Your blows gain 15%; no child pays for it.",
+          "Another life? You say it like you cannot hear the boards beneath us."
         ]
       },
-      "remembered": "There was bread inside the window. We had not eaten for days.",
+      "remembered": "One child started to cough. I covered my own mouth so they would hear only me.",
       "second": [
         {
-          "question": "You remember the window. Do you remember who waited below it?",
+          "question": "The houses below your walls are empty. Did you ever ask where everyone went?",
           "choices": [
-            "Someone I promised to feed.",
-            "I remember falling. Nothing after that."
+            "I thought silence meant they were safe.",
+            "I was keeping the kingdom alive."
           ],
           "responses": [
-            "You went back for them. Even with the glass in your face.",
-            "I remember the street coming up to meet us."
+            "That is what he called it when the boots stopped.",
+            "A kingdom is not the stone that outlasts its people."
           ]
         },
         {
-          "question": "Look at this scarf before you raise your sword.",
+          "question": "Look at me when you say you will not bargain.",
           "choices": [
-            "I know that knot. I tied it with one paw.",
-            "Cloth cannot tell me who you are."
+            "I should have opened the gates.",
+            "I have enemies beyond these walls."
           ],
           "responses": [
-            "You never learned to loosen it.",
-            "It kept the blood off the bread. That was all it had to do."
+            "You knew where the hinges were. You stayed seated.",
+            "You learned his excuse more carefully than his name."
           ]
         }
       ]
     },
     "sailor": {
+      "power": "The Heavy Dead",
+      "ultimate": "All Who Were Carried",
+      "sacrifice": "Drowned carrying refugees after the old king barred the flood gates.",
+      "entrance": "Water gathers into bent silhouettes before a burdened body rises between them.",
+      "vow_choice": 0,
       "first": {
-        "question": "Cold water. Iron around one ankle. You tasted it when I came through the door.",
+        "question": "The flood came to the gate. He ordered it barred. I carried three across before the fourth pulled me under.",
         "choices": [
-          "There was someone on the other end of the chain.",
-          "I have not seen the sea in a thousand years."
+          "Let half my guard sink. Give my strikes 15% more force.",
+          "I will carry my own strength into this."
         ],
         "responses": [
-          "A small boat. You would not let it drift away.",
-          "You shut your mouth when I lifted the weight. There is still salt on your tongue."
+          "This burden is yours: half your guard, 15% more force, until our fight ends.",
+          "Then carry it. Do not put another body beneath it."
         ]
       },
-      "remembered": "The last link broke. The boat reached shore.",
+      "remembered": "I kept one hand above the water long after I could no longer see the bank.",
       "second": [
         {
-          "question": "Would you let go this time?",
+          "question": "Your gates rust shut now. Do you call that mercy because you never gave the order?",
           "choices": [
-            "Not while someone was still holding the other end.",
-            "I should have cut the rope sooner."
+            "Neglect can kill as surely as an order.",
+            "I could not be everywhere."
           ],
           "responses": [
-            "I know. That is why the iron is still here.",
-            "You keep remembering a knife. There was no knife."
+            "Then look at the weight before you strike it.",
+            "The gate was one place. You were on the other side."
           ]
         },
         {
-          "question": "Tell me why your ankle aches.",
+          "question": "Do you know what the drowned weigh?",
           "choices": [
-            "Because I remember the weight.",
-            "Because I have stood in this room too long."
+            "More than anyone should carry.",
+            "Enough. Put the dead down."
           ],
           "responses": [
-            "Then stand against it once more.",
-            "You used to laugh at excuses like that."
+            "The living become heavier when a king looks away.",
+            "I tried. They kept reaching for the shore."
           ]
         }
       ]
     },
     "acrobat": {
+      "power": "The Fall That Waited",
+      "ultimate": "Let Me Catch Them",
+      "sacrifice": "Broke its own body catching laborers from neglected palace scaffolds.",
+      "entrance": "A body hangs in an unfinished fall, then strikes the stone and stands unevenly.",
+      "vow_choice": 0,
       "first": {
-        "question": "Three bells. You lift your foot before the fourth, though that one has never rung.",
+        "question": "The scaffold rope snapped. His steward charged us for it. I caught who I could with the bones I had left.",
         "choices": [
-          "The fourth bell broke when I missed the rope.",
-          "I can read a rhythm."
+          "Half my guard for 15% more striking force. I accept the fall.",
+          "I will not promise what I cannot bear."
         ],
         "responses": [
-          "You fell into the crowd. You were still laughing.",
-          "Then why did you reach for a rope that is not here?"
+          "For this fight, your guard is halved and your strikes gain 15%. Land on your own bones.",
+          "You promised them safety by wearing the crown."
         ]
       },
-      "remembered": "You were afraid of heights. You climbed anyway.",
+      "remembered": "The rope burned through my paw. I held on until the next body fell.",
       "second": [
         {
-          "question": "Do you remember why we climbed so high?",
+          "question": "The west tower is falling now. You hear it from the throne, don't you?",
           "choices": [
-            "The children below could not afford a seat.",
-            "For the applause. I wanted to hear it again."
+            "I kept mistaking it for thunder.",
+            "I was waiting for the right time."
           ],
           "responses": [
-            "So you made the whole square a stage.",
-            "You always said that. Then you looked down to see if they could see."
+            "Then you have heard enough storms to know better.",
+            "So were the ones under it."
           ]
         },
         {
-          "question": "Will you watch my hands or the empty space above them?",
+          "question": "I cannot catch everyone this time.",
           "choices": [
-            "Your hands. I have fallen for the other trick.",
-            "The place where you must land."
+            "You should never have had to.",
+            "Then step aside and let me do my duty."
           ],
           "responses": [
-            "Then you remember more than you admit.",
-            "Good. I never did learn to land quietly."
+            "Neither should they have had to jump.",
+            "Your duty has had centuries. I have one more fall."
           ]
         }
       ]
     },
     "witch": {
+      "power": "The Shared Wound",
+      "ultimate": "Give It To Me",
+      "sacrifice": "Took neighbors' deaths into her own body when royal medicine was withheld; calls those graves into a protector.",
+      "entrance": "Grave lights rise from scars; a death-knight kneels behind the small calling body.",
+      "vow_choice": 0,
       "first": {
-        "question": "This needle turns toward your heart. It did that before either of us saw a crown.",
+        "question": "He kept medicine for the court. They came to my door with their dying. I took each death inside me. They still answer.",
         "choices": [
-          "I made it to find my way through the dark.",
-          "You have put a spell on it."
+          "Take half my guard; let my strikes gain 15% force. No one else pays.",
+          "I will not take strength from those graves."
         ],
         "responses": [
-          "You held it under your tongue so the cold would not take it.",
-          "You spat it into your paw the night your teacher died. No one saw."
+          "Only you pay. Half your guard, 15% more force, for this fight. My dead remain mine.",
+          "You already live on what the crown took. Refusing to look is not refusal."
         ]
       },
-      "remembered": "There is still a tooth mark in the silver.",
+      "remembered": "The last neighbor asked whether it would hurt. I told her it would be over soon.",
       "second": [
         {
-          "question": "What were you trying to find?",
+          "question": "The one behind me held her daughter through the fever. Can your crown remember her name?",
           "choices": [
-            "A house with a light left on.",
-            "A way to stop being lost."
+            "It should not take a crown to remember her.",
+            "You brought an army to my door."
           ],
           "responses": [
-            "The light had gone out before we reached it.",
-            "You found the house. That was not the same thing."
+            "Then remember without one.",
+            "No. I brought the people who never reached yours."
           ]
         },
         {
-          "question": "Why do your hands remember how to hold it?",
+          "question": "The grave-knight rises because I cannot carry them standing alone.",
           "choices": [
-            "I know the burn it leaves between the claws.",
-            "I will not let you put that memory in me."
+            "I see what it costs you.",
+            "Dismiss it. We can speak without the dead."
           ],
           "responses": [
-            "You used to call that the price of a little warmth.",
-            "I did not put it there."
+            "Then do not make me carry another king.",
+            "They were quiet while they lived. You do not get that silence twice."
           ]
         }
       ]
     },
     "knight": {
+      "power": "The Unbent",
+      "ultimate": "This Gate Will Hold",
+      "sacrifice": "Turned executioners from a refuge gate; inherited bloodline marks spend the body to brace and accelerate it.",
+      "entrance": "A shoulder forces the doors apart as old bloodline tattoos kindle through cracked skin.",
+      "vow_choice": 0,
       "first": {
-        "question": "Your shoulder drops when I lift this shield. The old break never set straight.",
+        "question": "His executioners came for the gatekeepers. I braced the gate until the marks split my skin. Your seals are on it now.",
         "choices": [
-          "I held a gate until the others got through.",
-          "I have carried heavier things than your shield."
+          "Half my guard for 15% stronger strikes. Open my protection instead.",
+          "I will not spend my body for a promise."
         ],
         "responses": [
-          "You counted their footsteps. You stopped at forty-three.",
-          "You carried a child through smoke with that arm. It shook for days."
+          "Half your guard and 15% more force, this fight only. A promise ought to leave a mark.",
+          "You have spent other bodies without touching your own."
         ]
       },
-      "remembered": "Forty-three made it through the gate.",
+      "remembered": "The wood gave before my knees did. I could still hear them pushing from the other side.",
       "second": [
         {
-          "question": "Was the promise worth the arm?",
+          "question": "These marks belonged to every guard before me. They burn faster when I run. What have you inherited?",
           "choices": [
-            "It was worth keeping.",
-            "I should have been strong enough to keep both."
+            "His throne. More of his silence than I meant to.",
+            "A kingdom that needs defending."
           ],
           "responses": [
-            "Then stop speaking as if you were always a king.",
-            "You were strong enough. You stayed too long."
+            "Then break something he left you.",
+            "From whom? The hungry at the gate?"
           ]
         },
         {
-          "question": "Put your hand on the break. Tell me you feel nothing.",
+          "question": "You call it peace when no one has strength left to knock.",
           "choices": [
-            "It still hurts when it rains.",
-            "I will not lower my sword for a ghost."
+            "I will not call it peace again.",
+            "I have held this place together."
           ],
           "responses": [
-            "There. An honest answer.",
-            "Then make me raise the shield again."
+            "Words are easy while your skin is whole.",
+            "So did the gate. Until we were crushed behind it."
           ]
         }
       ]
     },
     "thief": {
+      "power": "The Unseen Hand",
+      "ultimate": "Leave Me Out",
+      "sacrifice": "Erased its own place in the census to steal ration records for households the old king denied.",
+      "entrance": "Footprints cross empty moonlight; a body appears where their shadow should have been.",
+      "vow_choice": 0,
       "first": {
-        "question": "My mirror shows you without the crown. You will not look at it.",
+        "question": "He erased a street from the ration book. I stole its pages back. By morning my own name was gone.",
         "choices": [
-          "There was a face before this one. I can almost see it.",
-          "Turn it over."
+          "Erase half my guard. Give my strikes 15% more force.",
+          "I will keep what is mine for this fight."
         ],
         "responses": [
-          "Your ears were torn. You hated how the right one folded.",
-          "You covered every mirror after the coronation. You knew what was missing."
+          "Your guard is halved; your strikes gain 15%, until this fight ends. Nothing else is erased.",
+          "That is always where the crown begins."
         ]
       },
-      "remembered": "You used to press the ear flat before anyone could see.",
+      "remembered": "I left the pages on their doors. I could not remember which door had been mine.",
       "second": [
         {
-          "question": "Who did you see when you were alone?",
+          "question": "You stopped keeping a census. Do people cease to hunger when you stop writing them down?",
           "choices": [
-            "Someone who could still leave a room.",
-            "Someone I needed to become."
+            "I let them vanish because it was easier.",
+            "I did not know who was still there."
           ],
           "responses": [
-            "You did not need to ask permission then.",
-            "You have been looking for him in the glass ever since."
+            "At least let me be visible when you kill me.",
+            "That is what he wanted the book to say."
           ]
         },
         {
-          "question": "If I break it, will you stop hearing that voice?",
+          "question": "Look at my shadow. It knows where I stand even when you do not.",
           "choices": [
-            "No. It is here even when you are silent.",
-            "Break it and we will find out."
+            "I see you.",
+            "Come out where I can fight you."
           ],
           "responses": [
-            "You are beginning to listen.",
-            "You tried that once. You kept every piece."
+            "Keep looking when the blade comes.",
+            "You keep asking people to become easy to hurt."
           ]
         }
       ]
     },
     "quiet": {
+      "power": "The Silenced",
+      "ultimate": "Hear Them Once",
+      "sacrifice": "Surrendered its voice to stop the execution bell; speaks here only through a remembered whisper.",
+      "entrance": "The bell cuts out; a scarred paw rests at a throat that cannot make a sound.",
+      "vow_choice": 0,
+      "voice": "memory_whisper",
       "first": {
-        "question": "Nine lives. You buried eight under a title.",
+        "question": "The bell called them out. I gave my voice to stop it. In the silence, another name was read.",
         "choices": [
-          "The scarf. The river. Those were my memories.",
-          "You cannot know what I was before this room."
+          "Half my guard. Fifteen percent more force. Let this oath be mine.",
+          "I will listen without an oath."
         ],
         "responses": [
-          "You kept calling us strangers so you would not have to remember.",
-          "I remember the name you stopped answering to."
+          "Half your guard; 15% more force. Only until this fight ends. Not another voice.",
+          "Then listen past the quiet."
         ]
       },
-      "remembered": "The lantern was beside your first bed. Before the street, the sea, the crown.",
+      "remembered": "My mouth kept moving. The bell kept swinging. Neither of us made a sound.",
       "second": [
         {
-          "question": "When you say you do not know me, who are you trying to forget?",
+          "question": "Your empty hall is quiet, too.",
           "choices": [
-            "The one I was before anyone needed a king.",
-            "The one who believed the crown would be enough."
+            "I thought it meant I had hurt no one.",
+            "Tell me what you want."
           ],
           "responses": [
-            "He is still waiting for you to turn around.",
-            "He is the one who opened the door to us."
+            "It meant there was no one left to hear.",
+            "An end to the bell. An end to the crown."
           ]
         },
         {
-          "question": "Why does this small flame frighten you more than my spear?",
+          "question": "I cannot say it twice.",
           "choices": [
-            "I remember that room. I remember being small.",
-            "Because I cannot command it to go out."
+            "You will not have to.",
+            "I am still here."
           ],
           "responses": [
-            "Then hold on to that. There was a name before Majesty.",
-            "You tried. It burned inside you instead."
+            "Then hear it once.",
+            "So was he. Long after every plea was spent."
           ]
         }
       ]
     },
     "patchwork": {
+      "power": "The Remaining",
+      "ultimate": "Bring Them Home",
+      "sacrifice": "Kept the erased victims' names in its own scarred body and now carries the trapped lives toward release.",
+      "entrance": "Walks in without charging; nine scars light in the order of the memories held by the crown.",
+      "vow_choice": 0,
       "first": {
-        "question": "Morrow. Before anyone called you Majesty.",
+        "question": "Nine scars. Nine deaths the crown would not release. You have been fighting what it kept of you.",
         "choices": [
-          "I remember that name.",
-          "No one living knows that name."
+          "Half my guard for 15% more force. This last debt is mine.",
+          "No more bargains. Tell me my name."
         ],
         "responses": [
-          "Every cat who came here was one of your earlier lives. The crown kept us inside you.",
-          "We are your earlier lives, Morrow. The crown shut us inside you. You called us strangers."
+          "Morrow. Half your guard; 15% more force, for this last fight. Even now you make yourself the price.",
+          "Morrow. Before the crown, before the names were taken, you were Morrow."
         ]
       },
-      "remembered": "The scarf was yours. The chain was yours. Every hand that raised a weapon was yours.",
+      "remembered": "You carried their names when the old king burned the records. The crown kept every life that tried to save them.",
       "second": [
         {
-          "question": "What did you think would happen to all the lives you refused to let end?",
+          "question": "He made a prison of the crown. You made a kingdom of the waiting. They died under both.",
           "choices": [
-            "I thought I could keep them safe.",
-            "I thought I could bear it."
+            "Then bring them home. Even if it ends me.",
+            "I can still rule differently."
           ],
           "responses": [
-            "You locked the door from the inside. I am not leaving you behind it.",
-            "Then face me. No title between us."
+            "I did not come to forgive you. I came to open it.",
+            "They waited centuries for that answer. They will not wait again."
           ]
         },
         {
-          "question": "Will you answer when I call you Morrow?",
+          "question": "We were the child, the drowned, the one beneath the floor. We died trying to save them. What did you save?",
           "choices": [
-            "Yes. I will answer to my own name.",
-            "You will have to reach me first."
+            "A chair. A silence. I know that now.",
+            "I will not let you take what is left."
           ],
           "responses": [
-            "Then look at me. I have waited long enough.",
-            "I know where your heart is. I remember it beating."
+            "Then stand up, Morrow. Let the kingdom outlive you.",
+            "That is what he said when you came for his heart."
           ]
         }
       ]

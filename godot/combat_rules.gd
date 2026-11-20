@@ -5,29 +5,29 @@ const LIVES = ["kitten","alley","sailor","acrobat","witch","knight","thief","qui
 const YEARS = [1000,1089,1193,1324,1488,1672,1880,2116,2400]
 const COLORS = [Color("#e0c697"),Color("#ff6979"),Color("#efb95a"),Color("#51e6b2"),Color("#cb8bff"),Color("#7bc9ff"),Color("#50e1a8"),Color("#b0eeff"),Color("#ffb05f")]
 const MELEE = [
- {"reach":44.0,"tell":0.38,"height":60.0,"impulse":80.0,"lift":0.0,"guard":0.0},
- {"reach":64.0,"tell":0.34,"height":65.0,"impulse":-220.0,"lift":0.0,"guard":0.0},
- {"reach":112.0,"tell":0.36,"height":75.0,"impulse":310.0,"lift":0.0,"guard":0.12},
- {"reach":60.0,"tell":0.33,"height":110.0,"impulse":180.0,"lift":0.0,"guard":0.0},
- {"reach":86.0,"tell":0.34,"height":100.0,"impulse":130.0,"lift":230.0,"guard":0.0},
- {"reach":96.0,"tell":0.43,"height":70.0,"impulse":460.0,"lift":190.0,"guard":0.18},
- {"reach":52.0,"tell":0.30,"height":60.0,"impulse":120.0,"lift":0.0,"guard":0.0},
- {"reach":140.0,"tell":0.40,"height":105.0,"impulse":270.0,"lift":0.0,"guard":0.0},
- {"reach":90.0,"tell":0.38,"height":88.0,"impulse":340.0,"lift":100.0,"guard":0.10}]
+ {"reach":44.0,"tell":0.56,"height":60.0,"impulse":80.0,"lift":0.0,"guard":0.0},
+ {"reach":64.0,"tell":0.52,"height":65.0,"impulse":-220.0,"lift":0.0,"guard":0.0},
+ {"reach":112.0,"tell":0.58,"height":75.0,"impulse":310.0,"lift":0.0,"guard":0.12},
+ {"reach":60.0,"tell":0.50,"height":110.0,"impulse":180.0,"lift":0.0,"guard":0.0},
+ {"reach":86.0,"tell":0.52,"height":100.0,"impulse":130.0,"lift":230.0,"guard":0.0},
+ {"reach":96.0,"tell":0.68,"height":70.0,"impulse":460.0,"lift":190.0,"guard":0.18},
+ {"reach":52.0,"tell":0.46,"height":60.0,"impulse":120.0,"lift":0.0,"guard":0.0},
+ {"reach":140.0,"tell":0.62,"height":105.0,"impulse":270.0,"lift":0.0,"guard":0.0},
+ {"reach":90.0,"tell":0.56,"height":88.0,"impulse":340.0,"lift":100.0,"guard":0.10}]
 const ABILITY_TELL = [0.70,0.48,0.62,0.50,0.70,0.78,0.48,0.62,0.64]
 const POISE = [55.0,76.0,100.0,70.0,72.0,125.0,68.0,90.0,108.0]
-const RECOVERY = [0.45,0.30,0.42,0.31,0.34,0.48,0.28,0.38,0.34]
+const RECOVERY = [0.70,0.48,0.66,0.50,0.58,0.72,0.46,0.64,0.58]
 const ABILITY_CD = [3.8,2.15,3.1,2.7,2.8,3.5,2.9,2.4,2.25]
 const MOVES = {
- "cleave":{"name":"Crownsteel","tell":0.14,"active":0.065,"recover":0.19,"cooldown":0.3,"damage":28.0},
- "throw":{"name":"Oathpiercer","tell":0.22,"active":0.08,"recover":0.25,"cooldown":0.85,"damage":34.0},
- "reap":{"name":"Kneel","tell":0.42,"active":0.1,"recover":0.26,"cooldown":1.2,"damage":32.0},
- "nova":{"name":"Procession","tell":0.62,"active":0.4,"recover":0.32,"cooldown":7,"damage":36.0}}
+ "cleave":{"name":"Crownsteel","tell":0.27,"active":0.1,"recover":0.36,"cooldown":0.55,"damage":28.0},
+ "throw":{"name":"Oathpiercer","tell":0.42,"active":0.11,"recover":0.42,"cooldown":1.35,"damage":34.0},
+ "reap":{"name":"Kneel","tell":0.82,"active":0.15,"recover":0.46,"cooldown":1.85,"damage":32.0},
+ "nova":{"name":"Procession","tell":1.05,"active":0.46,"recover":0.56,"cooldown":8.5,"damage":36.0}}
 const CROWN_MOVES = {
- "cleave":{"name":"Gloam Rake","tell":0.17,"active":0.08,"recover":0.22,"cooldown":0.34,"damage":22.0},
- "throw":{"name":"Crownfall","tell":0.44,"active":0.36,"recover":0.26,"cooldown":1.1,"damage":13.0},
- "reap":{"name":"Royal Undertow","tell":0.56,"active":0.36,"recover":0.32,"cooldown":1.3,"damage":32.0},
- "nova":{"name":"Last Dominion","tell":0.72,"active":0.5,"recover":0.36,"cooldown":6.5,"damage":84.0}}
+ "cleave":{"name":"Gloam Rake","tell":0.34,"active":0.12,"recover":0.42,"cooldown":0.64,"damage":22.0},
+ "throw":{"name":"Crownfall","tell":0.82,"active":0.42,"recover":0.46,"cooldown":1.75,"damage":13.0},
+ "reap":{"name":"Royal Undertow","tell":1.08,"active":0.42,"recover":0.54,"cooldown":1.95,"damage":32.0},
+ "nova":{"name":"Last Dominion","tell":1.28,"active":0.58,"recover":0.68,"cooldown":8,"damage":84.0}}
 
 # Per-life footwork: grounded practice, rushes, anchor slide, vault, blink-step,
 # armored charge, crossing dash, ice glide and the returning sword's pursuit.

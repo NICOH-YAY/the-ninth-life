@@ -1,0 +1,264 @@
+{
+  "aiUseDisclosure": "Original Higgsfield poses exported at one stable native scale per identity across both halves of twelve-frame cycles. Measured source gutters, connected-body foot anchors, binary alpha and nearest two-pixel clusters.",
+  "input": "assets/reign-v10/death-knight-original.png",
+  "output": "godot/art/death-knight-v10.png",
+  "source": [
+    2048,
+    1360
+  ],
+  "rowBounds": [
+    0,
+    651,
+    1360
+  ],
+  "scales": [
+    {
+      "logicalWidth": 68,
+      "sourceBody": 483,
+      "referenceBody": 190
+    }
+  ],
+  "frame": [
+    256,
+    256
+  ],
+  "grid": [
+    6,
+    2
+  ],
+  "foot": [
+    128,
+    224
+  ],
+  "sha256": "82df1ff7a7ef6280b3973dae78b69de2b1ce71e56d74b9a7ef82727b1998c9b0",
+  "frames": [
+    {
+      "row": 0,
+      "col": 0,
+      "sourceRect": [
+        0,
+        0,
+        341,
+        651
+      ],
+      "foot": [
+        128,
+        224
+      ],
+      "sourceFoot": 112,
+      "logicalWidth": 68,
+      "opaque": 3864,
+      "clipped": 0,
+      "removedBorderPixels": 0
+    },
+    {
+      "row": 0,
+      "col": 1,
+      "sourceRect": [
+        341,
+        0,
+        342,
+        651
+      ],
+      "foot": [
+        128,
+        224
+      ],
+      "sourceFoot": 112,
+      "logicalWidth": 68,
+      "opaque": 8432,
+      "clipped": 0,
+      "removedBorderPixels": 7
+    },
+    {
+      "row": 0,
+      "col": 2,
+      "sourceRect": [
+        683,
+        0,
+        341,
+        651
+      ],
+      "foot": [
+        128,
+        224
+      ],
+      "sourceFoot": 112,
+      "logicalWidth": 68,
+      "opaque": 11856,
+      "clipped": 0,
+      "removedBorderPixels": 94
+    },
+    {
+      "row": 0,
+      "col": 3,
+      "sourceRect": [
+        1024,
+        0,
+        341,
+        651
+      ],
+      "foot": [
+        128,
+        224
+      ],
+      "sourceFoot": 114,
+      "logicalWidth": 68,
+      "opaque": 13024,
+      "clipped": 0,
+      "removedBorderPixels": 57
+    },
+    {
+      "row": 0,
+      "col": 4,
+      "sourceRect": [
+        1365,
+        0,
+        342,
+        651
+      ],
+      "foot": [
+        128,
+        224
+      ],
+      "sourceFoot": 113,
+      "logicalWidth": 68,
+      "opaque": 14116,
+      "clipped": 0,
+      "removedBorderPixels": 48
+    },
+    {
+      "row": 0,
+      "col": 5,
+      "sourceRect": [
+        1707,
+        0,
+        341,
+        651
+      ],
+      "foot": [
+        128,
+        224
+      ],
+      "sourceFoot": 114,
+      "logicalWidth": 68,
+      "opaque": 15500,
+      "clipped": 0,
+      "removedBorderPixels": 0
+    },
+    {
+      "row": 1,
+      "col": 0,
+      "sourceRect": [
+        0,
+        651,
+        341,
+        709
+      ],
+      "foot": [
+        128,
+        224
+      ],
+      "sourceFoot": 119,
+      "logicalWidth": 68,
+      "opaque": 12928,
+      "clipped": 0,
+      "removedBorderPixels": 0
+    },
+    {
+      "row": 1,
+      "col": 1,
+      "sourceRect": [
+        341,
+        651,
+        342,
+        709
+      ],
+      "foot": [
+        128,
+        224
+      ],
+      "sourceFoot": 119,
+      "logicalWidth": 68,
+      "opaque": 13932,
+      "clipped": 0,
+      "removedBorderPixels": 55
+    },
+    {
+      "row": 1,
+      "col": 2,
+      "sourceRect": [
+        683,
+        651,
+        341,
+        709
+      ],
+      "foot": [
+        128,
+        224
+      ],
+      "sourceFoot": 119,
+      "logicalWidth": 68,
+      "opaque": 16548,
+      "clipped": 0,
+      "removedBorderPixels": 134
+    },
+    {
+      "row": 1,
+      "col": 3,
+      "sourceRect": [
+        1024,
+        651,
+        341,
+        709
+      ],
+      "foot": [
+        128,
+        224
+      ],
+      "sourceFoot": 119,
+      "logicalWidth": 68,
+      "opaque": 14368,
+      "clipped": 0,
+      "removedBorderPixels": 18
+    },
+    {
+      "row": 1,
+      "col": 4,
+      "sourceRect": [
+        1365,
+        651,
+        342,
+        709
+      ],
+      "foot": [
+        128,
+        224
+      ],
+      "sourceFoot": 119,
+      "logicalWidth": 68,
+      "opaque": 12148,
+      "clipped": 0,
+      "removedBorderPixels": 0
+    },
+    {
+      "row": 1,
+      "col": 5,
+      "sourceRect": [
+        1707,
+        651,
+        341,
+        709
+      ],
+      "foot": [
+        128,
+        224
+      ],
+      "sourceFoot": 119,
+      "logicalWidth": 68,
+      "opaque": 13392,
+      "clipped": 0,
+      "removedBorderPixels": 30
+    }
+  ]
+}

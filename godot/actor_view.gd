@@ -34,7 +34,7 @@ func setup(actor: String) -> void:
 
 func pose(motion: String, frame: int, facing: int, height: float) -> void:
     current_motion = motion
-    current_frame = clampi(frame,0,5)
+    current_frame = clampi(frame,0,frame_count(who,motion)-1)
     _ensure_sprite()
     var d: Dictionary = _descriptor(who,motion,frame)
     var cell: int = int(d.cell)
@@ -56,17 +56,30 @@ func pose(motion: String, frame: int, facing: int, height: float) -> void:
 static func _is_king(actor: String) -> bool:
     return actor in ["player","king","immortal-base","ascended","king_aoe","immortal-ascended","rest","previous"]
 
+static func frame_count(actor: String, motion: String) -> int:
+    if motion in ["walk","run"]:
+        return 12
+    if actor in ["ascended","king_aoe","immortal-ascended"] and motion in ["idle","glide","jump","fall","dash"]:
+        return 12
+    if actor in ["player","king","immortal-base","rest"] and motion in ["combo_0","combo_1","combo_2","cleave","strike","throw","thrust"]:
+        return 12
+    return 6
+
 static func _descriptor(actor: String, motion: String, frame: int) -> Dictionary:
-    var f: int = clampi(frame,0,5)
+    var f: int = clampi(frame,0,frame_count(actor,motion)-1)
     if _is_king(actor) and motion in ["run","walk"]:
-        var walk_row: int = 2 if actor == "previous" else 1 if actor in ["ascended","king_aoe","immortal-ascended"] else 0
-        var walk_body: float = 86.0 if actor == "previous" else 130.0 if walk_row == 1 else 107.0
-        return {"path":"res://art/royal-walk-v9.png","cell":192,"foot":154,"body":walk_body,"frame":walk_row*6+f,"left":true}
+        if actor in ["ascended","king_aoe","immortal-ascended"]:
+            return {"path":"res://art/sovereign-air-v10.png","cell":192,"foot":154,"body":130.0,"frame":12+f,"left":true}
+        var walk_offset: int = 12 if actor == "previous" else 0
+        return {"path":"res://art/royal-gait-v10.png","cell":192,"foot":154,"body":86.0 if actor == "previous" else 107.0,"frame":walk_offset+f,"left":true}
     if _is_king(actor) and motion.begins_with("prepare_"):
         var prep_rows: Dictionary = {"prepare_cleave_0":0,"prepare_cleave_1":1,"prepare_cleave_2":2,"prepare_throw":3,"prepare_reap":4,"prepare_nova":5}
         var prep_row: int = int(prep_rows.get(motion,0))
         var transformed: bool = actor in ["ascended","king_aoe","immortal-ascended"]
-        return {"path":"res://art/prepare-sovereign-v9.png" if transformed else "res://art/prepare-king-v9.png","cell":192,"foot":154,"body":130.0 if transformed else 107.0,"frame":prep_row*6+f,"left":true}
+        if transformed:
+            var air_prep_row: int = 1 if motion in ["prepare_reap","prepare_nova"] else 0
+            return {"path":"res://art/sovereign-air-prep-v10.png","cell":192,"foot":154,"body":130.0,"frame":air_prep_row*6+f,"left":true}
+        return {"path":"res://art/prepare-king-v9.png","cell":192,"foot":154,"body":107.0,"frame":prep_row*6+f,"left":true}
     if actor == "previous":
         var row: int = 0 if motion in ["idle","run","walk"] else 1 if motion in ["cleave","strike","thrust"] else 3 if motion == "dash" else 2
         return {"path":"res://art/previous-v7.png","cell":96,"foot":94,"body":86.0,"frame":row*6+f,"left":true}
@@ -76,12 +89,17 @@ static func _descriptor(actor: String, motion: String, frame: int) -> Dictionary
     if _is_king(actor) and motion == "transform":
         return {"path":"res://art/transformation-v7.png","cell":192,"foot":154,"body":130.0,"frame":f,"left":true}
     if actor in ["ascended","king_aoe","immortal-ascended"]:
-        var ascended_row: int = int(ROWS.get(motion,0))
-        if motion in ["combo_0","combo_1","combo_2"]:
-            ascended_row = 4 + int(motion.right(1))
-        return {"path":"res://art/hollow-sovereign-v7.png","cell":192,"foot":154,"body":130.0,"frame":ascended_row*6+f,"left":true}
-    if _is_king(actor) and motion in ["combo_0","combo_1","combo_2"]:
-        return {"path":"res://art/king-combo-v7.png","cell":192,"foot":154,"body":107.0,"frame":int(motion.right(1))*6+f,"left":true}
+        var air_offset: int = 0
+        if motion in ["glide","jump","fall","dash"]:
+            air_offset = 12
+        elif motion in ["cleave","strike","throw","thrust","combo_0","combo_1","combo_2"]:
+            air_offset = 24
+        elif motion in ["reap","kneel","nova","cast"]:
+            air_offset = 30
+        return {"path":"res://art/sovereign-air-v10.png","cell":192,"foot":154,"body":130.0,"frame":air_offset+f,"left":true}
+    if _is_king(actor) and motion in ["combo_0","combo_1","combo_2","cleave","strike","throw","thrust"]:
+        var attack_offset: int = 36 if motion in ["throw","thrust"] else int(motion.right(1))*12 if motion.begins_with("combo_") else 0
+        return {"path":"res://art/king-full-attacks-v10.png","cell":192,"foot":154,"body":107.0,"frame":attack_offset+f,"left":true}
     if _is_king(actor):
         var row: int = int(ROWS.get(motion,0))
         if actor == "rest" and motion == "idle":
@@ -96,7 +114,8 @@ static func _descriptor(actor: String, motion: String, frame: int) -> Dictionary
     if motion == "prepare":
         path = "res://art/prepare-visitors-v9.png"
     elif motion in ["run","walk"]:
-        path = "res://art/visitors-walk-v7.png"
+        var gait_group: int = floori(float(row)/3.0)
+        return {"path":"res://art/visitors-gait-" + str(gait_group) + "-v10.png","cell":144,"foot":110,"body":BODY_HEIGHTS[row],"frame":(row%3)*12+f,"left":false}
     elif motion in ["idle","hurt"]:
         path = "res://art/visitors-idle-hurt-v7.png"
         pose_frame = f % 3 if motion == "idle" else 3 + f % 3
@@ -209,3 +228,11 @@ static func preparation_texture(actor: String, move_id: String, combo: int, fram
     elif move_id in ["nova","cast"]:
         motion = "prepare_nova"
     return texture_for(identity,motion,frame)
+
+static func innate_texture(life: int, frame: int) -> Texture2D:
+    return _region("res://art/innates-v10.png",Vector2i(192,192),clampi(life,0,8)*6+clampi(frame,0,5))
+
+static func death_knight_texture(motion: String, frame: int) -> Texture2D:
+    var row: int = 1 if motion in ["slam","strike","attack","recover"] else 0
+    var f: int = 5-clampi(frame,0,5) if motion == "recover" else clampi(frame,0,5)
+    return _region("res://art/death-knight-v10.png",Vector2i(256,256),row*6+f)

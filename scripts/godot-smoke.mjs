@@ -7,9 +7,10 @@ import {fileURLToPath} from "node:url";
 import {chromium} from "playwright";
 const repo=resolve(dirname(fileURLToPath(import.meta.url)),"..");
 const live=process.argv.includes("--live"),routesOnly=process.argv.includes("--routes-only");
+const serialRoutes=!process.argv.includes("--parallel-routes");
 const out=resolve(repo,"output","qa",live?"godot-live":"godot");
 await mkdir(out,{recursive:true});
-const report={aiUseDisclosure:"Codex-authored browser proof of native Godot WebAssembly and real-input gameplay. Presentation debug checks are separately labeled.",live,checks:{},routes:{},screenshots:[],errors:[],warnings:[],driverDiagnostics:[],startedAt:new Date().toISOString()};
+const report={aiUseDisclosure:"Codex-authored browser proof of native Godot WebAssembly and real-input gameplay. Presentation debug checks are separately labeled.",live,serialRoutes,checks:{},routes:{},screenshots:[],errors:[],warnings:[],driverDiagnostics:[],startedAt:new Date().toISOString()};
 let server=null;
 if(!live){
  const base=resolve(repo,"build","web");
@@ -42,6 +43,8 @@ const wait=async(page,test,timeout=60000)=>{
 const shot=async(page,name)=>{await page.screenshot({path:resolve(out,name+".png")});report.screenshots.push(name+".png");};
 const save=async()=>writeFile(resolve(out,"report.json"),JSON.stringify(report,null,2));
 const url=query=>base+"?"+query+"&qa="+Date.now();
+let routeQueue=Promise.resolve();
+const scheduleRoute=task=>serialRoutes?(routeQueue=routeQueue.then(task)):task();
 let page=watch(await context.newPage());
 try{
  if(!routesOnly){
@@ -128,7 +131,7 @@ try{
  }
  if(!live || routesOnly){
   await page.close();
-  const results=await Promise.all(["idle","normal","victory","heuristic"].map(async route=>{
+  const results=await Promise.all(["idle","normal","victory","heuristic"].map(route=>scheduleRoute(async()=>{
    const bot=route==="heuristic"?"victory":route;
    const plannerMode=route==="heuristic"?"heuristic":"scripted";
    const p=watch(await context.newPage());const started=Date.now(),seen=new Set(),stages=new Set(),visitors=new Set();
@@ -165,10 +168,11 @@ try{
     await p.keyboard.press("Enter");await wait(p,s=>s.mode==="menu",10000);
     return{route,bot,ok:true};
    }finally{await p.close();}
-  }));
+  })));
   report.checks.routes=results;
  }
  assert.deepEqual(report.errors,[]);
+ assert.deepEqual(report.warnings,[]);
  report.ok=true;
 }catch(error){
  report.ok=false;report.failure=String(error?.stack??error);

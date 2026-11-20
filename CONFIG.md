@@ -8,6 +8,10 @@
 
 ---
 
+## November20 implementation override [Proposed]
+
+The active runtime is Godot4.7.2 Compatibility renderer, exported as WASM/PCK to GitHub Pages. Canonical checkout and tooling live on D:. Open godot/project.godot. scripts/build-godot.mjs runs native court, game, planner, sprite and reign checks before export. Runtime power and entrance lifecycles live in godot/power_director.gd and godot/entrance_director.gd; timing/data live in godot/combat_rules.gd and godot/content/visitors.json. Latest behavior: docs/reign-and-exchange.md. Historical Phaser/Worker configuration below remains provenance; models are not called during combat.
+
 ## Part A. In-game agent: the challengers' collective mind
 
 ### A1. Manifest (the executable extension artifact)

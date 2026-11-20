@@ -1,0 +1,404 @@
+{
+  "aiUseDisclosure": "Higgsfield generated original twelve-frame gaits, airborne royal acting, physically weighted attack follow-through, nine innate power motifs and an actual large necromantic death knight. Codex prepared hard native pixel resources and wired Godot presentation only.",
+  "date": "2026-11-20",
+  "model": "gpt_image_2_6",
+  "quality": "medium",
+  "resolution": "2k",
+  "use_unlim": true,
+  "billing": "User-authorized active free unlimited allowance, verified active before generation. Nine sequential successful image jobs; no paid fallback, no operating-system app/browser windows.",
+  "generated": [
+    {
+      "index": 0,
+      "id": "sovereign-air",
+      "job_id": "46795626-9471-4c2b-ac44-aa6e869c99e6",
+      "time": "192507",
+      "rows": 6,
+      "cell": 192,
+      "foot": 154,
+      "sequences": [
+        12,
+        12,
+        6,
+        6
+      ],
+      "prompt": "Original side-view PIXEL ART SPRITE ATLAS of the transformed HOLLOW SOVEREIGN felineking from reference, EXACT6columns x6rows transparent canvas, square equalcells, fullbody facingLEFT, constant size/feetbaseline. It is genuinely AIRBORNE/LEVITATING: knees relaxed, boots hanging with toes pointedDOWN, coat panels and longtail FALL VERTICALLY DOWN under gravity, torso suspends above freely dangling legs. NEVER draw grounded stance, walking/running steps, wide braced boots or a groundrun shifted upward. Keep two arms, short triangular uprightcat ears, flat blackcat muzzle, broken goldcrownfragments hovering just above head, INDIGO long torn royal cloak, thin CYAN chestseam, large chipped solid royal sword. Professional hard square SNES pixelclusters32colors, no smoothpainting or antialiasing, no background/text/grid. Rows0and1 form TWELVE consecutive hovering IDLE frames0..11: slow levitating breath, relaxed dangling feet change angles gently, tail and cloak pendulum through a smooth fullcycle, shoulders and freepaw shift regally. Rows2and3 form TWELVE GLIDE/MOVE frames0..11: suspended torso leans forward a little, danglingknees and boots trail underneath, cloakpanels and tail softlylag downward/back and oscillate, no stepping feet; smooth full loop and12different poses. Row4 SIX airborne SWORD STRIKE frames: sworddrawnback / bodytwist / fullsolidblade sweepLEFT / shouldersfollowthrough / sworddrops / hoveringrecovery, freelegs counterbalance while neverplanted. Row5 SIX airborne CAST frames: lower sword / freeclawraises / chestopens and coatfallsbelow / bothshoulders extend / regalcommandrelease from palm / returnhover, legs hang relaxed. Tiny cyan light attached to chest/paw only, no giant aura or duplicate actor. Everyframe complete and centered with generousweaponpadding.",
+      "references": [
+        "8aa9715e-f7b6-47fd-a9cc-1b4929ed7ac3"
+      ],
+      "source": "assets/reign-v10/sovereign-air-original.png",
+      "runtime": "godot/art/sovereign-air-v10.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_192507_46795626-9471-4c2b-ac44-aa6e869c99e6.png",
+      "frame": [
+        192,
+        192
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "footAnchor": [
+        96,
+        154
+      ],
+      "sourceSha256": "b4a7eaee4eafd34835f8ab12ae6c6597b1c49c3ef90cc5fb577ffdbf006637d6",
+      "runtimeSha256": "5b59309e5cd3839b681ce088d6231e5893d15c37db2743d06b49800ea5d9dca1"
+    },
+    {
+      "index": 1,
+      "id": "royal-gait",
+      "job_id": "be7203da-d2d2-48fb-bcfa-796a411eaa24",
+      "time": "192650",
+      "rows": 4,
+      "cell": 192,
+      "foot": 154,
+      "sequences": [
+        12,
+        12
+      ],
+      "prompt": "Original production SNES/Metroidvania PIXEL SPRITE SHEET. EXACT6 columns, each character's TWELVE-FRAME cycle occupies TWO consecutive rows, read left-to-right rowA frames0..5 then rowB frames6..11. 12 physically DIFFERENT drawings, not six poses repeated at a faster rate. Smooth loop:0left heelcontact,1footroll,2weightdown,3rear legpassing,4pelvisup,5fronttoeoff,6rightheelcontact,7oppositefootroll,8oppositedown,9leftlegpassing,10up,11lefttoeoff thenreturn0. One visible foot remains planted at baseline; toe/heel changes, leg overlaps, pelvis verticalbob, shoulder counterrotation and continuous tail/cape arcs. Do not slide frozen legs. Constant fullbody scale and stable footbaseline, complete figures inside equal cells with weapon padding. Short upright triangular CAT ears, flat feline muzzles, whiskers, pawhands, NOT dogs. Sharp deliberate square pixelclusters,32colors per identity, no antialiasing/softpainting, TRANSPARENT background, no labels/grid/environment, no motion VFX or ghostduplicates. Weapons carried down/stowed throughout the WALK.  TWO royal identities facingLEFT, exact6columns x4rows. Rows0and1: TWELVE-frame normal BLACK CAT KING, ruby/gold crown, crimson/gold embroidered mantle, steel ceremonial royal sword carried low, blue-steel boots; silky cape arc follows each heel-toe step, short uprightears. Rows2and3: TWELVE-frame PREVIOUS KING, smaller stockier blackcat in PURPLE royal mantle and gold crown, old steel royalblade carrieddown; slower deliberate heel-toe walking with weight and tailcounterbalance. Row0firsthalf normal, row1secondhalf normal; row2firsthalfprevious, row3secondhalfprevious. Sameidentity across its two rows; no actor swaps and no wardrobe/color change between halves.",
+      "references": [
+        "311d32de-0240-446d-85cf-b9d9e29d0bfb",
+        "13cf3b8c-deb3-4980-be07-707400612d7c"
+      ],
+      "source": "assets/reign-v10/royal-gait-original.png",
+      "runtime": "godot/art/royal-gait-v10.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_192650_be7203da-d2d2-48fb-bcfa-796a411eaa24.png",
+      "frame": [
+        192,
+        192
+      ],
+      "grid": [
+        6,
+        4
+      ],
+      "footAnchor": [
+        96,
+        154
+      ],
+      "sourceSha256": "ff9b57cac4e440362660895c6caeb0121e5ae814da35d745ee819716036b1150",
+      "runtimeSha256": "0c27f5d8b1d5976ff98f4a9878743c277a3e17a7e80625f2a72f4999bfe9d5a8"
+    },
+    {
+      "index": 2,
+      "id": "visitors-gait-0",
+      "job_id": "97c95314-5d16-4204-9b7d-e82ea667d5f0",
+      "time": "192909",
+      "rows": 6,
+      "cell": 144,
+      "foot": 110,
+      "sequences": [
+        12,
+        12,
+        12
+      ],
+      "prompt": "Original production SNES/Metroidvania PIXEL SPRITE SHEET. EXACT6 columns, each character's TWELVE-FRAME cycle occupies TWO consecutive rows, read left-to-right rowA frames0..5 then rowB frames6..11. 12 physically DIFFERENT drawings, not six poses repeated at a faster rate. Smooth loop:0left heelcontact,1footroll,2weightdown,3rear legpassing,4pelvisup,5fronttoeoff,6rightheelcontact,7oppositefootroll,8oppositedown,9leftlegpassing,10up,11lefttoeoff thenreturn0. One visible foot remains planted at baseline; toe/heel changes, leg overlaps, pelvis verticalbob, shoulder counterrotation and continuous tail/cape arcs. Do not slide frozen legs. Constant fullbody scale and stable footbaseline, complete figures inside equal cells with weapon padding. Short upright triangular CAT ears, flat feline muzzles, whiskers, pawhands, NOT dogs. Sharp deliberate square pixelclusters,32colors per identity, no antialiasing/softpainting, TRANSPARENT background, no labels/grid/environment, no motion VFX or ghostduplicates. Weapons carried down/stowed throughout the WALK.  EXACT6columns x6rows, THREE returning cats faceRIGHT. Each uses TWO consecutive rows for12frames, allsame scale/kit across both halves. Rows0and1: CREAM novice with short staff, small broken-crown pendant, TWO chronological halves of one smooth12frame gait. Rows2and3: ORANGE alley cat with RED neckscarf and HOOKED SICKLE carried down, leather armor, TWO chronological halves of one smooth12frame gait. Rows4and5: TUXEDO blackwhite OCHRE-coated chain/censer warden, bronze spherical censer hanging from real chain, NO sickle, TWO chronological halves of one smooth12frame gait.  Preserve eachcat kit; no incoming extraweapon and no weapon from anotherrow. Mainpriority foot contact/down/passing/up drawings, continuousbody/cloth motion,12newposes percat.",
+      "references": [
+        "54bff2e4-8f54-410d-8329-0994c75bec09",
+        "37987577-6178-469a-95a9-f5fa338e86a0"
+      ],
+      "source": "assets/reign-v10/visitors-gait-0-original.png",
+      "runtime": "godot/art/visitors-gait-0-v10.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_192909_97c95314-5d16-4204-9b7d-e82ea667d5f0.png",
+      "frame": [
+        144,
+        144
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "footAnchor": [
+        72,
+        110
+      ],
+      "sourceSha256": "39f5a77e06c2ae9aa4c3410ef37c18534b9e5f90093837722c5f6863fc66ece2",
+      "runtimeSha256": "ba6a0d270f9f1744d32a2efec4eb994f34b01e3cfeacc64c3de32a2ff11f4bf9"
+    },
+    {
+      "index": 3,
+      "id": "visitors-gait-1",
+      "job_id": "c7b7ff8c-5632-4027-b5b0-7fe18ca437e5",
+      "time": "193031",
+      "rows": 6,
+      "cell": 144,
+      "foot": 110,
+      "sequences": [
+        12,
+        12,
+        12
+      ],
+      "prompt": "Original production SNES/Metroidvania PIXEL SPRITE SHEET. EXACT6 columns, each character's TWELVE-FRAME cycle occupies TWO consecutive rows, read left-to-right rowA frames0..5 then rowB frames6..11. 12 physically DIFFERENT drawings, not six poses repeated at a faster rate. Smooth loop:0left heelcontact,1footroll,2weightdown,3rear legpassing,4pelvisup,5fronttoeoff,6rightheelcontact,7oppositefootroll,8oppositedown,9leftlegpassing,10up,11lefttoeoff thenreturn0. One visible foot remains planted at baseline; toe/heel changes, leg overlaps, pelvis verticalbob, shoulder counterrotation and continuous tail/cape arcs. Do not slide frozen legs. Constant fullbody scale and stable footbaseline, complete figures inside equal cells with weapon padding. Short upright triangular CAT ears, flat feline muzzles, whiskers, pawhands, NOT dogs. Sharp deliberate square pixelclusters,32colors per identity, no antialiasing/softpainting, TRANSPARENT background, no labels/grid/environment, no motion VFX or ghostduplicates. Weapons carried down/stowed throughout the WALK.  EXACT6columns x6rows, THREE returning cats faceRIGHT. Each uses TWO consecutive rows for12frames, allsame scale/kit across both halves. Rows0and1: CALICO acrobat, JADE BELL and two JADE CHAKRAM RINGS on belt, TWO chronological halves of one smooth12frame gait. Rows2and3: CHARCOAL cat, VIOLET POINTED WITCH HAT and coat, GOLD ASTRAL NEEDLE, TWO chronological halves of one smooth12frame gait. Rows4and5: BROWN knight in COBALT BLUE heavy armor, steel HAMMER and BLUE SHIELD, TWO chronological halves of one smooth12frame gait.  Preserve eachcat kit; no incoming extraweapon and no weapon from anotherrow. Mainpriority foot contact/down/passing/up drawings, continuousbody/cloth motion,12newposes percat.",
+      "references": [
+        "54bff2e4-8f54-410d-8329-0994c75bec09",
+        "37987577-6178-469a-95a9-f5fa338e86a0"
+      ],
+      "source": "assets/reign-v10/visitors-gait-1-original.png",
+      "runtime": "godot/art/visitors-gait-1-v10.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_193031_c7b7ff8c-5632-4027-b5b0-7fe18ca437e5.png",
+      "frame": [
+        144,
+        144
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "footAnchor": [
+        72,
+        110
+      ],
+      "sourceSha256": "90bb0d962de7ecb29846e2906afc6ec602f8fe0723b61b79adff542c801c068e",
+      "runtimeSha256": "9d3ca40e67aa746dd7010e658e706067cbf30577c32a92552eca778e69291882"
+    },
+    {
+      "index": 4,
+      "id": "visitors-gait-2",
+      "job_id": "8010c91d-45ee-4884-bfcd-019460430da3",
+      "time": "193157",
+      "rows": 6,
+      "cell": 144,
+      "foot": 110,
+      "sequences": [
+        12,
+        12,
+        12
+      ],
+      "prompt": "Original production SNES/Metroidvania PIXEL SPRITE SHEET. EXACT6 columns, each character's TWELVE-FRAME cycle occupies TWO consecutive rows, read left-to-right rowA frames0..5 then rowB frames6..11. 12 physically DIFFERENT drawings, not six poses repeated at a faster rate. Smooth loop:0left heelcontact,1footroll,2weightdown,3rear legpassing,4pelvisup,5fronttoeoff,6rightheelcontact,7oppositefootroll,8oppositedown,9leftlegpassing,10up,11lefttoeoff thenreturn0. One visible foot remains planted at baseline; toe/heel changes, leg overlaps, pelvis verticalbob, shoulder counterrotation and continuous tail/cape arcs. Do not slide frozen legs. Constant fullbody scale and stable footbaseline, complete figures inside equal cells with weapon padding. Short upright triangular CAT ears, flat feline muzzles, whiskers, pawhands, NOT dogs. Sharp deliberate square pixelclusters,32colors per identity, no antialiasing/softpainting, TRANSPARENT background, no labels/grid/environment, no motion VFX or ghostduplicates. Weapons carried down/stowed throughout the WALK.  EXACT6columns x6rows, THREE returning cats faceRIGHT. Each uses TWO consecutive rows for12frames, allsame scale/kit across both halves. Rows0and1: SILVER cat in EMERALD HOOD, twin MIRROR DAGGERS stowed, TWO chronological halves of one smooth12frame gait. Rows2and3: WHITE cat with ICE FROST SPEAR and belt LANTERN, TWO chronological halves of one smooth12frame gait. Rows4and5: BLACK-WHITE patched cat, rusty/orange royal patched mantle, BROKEN ROYAL SWORD, TWO chronological halves of one smooth12frame gait.  Preserve eachcat kit; no incoming extraweapon and no weapon from anotherrow. Mainpriority foot contact/down/passing/up drawings, continuousbody/cloth motion,12newposes percat.",
+      "references": [
+        "54bff2e4-8f54-410d-8329-0994c75bec09",
+        "37987577-6178-469a-95a9-f5fa338e86a0"
+      ],
+      "source": "assets/reign-v10/visitors-gait-2-original.png",
+      "runtime": "godot/art/visitors-gait-2-v10.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_193157_8010c91d-45ee-4884-bfcd-019460430da3.png",
+      "frame": [
+        144,
+        144
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "footAnchor": [
+        72,
+        110
+      ],
+      "sourceSha256": "32711026742c8670d4aa38670e952c1809eff3e1af2264aad2b387a414aeeeb2",
+      "runtimeSha256": "d1496f774e502aad38acbfeee34fc4178089cc422ed35f7f792403bd2457df77"
+    },
+    {
+      "index": 5,
+      "id": "king-full-attacks",
+      "job_id": "b753b9f3-d686-4008-9ead-abcb7573f89b",
+      "time": "193420",
+      "rows": 8,
+      "cell": 192,
+      "foot": 154,
+      "sequences": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "prompt": "Original black feline king full-action PIXEL SPRITE ATLAS, EXACT6columns x8rows TRANSPARENT background. Same tall blackcat with short uprighttriangular ears, ruby/gold crown, crimson/gold royal mantle, steel sword and darkblue armor. Each attack occupies TWO consecutive rows, TWELVE physically distinct animation drawings, readrowA0..5 thenrowB6..11:0weightload,1kneescompress,2weaponpullback,3shoulderscoil,4firstrealblademotion,5CONTACT,6fullswing followthrough,7recoilcompression,8capecontinuingarc,9footrebalance,10raisebody,11returnready. Strong realisticweight and whole-body motion, not holding torso while rotating a sword. Frame5and6 solid steel blade fully extended; narrow finite pixel hit-trail may follow steel, never obscure it, neverhologram/duplicate. Rows0and1 HORIZONTAL DRAW CUT from rearhip to broad leftward steel sweep. Rows2and3 RISING BACKHAND from low coil at leftankle through upward diagonal blade, kneeunfold and shouldersrotate. Rows4and5 TWO-PAW OVERHEAD FINISHER: kneesload, bothpaws raise real sword overhead, hard downward steelcontact and deep weightcompression, kneerecovery. Rows6and7 STRAIGHT OATHPIERCER THRUST: swordpullback at ribs, rearheelweight, step-lungeLEFT with frontknee and extended realblade, shoulderfollowthrough, recoil and reset. AllfaceLEFT, constantbody scale, footbaseline consistent, allposesandbladesfullyinsidecellwithpadding. Sharp SNES square pixelclusters32colors, no antialiasing/softpainting, no text/grid/background.",
+      "references": [
+        "13cf3b8c-deb3-4980-be07-707400612d7c",
+        "5d13baf1-9299-4c78-b3b7-dd27d0686226"
+      ],
+      "source": "assets/reign-v10/king-full-attacks-original.png",
+      "runtime": "godot/art/king-full-attacks-v10.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_193420_b753b9f3-d686-4008-9ead-abcb7573f89b.png",
+      "frame": [
+        192,
+        192
+      ],
+      "grid": [
+        6,
+        8
+      ],
+      "footAnchor": [
+        96,
+        154
+      ],
+      "sourceSha256": "66b892c7b87655e0464b08503225aeb6236f667d181aabd5592fd6f69769a64b",
+      "runtimeSha256": "3e859e6586a1700eef75a20f61b5d31e17b083173d7416e5f4298276dfbdac53"
+    },
+    {
+      "index": 6,
+      "id": "innates",
+      "job_id": "03d101ec-5dc3-4841-a8d8-f7c967eacea2",
+      "time": "193552",
+      "rows": 9,
+      "cell": 192,
+      "foot": 154,
+      "sequences": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "prompt": "Original actiongame INNATE POWER PIXEL VFX SPRITESHEET, EXACT6columns x9rows transparentbackground. Eachrow six sequential finite animationframes build/peak/release/dissolve, hard square SNES pixelclusters32colors, no blurry bloom, no rectangularfills/text/grid/environment. Everycell square, complete effect insidecell. A virtual cat body would stand centered with feet near80percentcellheight; compose body-affecting motifs around this invisible silhouette and ground effects at thatfeetbaseline. No realcatrender except ghost/echo shapes requested, no weapons asmainfocus. Row0 KITTEN WARMTH: tiny amber lantern flame, warm palm-shaped glows cupping a small light, gold motes pulse gently inward, hopeful. Row1 ALLEY BREATH-PRESSURE: red-orange pressure breath ribbons and several forceful PALM HANDPRINT shapes, visible fingers/pawpads, compressair into a forward blast then break into sparks. Row2 SAILOR GHOST TIDE: cyan/teal GHOST WATER CAT SILHOUETTES rise from a low curling gravity-tide wave, actual tiny spectral forms and water droplets, not justcircle. Row3 ACROBAT STORED FALL: jade/gold small COMET with feline-shadowcore trails downward, a bright impact star hitsground and curving debris arcs spread, six descent/contact/shock/release stages, readablechunkyobject. Row4 WITCH SHARED WOUND NECROMANCY: violet skeletalhand runes and darkcyan ribcage/chest glyph open a jagged tomb-shaped portal lowatfeet, ghostly GAUNTLET begins emerging; no full knight here, summoningrunes/bodywoundpull. Row5 KNIGHT ANCESTRAL BLOODLINE TATTOOS: glowing crimson/gold tattoo NETWORK mapped across the invisible humanoidcat BODY: upperchest ribbranching, shoulders, BOTH forearms, torso and bothshins, bright bloodveins and ancestor knotmarks. Keep clearly body-shaped constellation ofskinmarks, not weapon-only effect, no enclosingcircle or shield. Sixframes spread fromheart acrossarms andlegs then flare/recede. Row6 THIEF BODY ECHOES: emerald/silver cat-sized afterimage BODY SILHOUETTES in a short lateral succession, tinyvanishingshadow shards, displaced distinct feline heads/tails with ghost transparency, no sword needed. Row7 QUIET SILENCE: icy white-blue small THROAT glow anchoredupperbody, concentric fragile silenceCRACKS like crackedglass rings, thin sharp lines and falling bell-shaped fragments, no solidbubble. Row8 PATCHWORK NINE SCAR MEMORIES: exactly9 small distinct amber/rose/cyan scar lights orbit an invisiblebody, threadlike marks and tiny ghostcat memoryfaces flash briefly, resolve into9scar branches thenquietparticles. Effects distinctaestheticfunctions andcolors. Professionalpixelartwithdiscrete luminous pixelsandtransparentnegative space, no photorealpainting.",
+      "references": [
+        "37987577-6178-469a-95a9-f5fa338e86a0"
+      ],
+      "source": "assets/reign-v10/innates-original.png",
+      "runtime": "godot/art/innates-v10.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_193552_03d101ec-5dc3-4841-a8d8-f7c967eacea2.png",
+      "frame": [
+        192,
+        192
+      ],
+      "grid": [
+        6,
+        9
+      ],
+      "footAnchor": [
+        96,
+        154
+      ],
+      "sourceSha256": "7c294e94aa97a215553faef32b29f176b326d1a84f8ea758b6f36589aaf042e6",
+      "runtimeSha256": "3f4ec270693c3c26b53c1a2a90eec6a8d743f4503a50d82ac7dc8bf6f3909320"
+    },
+    {
+      "index": 7,
+      "id": "death-knight",
+      "job_id": "2f215aea-6a0f-4cd5-8b1e-b3a3b458b695",
+      "time": "193705",
+      "rows": 2,
+      "cell": 256,
+      "foot": 224,
+      "sequences": [
+        6,
+        6
+      ],
+      "prompt": "Original pixelgame SPECTRAL DEATH KNIGHT summon SPRITE SHEET, EXACT6columns x2rows transparentbackground, fullfigureinside eachcell, no text/grid/environment. This is a LARGE ACTUAL CREATURE with readable armored body and physical weapon, not a circle icon. Roughly200nativepixel high monstrous undead feline knight, hornless crackedroyal helmet with CAT-ear points, darkiron platearmor, ribs lit by VIOLET/CYAN necromanticfire, heavy torn tabard, massive chipped two-paw GREAT SWORD. Distinct fromsmallwitchcat that summonsit. FaceLEFT, feetfixedbaseline, consistentbody size across12frames. Row0 six emergence/idle frames: skeletalgauntlet andhelmetrise from violet portal atfeet, torsoassembles, kneesunfold, heavy swordsettles, hauntedstandingbreath, fullreadyknight. Byframes3..5 fullbody stands clearly. Row1 six ACTUAL OVERHEAD SLAM frames: both realgauntlets grip sword, kneescompress and giant swordrisesABOVEhead, torsoarches, swordplunges physically downward with shoulders/hips throughcontact, armorcompresses, blade stuckbriefly thenrecover. Strongweight/contact, finite thin spectralflame followsSOLIDblade, not a beam replacingweapon. Hard SNES pixelclusters32colors, no antialiasing or smoothpainting. Purple torncloak trails and cyan ribscage glow, sinisterbutgame-sprite, completeweaponpadding. Bothrowsgroundedsolesatcommongroundline.",
+      "references": [],
+      "source": "assets/reign-v10/death-knight-original.png",
+      "runtime": "godot/art/death-knight-v10.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_193705_2f215aea-6a0f-4cd5-8b1e-b3a3b458b695.png",
+      "frame": [
+        256,
+        256
+      ],
+      "grid": [
+        6,
+        2
+      ],
+      "footAnchor": [
+        128,
+        224
+      ],
+      "sourceSha256": "406290d9b6ee9e27f7eee7c119b124b2248455ce0c7a2ff1b59f60a1f55f661c",
+      "runtimeSha256": "82df1ff7a7ef6280b3973dae78b69de2b1ce71e56d74b9a7ef82727b1998c9b0"
+    },
+    {
+      "index": 8,
+      "id": "sovereign-air-prep",
+      "job_id": "bfae8ebf-79ee-49be-a48b-a44f9e029a3a",
+      "time": "193300",
+      "rows": 2,
+      "cell": 192,
+      "foot": 154,
+      "sequences": [
+        6,
+        6
+      ],
+      "prompt": "Original black feline HOLLOW SOVEREIGN AIRBORNE BODY PREPARATION sprite strip, EXACT6columns x2rows transparentbackground. Match thereference transformed king: shortuprighttriangularcat ears, fragmentedgold crown, INDIGO torncloak, cyan chestseam, longtail, chippedsolidgreatsword. Genuine LEVITATION: boottoes pointDOWN, relaxed hangingknees, cloakpanels andtailfallDOWN, NEVERfeetplanted orwidegroundstance. Eachrow SIX DIFFERENT progressive bodily anticipationposes beforeanyattack:0relaxedhover,1torsoleansandcloakcompresses,2shoulderscoil,3weapon/pawloads,4almostfullycocked,5fullycockedbeforecontact. Row0 airborne SWORD LOAD: long sword drawnclosetoribs thenbehindshoulder, actualpawgrip/shouldertwist, torso/hipscoil while kneesfloatrelaxed andmantlefallsdown. Row1 airborne CAST LOAD: lower sword hangingvertically, freeclawedpalmraises fromwaisttohearttoabovehead, chestbreath/shouldercompress thenopen, cloakgathersbelow, crownfragments cantinytilt; no releasedmagic orprojectedattack. Nofootplant, steppingcycle, groundstance shiftedup, groundrunes, holograms, ghostweapons, attacksalreadyexecuted, duplicates, environment, textorgrid. AllfaceLEFT, fullbodiescompletelyinsidecellsatfixedscale, feetcommonbaselineforspriteanchor despitebeingdangling. Sharp professional SNES squarepixelclusters32colors, NOantialiasing/softpainting.",
+      "references": [
+        "46795626-9471-4c2b-ac44-aa6e869c99e6"
+      ],
+      "source": "assets/reign-v10/sovereign-air-prep-original.png",
+      "runtime": "godot/art/sovereign-air-prep-v10.png",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_193300_bfae8ebf-79ee-49be-a48b-a44f9e029a3a.png",
+      "frame": [
+        192,
+        192
+      ],
+      "grid": [
+        6,
+        2
+      ],
+      "footAnchor": [
+        96,
+        154
+      ],
+      "sourceSha256": "edea428764cccd412c802f8366576be3aaba8e17ebeb66d3a8e0ed4bcef0e5df",
+      "runtimeSha256": "185caa8d3eb49854b6baf5c66fb0dcd959ee6f051c0336174679b6d61673d2dc"
+    }
+  ],
+  "runtimeFrames": 294,
+  "pixelContract": {
+    "pixelBlock": 2,
+    "alpha": "binary0/255",
+    "colours": 32,
+    "filter": "nearest",
+    "nativeScale": 1,
+    "sourceScale": "Measured once from the first neutral pose per identity; shared across both six-column halves of the twelve-frame cycle, never per-frame zoom fitting.",
+    "sourceRows": "Alpha-occupancy gutters measured per source image to preserve full poses and separate rows; exact rowBounds/scales persisted in geometry JSON.",
+    "feet": "Connected-body pixel anchors translated vertically to stable sourcefoot154 for kings,110 for visitors,224 for death knight. Hover height is game physics; airborne drawings have relaxed dangling boots, cloak and tail."
+  },
+  "gaitMapping": {
+    "royalGait": [
+      "king frames0..11",
+      "previous frames12..23"
+    ],
+    "visitors": "Three files; canonical LIVES groups0..2,3..5,6..8. Eachidentity occupies12 consecutiveframes/two6-columnrows.",
+    "air": [
+      "idle0..11",
+      "glide12..23",
+      "strike24..29",
+      "cast30..35"
+    ],
+    "airPrep": [
+      "physical floating sword load0..5",
+      "physical floating palm/castload6..11"
+    ],
+    "baseAttack": [
+      "combo0 offset0",
+      "combo1 offset12",
+      "combo2 offset24",
+      "thrust offset36"
+    ],
+    "baseContact": "Frames5..7 contact/followthrough,8..11 recovery after separate existing six-frame v9 preparation."
+  },
+  "innates": [
+    "kitten palm warmth/lantern",
+    "alley breath pressure/handprints",
+    "sailor ghost water/gravity tide",
+    "acrobat stored fall/comet impact",
+    "witch shared-wound necromantic chest/tomb portal",
+    "knight ancestral bloodline body tattoos",
+    "thief body echoes/vanishing shadows",
+    "quiet throat glow/silence cracks",
+    "patchwork nine scar memory lights"
+  ],
+  "bloodlineOverlay": "Innate row5 uses a smaller native approximately79px body-shaped tattoo network, matching the actual knight body atscale1 rather than a giant surrounding humanoid aura. Shared foot anchor stays154.",
+  "deathKnight": {
+    "frame": [
+      256,
+      256
+    ],
+    "foot": [
+      128,
+      224
+    ],
+    "bodyApprox": 190,
+    "rows": [
+      "emerge/tell/idle0..5",
+      "actual two-paw overhead swordslam6..11"
+    ],
+    "identity": "Large original armored feline undead with cat-ear helmet, cyan skeletal ribs, violet torn tabard and a solid chipped greatsword. It is a real physical creature sprite, not a portal icon."
+  },
+  "API": {
+    "frameCount": "ActorView.frame_count(actor,motion):walk/run12; sovereign idle/glide/jump/fall/dash12; base combo/cleave/strike/thrust12; preparations/effects6.",
+    "innate": "ActorView.innate_texture(life:int0..8,frame0..5)",
+    "summon": "ActorView.death_knight_texture(motion,frame0..5),emerge/tell→row0,slam→row1,recover reversesrow1",
+    "existing": "Existing six-frame base/visitor preparations, guards,tells,rest,opening,finisher remain unchanged. Sovereign preparations use new genuinely airborne loads."
+  },
+  "proof": "pixel-verification.json checks actual cropped pixel uniqueness for all12/6frame sequences and reports zero empty, clipped, off-grid or soft-alpha pixels. Full native foot-anchor and live gameplay are separate QA evidence."
+}

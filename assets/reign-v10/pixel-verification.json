@@ -1,0 +1,336 @@
+{
+  "aiUseDisclosure": "Codex verified actual native cropped pixels, not metadata labels. These are component checks; full native source-foot and gameplay/browser checks remain separate.",
+  "checks": [
+    {
+      "id": "sovereign-air",
+      "frames": 36,
+      "frame": [
+        192,
+        192
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 12,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 24,
+          "expected": 6,
+          "actual": 6
+        },
+        {
+          "start": 30,
+          "expected": 6,
+          "actual": 6
+        }
+      ],
+      "runtimeSha256": "5b59309e5cd3839b681ce088d6231e5893d15c37db2743d06b49800ea5d9dca1"
+    },
+    {
+      "id": "royal-gait",
+      "frames": 24,
+      "frame": [
+        192,
+        192
+      ],
+      "grid": [
+        6,
+        4
+      ],
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 12,
+          "expected": 12,
+          "actual": 12
+        }
+      ],
+      "runtimeSha256": "0c27f5d8b1d5976ff98f4a9878743c277a3e17a7e80625f2a72f4999bfe9d5a8"
+    },
+    {
+      "id": "visitors-gait-0",
+      "frames": 36,
+      "frame": [
+        144,
+        144
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 12,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 24,
+          "expected": 12,
+          "actual": 12
+        }
+      ],
+      "runtimeSha256": "ba6a0d270f9f1744d32a2efec4eb994f34b01e3cfeacc64c3de32a2ff11f4bf9"
+    },
+    {
+      "id": "visitors-gait-1",
+      "frames": 36,
+      "frame": [
+        144,
+        144
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 12,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 24,
+          "expected": 12,
+          "actual": 12
+        }
+      ],
+      "runtimeSha256": "9d3ca40e67aa746dd7010e658e706067cbf30577c32a92552eca778e69291882"
+    },
+    {
+      "id": "visitors-gait-2",
+      "frames": 36,
+      "frame": [
+        144,
+        144
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 12,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 24,
+          "expected": 12,
+          "actual": 12
+        }
+      ],
+      "runtimeSha256": "d1496f774e502aad38acbfeee34fc4178089cc422ed35f7f792403bd2457df77"
+    },
+    {
+      "id": "king-full-attacks",
+      "frames": 48,
+      "frame": [
+        192,
+        192
+      ],
+      "grid": [
+        6,
+        8
+      ],
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 12,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 24,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 36,
+          "expected": 12,
+          "actual": 12
+        }
+      ],
+      "runtimeSha256": "3e859e6586a1700eef75a20f61b5d31e17b083173d7416e5f4298276dfbdac53"
+    },
+    {
+      "id": "innates",
+      "frames": 54,
+      "frame": [
+        192,
+        192
+      ],
+      "grid": [
+        6,
+        9
+      ],
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 6,
+          "actual": 6
+        },
+        {
+          "start": 6,
+          "expected": 6,
+          "actual": 6
+        },
+        {
+          "start": 12,
+          "expected": 6,
+          "actual": 6
+        },
+        {
+          "start": 18,
+          "expected": 6,
+          "actual": 6
+        },
+        {
+          "start": 24,
+          "expected": 6,
+          "actual": 6
+        },
+        {
+          "start": 30,
+          "expected": 6,
+          "actual": 6
+        },
+        {
+          "start": 36,
+          "expected": 6,
+          "actual": 6
+        },
+        {
+          "start": 42,
+          "expected": 6,
+          "actual": 6
+        },
+        {
+          "start": 48,
+          "expected": 6,
+          "actual": 6
+        }
+      ],
+      "runtimeSha256": "3f4ec270693c3c26b53c1a2a90eec6a8d743f4503a50d82ac7dc8bf6f3909320"
+    },
+    {
+      "id": "death-knight",
+      "frames": 12,
+      "frame": [
+        256,
+        256
+      ],
+      "grid": [
+        6,
+        2
+      ],
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 6,
+          "actual": 6
+        },
+        {
+          "start": 6,
+          "expected": 6,
+          "actual": 6
+        }
+      ],
+      "runtimeSha256": "82df1ff7a7ef6280b3973dae78b69de2b1ce71e56d74b9a7ef82727b1998c9b0"
+    },
+    {
+      "id": "sovereign-air-prep",
+      "frames": 12,
+      "frame": [
+        192,
+        192
+      ],
+      "grid": [
+        6,
+        2
+      ],
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 6,
+          "actual": 6
+        },
+        {
+          "start": 6,
+          "expected": 6,
+          "actual": 6
+        }
+      ],
+      "runtimeSha256": "185caa8d3eb49854b6baf5c66fb0dcd959ee6f051c0336174679b6d61673d2dc"
+    }
+  ]
+}

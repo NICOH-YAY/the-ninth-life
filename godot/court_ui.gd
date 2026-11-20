@@ -38,6 +38,9 @@ var _hint: Label
 var _enemy_fill: ColorRect
 var _player_fill: ColorRect
 var _guard_fill: ColorRect
+var _vow_mark: Control
+var _guard_state: Label
+var _ultimate_label: Label
 var _move_labels: Array[Label] = []
 var _move_keys: Array[Label] = []
 var _notice: Panel
@@ -145,6 +148,33 @@ func _make_hud() -> void:
     _guard_fill.size = Vector2(180, 3)
     _guard_fill.color = Color("#91c8e9")
     _hud.add_child(_guard_fill)
+    _guard_state = _label(_hud, "", Vector2(632, 58), Vector2(185, 20), 10, Color("#ffc397"))
+    _ultimate_label = _label(_hud, "", Vector2(28, 51), Vector2(310, 30), 11, Color("#ebc586"))
+    _ultimate_label.clip_text = true
+    _vow_mark = Control.new()
+    _vow_mark.position = Vector2(843, 53)
+    _vow_mark.size = Vector2(89, 23)
+    _vow_mark.tooltip_text = "One-fight vow: strikes deal 15% more damage; maximum guard is halved."
+    _vow_mark.mouse_filter = Control.MOUSE_FILTER_STOP
+    _hud.add_child(_vow_mark)
+    var shield_pixels := Image.create(18,20,false,Image.FORMAT_RGBA8)
+    shield_pixels.fill(Color.TRANSPARENT)
+    for y in range(1,19):
+        var inset: int = maxi(0,y-10)
+        for x in range(1+inset,16-inset):
+            shield_pixels.set_pixel(x,y,Color("#806f4c"))
+    var crack_x: Array[int] = [9,9,8,7,6,6,7,9,10,9,8,8,7,7,7,8,8,8]
+    for y in range(1,19):
+        for x in range(crack_x[y-1],crack_x[y-1]+2):
+            shield_pixels.set_pixel(x,y,Color("#080d18"))
+    var shield := TextureRect.new()
+    shield.texture = ImageTexture.create_from_image(shield_pixels)
+    shield.size = Vector2(18,20)
+    shield.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+    shield.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    _vow_mark.add_child(shield)
+    _label(_vow_mark, "OATH", Vector2(22,0), Vector2(63,20), 11, Color("#e0bf7c"))
+    _vow_mark.hide()
     _hint = _label(_hud, "", Vector2(80, 63), Vector2(800, 25), 13, Color("#edda9f"))
     _hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
     for i in range(4):
@@ -370,6 +400,8 @@ func show_controls() -> void:
             _capturing = action
             show_notice("Press the new key for " + str(ACTION_LABELS[action]) + ".\nEsc cancels. Enter is reserved.")
         , 14)
+    _label(_menu, "Fresh guard: perfect timing opens a stab counter. Empty guard breaks on the next hit.", Vector2(57, 420), Vector2(835, 18), 11, Color("#b5c6ca"))
+    _label(_menu, "A dialogue oath is optional: +15% strike damage, half maximum guard, for one fight.", Vector2(57, 437), Vector2(835, 18), 11, Color("#b5c6ca"))
     _button(_menu, "RESET DEFAULTS", Vector2(57, 459), Vector2(225, 39), func() -> void:
         _bindings = DEFAULT_KEYS.duplicate()
         _save_bindings()
@@ -400,7 +432,19 @@ func set_hud(data: Dictionary) -> void:
     _enemy_fill.color = Color(str(data.get("enemy_color", "#73c8ab")))
     _player_fill.size.x = 300.0 * clampf(player_hp / player_max, 0.0, 1.0)
     _player_fill.color = Color("#e5bd71") if int(data.get("phase", 1)) == 1 else Color("#a9e6f0")
-    _guard_fill.size.x = 180.0 * clampf(float(data.get("guard", 1.0)), 0.0, 1.0)
+    var guard_max: float = clampf(float(data.get("guard_max", 1.0)), 0.01, 1.0)
+    var guard: float = clampf(float(data.get("guard", guard_max)), 0.0, guard_max)
+    var broken_value: Variant = data.get("guard_break", false)
+    var broken: bool = bool(broken_value) if broken_value is bool else float(broken_value) > 0.0
+    _guard_fill.size.x = 180.0 * guard
+    _guard_fill.color = Color("#df665b") if broken else Color("#91c8e9")
+    _guard_state.text = "GUARD BROKEN" if broken else ("GUARD EXPOSED" if guard <= 0.001 else "")
+    _vow_mark.visible = bool(data.get("vow", false))
+    var ultimate: String = str(data.get("enemy_ultimate", ""))
+    var power: String = str(data.get("currentpower", data.get("current_power", "")))
+    _ultimate_label.text = ultimate.to_upper() if not ultimate.is_empty() else ""
+    _ultimate_label.tooltip_text = power
+    _ultimate_label.modulate.a = 1.0 if not ultimate.is_empty() else 0.0
     _year_label.text = "YEAR " + str(data.get("year", 1000))
     _hint.text = str(data.get("hint", ""))
     var moves: Array[String] = ["cleave", "throw", "reap", "nova"]

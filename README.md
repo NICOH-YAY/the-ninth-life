@@ -19,6 +19,8 @@ This imports, checks and exports the native Godot project, then serves build/web
 
 ## Current game
 
+Latest encounter contract: [reign, sacrifice and exchange](docs/reign-and-exchange.md).
+
 Latest animation revision: [physical body preparation and walking](docs/body-animation.md).
 
 The sword-bearing king has buffered three-strike combos and transforms into the Hollow Sovereign, a broken-crowned figure with a torn indigo mantle and cyan chest fissure. Its separate moveset combines wide rakes, five falling blades, inward gravity and an expanding wave. Movement uses acceleration, braking, jump buffering and short jumps; visitors have their own rushes, vaults and attack chains. Visitors have different weapons and attacks but anonymous dialogue. Each meeting has two branching exchanges without exchange counters or instructional captions over the story. The durable tutorial requires a jump, dash and real block. Enemies resist interruption until their poise breaks; a precisely timed guard opens a physical stab counter. Between fights, years pass while the king sits slumped and weary; the hall ages.

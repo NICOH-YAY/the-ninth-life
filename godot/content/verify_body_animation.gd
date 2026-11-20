@@ -18,11 +18,12 @@ func check(condition: bool, description: String) -> void:
         failures.append(description)
         push_error(description)
 
-func sequence(actor: String, motion: String) -> void:
+func sequence(actor: String, motion: String, frame_total: int = 6) -> void:
+    check(ACTOR.frame_count(actor, motion) == frame_total, actor + ": " + motion + " must expose the intended frame count.")
     var hashes: Dictionary = {}
     var regions: Dictionary = {}
     var anchors: Array[int] = []
-    for frame in range(6):
+    for frame in range(frame_total):
         var descriptor: Dictionary = ACTOR._descriptor(actor, motion, frame)
         var path: String = str(descriptor.path)
         if not sheets.has(path):
@@ -51,16 +52,20 @@ func sequence(actor: String, motion: String) -> void:
                 if crop.get_pixel(x, y).a > 0.5:
                     bottom = maxi(bottom, y)
         anchors.append(bottom - foot + 1)
-        check(bottom >= foot - 5 and bottom <= foot + 3, actor + ": " + motion + " frame " + str(frame) + " must keep a physical foot on its baseline (delta " + str(bottom - foot + 1) + ").")
-    check(hashes.size() == 6, actor + ": " + motion + " must contain six different drawn pixel frames, not repeated metadata.")
-    check(regions.size() == 6, actor + ": " + motion + " must select six different atlas regions.")
+        if actor != "ascended":
+            check(bottom >= foot - 5 and bottom <= foot + 3, actor + ": " + motion + " frame " + str(frame) + " must keep a physical support foot on its baseline (delta " + str(bottom - foot + 1) + ").")
+        else:
+            check(bottom >= 0 and foot > 0 and foot < crop.get_height(), actor + ": " + motion + " must retain a valid airborne body anchor.")
+    check(hashes.size() == frame_total, actor + ": " + motion + " must contain " + str(frame_total) + " different drawn pixel frames, not repeated metadata.")
+    check(regions.size() == frame_total, actor + ": " + motion + " must select " + str(frame_total) + " different atlas regions.")
     sequences.append({"actor": actor, "motion": motion, "unique_pixel_frames": hashes.size(), "unique_regions": regions.size(), "foot_offsets": anchors})
 
 func _run() -> void:
     var walkers: Array[String] = ["king", "ascended", "previous"]
     walkers.append_array(VISITORS)
     for actor in walkers:
-        sequence(actor, "walk")
+        sequence(actor, "walk", 12)
+    sequence("ascended", "idle", 12)
     for actor in ["king", "ascended"]:
         for motion in KING_PREPARATIONS:
             sequence(actor, motion)

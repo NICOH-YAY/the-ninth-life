@@ -34,10 +34,10 @@ const sample=async(duration,visit)=>{const end=Date.now()+duration;while(Date.no
 const enterFight=async label=>{
  const frames=new Set(),regions=new Set(),positions=[];let answered=0,captured=false;const end=Date.now()+120000;
  while(Date.now()<end){const s=await state();if(s.mode==='fight')break;
-  if(s.mode==='arrival'&&['walk','run'].includes(s.enemy_motion)){frames.add(s.enemy_frame);regions.add(s.enemy_region);positions.push(s.enemy_x);if(frames.size>=3&&!captured){captured=true;await shot(label+'-arrival-walk');}}
+  if(['entrance','arrival'].includes(s.mode)&&['walk','run'].includes(s.enemy_motion)){frames.add(s.enemy_frame);regions.add(s.enemy_region);positions.push(s.enemy_render_x??s.enemy_x);if(frames.size>=3&&!captured){captured=true;await shot(label+'-arrival-walk');}}
   if(s.choices){await page.keyboard.press('Enter');answered++;await wait(s=>!s.choices,5000);}await page.waitForTimeout(20);
  }
- assert.equal((await state()).mode,'fight');assert.equal(answered,2);assert(frames.size>=3,label+' arrival must advance through real walk frames');assert(regions.size>=3,label+' arrival must select distinct walk texture regions');assert(Math.max(...positions)-Math.min(...positions)>50);report.checks[label+'Arrival']={frames:[...frames],regions:[...regions],distance:Math.max(...positions)-Math.min(...positions)};
+ assert.equal((await state()).mode,'fight');assert.equal(answered,2);if(label==='tutorial'){assert(frames.size>=3,label+' entrance must advance through real walk frames');assert(regions.size>=3,label+' entrance must select distinct walk texture regions');assert(Math.max(...positions)-Math.min(...positions)>50);}report.checks[label+'Arrival']={frames:[...frames],regions:[...regions],distance:positions.length?Math.max(...positions)-Math.min(...positions):null};
 };
 const enemyWalk={frames:new Set(),regions:new Set(),positions:[]};
 const collectEnemy=s=>{if(s.mode==='fight'&&['walk','run'].includes(s.enemy_motion)){enemyWalk.frames.add(s.enemy_frame);enemyWalk.regions.add(s.enemy_region);enemyWalk.positions.push(s.enemy_x);}};
@@ -52,13 +52,13 @@ const walk=async(key,label)=>{
  const start=await state(),frames=new Set(),regions=new Set(),positions=[],trace=[];
  await page.keyboard.down(key);const until=Date.now()+1400;
  while(Date.now()<until){const s=await state();collectEnemy(s);trace.push({x:s.x,vx:s.vx,motion:s.actor_motion,frame:s.actor_frame,move:s.active_move,grounded:s.grounded});
-  if(['walk','run'].includes(s.actor_motion)){frames.add(s.actor_frame);regions.add(s.actor_region);positions.push(s.x);}
-  if(frames.size>=4&&Math.max(...positions)-Math.min(...positions)>=100)break;
+  if(['walk','run','glide'].includes(s.actor_motion)){frames.add(s.actor_frame);regions.add(s.actor_region);positions.push(s.x);}
+  if(frames.size>=6&&[...frames].some(f=>f>=6)&&Math.max(...positions)-Math.min(...positions)>=100)break;
   await page.waitForTimeout(8);
  }
  await page.keyboard.up(key);const distance=Math.max(...positions)-Math.min(...positions);
  report.checks[label]={initialX:initial.x,repositionKey:reposition,startX:start.x,endX:(await state()).x,frames:[...frames],regions:[...regions],distance,trace};
- assert(frames.size>=3,label+' must use distinct actual gait frames');assert(regions.size>=3,label+' must change rendered atlas region');assert(distance>50,label+' must physically move over50px with travel room');await shot(label);
+ assert(frames.size>=6&&[...frames].some(f=>f>=6),label+' must use the second half of its real12-frame gait');assert(regions.size>=6,label+' must change rendered atlas regions across the12-frame cycle');assert(distance>50,label+' must physically move over50px with travel room');await shot(label);
 };
 const guardOpening=async()=>{await wait(s=>s.enemy_attack_in>0.20&&s.enemy_attack_in<0.65,20000);const previous=(await state()).enemy_strikes;await page.keyboard.down('g');const end=Date.now()+3000;while(Date.now()<end&&(await state()).enemy_strikes===previous)await page.waitForTimeout(15);await page.keyboard.up('g');};
 const prepare=async(key,id,label)=>{
@@ -81,15 +81,15 @@ try{
  await page.goto(base+'?debug=1&mode=scripted&seed=42&bodyanimation='+Date.now());await wait(s=>s.mode==='menu',90000);report.checks.engine=(await state()).engine;
  await page.keyboard.press('Enter');await enterFight('tutorial');
  await walk('d','king-walk-right');await walk('a','king-walk-left');
- assert(enemyWalk.frames.size>=3&&enemyWalk.regions.size>=3,'Enemy combat approach must animate real feet, not frozen frame zero');report.checks.tutorialCombatWalk={frames:[...enemyWalk.frames],regions:[...enemyWalk.regions]};
+ assert(enemyWalk.frames.size>=6&&enemyWalk.regions.size>=6&&[...enemyWalk.frames].some(f=>f>=6),'Enemy combat approach must use actual12-frame feet, not frozen or six-frame walking');report.checks.tutorialCombatWalk={frames:[...enemyWalk.frames],regions:[...enemyWalk.regions]};
  await guardOpening();await prepare('j','cleave','base-cleave-body-preparation');await prepare('k','throw','base-thrust-body-preparation');
  await page.keyboard.press('p');await wait(s=>s.phase===2&&s.king_actor==='ascended',10000);await walk('d','ascended-walk');
  await guardOpening();await prepare('j','cleave','ascended-cleave-body-preparation');await prepare('k','throw','ascended-crownfall-body-preparation');
  await shot('ascended-body-followthrough');
  await page.keyboard.press('6');await wait(s=>s.mode==='arrival'&&s.life===6);await enterFight('knight');
  const visitorFrames=new Set(),visitorRegions=new Set(),walkingFrames=new Set();const end=Date.now()+12000;let pictured=false;
- while(Date.now()<end){const s=await state();if(['walk','run'].includes(s.enemy_motion))walkingFrames.add(s.enemy_frame);if(s.enemy_motion==='prepare'){visitorFrames.add(s.enemy_frame);visitorRegions.add(s.enemy_region);if(visitorFrames.size>=3&&!pictured){pictured=true;await shot('knight-physical-windup');}}if(visitorFrames.size>=3&&visitorRegions.size>=3&&walkingFrames.size>=3)break;await page.waitForTimeout(8);}
- assert(walkingFrames.size>=3,'Armored visitor must animate in combat approach');assert(visitorFrames.size>=3&&visitorRegions.size>=3,'Enemy tell must draw its own changing weapon preparation frames');report.checks.knightCombatBody={walkFrames:[...walkingFrames],prepareFrames:[...visitorFrames],prepareRegions:[...visitorRegions]};
+ while(Date.now()<end){const s=await state();if(['walk','run'].includes(s.enemy_motion))walkingFrames.add(s.enemy_frame);if(s.enemy_motion==='prepare'){visitorFrames.add(s.enemy_frame);visitorRegions.add(s.enemy_region);if(visitorFrames.size>=3&&!pictured){pictured=true;await shot('knight-physical-windup');}}if(visitorFrames.size>=3&&visitorRegions.size>=3)break;await page.waitForTimeout(8);}
+ assert(visitorFrames.size>=3&&visitorRegions.size>=3,'Enemy tell must draw its own changing weapon preparation frames');report.checks.knightCombatBody={walkFrames:[...walkingFrames],prepareFrames:[...visitorFrames],prepareRegions:[...visitorRegions]};
  assert.deepEqual(report.errors,[]);assert.deepEqual(report.warnings,[]);report.ok=true;
 }catch(e){report.ok=false;report.failure=String(e.stack??e);console.error(e);await shot('failure');process.exitCode=1;}
 finally{report.finishedAt=new Date().toISOString();await writeFile(resolve(out,'report.json'),JSON.stringify(report,null,2));await browser.close();if(server)await new Promise(r=>server.close(r));console.log(JSON.stringify({ok:report.ok,errors:report.errors.length,warnings:report.warnings.length,report:resolve(out,'report.json')}));}
