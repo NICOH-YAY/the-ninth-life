@@ -380,7 +380,11 @@ func _physics_process(dt:float) -> void:
     _update_effects(dt)
     if mode=="arrival":
         if enemy.state=="enter":
+            var previous_x:float=enemy.x
             enemy.x=move_toward(float(enemy.x),90.0,145.0*dt*speed)
+            var previous_step:int=int(enemy.stride/34.0)
+            enemy.stride+=absf(enemy.x-previous_x)
+            if int(enemy.stride/34.0)>previous_step:audio.sfx("step");enemy.steps+=1
             if enemy.x>=90:enemy.state="wait"
         _animate()
     elif mode=="fight":
@@ -953,7 +957,7 @@ func _animate() -> void:
     if mode=="arrival":
         var t=clampf(mode_t/1.3,0,1)
         king.position=Vector2(lerpf(THRONE.x,boss.x,t),lerpf(THRONE.y,FLOOR-boss.y,t))
-        if t<1:motion="rise"
+        if t<1:motion="rise";frame=mini(5,int(t*6))
     else:
         king.position=Vector2(roundf(boss.x),roundf(FLOOR-boss.y))
         if boss.dash>0:motion="dash";frame=mini(5,int((1-boss.dash/0.17)*6))
@@ -962,7 +966,11 @@ func _animate() -> void:
         if not move.is_empty():
             motion="throw" if move.get("counter",false) else "combo_"+str(move.combo) if move.id=="cleave" else move.id
             var duration:float=move.spec[move.stage]
-            frame=mini(1,int(move.t/maxf(0.01,duration)*2)) if move.stage=="tell" else mini(4,2+int(move.t/maxf(0.01,duration)*3)) if move.stage=="active" else 4 if move.t<duration*0.72 else 5
+            if move.stage=="tell":
+                motion="prepare_throw" if move.get("counter",false) else "prepare_"+("cleave_"+str(move.combo) if move.id=="cleave" else move.id)
+                frame=mini(5,int(move.t/maxf(0.01,duration)*6))
+            elif move.stage=="active":frame=mini(4,2+int(move.t/maxf(0.01,duration)*3))
+            else:frame=4 if move.t<duration*0.65 else 5
         if boss.transition>0:motion="transform";frame=mini(5,int((1-boss.transition/1.8)*6))
     king.who="ascended" if phase==2 or boss.transition<0.9 and boss.transition>0 else "king"
     king.pose(motion,frame,boss.facing,143)
@@ -973,16 +981,21 @@ func _animate() -> void:
         trail_t=elapsed;_trail(king,Color("#7de9ff") if phase==2 else Color("#ffdc7e"))
     var em="idle"
     var ef=int(elapsed*3.5)%6
-    if enemy.state in ["enter","attack"]:em="run";ef=int(enemy.stride/9.0)%6
+    if enemy.state=="enter" or enemy.state=="attack" and enemy.windup<=0 and absf(enemy.x-boss.x)>52+Rules.MELEE[life].reach:
+        em="walk";ef=int(enemy.stride/9.0)%6
     if enemy.state in ["dash","evade"]:em="dash";ef=int(elapsed*22)%6
     if enemy.y>2:em="jump";ef=1 if enemy.vy>150 else 4
-    if enemy.windup>0:em="cleave";ef=mini(2,int(enemy.windup/Rules.MELEE[life].tell*3))
-    if enemy.ability_t>0:em="throw";ef=mini(2,int((1-enemy.ability_t/Rules.ABILITY_TELL[life])*3))
+    if enemy.windup>0:em="prepare";ef=mini(5,int(enemy.windup/Rules.MELEE[life].tell*6))
+    if enemy.ability_t>0:em="prepare";ef=mini(5,int((1-enemy.ability_t/Rules.ABILITY_TELL[life])*6))
     elif enemy.attack_flash>0:em="cleave";ef=3+mini(2,int((1-enemy.attack_flash/0.18)*3))
     if enemy.state in ["hurt","parried"]:em="hurt";ef=mini(5,int((0.48-enemy.t)/0.48*6))
     elif enemy.state=="backoff":em="cleave";ef=4 if enemy.t>Rules.RECOVERY[life]*0.28 else 5
     visitor.position=Vector2(roundf(enemy.x),roundf(FLOOR-enemy.y))
-    visitor.pose(em,ef,1 if boss.x>enemy.x else -1,61 if life==0 else 85 if life==8 else 78)
+    var enemy_facing:int=1 if boss.x>enemy.x else -1
+    if enemy.windup>0 or enemy.state in ["contact","backoff"]:enemy_facing=int(enemy.attack_dir)
+    elif enemy.ability_t>0:enemy_facing=1 if enemy.ability_target.x>enemy.x else -1
+    elif enemy.state=="dash":enemy_facing=int(enemy.dash_dir)
+    visitor.pose(em,ef,enemy_facing,61 if life==0 else 85 if life==8 else 78)
     visitor.rotation=deg_to_rad(float(enemy.combo_index)*-7.0) if enemy.attack_flash>0 else 0.0
     visitor.modulate=Color("#ffb3ab") if enemy.flash>0 else Color.WHITE
     ward.visible=boss.guarding and mode=="fight"
@@ -1245,6 +1258,10 @@ func _publish_state() -> void:
         "dialogue_text":ui.get("dialogue_text"),"spirits_released":spirits_released,"telegraphs":_telegraph_data(),
         "vx":boss.get("vx",0),"vy":boss.get("vy",0),"grounded":boss.get("grounded",true),"king_sprite_path":king.sprite.texture.atlas.resource_path if king.sprite.texture is AtlasTexture else "",
         "player_steps":boss.get("steps",0),"enemy_steps":enemy.get("steps",0),"king_actor":king.who,
+        "actor_motion":king.current_motion,"actor_frame":king.current_frame,"enemy_motion":visitor.current_motion,"enemy_frame":visitor.current_frame,
+        "actor_region":str(king.sprite.texture.region) if king.sprite.texture is AtlasTexture else "",
+        "enemy_region":str(visitor.sprite.texture.region) if visitor.sprite.texture is AtlasTexture else "",
+        "enemy_sprite_path":visitor.sprite.texture.atlas.resource_path if visitor.sprite.texture is AtlasTexture else "",
         "waiting_pose":"rest" if mode=="waiting" and absf(king.position.x-THRONE.x)<2 else "",
         "music":audio.get("current_cue")}
     JavaScriptBridge.eval("window.ninthState="+JSON.stringify(state)+";",true)
@@ -1291,21 +1308,15 @@ func _telegraph_data() -> Array:
     if not move.is_empty() and move.stage=="tell":
         var ratio:float=clampf(move.t/move.spec.tell,0,1)
         if move.id=="reap":
-            if phase==2:entries.append({"kind":"nova","x":boss.x,"y":FLOOR-4,"width":620.0,"progress":ratio,"enemy":false,"remaining":move.spec.tell-move.t})
             var marks:Array=move.marks if phase==2 else [move.target]
-            for x in marks:entries.append({"kind":"royal","x":float(x),"y":FLOOR-4,"width":128.0 if phase==2 else 176.0,"progress":ratio,"enemy":false,"remaining":move.spec.tell-move.t})
+            for x in marks:entries.append({"kind":"royal","x":float(x),"y":FLOOR-3,"width":128.0 if phase==2 else 176.0,"progress":ratio,"enemy":false,"remaining":move.spec.tell-move.t})
         elif move.id=="throw" and phase==2:
-            for lane in range(-2,3):entries.append({"kind":"landing","x":move.target+lane*60,"y":FLOOR-6,"width":58.0,"progress":ratio,"enemy":false,"remaining":move.spec.tell-move.t})
+            for lane in range(-2,3):entries.append({"kind":"landing","x":move.target+lane*60,"y":FLOOR-3,"width":46.0,"progress":ratio,"enemy":false,"remaining":move.spec.tell-move.t})
         elif move.id=="nova":
             for x in (move.marks if phase==1 else [boss.x-250,boss.x,boss.x+250]):
-                entries.append({"kind":"nova","x":float(x),"y":FLOOR-10,"width":210.0,"progress":ratio,"enemy":false,"remaining":move.spec.tell-move.t})
-        else:
-            var reach:float=230.0 if move.id=="throw" else [166.0,185.0,218.0][move.combo] if phase==1 else [212.0,248.0,290.0][move.combo]
-            entries.append({"kind":"thrust" if move.id=="throw" else "sweep","x":boss.x+move.direction*reach*0.5,"y":FLOOR-boss.y-40,"width":reach,"progress":ratio,"enemy":false,"remaining":move.spec.tell-move.t})
-    if enemy.windup>0:
-        entries.append({"kind":"sweep","x":enemy.x+enemy.attack_dir*Rules.MELEE[life].reach*0.55,"y":FLOOR-enemy.y-30,"width":Rules.MELEE[life].reach+90,"progress":clampf(enemy.windup/Rules.MELEE[life].tell,0,1),"enemy":true,"remaining":maxf(0,Rules.MELEE[life].tell-enemy.windup)})
-    if enemy.ability_t>0:
-        entries.append({"kind":"low" if life in [0,1,5,7] else "line","x":enemy.ability_target.x,"y":FLOOR-12,"width":170.0,"progress":1-enemy.ability_t/Rules.ABILITY_TELL[life],"enemy":true,"remaining":enemy.ability_t})
+                entries.append({"kind":"nova","x":float(x),"y":FLOOR-3,"width":170.0,"progress":ratio,"enemy":false,"remaining":move.spec.tell-move.t})
+    if enemy.ability_t>0 and life in [0,5,7]:
+        entries.append({"kind":"landing","x":enemy.ability_target.x,"y":FLOOR-3,"width":90.0,"progress":1-enemy.ability_t/Rules.ABILITY_TELL[life],"enemy":true,"remaining":enemy.ability_t})
     return entries
 
 func _draw_telegraphs() -> void:
@@ -1323,6 +1334,6 @@ func _draw_telegraphs() -> void:
         var d:Dictionary=data[n]
         marker.texture=Actor.tell_texture(d.kind,mini(5,int(d.progress*6)))
         marker.position=Vector2(roundf(d.x),roundf(d.y))
-        marker.scale=Vector2.ONE*(roundf(d.width/128.0*2)/2.0)
+        marker.scale=Vector2(roundf(d.width/128.0*2)/2.0,0.20)
         marker.modulate=Rules.COLORS[life] if d.enemy else Color("#8febff") if phase==2 else Color("#ffdc8f")
-        marker.modulate.a=0.55+0.4*d.progress
+        marker.modulate.a=0.22+0.18*d.progress

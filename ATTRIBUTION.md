@@ -204,3 +204,17 @@ AI-use disclosure: Higgsfield generated the memory/court sprite artwork; Codex a
 The four Higgsfield generations used the authorized unlimited GPT Image2.6 2k/medium configuration. Full prompts, jobIDs, reference sources, source/runtime hashes, measured shield gutters and pixel-grid verification: assets/memory-v8/manifest.json and ATTRIBUTION.md. Audio processing/source hashes: assets/court-v8/audio-processing.json. Existing twelve Scott Buckley compositions retain their individual CC BY4.0 credits; runtime mix now swells with tension and makes space around impacts/dialogue.
 
 Alan Becker's Animation vs. Math informed anticipation/impact/recovery pacing. Its original score is excluded from the composer's Creative Commons library, per https://www.scottbuckley.com.au/2023/06/animation-vs-math/ . No video/audio from it is bundled. Menu references informed minimal composition only; no Fallout, Persona, Firewatch or Ghost of Tsushima artwork is copied into the game.
+
+AI-use disclosure: Higgsfield generated the v9 physical preparation and feline locomotion artwork; Codex integrated native Godot animation clocks and frame selection.
+
+## Physical body animation v9
+
+| Asset | Source and changes |
+|---|---|
+| godot/art/rest-cat-v9.png | Original tired seated/rising cat with short upright triangular ears and compact feline muzzle; earlier throne contact preserved |
+| godot/art/prepare-king-v9.png | Original six-pose physical preparation for each of six base sword/cast actions |
+| godot/art/prepare-sovereign-v9.png | Original distinct transformed-body preparation for the same six input families |
+| godot/art/prepare-visitors-v9.png | Original weapon-specific preparation for all nine feline identities; targeted chain-weapon repair recorded in manifest |
+| godot/art/royal-walk-v9.png | Original six-frame walk cycles for the king, Hollow Sovereign and previous ruler; nine earlier visitor gait sheets retain their prior attribution |
+
+All new generations use the authorized Higgsfield GPT Image2.6 unlimited2k/medium configuration. Exact prompts, job IDs, source/runtime hashes, row mapping and foot geometry are recorded in assets/stance-v9/manifest.json. Actor cells use nearest pixel sampling, hard alpha and fixed foot baselines; source art is preserved. Native verification checks actual cropped pixel differences for each of the198 active walk/preparation frames, separately from browser movement/attack input tests. No third-party character templates or recordings are introduced by this pass.

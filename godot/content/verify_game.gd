@@ -158,6 +158,12 @@ func _run() -> void:
     game._player_step(cancel_input,1.0/60.0)
     check(not game.move.is_empty() and game.boss.dashes==0,"Committed recovery cannot be erased by dash")
     fixture()
+    game._start_move("cleave")
+    check(game._telegraph_data().is_empty(),"Basic slash preparation never projects an attack hologram")
+    fixture()
+    game._start_move("throw")
+    check(game._telegraph_data().is_empty(),"Physical thrust preparation never projects an attack hologram")
+    fixture()
     game._hud()
     for label in game.ui.get("_move_labels"):
         check(not label.text.contains("null"),"Every skill name is a real label")

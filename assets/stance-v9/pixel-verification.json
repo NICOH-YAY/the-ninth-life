@@ -1,0 +1,98 @@
+{
+  "aiUseDisclosure": "Codex checked hard alpha, exact two-by-two pixel clusters, nonempty cells and six actually different cropped pixel frames in every selected anticipation/walk row. Full native foot-anchor and browser gameplay checks are separate root QA evidence.",
+  "checks": [
+    {
+      "id": "rest-cat",
+      "frames": 12,
+      "uniqueActualPixelFramesPerRow": [
+        6,
+        6
+      ],
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "sourceSha256": "50583cae5e8d3369f935d376a56b8c49903cff0c20161e6d71d3a703b3dba815",
+      "runtimeSha256": "7208b3266869d45a66d2f89be0fad70ddd51918024b010cfa24d2cab4871d090"
+    },
+    {
+      "id": "prepare-king",
+      "frames": 36,
+      "uniqueActualPixelFramesPerRow": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "sourceSha256": "d91e9d431a57621f8b1f387221fd5a2ae8de8cb6baf82adf5f15b14d096e7625",
+      "runtimeSha256": "90020d45ff80c43fc3ef4685e5ac55837b8bd7de32c13e5a2c3ea77783b4c043"
+    },
+    {
+      "id": "prepare-sovereign",
+      "frames": 36,
+      "uniqueActualPixelFramesPerRow": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "sourceSha256": "419a14455e55868367a54222ecd7b1e0d477ac1b95383777020a7dcc386b601c",
+      "runtimeSha256": "cba78b53f75d8461fa6f79f67b6f6b3383b9f7b6ad8b0fdb81f91a9c41c0647b"
+    },
+    {
+      "id": "prepare-visitors",
+      "frames": 54,
+      "uniqueActualPixelFramesPerRow": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "sourceSha256": "312b6e3898ecd0dd4b9b1a9be132a73965dd1708055610c08c7bd01847a2560b",
+      "runtimeSha256": "186dc89def67bb8525123f1352c98b8e8c9d06ede97360b0333a644cb8b59073"
+    },
+    {
+      "id": "royal-walk",
+      "frames": 18,
+      "uniqueActualPixelFramesPerRow": [
+        6,
+        6,
+        6
+      ],
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "sourceSha256": "52383d3490c961d1409ebf2bc146799996dc89f94a07cf9e41a49a21533191ec",
+      "runtimeSha256": "098c41df443a9c6e16c36e091fc511141dc2af0fce8a39694355565ae3ad4c10"
+    },
+    {
+      "id": "prepare-warden",
+      "frames": 6,
+      "uniqueActualPixelFramesPerRow": [
+        6
+      ],
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "sourceSha256": "a4fb182fd101bc72d63eda4c0304460f160a43cdae1d62cadc5d8c725dad7565",
+      "runtimeSha256": "ca5adde96b7705192f29c6374f7f2503aa8e1c21e16748410dee74fdce3b6438"
+    }
+  ]
+}

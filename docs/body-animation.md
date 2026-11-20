@@ -1,0 +1,17 @@
+AI-use disclosure: Codex documented Nicoh's correction to feline silhouettes, physical anticipation and locomotion.
+
+# Physical anticipation and locomotion
+
+This supplements memory-and-poise.md and supersedes its longer timing targets where they conflict. The resting immortal must still read as a cat: short upright triangular ears, a compact muzzle and feline tail. Weariness comes from his eyes, head, shoulders and seated posture. Throne contact remains at world885/384.
+
+Attack preparation is now drawn on the actor's own body. Six poses move the feet, pelvis, shoulders and weapon from ready stance to a committed windup. Base and transformed kings have separate preparation rows for the three slashes, thrust, ground cast and large cast. Every visitor has its own weapon-specific preparation. There is no projected melee strike during anticipation. Contact uses the existing distinct attack rows and flashes after the strike starts; recovery returns through follow-through and settling.
+
+Basic player attacks use0.14-second windup,0.065-second contact and0.19-second recovery before combo-specific adjustments. The transformed basic uses0.17/0.08/0.22seconds. Base thrust winds for0.22seconds; larger spells retain longer0.42–0.72-second preparation for positioning. These replace the preceding0.20/0.28 basic and0.78–1.18second large windups. Poise, committed recovery, anticipation cancels and timed perfect-block counters remain.
+
+Only area placement warnings remain: restrained, flattened marks on the floor. Melee/thrust windups are communicated by the body and weapon. Enemy weapon preparation similarly replaces projected melee graphics.
+
+Each identity has a base walk cycle, including the two king forms, previous ruler and nine visitor bodies. A runtime bug had moved arriving visitors without advancing their distance-driven animation clock; arrival now advances stride and foot contacts just as combat approach does. Standstill uses idle, walking uses the six gait frames, and preparation uses its own rows.
+
+Art sources, prompts, exact frame geometry, alpha/grid checks and hashes are recorded under assets/stance-v9/. Final native validation passed163 behavioral checks (84 court,51 gameplay,28 planner) and665 actual-pixel assertions over198 walk/preparation frames in33 sequences. Each sequence contains six distinct cropped drawings with checked foot bounds. The body browser suite verified all six entrance/approach gait regions, normal-speed physical J/K preparation for both forms, later visitor preparation and the absence of melee/thrust projection markers. The standard native UI suite and all four ordinary-input ending/planner routes passed. The story/guard gameplay assertions passed in a concurrent run, but a software-GPU framebuffer warning correctly failed its strict warning check; the failed capture was preserved and the unchanged suite reran alone with zero errors/warnings. Dedicated body and standard suites also reported zero errors/warnings. Retained TypeScript checks passed140 tests and typechecking. Evidence is in ignored output/qa/body-animation/, godot/ and story-guard/; no console filtering or runtime override was used to clear the isolated retry. Public deployment verification is separate.
+
+Re-run: node scripts/body-animation-smoke.mjs (or --live for Pages). The build automatically runs godot/content/verify_body_animation.gd before native export.

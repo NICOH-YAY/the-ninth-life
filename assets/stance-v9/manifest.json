@@ -1,0 +1,252 @@
+{
+  "aiUseDisclosure": "Original Higgsfield feline body-animation artwork. Codex selected physical preparatory acting, repaired a generated weapon-contamination row with a targeted original chain-only generation, exported hard pixel-grid resources and wired native Godot sprite selection.",
+  "date": "2026-11-20",
+  "model": "gpt_image_2_6",
+  "quality": "medium",
+  "resolution": "2k",
+  "use_unlim": true,
+  "billing": "User-authorized active free unlimited allowance; sequential requests avoided provider rate limits. No paid fallback or external app/browser window.",
+  "generated": [
+    {
+      "index": 0,
+      "id": "rest-cat",
+      "job_id": "6a64e726-3b26-4174-a3bc-6a87dee5eb54",
+      "time": "181012",
+      "rows": 2,
+      "prompt": "Original crowned black CAT king pixel sprite sheet exactly6columns x2rows transparentbackground, same red/gold mantle and royal steel sword as reference. VERY CLEAR FELINE HEAD: TWO SHORT UPRIGHT POINTED TRIANGULAR EARS protruding beside crown, small cat nose, SHORT FLAT CAT MUZZLE and whiskers. The ears remain SHORT, STRAIGHT and POINTED in every frame. NO drooping ears, no rounded ears, no floppy dog ears, no canine snout. Convey tired sadness through HUNCHED shoulders, half-lidded amber eyes, bowed head and cheek resting in paw, NEVER through ears. Row0 six subtle tired SEATED breathing frames with elbow supported on invisible throne arm, solid sword HORIZONTAL across lap. Haunches on narrow dark slate cushion, upperlegs horizontal, knees90degree bend, lowerlegs hang down, paws on stone step. Seat/hips approximately36native pixels above soles for approximately100pixel fullbody. Row1 six slow physical rises from SAME cushion, releasing cheek, bracing arms, straightening hips, getting up, ending standing sworddown. Consistent body size, no frame zoom, faceLEFT. Sharp square SNES pixel clusters32colors, no antialiasing, no soft painting, no effects/background/text. Only a slim slate cushion under haunches, no chairback. The reference is identity; enforce the clearly CAT upright pointed ears.",
+      "references": [
+        "13cf3b8c-deb3-4980-be07-707400612d7c"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_181012_6a64e726-3b26-4174-a3bc-6a87dee5eb54.png",
+      "source": "assets/stance-v9/rest-cat-original.png",
+      "runtime": "godot/art/rest-cat-v9.png",
+      "frame": [
+        192,
+        192
+      ],
+      "foot": [
+        96,
+        154
+      ],
+      "grid": [
+        6,
+        2
+      ],
+      "selected": "Selected original poses.",
+      "sourceSha256": "50583cae5e8d3369f935d376a56b8c49903cff0c20161e6d71d3a703b3dba815",
+      "runtimeSha256": "7208b3266869d45a66d2f89be0fad70ddd51918024b010cfa24d2cab4871d090"
+    },
+    {
+      "index": 1,
+      "id": "prepare-king",
+      "job_id": "15435da4-0cd6-40fb-900a-d4a0952e82ab",
+      "time": "181120",
+      "rows": 6,
+      "prompt": "Original side-view action-game PIXEL SPRITE SHEET, exactly6 columns of chronological DIFFERENT physically drawn poses per row. TRANSPARENT canvas, equal square cells, full bodies, no captions/grid/environment. True sharp SNES pixel art, restrained32color palette, no antialiasing, no smooth painting. Full body feet at same baseline and constant body size, face LEFT for royal cats. FELINE morphology: short upright triangular pointed ears, small triangular nose, short flat cat muzzle, whiskers, paw hands, long feline tail. Absolutely NO floppy/downward/rounded dog ears, no long canine muzzle. Preserve reference character identity/accessories. This is ANTICIPATION ONLY: frame0 neutral idle,1 weightshift,2 kneesbend/hipsrotate,3 shoulderscoil,4 weapon drawn back,5 fully cocked poised BEFORE impact. Visible changes in feet, pelvis, shoulders and steel weapon angle. NEVER show executed attack, attack arc, projectile, ghost, duplicate, afterimage, hologram, glowing replica, air swing or magical tell outside body. The viewer reads the REAL body preparing the attack. Sword remains a solid metal object. Exact6columns x6rows. Black feline king, ruby/gold crown, red/gold embroidered royal mantle, dark blue-steel boots and gauntlets, curved ceremonial steel sword. Row0 HORIZONTAL DRAW CUT anticipation: front foot braces, hips rotate away, sword withdrawn to right rear hip, both shoulders coil, final blade horizontal behind body ready to cutLEFT. Row1 RISING BACKHAND anticipation: lower center of gravity, knee coil and lower sword tip toward left ankle, other shoulder rotates up, final low backhand loaded but NOT executed. Row2 OVERHEAD CLEAVE anticipation: rear foot steps under hips, BOTH PAWS close around sword hilt, lift real steel sword ABOVE crown, elbows high, torso bows, final sword behind head ready to fall. Row3 THRUST anticipation: retract sword to rib level, step rear leg back, bend front knee, twist torso and align narrow blade towardLEFT, final weight on rear heel and point aligned before lunge. Row4 KNEEL/GRAVITY anticipation: lower sword, bend knees, bow torso down, free palm approaches stonefloor, final fingers hover just above floor, physical deep crouch; NO rune/glow. Row5 ROYAL NOVA anticipation: plant both feet wide, lower sword vertically in rightpaw, freepaw grips mantle, inhale and open real heavy cloak with shoulder rotation, final chestlifted, cloak spread, no emitted magic. Each row0..5 gradually changes actual body pose; frame5 is the loaded windup, not the swing.",
+      "references": [
+        "13cf3b8c-deb3-4980-be07-707400612d7c"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_181120_15435da4-0cd6-40fb-900a-d4a0952e82ab.png",
+      "source": "assets/stance-v9/prepare-king-original.png",
+      "runtime": "godot/art/prepare-king-v9.png",
+      "frame": [
+        192,
+        192
+      ],
+      "foot": [
+        96,
+        154
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "selected": "Selected original poses.",
+      "sourceSha256": "d91e9d431a57621f8b1f387221fd5a2ae8de8cb6baf82adf5f15b14d096e7625",
+      "runtimeSha256": "90020d45ff80c43fc3ef4685e5ac55837b8bd7de32c13e5a2c3ea77783b4c043"
+    },
+    {
+      "index": 2,
+      "id": "prepare-sovereign",
+      "job_id": "656423b5-f135-45ca-b78e-da12d680b546",
+      "time": "181228",
+      "rows": 6,
+      "prompt": "Original side-view action-game PIXEL SPRITE SHEET, exactly6 columns of chronological DIFFERENT physically drawn poses per row. TRANSPARENT canvas, equal square cells, full bodies, no captions/grid/environment. True sharp SNES pixel art, restrained32color palette, no antialiasing, no smooth painting. Full body feet at same baseline and constant body size, face LEFT for royal cats. FELINE morphology: short upright triangular pointed ears, small triangular nose, short flat cat muzzle, whiskers, paw hands, long feline tail. Absolutely NO floppy/downward/rounded dog ears, no long canine muzzle. Preserve reference character identity/accessories. This is ANTICIPATION ONLY: frame0 neutral idle,1 weightshift,2 kneesbend/hipsrotate,3 shoulderscoil,4 weapon drawn back,5 fully cocked poised BEFORE impact. Visible changes in feet, pelvis, shoulders and steel weapon angle. NEVER show executed attack, attack arc, projectile, ghost, duplicate, afterimage, hologram, glowing replica, air swing or magical tell outside body. The viewer reads the REAL body preparing the attack. Sword remains a solid metal object. Exact6columns x6rows. HOLLOW SOVEREIGN transformed king from reference, keep same feline TWO-ARM silhouette: five cracked crownfragments hovering just above triangular ears, ragged indigo royal mantle, cyan chest seam, long crescent tail and oversized chipped solid royal sword; tall lean torso and longclawed forearms. Crown/chest glow may stay tiny and attached, NO external projected attack. Row0 heavy horizontal draw prep: wider heelbrace, coiling long torso and sword pulled to rear hip. Row1 rising backhand prep: lower deep, curl spine and sword down beside left boot, clawed shoulders coil upward. Row2 overhead chop prep: both clawed paws lift chipped sword behind crown, elbows up, long torso bends and hips brace. Row3 long thrust prep: sword pulled tight to ribs and braced against clawed arm, point alignsLEFT before actual lunge, rear heel loads weight. Row4 royal gravity prep: bend knees and lean down, long freeclawed palm physically near ground, sword lowered, mantle collapses around legs. Row5 sovereign nova prep: wide stance, swordtip planted, torso arches and mantle pulled open by freeclaw, chest seam slightly brighter only ON body, final rigid charged posture. Each row6 physical stages neutral to fullyloaded; NO actual attack or spectralcopy.",
+      "references": [
+        "8aa9715e-f7b6-47fd-a9cc-1b4929ed7ac3"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_181228_656423b5-f135-45ca-b78e-da12d680b546.png",
+      "source": "assets/stance-v9/prepare-sovereign-original.png",
+      "runtime": "godot/art/prepare-sovereign-v9.png",
+      "frame": [
+        192,
+        192
+      ],
+      "foot": [
+        96,
+        154
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "selected": "Selected original poses.",
+      "sourceSha256": "419a14455e55868367a54222ecd7b1e0d477ac1b95383777020a7dcc386b601c",
+      "runtimeSha256": "cba78b53f75d8461fa6f79f67b6f6b3383b9f7b6ad8b0fdb81f91a9c41c0647b"
+    },
+    {
+      "index": 3,
+      "id": "prepare-visitors",
+      "job_id": "01f0d7c7-3a59-4650-b9a8-c9cbb818ae24",
+      "time": "181342",
+      "rows": 9,
+      "prompt": "Original side-view pixel-game CHARACTER ANTICIPATION SPRITE SHEET EXACT6columns x9rows. Match the9existing feline identities in reference, preserve exact weapons/accessories/cat coats perrow. All faceRIGHT, short upright triangular CAT ears and short muzzles. Sharp32color pixelart, hard square clusters, TRANSPARENT background, equalcells, no labels/grid/effects. Everyrow6 DIFFERENT physical windup poses:0neutral,1footweightshift,2kneesbend,3hipsandshoulderscoil,4weaponpulledback,5fullycocked beforeattack. NO executed attacks, holograms, duplicates, magical outline, projected weapon, blood or motion arcs. The actual physical body must load its own weapon. Row0 small CREAM staff kitten, little royal broken-crown pendant, staff heldlow then raised diagonally above shoulder with bent knees. Row1 ORANGE red-scarf alley cat with HOOKED SICKLE, shuffles foot and coils sickle behind hip for hook swing. Row2 TUXEDO blackwhite ochre-coated chain/censer warden, braced squat and pulls REAL CHAIN taut between paws, weighted censer drawn back. Row3 CALICO acrobat with jade bell and TWIN JADE CHAKRAM RINGS, lowers knees into spring stance and draws one ring back while other guards chest. Row4 CHARCOAL cat in VIOLET WITCH HAT and coat with slender GOLD ASTRAL NEEDLE/staff, rear foot braces and needle is drawn to shoulder pointfirst ready to thrust. Row5 BROWN blue-armored KNIGHT cat with steel HAMMER and COBALT SHIELD, shield moves forward and hammer physically lifts above shoulder using actualpaw, kneesbrace. Row6 SILVER cat in EMERALD HOOD with TWIN MIRROR DAGGERS, bends low, shouldersrotate, daggers fold beside ribs then one retracts behind hip. Row7 WHITE cat with FROST SPEAR and small LANTERN, spear drawn back level at chest, rear knee loads, lantern retained on belt. Row8 BLACKWHITE patchwork cat in patched rusty/orange royal mantle with BROKEN ROYAL SWORD, bothpaws draw sword beside head before committed overhead thrust. One weapon kit perrow, NO wrong incoming weapons. Bodiesconstant scale and feet common baseline.",
+      "references": [
+        "37987577-6178-469a-95a9-f5fa338e86a0",
+        "54bff2e4-8f54-410d-8329-0994c75bec09"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_181342_01f0d7c7-3a59-4650-b9a8-c9cbb818ae24.png",
+      "source": "assets/stance-v9/prepare-visitors-original.png",
+      "runtime": "godot/art/prepare-visitors-v9.png",
+      "frame": [
+        144,
+        144
+      ],
+      "foot": [
+        72,
+        110
+      ],
+      "grid": [
+        6,
+        9
+      ],
+      "selected": "Rows0,1,3..8 selected; row2 replaced entirely by targeted prepare-warden job. Original combined source retained for traceability.",
+      "sourceSha256": "312b6e3898ecd0dd4b9b1a9be132a73965dd1708055610c08c7bd01847a2560b",
+      "runtimeSha256": "186dc89def67bb8525123f1352c98b8e8c9d06ede97360b0333a644cb8b59073"
+    },
+    {
+      "index": 4,
+      "id": "royal-walk",
+      "job_id": "311d32de-0240-446d-85cf-b9d9e29d0bfb",
+      "time": "181455",
+      "rows": 3,
+      "prompt": "Original side-view action-game PIXEL SPRITE SHEET, exactly6 columns of chronological DIFFERENT physically drawn poses per row. TRANSPARENT canvas, equal square cells, full bodies, no captions/grid/environment. True sharp SNES pixel art, restrained32color palette, no antialiasing, no smooth painting. Full body feet at same baseline and constant body size, face LEFT for royal cats. FELINE morphology: short upright triangular pointed ears, small triangular nose, short flat cat muzzle, whiskers, paw hands, long feline tail. Absolutely NO floppy/downward/rounded dog ears, no long canine muzzle. Preserve reference character identity/accessories. This is ANTICIPATION ONLY: frame0 neutral idle,1 weightshift,2 kneesbend/hipsrotate,3 shoulderscoil,4 weapon drawn back,5 fully cocked poised BEFORE impact. Visible changes in feet, pelvis, shoulders and steel weapon angle. NEVER show executed attack, attack arc, projectile, ghost, duplicate, afterimage, hologram, glowing replica, air swing or magical tell outside body. The viewer reads the REAL body preparing the attack. Sword remains a solid metal object. This sheet is WALKING, not attacking: EXACT6columns x3rows. Eachrow SIX UNIQUE consecutive physical WALK cycle poses heelcontact / downweight / passing / oppositeheelcontact / opposite downweight / toeoff thenloop. Feet visibly stride, alternating planted sole and lifted heel, pelvis and shoulder counterrotation, tail and cape physically lag/swing. Sword carried down at side, never attacking. NO sameidlepose repeated, NO floating feet, no glide, no ghost or VFX. AllfaceLEFT, constantbody size perrow, groundcontact foot samebaseline. Row0 NORMAL BLACK CAT KING with upright triangular ears, ruby/gold crown, red/gold embroideredmantle, steel royal sword. Row1 taller transformed HOLLOW SOVEREIGN with fragmented floating crown above short triangular ears, ragged INDIGO mantle, cyan chestseam, chipped giant steel sword, longtail; heavier longer stride with visible coatlag but still physicalpawsgrounded. Row2 PREVIOUS BLACK CAT KING with smaller stockier body, purple royal cloak and gold crown, old ceremonial blade, tired but actual deliberate walking cycle. Preserve eachidentity and no weapon contamination.",
+      "references": [
+        "13cf3b8c-deb3-4980-be07-707400612d7c",
+        "8aa9715e-f7b6-47fd-a9cc-1b4929ed7ac3"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_181455_311d32de-0240-446d-85cf-b9d9e29d0bfb.png",
+      "source": "assets/stance-v9/royal-walk-original.png",
+      "runtime": "godot/art/royal-walk-v9.png",
+      "frame": [
+        192,
+        192
+      ],
+      "foot": [
+        96,
+        154
+      ],
+      "grid": [
+        6,
+        3
+      ],
+      "selected": "Selected original poses.",
+      "sourceSha256": "52383d3490c961d1409ebf2bc146799996dc89f94a07cf9e41a49a21533191ec",
+      "runtimeSha256": "098c41df443a9c6e16c36e091fc511141dc2af0fce8a39694355565ae3ad4c10"
+    },
+    {
+      "index": 5,
+      "id": "prepare-warden",
+      "job_id": "ddc8355e-a791-4308-878a-8319391d9079",
+      "time": "181619",
+      "rows": 1,
+      "prompt": "Original pixelgame SIX-FRAME BODY ANTICIPATION SPRITE STRIP, EXACT6columns x1row transparentbackground. Reproduce ONLY the TUXEDO BLACK-AND-WHITE CAT CHAIN WARDEN in the THIRD ROW of reference: upright short pointed cat ears, black cap fur with white muzzle/chest, OCHRE/brown short ceremonial armor coat, broken-crown pendant, golden-bronze spherical CENSER hanging from REAL BLACK CHAIN. ONLY this one cat six times, faceRIGHT, constant fullbody size and ground baseline. NO sickle, NO hook, NO sword, NO axe, no blades anywhere, no staff, no incoming weapon. Realchainandcenser only. 6different slow physical WINDUP poses before any attack:0neutral censer hanging down from rightpaw;1rearfootsetsback,2kneesbend,3bothpawsgripchainandpulltaut,4shouldersrotateanddrawcenserbackbehindhip,5deepbracedstancewithchainstretchedtautandcenserpulledbackforrelease. Fullbody motions visible: hips lower, shoulders twist, paws truly holdchain. No thrown projectile, no actual swing, no ghosts/holograms/attack effects, no blur, no labels/grid/background. Sharp square SNES pixelclusters32colors, hard transparentedges. Keep thebody feline and exactly the wardensameochre chain/censer identity; don't copy any weapons from other reference rows.",
+      "references": [
+        "37987577-6178-469a-95a9-f5fa338e86a0"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261120_181619_ddc8355e-a791-4308-878a-8319391d9079.png",
+      "source": "assets/stance-v9/prepare-warden-original.png",
+      "runtime": "godot/art/prepare-warden-v9.png",
+      "frame": [
+        144,
+        144
+      ],
+      "foot": [
+        72,
+        110
+      ],
+      "grid": [
+        6,
+        1
+      ],
+      "selected": "Selected original poses.",
+      "sourceSha256": "a4fb182fd101bc72d63eda4c0304460f160a43cdae1d62cadc5d8c725dad7565",
+      "runtimeSha256": "ca5adde96b7705192f29c6374f7f2503aa8e1c21e16748410dee74fdce3b6438"
+    }
+  ],
+  "preparationRows": [
+    "prepare_cleave_0 horizontal hip/shoulder coil",
+    "prepare_cleave_1 rising backhand low coil",
+    "prepare_cleave_2 physical two-paw overhead raise",
+    "prepare_throw thrust pullback and foot brace",
+    "prepare_reap knees bend and free palm lowers to floor",
+    "prepare_nova planted sword and physical mantle opening"
+  ],
+  "visitorRows": [
+    "kitten staff raise",
+    "alley sickle drawback",
+    "sailor chain/censer pullback",
+    "acrobat chakram coil",
+    "witch astral needle brace",
+    "knight hammer raise/shield front",
+    "thief mirror daggers low coil",
+    "quiet frost spear pullback",
+    "patchwork royal sword cock"
+  ],
+  "walkRows": [
+    "normal king107body",
+    "Hollow Sovereign130body",
+    "previous king86body"
+  ],
+  "seating": {
+    "worldFoot": [
+      885,
+      384
+    ],
+    "actorFoot": [
+      96,
+      154
+    ],
+    "hipWorldApprox": 348,
+    "ears": "Short upright triangular feline ears in every pose. Fatigue is shown through shoulders/head/eyes/cheek-in-paw, never floppy ears.",
+    "row0": "six weary seated poses",
+    "row1": "six slow rises"
+  },
+  "pixelContract": {
+    "nativeScale": 1,
+    "pixelBlock": 2,
+    "alpha": "binary0/255",
+    "palette": 32,
+    "filter": "nearest",
+    "scalePolicy": "One fixed source scale per atlas/actor row, never per-frame zoom fitting; connected main body anchors feet.",
+    "sourceRows": "Automatic measured alpha-occupancy gutters avoid cutting raised weapons at artificial equal row boundaries; rowBounds persisted in each geometry JSON."
+  },
+  "runtimeAPI": {
+    "descriptor": [
+      "prepare_cleave_0",
+      "prepare_cleave_1",
+      "prepare_cleave_2",
+      "prepare_throw",
+      "prepare_reap",
+      "prepare_nova",
+      "prepare for nine visitors",
+      "walk/run for king,ascended,previous"
+    ],
+    "helper": "ActorView.preparation_texture(actor,move_id,combo,frame,phase=1)",
+    "bridge": "ActorView.current_motion/current_frame updated by pose()"
+  },
+  "selectedRuntimeFrames": 156,
+  "totalGeneratedPoses": 162,
+  "repair": "Combined visitor row2 had an incorrect hooked sickle in its sixth source pose. Targeted prepare-warden six-frame strip physically holds only chain/censer and replaces that row. No invented metadata variation or pose duplication.",
+  "componentEvidence": "Root native component suite initially verified665checks across33walking/preparation sequences and198 actual cropped frame regions. The final repaired row is separately rechecked in pixel-verification.json; full browser gameplay remains separate evidence."
+}

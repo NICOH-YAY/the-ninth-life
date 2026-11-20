@@ -1,0 +1,167 @@
+{
+  "aiUseDisclosure": "Original Higgsfield poses; fixed full-cell nearest sampling, hard alpha, two-pixel clusters, limited palette, no per-frame scale fitting. Per-frame vertical translation aligns physical feet.",
+  "input": "assets/stance-v9/prepare-warden-original.png",
+  "output": "godot/art/prepare-warden-v9.png",
+  "source": [
+    2048,
+    1360
+  ],
+  "rowBounds": [
+    0,
+    1360
+  ],
+  "frame": [
+    144,
+    144
+  ],
+  "grid": [
+    6,
+    1
+  ],
+  "foot": [
+    72,
+    110
+  ],
+  "body": 107,
+  "sha256": "ca5adde96b7705192f29c6374f7f2503aa8e1c21e16748410dee74fdce3b6438",
+  "frames": [
+    {
+      "row": 0,
+      "col": 0,
+      "sourceRect": [
+        0,
+        0,
+        341,
+        1360
+      ],
+      "sourceFoot": 87,
+      "foot": [
+        72,
+        110
+      ],
+      "pixelBlock": 2,
+      "shift": [
+        36,
+        -64
+      ],
+      "opaque": 2412,
+      "clipped": 0,
+      "removedBorderPixels": 0
+    },
+    {
+      "row": 0,
+      "col": 1,
+      "sourceRect": [
+        341,
+        0,
+        342,
+        1360
+      ],
+      "sourceFoot": 86,
+      "foot": [
+        72,
+        110
+      ],
+      "pixelBlock": 2,
+      "shift": [
+        36,
+        -62
+      ],
+      "opaque": 2356,
+      "clipped": 0,
+      "removedBorderPixels": 0
+    },
+    {
+      "row": 0,
+      "col": 2,
+      "sourceRect": [
+        683,
+        0,
+        341,
+        1360
+      ],
+      "sourceFoot": 88,
+      "foot": [
+        72,
+        110
+      ],
+      "pixelBlock": 2,
+      "shift": [
+        36,
+        -66
+      ],
+      "opaque": 2412,
+      "clipped": 0,
+      "removedBorderPixels": 0
+    },
+    {
+      "row": 0,
+      "col": 3,
+      "sourceRect": [
+        1024,
+        0,
+        341,
+        1360
+      ],
+      "sourceFoot": 88,
+      "foot": [
+        72,
+        110
+      ],
+      "pixelBlock": 2,
+      "shift": [
+        36,
+        -66
+      ],
+      "opaque": 2484,
+      "clipped": 0,
+      "removedBorderPixels": 3
+    },
+    {
+      "row": 0,
+      "col": 4,
+      "sourceRect": [
+        1365,
+        0,
+        342,
+        1360
+      ],
+      "sourceFoot": 87,
+      "foot": [
+        72,
+        110
+      ],
+      "pixelBlock": 2,
+      "shift": [
+        36,
+        -64
+      ],
+      "opaque": 2336,
+      "clipped": 0,
+      "removedBorderPixels": 36
+    },
+    {
+      "row": 0,
+      "col": 5,
+      "sourceRect": [
+        1707,
+        0,
+        341,
+        1360
+      ],
+      "sourceFoot": 88,
+      "foot": [
+        72,
+        110
+      ],
+      "pixelBlock": 2,
+      "shift": [
+        36,
+        -66
+      ],
+      "opaque": 2512,
+      "clipped": 0,
+      "removedBorderPixels": 6
+    }
+  ]
+}

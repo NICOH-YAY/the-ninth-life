@@ -8,6 +8,8 @@ const ROWS: Dictionary = {"idle":0,"run":1,"walk":1,"jump":2,"fall":2,"dash":3,"
 static var _cache: Dictionary = {}
 static var _images: Dictionary = {}
 var who: String = "player"
+var current_motion: String = "idle"
+var current_frame: int = 0
 var sprite: Sprite2D
 var foot_origin: Vector2 = Vector2(96,154)
 var visible_body_height: float = 143.0
@@ -31,6 +33,8 @@ func setup(actor: String) -> void:
     pose("idle",0,-1 if _is_king(actor) else 1,143.0 if _is_king(actor) else 78.0)
 
 func pose(motion: String, frame: int, facing: int, height: float) -> void:
+    current_motion = motion
+    current_frame = clampi(frame,0,5)
     _ensure_sprite()
     var d: Dictionary = _descriptor(who,motion,frame)
     var cell: int = int(d.cell)
@@ -54,12 +58,21 @@ static func _is_king(actor: String) -> bool:
 
 static func _descriptor(actor: String, motion: String, frame: int) -> Dictionary:
     var f: int = clampi(frame,0,5)
+    if _is_king(actor) and motion in ["run","walk"]:
+        var walk_row: int = 2 if actor == "previous" else 1 if actor in ["ascended","king_aoe","immortal-ascended"] else 0
+        var walk_body: float = 86.0 if actor == "previous" else 130.0 if walk_row == 1 else 107.0
+        return {"path":"res://art/royal-walk-v9.png","cell":192,"foot":154,"body":walk_body,"frame":walk_row*6+f,"left":true}
+    if _is_king(actor) and motion.begins_with("prepare_"):
+        var prep_rows: Dictionary = {"prepare_cleave_0":0,"prepare_cleave_1":1,"prepare_cleave_2":2,"prepare_throw":3,"prepare_reap":4,"prepare_nova":5}
+        var prep_row: int = int(prep_rows.get(motion,0))
+        var transformed: bool = actor in ["ascended","king_aoe","immortal-ascended"]
+        return {"path":"res://art/prepare-sovereign-v9.png" if transformed else "res://art/prepare-king-v9.png","cell":192,"foot":154,"body":130.0 if transformed else 107.0,"frame":prep_row*6+f,"left":true}
     if actor == "previous":
         var row: int = 0 if motion in ["idle","run","walk"] else 1 if motion in ["cleave","strike","thrust"] else 3 if motion == "dash" else 2
         return {"path":"res://art/previous-v7.png","cell":96,"foot":94,"body":86.0,"frame":row*6+f,"left":true}
     if _is_king(actor) and (motion in ["rest","sit","wait","rise"] or (actor == "rest" and motion == "idle")):
         var waiting_row: int = 1 if motion == "rise" else 0
-        return {"path":"res://art/seated-contact-v8.png","cell":192,"foot":154,"body":107.0,"frame":waiting_row*6+f,"left":true}
+        return {"path":"res://art/rest-cat-v9.png","cell":192,"foot":154,"body":107.0,"frame":waiting_row*6+f,"left":true}
     if _is_king(actor) and motion == "transform":
         return {"path":"res://art/transformation-v7.png","cell":192,"foot":154,"body":130.0,"frame":f,"left":true}
     if actor in ["ascended","king_aoe","immortal-ascended"]:
@@ -80,7 +93,9 @@ static func _descriptor(actor: String, motion: String, frame: int) -> Dictionary
     var row: int = maxi(0,LIVES.find(actor))
     var path: String = "res://art/visitors-combat-v7.png"
     var pose_frame: int = f
-    if motion in ["run","walk"]:
+    if motion == "prepare":
+        path = "res://art/prepare-visitors-v9.png"
+    elif motion in ["run","walk"]:
         path = "res://art/visitors-walk-v7.png"
     elif motion in ["idle","hurt"]:
         path = "res://art/visitors-idle-hurt-v7.png"
@@ -181,3 +196,16 @@ static func tell_texture(kind: String, frame: int) -> Texture2D:
     var kinds: Dictionary = {"thrust":0,"line":0,"lunge":0,"sweep":1,"low":1,"landing":2,"jump":2,"burst":3,"radial":3,"chain":4,"nova":5,"royal":5}
     var row: int = int(kinds.get(kind,0))
     return _region("res://art/combat-tells-v8.png",Vector2i(128,128),row*6+clampi(frame,0,5))
+
+static func preparation_texture(actor: String, move_id: String, combo: int, frame: int, phase: int = 1) -> Texture2D:
+    var identity: String = "ascended" if phase > 1 and _is_king(actor) and actor != "previous" else actor
+    if not _is_king(identity):
+        return texture_for(identity,"prepare",frame)
+    var motion: String = "prepare_cleave_" + str(clampi(combo,0,2))
+    if move_id in ["throw","thrust"]:
+        motion = "prepare_throw"
+    elif move_id in ["reap","kneel"]:
+        motion = "prepare_reap"
+    elif move_id in ["nova","cast"]:
+        motion = "prepare_nova"
+    return texture_for(identity,motion,frame)
