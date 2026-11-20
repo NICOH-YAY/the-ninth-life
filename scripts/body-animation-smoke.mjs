@@ -41,7 +41,25 @@ const enterFight=async label=>{
 };
 const enemyWalk={frames:new Set(),regions:new Set(),positions:[]};
 const collectEnemy=s=>{if(s.mode==='fight'&&['walk','run'].includes(s.enemy_motion)){enemyWalk.frames.add(s.enemy_frame);enemyWalk.regions.add(s.enemy_region);enemyWalk.positions.push(s.enemy_x);}};
-const walk=async(key,label)=>{const frames=new Set(),regions=new Set(),positions=[];await page.keyboard.down(key);await sample(410,s=>{collectEnemy(s);if(['walk','run'].includes(s.actor_motion)){frames.add(s.actor_frame);regions.add(s.actor_region);positions.push(s.x);}});await page.keyboard.up(key);assert(frames.size>=3,label+' must use distinct actual gait frames');assert(regions.size>=3,label+' must change rendered atlas region');assert(Math.max(...positions)-Math.min(...positions)>50);report.checks[label]={frames:[...frames],regions:[...regions],distance:Math.max(...positions)-Math.min(...positions)};await shot(label);};
+const walk=async(key,label)=>{
+ const initial=await state();let reposition='';
+ if(key==='d'&&initial.x>720)reposition='a';else if(key==='a'&&initial.x<240)reposition='d';
+ if(reposition){
+  await page.keyboard.down(reposition);const until=Date.now()+2500;
+  while(Date.now()<until){const s=await state();if(reposition==='a'?s.x<=600:s.x>=360)break;await page.waitForTimeout(12);}
+  await page.keyboard.up(reposition);await page.waitForTimeout(160);
+ }
+ const start=await state(),frames=new Set(),regions=new Set(),positions=[],trace=[];
+ await page.keyboard.down(key);const until=Date.now()+1400;
+ while(Date.now()<until){const s=await state();collectEnemy(s);trace.push({x:s.x,vx:s.vx,motion:s.actor_motion,frame:s.actor_frame,move:s.active_move,grounded:s.grounded});
+  if(['walk','run'].includes(s.actor_motion)){frames.add(s.actor_frame);regions.add(s.actor_region);positions.push(s.x);}
+  if(frames.size>=4&&Math.max(...positions)-Math.min(...positions)>=100)break;
+  await page.waitForTimeout(8);
+ }
+ await page.keyboard.up(key);const distance=Math.max(...positions)-Math.min(...positions);
+ report.checks[label]={initialX:initial.x,repositionKey:reposition,startX:start.x,endX:(await state()).x,frames:[...frames],regions:[...regions],distance,trace};
+ assert(frames.size>=3,label+' must use distinct actual gait frames');assert(regions.size>=3,label+' must change rendered atlas region');assert(distance>50,label+' must physically move over50px with travel room');await shot(label);
+};
 const guardOpening=async()=>{await wait(s=>s.enemy_attack_in>0.20&&s.enemy_attack_in<0.65,20000);const previous=(await state()).enemy_strikes;await page.keyboard.down('g');const end=Date.now()+3000;while(Date.now()<end&&(await state()).enemy_strikes===previous)await page.waitForTimeout(15);await page.keyboard.up('g');};
 const prepare=async(key,id,label)=>{
  const attempts=[];

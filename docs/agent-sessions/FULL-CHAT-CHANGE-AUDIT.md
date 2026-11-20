@@ -2,7 +2,7 @@ AI-use disclosure: Codex generated this technical audit from Git history, the cu
 
 # The Ninth Life: complete technical change audit
 
-Generated UTC: 2026-11-20T18:26:39.863Z. Repository: D:/Coding VS/the-ninth-life. Public deployment: https://nicoh-yay.github.io/the-ninth-life/.
+Generated UTC: 2026-11-20T18:36:50.751Z. Repository: D:/Coding VS/the-ninth-life. Public deployment: https://nicoh-yay.github.io/the-ninth-life/.
 
 This is a technical handoff, not a published chat transcript. Requests and decisions are paraphrased. Raw messages, private planning, system/developer instructions, credentials, private local context and unfiltered tool output are excluded. Exact executable/configuration changes are enumerated below. Public prose and binary resource changes are inventoried with object identity and size. The first thirteen commits predate the current Codex revision session and are explicitly inherited context.
 
@@ -384,6 +384,12 @@ A runtime bug advanced arriving enemy position without advancing its stride cloc
 Basic player timing is0.14second preparation,0.065contact,0.19recovery before combo adjustments, compared with0.20/0.085/0.28 previously. Enemy preparations/recoveries are also shorter. Counter preparation now uses the physical thrust pose, matching its contact animation. Ground spells retain a longer body windup than the basic sword, with explicit positioning marks.
 
 New sprites, exact prompts, generation IDs, frame/foot geometry and hashes are recorded under assets/stance-v9. Native components verify cropped frame content rather than merely animation counters; browser checks separately inspect actual walk/preparation atlas regions during real movement/attack inputs. Final validated outcomes and source-freeze boundary are recorded in docs/body-animation.md. The line-level inventory below captures the actual final source and resource changes.
+
+## Physical body animation public QA follow-up
+
+The public standard native UI/combat suite passed on a0f8fd6. The first public body test passed frame/region checks but failed a fixed410ms walking-distance assertion during live combat. The failure had not recorded start/end coordinates, so a specific wall-versus-hit-versus-render-sampling cause is not claimed. The failed report/screenshots are preserved in ignored output/qa/body-animation-live-v9-fixed-window-failure.
+
+The walk helper now supplies native-input travel room near a wall, records position/velocity/motion traces, and holds the original movement key until100px observed gait travel within1.4seconds. The original minimum50px, at least three distinct frame/region requirements and strict zero-console-error/warning assertions remain. No player position, health, timing or game state is overwritten. The public rerun passed with all six normal/transformed gait regions and physical body preparation. Only QA/documentation/audit changes follow this result; runtime source and art remain identical to the already tested release.
 
 
 ## Historical revisions: every changed code/configuration line
@@ -59088,45 +59094,45 @@ Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backsla
 
 Coverage: 1 added and 1 deleted source lines enumerated.
 
-## Virtual working-tree revision
+### a0f8fd6 — Animate physical windups and every walk cycle with clearer feline sprites
 
-Base HEAD: b88fc24610fc9246ec6596834573f959c7c10a60. Captured UTC: 2026-11-20T18:27:37.322Z. These files are not claimed as already committed or deployed. Re-run the generator after the source freeze; a later commit can turn this snapshot into a named revision.
+Commit a0f8fd67bd7902581312810528a1fea9c6cf9df8; author Codex; recorded author date 2026-11-20T13:28:25-05:00. Current Codex revision history.
 
-Recorded intent: correct the canine-looking resting pose with short upright feline ears; replace projected melee warnings with six-pose physical body/weapon preparation; speed up basic combat without removing readable anticipation, committed recovery, poise or perfect counters; restore base walking for every character and fix the frozen arrival stride clock. All current art and code are captured in this working-tree revision; preceding memory/poise and Godot revisions remain committed history.
+Recorded intent (Git subject): Animate physical windups and every walk cycle with clearer feline sprites.
 
 #### File inventory: ATTRIBUTION.md
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| ATTRIBUTION.md | M | Public documentation/data; see recorded revision intent | 816703e5e452912e1dd251129cb9dfe2b0093fd0 (27902 bytes) | working-tree SHA256 980f70d7d8da361f3371c4eb0786e13dc829b168ef28ac1d191279cc0a1097df (29445 bytes) |
+| ATTRIBUTION.md | M | Public documentation/data; see recorded revision intent | 816703e5e452912e1dd251129cb9dfe2b0093fd0 (27902 bytes) | 5a6bd0680747e1c65ed92f933c2b37c3540c881c (29445 bytes) |
 
 #### File inventory: CLAUDE.md
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| CLAUDE.md | M | Public documentation/data; see recorded revision intent | 60466bfa282605a98ae02f5560119563bb161bbe (4181 bytes) | working-tree SHA256 63a225861945fafb5ae06c5328595637c4c8a6e252bd565d9b355e7b18f30eb8 (4373 bytes) |
+| CLAUDE.md | M | Public documentation/data; see recorded revision intent | 60466bfa282605a98ae02f5560119563bb161bbe (4181 bytes) | b3d647a3deffcedd9772b94f0bcf47fc91b5b666 (4373 bytes) |
 
 #### File inventory: README.md
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| README.md | M | Public documentation/data; see recorded revision intent | 8e57a9fda761f3ba9e36be9c6c2797286ee32b32 (5199 bytes) | working-tree SHA256 da0acdf005f09fcb6d8b2a39acb3a402e61979308c370beaed1893fa964300e2 (5294 bytes) |
+| README.md | M | Public documentation/data; see recorded revision intent | 8e57a9fda761f3ba9e36be9c6c2797286ee32b32 (5199 bytes) | ce9e332891ec8a30d83250ed3c6884c77461a068 (5294 bytes) |
 
 #### File inventory: assets/stance-v9/ATTRIBUTION.md
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/stance-v9/ATTRIBUTION.md | A | Public documentation/data; see recorded revision intent | absent | working-tree SHA256 364cb3f87d15c9af292fc35698347c8ac3a2e2beacad154e173731549569167a (3381 bytes) |
+| assets/stance-v9/ATTRIBUTION.md | A | Public documentation/data; see recorded revision intent | absent | ab338618140d8df8a504f7713f8e74d5aeb55df2 (3381 bytes) |
 
 #### File inventory: assets/stance-v9/body-contact.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/stance-v9/body-contact.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 7229ce1032870dde88b6ef3c9438429c297d758cac7651b42bf24088282c4fbe (68608 bytes) |
+| assets/stance-v9/body-contact.png | A | Binary/art/audio resource; see manifests and attribution | absent | fdd706110854bd4952b87ed123e5e7759a35556a (68608 bytes) |
 
 #### Code/configuration: assets/stance-v9/export-actors.mjs
 
-Change: A. Before absent; after working-tree SHA256 6dda6e764b6cdaa8e78626455a45f2ded439b7981f5fe821642597bb240c4336.
+Change: A. Before absent; after 24a3843abca7899776d1d5efec77438e6cd06210.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -59179,11 +59185,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/stance-v9/king-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 f39ac1240afd657448f666c94eb01b5ae8b6a8f147e1914aeee11562176b186d (924987 bytes) |
+| assets/stance-v9/king-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | 6ee2a1188f97dfee365338e2baf012e55aff686c (924987 bytes) |
 
 #### Code/configuration: assets/stance-v9/manifest.json
 
-Change: A. Before absent; after working-tree SHA256 104aeee084bbda201ef20dacb60b2f442878d50950aaf6509406c2b4b1c6332e.
+Change: A. Before absent; after 5e7860a31f4ffcd81200823fcf65c2b98d4b12d6.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -59446,7 +59452,7 @@ Coverage: 252 added and 0 deleted source lines enumerated.
 
 #### Code/configuration: assets/stance-v9/pixel-verification.json
 
-Change: A. Before absent; after working-tree SHA256 de091ca3587424205188fa7666fe935ce2677d0f4a6fb5fb463e99e046a8e42a.
+Change: A. Before absent; after 328c8af8bca6e77271484f2a96750412d621ce9c.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -59555,7 +59561,7 @@ Coverage: 98 added and 0 deleted source lines enumerated.
 
 #### Code/configuration: assets/stance-v9/prepare-king-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 94bfdee06da0855ccb60cd0e49fe3d9b7172518861155b656f0afbcdd6fd7dd1.
+Change: A. Before absent; after 89c4db1cf95caf68f4139a54a6ebd5eea6a6d3f1.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -60430,11 +60436,11 @@ Coverage: 862 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/stance-v9/prepare-king-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 d91e9d431a57621f8b1f387221fd5a2ae8de8cb6baf82adf5f15b14d096e7625 (5592555 bytes) |
+| assets/stance-v9/prepare-king-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | 276c3b21a2bc4b2a90e8c8ab8e9f10b05f42c011 (5592555 bytes) |
 
 #### Code/configuration: assets/stance-v9/prepare-sovereign-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 fb7a4271ca1e344b6ab1038ac64361fb50d12e98e9d5babb41de1f932cde0248.
+Change: A. Before absent; after cfa543b15db981c5d004a8a1a9740abff4d58bf8.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -61309,11 +61315,11 @@ Coverage: 862 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/stance-v9/prepare-sovereign-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 419a14455e55868367a54222ecd7b1e0d477ac1b95383777020a7dcc386b601c (6288462 bytes) |
+| assets/stance-v9/prepare-sovereign-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | b87b59145b8af94db923b721593a8f57e69c5e07 (6288462 bytes) |
 
 #### Code/configuration: assets/stance-v9/prepare-visitors-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 02ea5953d538d6a32d80686c2812ff89f8aa7892154d89a7bea4048c25a5cf58.
+Change: A. Before absent; after ed719ea176d0372336a1274ace1f1cbc24ad6108.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -62608,11 +62614,11 @@ Coverage: 1282 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/stance-v9/prepare-visitors-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 312b6e3898ecd0dd4b9b1a9be132a73965dd1708055610c08c7bd01847a2560b (4213674 bytes) |
+| assets/stance-v9/prepare-visitors-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | 079d7d4907fa4002a48b6b1896173f9c69c9e9e3 (4213674 bytes) |
 
 #### Code/configuration: assets/stance-v9/prepare-warden-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 5a90f0118de8b0930301c8153f744e3fba75f95396fc84909aac28b3d083ea8f.
+Change: A. Before absent; after a8101db4f068ed6d9993c61f6749e745259798ef.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -62792,11 +62798,11 @@ Coverage: 167 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/stance-v9/prepare-warden-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 a4fb182fd101bc72d63eda4c0304460f160a43cdae1d62cadc5d8c725dad7565 (1842117 bytes) |
+| assets/stance-v9/prepare-warden-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | 1fabf7bc6a3bbbd657954f89dab2dcfe0df7fd76 (1842117 bytes) |
 
 #### Code/configuration: assets/stance-v9/replace-warden.mjs
 
-Change: A. Before absent; after working-tree SHA256 8555a67c739b5a34f4275da9e4df44dcca9093f275a9a84ee4ddf08eafe8496c.
+Change: A. Before absent; after 6179e84ad5ab6274cc33f2b8d129810877de2d7b.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -62813,7 +62819,7 @@ Coverage: 6 added and 0 deleted source lines enumerated.
 
 #### Code/configuration: assets/stance-v9/rest-cat-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 adee1ed03a071bcd8a53a5e65662804d464cff137929e7816c7a8f15747b3d4e.
+Change: A. Before absent; after 4b40b82b96180552f7940e6563363b7c5edd0624.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -63132,17 +63138,17 @@ Coverage: 306 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/stance-v9/rest-cat-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 50583cae5e8d3369f935d376a56b8c49903cff0c20161e6d71d3a703b3dba815 (3369185 bytes) |
+| assets/stance-v9/rest-cat-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | bce45ae9a1e1af710cbf3376ecfaed21a9a1b36c (3369185 bytes) |
 
 #### File inventory: assets/stance-v9/rest-study.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/stance-v9/rest-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 ed4ef626f7d3859006e57496719a55900cc1bee5eb4413e9ca1092d3ffd40ba5 (674619 bytes) |
+| assets/stance-v9/rest-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | 47a5e158b866f45ce15be123a3e75500bcb54cc6 (674619 bytes) |
 
 #### Code/configuration: assets/stance-v9/royal-walk-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 b6f0579e66bdca17067423a1998f3c1f490efe83324cc93fc3ebdb7b0476c8aa.
+Change: A. Before absent; after eccf64ff34a6942d69ed006fb07402778e9a7a2f.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -63600,23 +63606,23 @@ Coverage: 445 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/stance-v9/royal-walk-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 52383d3490c961d1409ebf2bc146799996dc89f94a07cf9e41a49a21533191ec (4005924 bytes) |
+| assets/stance-v9/royal-walk-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | 4864afe81a7853bbb67e973de31a3b6a0969f806 (4005924 bytes) |
 
 #### File inventory: assets/stance-v9/seat-preview.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/stance-v9/seat-preview.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 c064f1c3f5b8ac87ffb68ba27f3476c43b26ceb4049e72a5c64ddc07a480adbc (44409 bytes) |
+| assets/stance-v9/seat-preview.png | A | Binary/art/audio resource; see manifests and attribution | absent | c3c7f90d861c46131e1c83b24d745b85cdf22176 (44409 bytes) |
 
 #### File inventory: assets/stance-v9/sovereign-study.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/stance-v9/sovereign-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 518048d3f7cba021ad7cfe8695d8d78211fac438e31280c00b37babbe671f056 (989450 bytes) |
+| assets/stance-v9/sovereign-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | 4604d73812e8e1448565f010e650d12d54864cd2 (989450 bytes) |
 
 #### Code/configuration: assets/stance-v9/verify-art.mjs
 
-Change: A. Before absent; after working-tree SHA256 3bd984eba3a90d5ae486136bfd2f48bdca33cbf3e498fc3df046e410ec9d4e24.
+Change: A. Before absent; after 2d995e5f19c8081cdff9f82ab3c62f6433cfa7a7.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -63664,29 +63670,29 @@ Coverage: 35 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/stance-v9/visitors-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 133abb1306f871023420288fea1bc9d231049ea9e6ac5363e1337dc44e545a73 (914652 bytes) |
+| assets/stance-v9/visitors-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | c16fbf5b28b46191cc0801265b10304c25a78882 (914652 bytes) |
 
 #### File inventory: assets/stance-v9/walk-study.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/stance-v9/walk-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 27b666c2536748f5e82169c2f9b610941f60cc31dca3ced29349cdedf23f15e4 (490443 bytes) |
+| assets/stance-v9/walk-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | bf4907cbef744cdb8e0adaeae25ee9a7a3d7544a (490443 bytes) |
 
 #### File inventory: assets/stance-v9/warden-study.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/stance-v9/warden-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 0ba89f210a936eec30f6f90fd09b13d9e0e83abfc35900764d4505ac1fd9ff31 (269393 bytes) |
+| assets/stance-v9/warden-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | 6d47375aebfd2b6db284467b8f83a6348b8281d9 (269393 bytes) |
 
 #### File inventory: docs/body-animation.md
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| docs/body-animation.md | A | Public documentation/data; see recorded revision intent | absent | working-tree SHA256 52a6ed3ea5432252d054aa9c4e10cf5f37c0c9d5f36dcf16e6b6e8494d6e0e04 (3412 bytes) |
+| docs/body-animation.md | A | Public documentation/data; see recorded revision intent | absent | cd94a793fe1f1ae7c291021501b508f25e6b7ce5 (3412 bytes) |
 
 #### Code/configuration: godot/actor_view.gd
 
-Change: M. Before 52644d2dccb6479b1168b6c2457ada40a0ed8692; after working-tree SHA256 85548d5136706a8d08c290be3dbbd4ec2199c46b83a9124eb514642bb2bb0382.
+Change: M. Before 52644d2dccb6479b1168b6c2457ada40a0ed8692; after 26cc808e85b43f47d96ccfc8871e7909629f8290.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -63731,11 +63737,11 @@ Coverage: 30 added and 2 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/prepare-king-v9.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 90020d45ff80c43fc3ef4685e5ac55837b8bd7de32c13e5a2c3ea77783b4c043 (66585 bytes) |
+| godot/art/prepare-king-v9.png | A | Binary/art/audio resource; see manifests and attribution | absent | 86abfb35231f257f525393e76c712f538a127cd8 (66585 bytes) |
 
 #### Code/configuration: godot/art/prepare-king-v9.png.import
 
-Change: A. Before absent; after working-tree SHA256 4a62211ad490416838633023d510b6fb39e8ac63a0f0ba80f92059e0b23cbec2.
+Change: A. Before absent; after 4307660b195694ea6e15d2d4f041cd152ed3f707.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -63788,11 +63794,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/prepare-sovereign-v9.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 cba78b53f75d8461fa6f79f67b6f6b3383b9f7b6ad8b0fdb81f91a9c41c0647b (94482 bytes) |
+| godot/art/prepare-sovereign-v9.png | A | Binary/art/audio resource; see manifests and attribution | absent | c5f1186fdd9721d0973788a0a6779bc09ff81f00 (94482 bytes) |
 
 #### Code/configuration: godot/art/prepare-sovereign-v9.png.import
 
-Change: A. Before absent; after working-tree SHA256 f42395d57052739e0210338b844c3973a06b69ed781c0ed41b097c378a94daa7.
+Change: A. Before absent; after 789f901b76bf82e5d8a78eaee2fc2c6db6b42046.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -63845,11 +63851,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/prepare-visitors-v9.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 186dc89def67bb8525123f1352c98b8e8c9d06ede97360b0333a644cb8b59073 (73935 bytes) |
+| godot/art/prepare-visitors-v9.png | A | Binary/art/audio resource; see manifests and attribution | absent | b6616767767208e2fabb0cce8ee94f0128d9a3b4 (73935 bytes) |
 
 #### Code/configuration: godot/art/prepare-visitors-v9.png.import
 
-Change: A. Before absent; after working-tree SHA256 48f11b2aa99032e57501b69b06f28a550ddb892809022f07848079448e532c88.
+Change: A. Before absent; after 13393c4179af00cb431e3dddcd6b40c1937177e2.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -63902,11 +63908,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/prepare-warden-v9.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 ca5adde96b7705192f29c6374f7f2503aa8e1c21e16748410dee74fdce3b6438 (6739 bytes) |
+| godot/art/prepare-warden-v9.png | A | Binary/art/audio resource; see manifests and attribution | absent | ac5de37b9fd06311e5b9ccb8c74552b5dee8a8ba (6739 bytes) |
 
 #### Code/configuration: godot/art/prepare-warden-v9.png.import
 
-Change: A. Before absent; after working-tree SHA256 3ff9592738c851b4524daadf8ca7fa3a1db5b27b4e3a3d803e987e4a0e6aff76.
+Change: A. Before absent; after 7b0b6a0c4c2353baa7dabaed0a279d3945d93546.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -63959,11 +63965,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/rest-cat-v9.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 7208b3266869d45a66d2f89be0fad70ddd51918024b010cfa24d2cab4871d090 (20937 bytes) |
+| godot/art/rest-cat-v9.png | A | Binary/art/audio resource; see manifests and attribution | absent | 21c7a96f79a5e5ba375c434984b37dc3564a8802 (20937 bytes) |
 
 #### Code/configuration: godot/art/rest-cat-v9.png.import
 
-Change: A. Before absent; after working-tree SHA256 6403d4f29a2e6c1769a7d393151e06102751a70c2de3e484410ff808017025f1.
+Change: A. Before absent; after b92beb5a94f2f76351bd0696c6f44da7dfd4628d.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -64016,11 +64022,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/royal-walk-v9.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 098c41df443a9c6e16c36e091fc511141dc2af0fce8a39694355565ae3ad4c10 (39480 bytes) |
+| godot/art/royal-walk-v9.png | A | Binary/art/audio resource; see manifests and attribution | absent | 424e06681364c935951a6b91384787fbea3298f0 (39480 bytes) |
 
 #### Code/configuration: godot/art/royal-walk-v9.png.import
 
-Change: A. Before absent; after working-tree SHA256 49d7d7b1c23d8b3789ed9be4fad9a3127ff3fbf401ecfa42d1b0fdc08b8ddf0a.
+Change: A. Before absent; after ec50ab438f6a04ea1951a7e5fdd3bf91fc17d55c.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -64071,7 +64077,7 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 #### Code/configuration: godot/combat_rules.gd
 
-Change: M. Before ff90b8a5fdd82f026b024f97d481cc13f4a0e535; after working-tree SHA256 8472906353ada424cddd7c758169f4eb73dba12e5b690447919142fa3858903f.
+Change: M. Before ff90b8a5fdd82f026b024f97d481cc13f4a0e535; after 1f6280e00cf7e7daf101890552d441755ae10bb5.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -64120,7 +64126,7 @@ Coverage: 19 added and 19 deleted source lines enumerated.
 
 #### Code/configuration: godot/content/verify_body_animation.gd
 
-Change: A. Before absent; after working-tree SHA256 909e3f291ff3d98b1e4e5b7ec752a20d2d49fe5dd66ef49c66753f3cd9e0a882.
+Change: A. Before absent; after 9c7f73a3ebb01596d2946d72f968cd6c77d3187f.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -64205,7 +64211,7 @@ Coverage: 74 added and 0 deleted source lines enumerated.
 
 #### Code/configuration: godot/content/verify_body_animation.gd.uid
 
-Change: A. Before absent; after working-tree SHA256 2d9cc687092d7e4b9ceb5e5c65871ec0fa6c29ae99c390e3e4e73ece47bb8d5d.
+Change: A. Before absent; after f2968c56bcd9a4a9d06d1d784d43ede3ed2c52ee.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -64217,7 +64223,7 @@ Coverage: 1 added and 0 deleted source lines enumerated.
 
 #### Code/configuration: godot/content/verify_game.gd
 
-Change: M. Before 953d5f811aff194e8b4e80cd619e0b748324b578; after working-tree SHA256 f9a2eed088ea598360b9ad0819072c81d4ab09c4bdc926e67652b0151b9898b6.
+Change: M. Before 953d5f811aff194e8b4e80cd619e0b748324b578; after cf33c9ee9d3c5a9fccd448d45ae43027aa4c4b8d.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -64234,7 +64240,7 @@ Coverage: 6 added and 0 deleted source lines enumerated.
 
 #### Code/configuration: godot/game.gd
 
-Change: M. Before 9b6ecd3754b318f14ade25d2b74d1c4843c285ad; after working-tree SHA256 b4edf63a5028e98cc5f5180cb699f1c3523570e8ded31940fd22b64ce995b7bd.
+Change: M. Before 9b6ecd3754b318f14ade25d2b74d1c4843c285ad; after fc0f5d1e0d977cbb34945cc519e7455e262f9c9d.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -64294,7 +64300,7 @@ Coverage: 30 added and 19 deleted source lines enumerated.
 
 #### Code/configuration: scripts/body-animation-smoke.mjs
 
-Change: A. Before absent; after working-tree SHA256 9e9173a5dfcfd9e2c6db118f9d07b76fcc7069d3d32627210bc92e9d9dcd637d.
+Change: A. Before absent; after d55d44556fb06529a99da2a6eeb6c80b96009bc1.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -64382,7 +64388,7 @@ Coverage: 77 added and 0 deleted source lines enumerated.
 
 #### Code/configuration: scripts/build-chat-audit.mjs
 
-Change: M. Before 7b6082973066dc44d862037801e00aa9129dd219; after working-tree SHA256 7f1029ebce676c83163864db10d143cd9fb388743387e27e6f7f7308b8ba5c99.
+Change: M. Before 7b6082973066dc44d862037801e00aa9129dd219; after eab2ab0825990312bcac343de246ee4797848614.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -64396,7 +64402,7 @@ Coverage: 2 added and 1 deleted source lines enumerated.
 
 #### Code/configuration: scripts/build-godot.mjs
 
-Change: M. Before 990074386d879b85c7466e9bff2d8b397e34e46a; after working-tree SHA256 3160a1e41b01007b1210fd5f119fe51622c917e9b3b9b025142d380122dd9acc.
+Change: M. Before 990074386d879b85c7466e9bff2d8b397e34e46a; after 448ea5df09cf0305d1f64576b6a8833265089da4.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -64407,20 +64413,77 @@ Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backsla
 
 Coverage: 1 added and 1 deleted source lines enumerated.
 
+## Virtual working-tree revision
+
+Base HEAD: a0f8fd67bd7902581312810528a1fea9c6cf9df8. Captured UTC: 2026-11-20T18:37:34.370Z. These files are not claimed as already committed or deployed. Re-run the generator after the source freeze; a later commit can turn this snapshot into a named revision.
+
+Recorded intent: harden public walk verification by providing real travel room and bounded native-key movement sampling, preserving strict distance and drawn-frame requirements and recording the failed fixed-window capture. Gameplay and art are unchanged from the published physical-body-animation revision a0f8fd6; this follow-up captures the QA helper and validation notes.
+
+#### File inventory: docs/body-animation.md
+
+| File | Change | Purpose | Before blob / bytes | After blob / bytes |
+|---|---|---|---|---|
+| docs/body-animation.md | M | Public documentation/data; see recorded revision intent | cd94a793fe1f1ae7c291021501b508f25e6b7ce5 (3412 bytes) | working-tree SHA256 2e19bc457d825f91b2cd17065288dacdcdca94ebf5a239e41d0bb85865ac8c88 (4225 bytes) |
+
+#### Code/configuration: scripts/body-animation-smoke.mjs
+
+Change: M. Before d55d44556fb06529a99da2a6eeb6c80b96009bc1; after working-tree SHA256 ec934250423d055ffed4c27db7db4171ce91b2f6ad27cb7e1edcd8288e609c82.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| DELETE | 44 | — | <code>"const walk=async(key,label)=&gt;{const frames=new Set(),regions=new Set(),positions=[];await page.keyboard.down(key);await sample(410,s=&gt;{collectEnemy(s);if(['walk','run'].includes(s.actor_motion)){frames.add(s.actor_frame);regions.add(s.actor_region);positions.push(s.x);}});await page.keyboard.up(key);assert(frames.size&gt;=3,label+' must use distinct actual gait frames');assert(regions.size&gt;=3,label+' must change rendered atlas region');assert(Math.max(...positions)-Math.min(...positions)&gt;50);report.checks[label]={frames:[...frames],regions:[...regions],distance:Math.max(...positions)-Math.min(...positions)};await shot(label);};"</code> | Inferred mechanical role: remove specify or verify an observable regression expectation. Context: <code>"if(s.choices){await page.keyboard.press('Enter');answered++;await wait(s=&gt;!s.choices,5000);}await page.waitForTimeout(20);"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 44 | <code>"const walk=async(key,label)=&gt;{"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"if(s.choices){await page.keyboard.press('Enter');answered++;await wait(s=&gt;!s.choices,5000);}await page.waitForTimeout(20);"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 45 | <code>" const initial=await state();let reposition='';"</code> | Inferred mechanical role: add set spatial layout, movement or sprite geometry. Context: <code>"if(s.choices){await page.keyboard.press('Enter');answered++;await wait(s=&gt;!s.choices,5000);}await page.waitForTimeout(20);"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 46 | <code>" if(key==='d'&amp;&amp;initial.x&gt;720)reposition='a';else if(key==='a'&amp;&amp;initial.x&lt;240)reposition='d';"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"if(s.choices){await page.keyboard.press('Enter');answered++;await wait(s=&gt;!s.choices,5000);}await page.waitForTimeout(20);"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 47 | <code>" if(reposition){"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"if(reposition){"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 48 | <code>"  await page.keyboard.down(reposition);const until=Date.now()+2500;"</code> | Inferred mechanical role: add set spatial layout, movement or sprite geometry. Context: <code>"if(reposition){"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 49 | <code>"  while(Date.now()&lt;until){const s=await state();if(reposition==='a'?s.x&lt;=600:s.x&gt;=360)break;await page.waitForTimeout(12);}"</code> | Inferred mechanical role: add set spatial layout, movement or sprite geometry. Context: <code>"while(Date.now()&lt;until){const s=await state();if(reposition==='a'?s.x&lt;=600:s.x&gt;=360)break;await page.waitForTimeout(12);}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 50 | <code>"  await page.keyboard.up(reposition);await page.waitForTimeout(160);"</code> | Inferred mechanical role: add set spatial layout, movement or sprite geometry. Context: <code>"while(Date.now()&lt;until){const s=await state();if(reposition==='a'?s.x&lt;=600:s.x&gt;=360)break;await page.waitForTimeout(12);}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 51 | <code>" }"</code> | Inferred mechanical role: add close a source expression or block. Context: <code>"while(Date.now()&lt;until){const s=await state();if(reposition==='a'?s.x&lt;=600:s.x&gt;=360)break;await page.waitForTimeout(12);}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 52 | <code>" const start=await state(),frames=new Set(),regions=new Set(),positions=[],trace=[];"</code> | Inferred mechanical role: add set spatial layout, movement or sprite geometry. Context: <code>"while(Date.now()&lt;until){const s=await state();if(reposition==='a'?s.x&lt;=600:s.x&gt;=360)break;await page.waitForTimeout(12);}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 53 | <code>" await page.keyboard.down(key);const until=Date.now()+1400;"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"while(Date.now()&lt;until){const s=await state();if(reposition==='a'?s.x&lt;=600:s.x&gt;=360)break;await page.waitForTimeout(12);}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 54 | <code>" while(Date.now()&lt;until){const s=await state();collectEnemy(s);trace.push({x:s.x,vx:s.vx,motion:s.actor_motion,frame:s.actor_frame,move:s.active_move,grounded:s.grounded});"</code> | Inferred mechanical role: add set timing, animation progression or simulation cadence. Context: <code>"while(Date.now()&lt;until){const s=await state();collectEnemy(s);trace.push({x:s.x,vx:s.vx,motion:s.actor_motion,frame:s.actor_f"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 55 | <code>"  if(['walk','run'].includes(s.actor_motion)){frames.add(s.actor_frame);regions.add(s.actor_region);positions.push(s.x);}"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"if(['walk','run'].includes(s.actor_motion)){frames.add(s.actor_frame);regions.add(s.actor_region);positions.push(s.x);}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 56 | <code>"  if(frames.size&gt;=4&amp;&amp;Math.max(...positions)-Math.min(...positions)&gt;=100)break;"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"if(['walk','run'].includes(s.actor_motion)){frames.add(s.actor_frame);regions.add(s.actor_region);positions.push(s.x);}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 57 | <code>"  await page.waitForTimeout(8);"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"if(['walk','run'].includes(s.actor_motion)){frames.add(s.actor_frame);regions.add(s.actor_region);positions.push(s.x);}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 58 | <code>" }"</code> | Inferred mechanical role: add close a source expression or block. Context: <code>"if(['walk','run'].includes(s.actor_motion)){frames.add(s.actor_frame);regions.add(s.actor_region);positions.push(s.x);}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 59 | <code>" await page.keyboard.up(key);const distance=Math.max(...positions)-Math.min(...positions);"</code> | Inferred mechanical role: add set spatial layout, movement or sprite geometry. Context: <code>"if(['walk','run'].includes(s.actor_motion)){frames.add(s.actor_frame);regions.add(s.actor_region);positions.push(s.x);}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 60 | <code>" report.checks[label]={initialX:initial.x,repositionKey:reposition,startX:start.x,endX:(await state()).x,frames:[...frames],regions:[...regions],distance,trace};"</code> | Inferred mechanical role: add set spatial layout, movement or sprite geometry. Context: <code>"if(['walk','run'].includes(s.actor_motion)){frames.add(s.actor_frame);regions.add(s.actor_region);positions.push(s.x);}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 61 | <code>" assert(frames.size&gt;=3,label+' must use distinct actual gait frames');assert(regions.size&gt;=3,label+' must change rendered atlas region');assert(distance&gt;50,label+' must physically move over50px with travel room');await shot(label);"</code> | Inferred mechanical role: add specify or verify an observable regression expectation. Context: <code>"if(['walk','run'].includes(s.actor_motion)){frames.add(s.actor_frame);regions.add(s.actor_region);positions.push(s.x);}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 62 | <code>"};"</code> | Inferred mechanical role: add close a source expression or block. Context: <code>"if(['walk','run'].includes(s.actor_motion)){frames.add(s.actor_frame);regions.add(s.actor_region);positions.push(s.x);}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 19 added and 1 deleted source lines enumerated.
+
+#### Code/configuration: scripts/build-chat-audit.mjs
+
+Change: M. Before eab2ab0825990312bcac343de246ee4797848614; after working-tree SHA256 20f957db44ed63bda8d4ee0e44ffd8f037b74afcd56e3ee5e905fee3f332ccda.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| ADD | — | 2592 | <code>"push(...[\"## Physical body animation public QA follow-up\",\"\",\"The public standard native UI/combat suite passed on a0f8fd6. The first public body test passed frame/region checks but failed a fixed410ms walking-distance assertion during live combat. The failure had not recorded start/end coordinates, so a specific wall-versus-hit-versus-render-sampling cause is not claimed. The failed report/screenshots are preserved in ignored output/qa/body-animation-live-v9-fixed-window-failure.\",\"\",\"The walk helper now supplies native-input travel room near a wall, records position/velocity/motion traces, and holds the original movement key until100px observed gait travel within1.4seconds. The original minimum50px, at least three distinct frame/region requirements and strict zero-console-error/warning assertions remain. No player position, health, timing or game state is overwritten. The public rerun passed with all six normal/transformed gait regions and physical body preparation. Only QA/documentation/audit changes follow this result; runtime source and art remain identical to the already tested release.\",\"\"]);"</code> | Inferred mechanical role: add set timing, animation progression or simulation cadence. Context: <code>"if(untracked &amp;&amp; neu-1!==newLines.length){totals.coverageMismatches++;failures.push(p);}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 2611 | — | <code>"\"Recorded intent: correct the canine-looking resting pose with short upright feline ears; replace projected melee warnings with six-pose physical body/weapon preparation; speed up basic combat without removing readable anticipation, committed recovery, poise or perfect counters; restore base walking for every character and fix the frozen arrival stride clock. All current art and code are captured in this working-tree revision; preceding memory/poise and Godot revisions remain committed history.\");"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"if(excluded(p)){totals.fileEvents++;totals.excludedEvents++;continue;}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 2612 | <code>"\"Recorded intent: harden public walk verification by providing real travel room and bounded native-key movement sampling, preserving strict distance and drawn-frame requirements and recording the failed fixed-window capture. Gameplay and art are unchanged from the published physical-body-animation revision a0f8fd6; this follow-up captures the QA helper and validation notes.\");"</code> | Inferred mechanical role: add set timing, animation progression or simulation cadence. Context: <code>"if(excluded(p)){totals.fileEvents++;totals.excludedEvents++;continue;}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 2 added and 1 deleted source lines enumerated.
+
 ## Coverage totals
 
-- commits: 26
+- commits: 27
 - inheritedCommits: 13
-- currentChatCommits: 13
-- fileEvents: 809
-- codeFiles: 423
-- addedLines: 52726
-- deletedLines: 4185
-- inventoryFiles: 382
-- excludedEvents: 4
-- checkedDiffs: 423
+- currentChatCommits: 14
+- fileEvents: 813
+- codeFiles: 425
+- addedLines: 52747
+- deletedLines: 4187
+- inventoryFiles: 383
+- excludedEvents: 5
+- checkedDiffs: 425
 - coverageMismatches: 0
-- workingTreeFiles: 51
+- workingTreeFiles: 3
 
 Independent changed-line coverage mismatches: 0. All historical/tracked text diffs match independent Git numstat added/deleted counts; new untracked source files match their source line counts.
 
