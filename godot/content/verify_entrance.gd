@@ -38,6 +38,6 @@ func run() -> void:
     check(game.audio.dialogue_active,"The silence entrance really ducks the current score before its interruption.")
     game.epoch+=1;game.mode="arrival";game.entrances.clear();await physics_frame;await physics_frame
     check(not game.audio.dialogue_active and game.entrances.props.is_empty(),"Cancelling the silence entrance releases the audio duck and removes all staged props.")
-    game.magic.clear();game.powers.dispel();game.entrances.clear();game._clear_effects();game.ui.reset();game.audio.stop_all();game.Actor._cache.clear();game.Actor._images.clear()
+    game.powers.dispel();game.entrances.clear();game._clear_effects();game.ui.reset();game.audio.stop_all();game.Actor._cache.clear();game.Actor._images.clear()
     await create_timer(0.25).timeout;game.queue_free();await process_frame;await process_frame;await create_timer(0.15).timeout
     print(JSON.stringify({"ok":failures.is_empty(),"checks":checks,"failures":failures,"entrances":records}));quit(0 if failures.is_empty() else 1)

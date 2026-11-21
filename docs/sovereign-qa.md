@@ -2,6 +2,8 @@ AI-use disclosure: Codex wrote the native and browser checks and this QA record.
 
 # Sovereign revision: bug audit and verification
 
+Historical v11 snapshot: the king kit was subsequently reverted at the user's request. The current king contract is [king-kit-revert.md](king-kit-revert.md); the visitor gait and entrance fixes remain.
+
 This record covers the v11 body-driven royal kit, individual gait sources, continuous entrances, removal of dialogue stat bargains, and grounded body spacing. Earlier revision reports remain historical evidence, not certification of this export.
 
 ## Bugs found and fixed

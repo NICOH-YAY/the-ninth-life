@@ -3,7 +3,7 @@ extends SceneTree
 
 const ACTOR = preload("res://actor_view.gd")
 const VISITORS: Array[String] = ["kitten", "alley", "sailor", "acrobat", "witch", "knight", "thief", "quiet", "patchwork"]
-const KING_MAGIC: Array[String] = ["royal_hand_0", "royal_hand_1", "royal_hand_2", "royal_echo", "royal_burden", "royal_ransom"]
+const KING_PREPARATIONS: Array[String] = ["prepare_cleave_0", "prepare_cleave_1", "prepare_cleave_2", "prepare_throw", "prepare_reap", "prepare_nova"]
 var checks: int = 0
 var failures: Array[String] = []
 var sequences: Array[Dictionary] = []
@@ -26,8 +26,6 @@ func sequence(actor: String, motion: String, frame_total: int = 6) -> void:
     for frame in range(frame_total):
         var descriptor: Dictionary = ACTOR._descriptor(actor, motion, frame)
         var path: String = str(descriptor.path)
-        if motion.begins_with("royal_"):
-            check(path.begins_with("res://art/magic-") and path.ends_with("-v11.png"), actor + ": royal motion must use the actual new magic body atlas, without legacy weapon fallback.")
         if VISITORS.has(actor) and motion in ["walk","run","start_walk","stop_walk","idle"]:
             check(path == "res://art/gait-"+actor+"-v11.png", actor + ": gait and neutral must come from that visitor's own new body sheet.")
         if not sheets.has(path):
@@ -56,10 +54,10 @@ func sequence(actor: String, motion: String, frame_total: int = 6) -> void:
                 if crop.get_pixel(x, y).a > 0.5:
                     bottom = maxi(bottom, y)
         anchors.append(bottom - foot + 1)
-        if actor != "ascended" and not motion.begins_with("royal_"):
+        if actor != "ascended" and (motion in ["walk","run","idle","start_walk","stop_walk"] or motion.begins_with("prepare")):
             check(bottom >= foot - 5 and bottom <= foot + 3, actor + ": " + motion + " frame " + str(frame) + " must keep a physical support foot on its baseline (delta " + str(bottom - foot + 1) + ").")
         else:
-            check(bottom >= 0 and foot > 0 and foot < crop.get_height(), actor + ": " + motion + " must retain a valid airborne body anchor.")
+            check(bottom >= 0 and foot > 0 and foot < crop.get_height(), actor + ": " + motion + " must retain a valid body anchor.")
     check(hashes.size() == frame_total, actor + ": " + motion + " must contain " + str(frame_total) + " different drawn pixel frames, not repeated metadata.")
     check(regions.size() == frame_total, actor + ": " + motion + " must select " + str(frame_total) + " different atlas regions.")
     sequences.append({"actor": actor, "motion": motion, "unique_pixel_frames": hashes.size(), "unique_regions": regions.size(), "foot_offsets": anchors})
@@ -69,11 +67,17 @@ func _run() -> void:
     walkers.append_array(VISITORS)
     for actor in walkers:
         sequence(actor, "walk", 12)
-    sequence("king", "idle", 1)
+    sequence("king", "idle", 6)
     sequence("ascended", "idle", 12)
     for actor in ["king", "ascended"]:
-        for motion in KING_MAGIC:
-            sequence(actor, motion, 12)
+        for motion in KING_PREPARATIONS:
+            sequence(actor, motion, 6)
+    for motion in ["combo_0","combo_1","combo_2","throw"]:
+        sequence("king", motion, 12)
+        sequence("ascended", motion, 6)
+    for actor in ["king","ascended"]:
+        sequence(actor, "reap", 6)
+        sequence(actor, "nova", 6)
     var strides: Dictionary = {}
     for actor in VISITORS:
         var stride: float = ACTOR.gait_stride(actor)

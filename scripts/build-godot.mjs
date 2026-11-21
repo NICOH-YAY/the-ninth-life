@@ -35,7 +35,7 @@ for(const name of ["roaming","local","data","config","cache"])await mkdir(resolv
 if(windows){env.APPDATA=resolve(profile,"roaming");env.LOCALAPPDATA=resolve(profile,"local");}
 else{env.GODOT_SILENCE_ROOT_WARNING="1";env.XDG_DATA_HOME=resolve(profile,"data");env.XDG_CONFIG_HOME=resolve(profile,"config");env.XDG_CACHE_HOME=resolve(profile,"cache");}
 run(binary,["--headless","--path",resolve(repo,"godot"),"--editor","--import"],{env});
-for(const test of ["verify_court.gd","verify_game.gd","verify_planner.gd","verify_body_animation.gd","verify_reign.gd","verify_royal_magic.gd","verify_entrance.gd"])run(binary,["--headless","--path",resolve(repo,"godot"),"--script","res://content/"+test],{env});
+for(const test of ["verify_court.gd","verify_game.gd","verify_planner.gd","verify_body_animation.gd","verify_reign.gd","verify_classic_kit.gd","verify_entrance.gd"])run(binary,["--headless","--path",resolve(repo,"godot"),"--script","res://content/"+test],{env});
 run(binary,["--headless","--path",resolve(repo,"godot"),"--export-release","Web",resolve(repo,"build","web","index.html")],{env});
 if(existsSync(resolve(repo,"public","favicon.png")))await copyFile(resolve(repo,"public","favicon.png"),resolve(repo,"build","web","favicon.png"));
 const licensePath=resolve(tool,"GODOT-LICENSE.txt");

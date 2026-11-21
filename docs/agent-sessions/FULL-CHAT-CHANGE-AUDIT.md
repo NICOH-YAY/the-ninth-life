@@ -2,7 +2,7 @@ AI-use disclosure: Codex generated this technical audit from Git history, the cu
 
 # The Ninth Life: complete technical change audit
 
-Generated UTC: 2026-11-21T05:16:24.731Z. Repository: D:/Coding VS/the-ninth-life. Public deployment: https://nicoh-yay.github.io/the-ninth-life/.
+Generated UTC: 2026-11-21T16:45:36.286Z. Repository: D:/Coding VS/the-ninth-life. Public deployment: https://nicoh-yay.github.io/the-ninth-life/.
 
 This is a technical handoff, not a published chat transcript. Requests and decisions are paraphrased. Raw messages, private planning, system/developer instructions, credentials, private local context and unfiltered tool output are excluded. Exact executable/configuration changes are enumerated below. Public prose and binary resource changes are inventoried with object identity and size. The first thirteen commits predate the current Codex revision session and are explicitly inherited context.
 
@@ -418,6 +418,14 @@ A preliminary chase-and-hold-J benchmark still cleared all nine. Guarded enemies
 Seventeen authorized unlimited Higgsfield GPT Image2.6 requests produced sixteen selected sheets and one rejected quadrupedal alley interpretation. The corrected alley is bipedal. There are396 selected animated cells and eight derived icons, including144 royal body-magic poses, all nine individual gaits, coherent empty-hand ground/air travel and semantic magic effects. Exact prompts, jobs, sources, geometry, rejections and hashes are preserved under assets/reign-v11. Paw contact was visually reviewed against floorlines rather than accepting a dangling weapon as a foot. No rejected pixels are loaded in game.
 
 The frozen native export passes541 behavior assertions and2034 cropped-pixel assertions; these are separate counts, and reversed transition selections are not described as globally unique drawings. The archived140-test deterministic baseline and both TypeScript checks pass. Final sequential browser, ability, gait, ending and public deployment evidence is documented in the sovereign-magic/sovereign-qa handoff. Every changed executable/configuration line and all resource identities are enumerated below.
+
+## November21 targeted king-kit rollback
+
+The user rejected the v11 king kit as clunky and explicitly requested a revert. The rollback restores king behavior from96261d0, rather than reverting the whole previous revision. Visitor-specific gait art, synchronized stair/arrival staging, personal dialogue without stat bargains and the nine innate encounters remain.
+
+Classic MOVES/CROWN_MOVES and the complete start/active/recovery/contact implementations return: three sword combo stages, physical thrust, Kneel, Procession, Gloam Rake, Crownfall, Royal Undertow and Last Dominion. Classic sword-bearing king idle/walk/preparation/attack/air/transformation regions and the original skill icons replace live v11 body-magic art. Pressure, recorded echoes, phase-pass setup, held fields, reserve releases, defensive exposure and their HUD are removed. The obsolete active module/verifier are removed while the rejected iteration remains in Git and its provenance directory.
+
+Preserved enemy shield counters were adapted to allow the restored longer player recovery plus0.10seconds before their hit, so reverting the king cannot make a previously readable counter unavoidable. The active classic thrust crosses body spacing as its original lunge. No new art/music generation was required. Updated native and browser tests check real classic contact/projectile damage and castability without a Pressure gate, plus retained visitor gait and dialogue behavior. Final outcomes are recorded in docs/king-kit-revert-qa.md.
 
 
 ## Historical revisions: every changed code/configuration line
@@ -73660,69 +73668,69 @@ Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backsla
 
 Coverage: 64 added and 0 deleted source lines enumerated.
 
-## Virtual working-tree revision
+### 05d6c57 — feat: replace royal weapons with body magic and personal feline gaits
 
-Base HEAD: 96261d0f887fef800b3b91e44e8327e2ab74a6af. Captured UTC: 2026-11-21T05:17:21.586Z. These files are not claimed as already committed or deployed. Re-run the generator after the source freeze; a later commit can turn this snapshot into a named revision.
+Commit 05d6c57981b0b969e86fcc1c71f3975196547c6d; author Codex; recorded author date 2026-11-21T00:18:15-05:00. Current Codex revision history.
 
-Recorded intent: remove all oath/stat-bargain dialogue and restore personal branches; replace uniform locomotion with individually authored humanoid feline gaits and continuous entrance handoffs; completely replace the king weapon-first kit with finite Pressure, physical body combos, delayed world echoes, distinct ground/lift fields and exposed outward/inward releases. Add deliberate shield counters, body mass/spacing and multiple optional encounter approaches, fresh sprites/VFX/icons, regression evidence and complete code/resource audit.
+Recorded intent (Git subject): feat: replace royal weapons with body magic and personal feline gaits.
 
 #### File inventory: ATTRIBUTION.md
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| ATTRIBUTION.md | M | Public documentation/data; see recorded revision intent | 435b8eba60f38a86f2dbf8cd82714138eb282ddf (33897 bytes) | working-tree SHA256 ef2bb03399963a01e3822556207195a6ccc90295395d42f13e01be210f99a862 (40235 bytes) |
+| ATTRIBUTION.md | M | Public documentation/data; see recorded revision intent | 435b8eba60f38a86f2dbf8cd82714138eb282ddf (33897 bytes) | 2a0ab8447b72962e1451dbe4c3dddcb767c8b4ea (40235 bytes) |
 
 #### File inventory: CLAUDE.md
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| CLAUDE.md | M | Public documentation/data; see recorded revision intent | 836997e6e6432e946907bb718e3af1a139c5f994 (4632 bytes) | working-tree SHA256 c88f52081003bb38141948ea729fb90a5ea1ae978707f5c6588999c5971dcc70 (4969 bytes) |
+| CLAUDE.md | M | Public documentation/data; see recorded revision intent | 836997e6e6432e946907bb718e3af1a139c5f994 (4632 bytes) | 1685067c8aaa1d3a579df32960cf2c6a8d854300 (4969 bytes) |
 
 #### File inventory: GDD.md
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| GDD.md | M | Public documentation/data; see recorded revision intent | ab6c23593a692a2ce722d7e00cf8b3f86dbe6281 (21645 bytes) | working-tree SHA256 fba214ba3b8aaab0c806cb71fd1ab1eb1638faef657d0fcb67f548617966a4e2 (22468 bytes) |
+| GDD.md | M | Public documentation/data; see recorded revision intent | ab6c23593a692a2ce722d7e00cf8b3f86dbe6281 (21645 bytes) | fc4405dbb302b0d425455d8842c841aed2d2b3a9 (22468 bytes) |
 
 #### File inventory: README.md
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| README.md | M | Public documentation/data; see recorded revision intent | 5cb0020e74593fd56ed5a7fe1262a849dd3c03ea (5385 bytes) | working-tree SHA256 7824aa48df7d53202cdfa8db5490fe51f2de0b149478ec2c40ab1b81417e934d (5484 bytes) |
+| README.md | M | Public documentation/data; see recorded revision intent | 5cb0020e74593fd56ed5a7fe1262a849dd3c03ea (5385 bytes) | 979ea3747a8fb1e3e49ebadd93bcb328222c14d4 (5484 bytes) |
 
 #### File inventory: assets/reign-v11/ATTRIBUTION.md
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/ATTRIBUTION.md | A | Public documentation/data; see recorded revision intent | absent | working-tree SHA256 a807794775f12252776ee0a5186c27e7c9c61548360b847b55cf2c62acaa3b41 (6187 bytes) |
+| assets/reign-v11/ATTRIBUTION.md | A | Public documentation/data; see recorded revision intent | absent | 31ed1373b3f4c361f765b838875f60a05aa9592f (6187 bytes) |
 
 #### File inventory: assets/reign-v11/acrobat-study.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/acrobat-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 8547814cae187f84976e43d667aa89c29018ce65385dae1816dbcdbe84cfecc3 (645601 bytes) |
+| assets/reign-v11/acrobat-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | 29ca2e362d589b4e49d2f451eb4a7dbc7db37e1e (645601 bytes) |
 
 #### File inventory: assets/reign-v11/air-gifts-study.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/air-gifts-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 614e577f36e3aa0699252a5575659ece2c2f4c32af49c7251ea21437b417d4fe (861773 bytes) |
+| assets/reign-v11/air-gifts-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | 827dea67a5f6c8399e890d455ac3d64e2f67e665 (861773 bytes) |
 
 #### File inventory: assets/reign-v11/air-hand-study.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/air-hand-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 8c68f9ef85afc3c4e3e39988bb5aee06b2e1ab246a7da6cc95ea33e0b20d7c66 (822624 bytes) |
+| assets/reign-v11/air-hand-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | 6222ba52f059cbd7080cc034155fca3f80f49075 (822624 bytes) |
 
 #### File inventory: assets/reign-v11/air-travel-study.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/air-travel-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 a9ad0bfd6d3404b543c570e02ff414be7f9bf0efea4e9fc09c05d21de326946a (506866 bytes) |
+| assets/reign-v11/air-travel-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | 2b537b9c15400ddc30d2c1c05b3ae16de45d4f57 (506866 bytes) |
 
 #### Code/configuration: assets/reign-v11/alley-biped-accepted.json
 
-Change: A. Before absent; after working-tree SHA256 90b04cc9da9d80b1180ce728c057c73fc14953bd76f16f226333315bca4a4d7d.
+Change: A. Before absent; after a24ff15158b905c3b16550003665b55518c100b9.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -73741,29 +73749,29 @@ Coverage: 6 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/alley-biped-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 bb80c0d0a7e9151dafa619e0449acdc716dd836e79820802192a6d3fd2a2474c (628587 bytes) |
+| assets/reign-v11/alley-biped-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | 46ee7e2f32a70f67c3db316ee118cc29a98dc1f8 (628587 bytes) |
 
 #### File inventory: assets/reign-v11/alley-study.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/alley-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 3c67c4d831bc58054f91b8a5db400d0ce8ccc0aade43ed7f67d11e340a583828 (508422 bytes) |
+| assets/reign-v11/alley-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | 74aa16efa8d4f4dd1d6c30a830e10a3fb8aac5d5 (508422 bytes) |
 
 #### File inventory: assets/reign-v11/base-gifts-study.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/base-gifts-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 680741bb14c48f40e8d27af54d751eb8ab728ef810c030229f4730b74c6d6602 (918304 bytes) |
+| assets/reign-v11/base-gifts-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | bdb97ee25160b19ef70a6d7440d05c16056df962 (918304 bytes) |
 
 #### File inventory: assets/reign-v11/base-hand-study.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/base-hand-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 8bc3a8cf58cf83594707b7b89a4f68b267b016de61e4dce94210d480f2c15b0e (938486 bytes) |
+| assets/reign-v11/base-hand-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | 4fa1671c79fd7c410634ecec9909e405d335a11c (938486 bytes) |
 
 #### Code/configuration: assets/reign-v11/export-actors.mjs
 
-Change: A. Before absent; after working-tree SHA256 00f5676f2db0574fd64f52e8a59467563bcb544ec7dd596351f8b8a5664ebb4e.
+Change: A. Before absent; after 77bd4f0aaa68a9b337b814656a841a4999373b04.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -73808,7 +73816,7 @@ Coverage: 34 added and 0 deleted source lines enumerated.
 
 #### Code/configuration: assets/reign-v11/export-magic-fx.mjs
 
-Change: A. Before absent; after working-tree SHA256 dacd18f2e26e08b1ed95b31fe47425a430527e9a7e7c7133605594dabfa725c4.
+Change: A. Before absent; after 20d2daacbde9c7bccda4a33b3f8eb9ff3afc1fba.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -73840,11 +73848,11 @@ Coverage: 19 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/fx-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 9205c16750fc300a759dbaa92d4ed82d2aab64023e0964a72c9d82c8b56066f9 (1106539 bytes) |
+| assets/reign-v11/fx-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | 57edf3d311e0a943aba6f67ffc8a43f64eb80030 (1106539 bytes) |
 
 #### Code/configuration: assets/reign-v11/gait-acrobat-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 2ef2d6dff92c807bdc3110d1f0a2bca39055a248ad0e93d5678066026c81b682.
+Change: A. Before absent; after 0b9ce2a79f2da651c67880b5f389e5d93e980bbe.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -74236,11 +74244,11 @@ Coverage: 379 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/gait-acrobat-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 cbe76fadc92efde255ee10a1d67c8569f51f4706c2ea0cac98ec31b2da582cc7 (3601067 bytes) |
+| assets/reign-v11/gait-acrobat-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | 3651f0d7af525c1bd85bbdd7a2356b518c683af9 (3601067 bytes) |
 
 #### Code/configuration: assets/reign-v11/gait-alley-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 065b9dbd5ae5d2c9c6224cf8ec6ef80731b7d78848db61160d5ac08674f86eb4.
+Change: A. Before absent; after cfeb48cd5fd2358001bddb0a251572c8666d1dfd.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -74632,11 +74640,11 @@ Coverage: 379 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/gait-alley-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 60faa40f2b995df20692a10c76c22ddea0a1655b8e0201d39d4329a7a760be9f (3689184 bytes) |
+| assets/reign-v11/gait-alley-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | f1a323133eab0a2b4b71c6b56cf0e6c36d796946 (3689184 bytes) |
 
 #### Code/configuration: assets/reign-v11/gait-alley-rejected-quadruped-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 cd5afb2e139674d5f7261142443a71a16ec142940d8e48c64cc62bfbe16ddf33.
+Change: A. Before absent; after 27d1028a09ca4f353958f83cd11c2218dbd1450e.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -75030,29 +75038,29 @@ Coverage: 381 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/gait-alley-rejected-quadruped-native.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 a5f3e73159e97f7ec7d62fb38bcbab5e88c454fadf1267e70b4103e8b62c40f4 (20432 bytes) |
+| assets/reign-v11/gait-alley-rejected-quadruped-native.png | A | Binary/art/audio resource; see manifests and attribution | absent | 2359df6a36219d591b47a3d2744778a919fdd986 (20432 bytes) |
 
 #### File inventory: assets/reign-v11/gait-alley-rejected-quadruped-original.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/gait-alley-rejected-quadruped-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 1fa334bd110a0e46f19dd5edd58f58c494a20cb6b9a76dd4678bb1f0c4157e7b (3090320 bytes) |
+| assets/reign-v11/gait-alley-rejected-quadruped-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | f7b2a7b82395eb98bdfa59fee0d8cedee9714d7b (3090320 bytes) |
 
 #### File inventory: assets/reign-v11/gait-floor-contact-final.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/gait-floor-contact-final.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 58d2f2b4a9ead5f84d1f0625222e32616f503fdce91d626c9d0812db84a98544 (58274 bytes) |
+| assets/reign-v11/gait-floor-contact-final.png | A | Binary/art/audio resource; see manifests and attribution | absent | 730ff751301ca446d61e41cf1312907bfcb053b0 (58274 bytes) |
 
 #### File inventory: assets/reign-v11/gait-floor-contact.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/gait-floor-contact.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 58d2f2b4a9ead5f84d1f0625222e32616f503fdce91d626c9d0812db84a98544 (58274 bytes) |
+| assets/reign-v11/gait-floor-contact.png | A | Binary/art/audio resource; see manifests and attribution | absent | 730ff751301ca446d61e41cf1312907bfcb053b0 (58274 bytes) |
 
 #### Code/configuration: assets/reign-v11/gait-king-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 1365ee0266cc20a1e155f939730f998653511011318e42687fe23d9cab24398e.
+Change: A. Before absent; after f714eccbe551ff28d27f56f370f9babf14506ab2.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -75674,11 +75682,11 @@ Coverage: 609 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/gait-king-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 1a64c9414b0d43d3094fd72c52b6ee42c8c37a3f101974d1094501a9545a77e1 (4959428 bytes) |
+| assets/reign-v11/gait-king-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | 4da589ac2856395dd60ac0ada3295bbff968f490 (4959428 bytes) |
 
 #### Code/configuration: assets/reign-v11/gait-kitten-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 89cfc187a5b286b6ba5f28e4501ef7333adaa0df9f506357bdfe2601d1ac0c0e.
+Change: A. Before absent; after 759f4bd12e2fadf538a48ec1e506022f001b43a5.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -76070,11 +76078,11 @@ Coverage: 379 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/gait-kitten-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 20bcf426661c02a749bb5528dad040d70189944bd8a1246abeb689e9238b3fe6 (3245907 bytes) |
+| assets/reign-v11/gait-kitten-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | ba89ecac182274fa87a57d4e309192812544cc73 (3245907 bytes) |
 
 #### Code/configuration: assets/reign-v11/gait-knight-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 21ed518d1392f8b604ef18b0e180f91bf7e21b8a4ef5f6c20ceb240f32c29076.
+Change: A. Before absent; after b5f890953a7b19acb90e2fc4479ea81e5ea1799c.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -76466,11 +76474,11 @@ Coverage: 379 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/gait-knight-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 c9a0bc28f43ffe0163ffaf3d5a1e78b368bbf07ecbeddfdbdeda0a7cc703665c (3552879 bytes) |
+| assets/reign-v11/gait-knight-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | ae5273026dacf2773b2f5c674be709a3cde45775 (3552879 bytes) |
 
 #### Code/configuration: assets/reign-v11/gait-patchwork-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 fcb13050ece9c65f14ec821e0046bbddd9d725454a32ecc11c4065a238f98d81.
+Change: A. Before absent; after 98da0c09c6a7781be2f8d859c40309c687d3f061.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -76862,11 +76870,11 @@ Coverage: 379 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/gait-patchwork-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 8b533217bb8972785e88b0b188de938fb1054a864d2d6c092e9acf0cfc0962c7 (3621274 bytes) |
+| assets/reign-v11/gait-patchwork-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | e0c0081c430844046c72b70ae1d0038686c9432d (3621274 bytes) |
 
 #### Code/configuration: assets/reign-v11/gait-quiet-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 e58a619561a763f760b0fa094cfe70069bd67b6a3f54c1c1e865fc0b3d482c1d.
+Change: A. Before absent; after ce957c5770c8a32ab6d430f9bc061dc139e1d3a0.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -77258,11 +77266,11 @@ Coverage: 379 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/gait-quiet-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 f10f61a16aa6f5c76e996c514a53b9de4edf14174f91a54a1a91a543986edc25 (3276895 bytes) |
+| assets/reign-v11/gait-quiet-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | acd7d82fe42b932f4f578fa4992de6bdd5ad35f9 (3276895 bytes) |
 
 #### Code/configuration: assets/reign-v11/gait-sailor-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 04a400501100a0fa46a1b2f419a8c3797d7afac9624f0b80eaebdadda1b93862.
+Change: A. Before absent; after 4a57a5454aee01cb6e6bac7ba97bdb4d0adf25f0.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -77654,11 +77662,11 @@ Coverage: 379 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/gait-sailor-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 6d8b7be795f57ac951e75db287054bc307f5e212db7bf234ab4bea578d87774a (3306751 bytes) |
+| assets/reign-v11/gait-sailor-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | a2b9620f84bc6e11747d2e76ea0478afb3ee45ac (3306751 bytes) |
 
 #### Code/configuration: assets/reign-v11/gait-thief-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 4ce1aaad7ee76f3ca3eb78233cab65efefa6260ee602c2c5541f2a41a79f714c.
+Change: A. Before absent; after c914ff06eda0415c7e25dfe3e26cd3c809e4be85.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -78050,11 +78058,11 @@ Coverage: 379 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/gait-thief-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 6095940db5c795f85d3cf7f2e5639beb57a858b683bd2ddff515f2d1144f3d64 (3413926 bytes) |
+| assets/reign-v11/gait-thief-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | 9c689857882c5b2f672b0392ca2519a265c897d0 (3413926 bytes) |
 
 #### Code/configuration: assets/reign-v11/gait-witch-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 58a739edf55db15882403b38d81a3dd5405bac94c540a029f823975a1b4ea377.
+Change: A. Before absent; after c2f05993c4e32ac5ed914ebe0a7b1f235f289610.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -78446,29 +78454,29 @@ Coverage: 379 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/gait-witch-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 4e8592fe69d9f78d596118c3fb1d1fd5c10a6228d0119e779a9518f266760b4e (3511741 bytes) |
+| assets/reign-v11/gait-witch-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | 4c3acf5f69d18de95eee59e4e68829a41925d93c (3511741 bytes) |
 
 #### File inventory: assets/reign-v11/king-travel-study.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/king-travel-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 cacfd42f27ec242748374a8a1cbaeb3dbebd671985195797a04c47f11d8829b3 (582780 bytes) |
+| assets/reign-v11/king-travel-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | d403f1886419ff2ff6f0114b7180209d74e3c287 (582780 bytes) |
 
 #### File inventory: assets/reign-v11/kitten-study.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/kitten-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 5f43c44b2221e7f66ef41c283da66140a6f5b2a8c51c5a099bfab526a4e526bd (548102 bytes) |
+| assets/reign-v11/kitten-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | aa7376433a1c4d930e9a4523d6be117f9957c388 (548102 bytes) |
 
 #### File inventory: assets/reign-v11/knight-study.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/knight-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 1c262fc8ffec9dae78f35aff5caf45311d0fcf9be23bb8f3af4f2c2a4505d815 (476978 bytes) |
+| assets/reign-v11/knight-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | 069ceb93a3be6b35c89447aaa1cd9dd6c70618e9 (476978 bytes) |
 
 #### Code/configuration: assets/reign-v11/magic-air-gifts-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 135a54a5e747392bd1c5c27c6b0e73c82297b33f8dec57cdd9300ed808710f6f.
+Change: A. Before absent; after f69a3199c571928037d07006be99a055055b5588.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -79205,17 +79213,17 @@ Coverage: 724 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/magic-air-gifts-native-contact.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 dce4276a4d055a89c06197afb382f22c0a13e393fcc54629a9fb03996935bb56 (73915 bytes) |
+| assets/reign-v11/magic-air-gifts-native-contact.png | A | Binary/art/audio resource; see manifests and attribution | absent | 17fb545b6c0d9299748a8018a8f7251206b46690 (73915 bytes) |
 
 #### File inventory: assets/reign-v11/magic-air-gifts-original.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/magic-air-gifts-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 ef81e9ba318f56cd585088a444b6c909be622bbbd24c82bb329b50c09ce50de0 (5634543 bytes) |
+| assets/reign-v11/magic-air-gifts-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | 0052a318b74f72dcdc8ad1fe078a2a223c6f6ef5 (5634543 bytes) |
 
 #### Code/configuration: assets/reign-v11/magic-air-hand-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 46ac56cdb2bada2b514ca13f61dab3731b95b82e54d4a4c2d2e05df3531cc472.
+Change: A. Before absent; after e9dc9e0f4932cccaee6b0d7e299043114e56d91b.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -79952,17 +79960,17 @@ Coverage: 724 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/magic-air-hand-native-contact.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 db6d32cf3cf302f7d3cb1dd635c8405bdfe6597dfd1d40bd4b78ac3dacf4fba6 (79377 bytes) |
+| assets/reign-v11/magic-air-hand-native-contact.png | A | Binary/art/audio resource; see manifests and attribution | absent | 4b38acf9268f2bb7660b306fe5c4e771fc0cf663 (79377 bytes) |
 
 #### File inventory: assets/reign-v11/magic-air-hand-original.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/magic-air-hand-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 95cd5edb19b16a147f04c2408334d2613f43fe52330d420f11aef78957fd609b (5510912 bytes) |
+| assets/reign-v11/magic-air-hand-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | d52d7187f59146de3d23bb5867f9103a15d63d96 (5510912 bytes) |
 
 #### Code/configuration: assets/reign-v11/magic-air-travel-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 1357d41f04cdc9ebb7771f4740e2f9abf705560c7d8db6da8b470f4da77940aa.
+Change: A. Before absent; after fd24543be99129179a2ebfe0b17ceccfece30a70.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -80469,11 +80477,11 @@ Coverage: 494 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/magic-air-travel-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 91925f680e4529aecfdb5fb2b4dfdac4b90b4f8ba3a973b195731b06fd76ad8c (3542714 bytes) |
+| assets/reign-v11/magic-air-travel-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | fa951520562d0e682f030d4618ab7a506efd59ab (3542714 bytes) |
 
 #### Code/configuration: assets/reign-v11/magic-base-gifts-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 a996b5a7aee0970bd2ccdf8f84a45f4883153b594d4fa35d99416826b21f2493.
+Change: A. Before absent; after 25a4de75cb11c4e8a9dc5bbc75bce8177181e0d2.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -81210,17 +81218,17 @@ Coverage: 724 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/magic-base-gifts-native-contact.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 2b5e5d40e799c87c250f4ef6b90b3b0a4066bfd5719466f64c3c708859b3ca70 (64184 bytes) |
+| assets/reign-v11/magic-base-gifts-native-contact.png | A | Binary/art/audio resource; see manifests and attribution | absent | c78ec112aaffed7174686061f8ea5fd5c76d7d48 (64184 bytes) |
 
 #### File inventory: assets/reign-v11/magic-base-gifts-original.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/magic-base-gifts-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 5040edaccc7c753f717b5c94af82aa10834dd89cb27a9b2ebaed1a373ca25a0d (5666072 bytes) |
+| assets/reign-v11/magic-base-gifts-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | 56d2f2a2bc29ffea0108cf1368b24922c5380484 (5666072 bytes) |
 
 #### Code/configuration: assets/reign-v11/magic-base-hand-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 30d6205da8fc9bab6d53730903d85565214cdbb3e087db5d7afddd0ff8459752.
+Change: A. Before absent; after b934cb50f20c00ee2ebeaba005fb07e55f4762b8.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -81957,17 +81965,17 @@ Coverage: 724 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/magic-base-hand-native-contact.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 26b5bc7c02a44a096f2b5c93c24dbb98792e31c5ff6d6beb156787f3e8df5b56 (66592 bytes) |
+| assets/reign-v11/magic-base-hand-native-contact.png | A | Binary/art/audio resource; see manifests and attribution | absent | 555271341b438b27fcd1d88e065904e2c2fd8042 (66592 bytes) |
 
 #### File inventory: assets/reign-v11/magic-base-hand-original.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/magic-base-hand-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 4b232077fc181f966e8569f6a44b1fd3451485f95990417124048f4f78a4b730 (5522159 bytes) |
+| assets/reign-v11/magic-base-hand-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | 5f7a0f4ff542eb7213e4caad602c7fb9cb7f20d9 (5522159 bytes) |
 
 #### Code/configuration: assets/reign-v11/manifest.json
 
-Change: A. Before absent; after working-tree SHA256 c1d91d76e8ab514922cde8cc06fe91fed15ba6c4403d7bd6740efa570df8920c.
+Change: A. Before absent; after fe3399c694449bb13e83aa9adbc72cf45d1bd75b.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -82843,11 +82851,11 @@ Coverage: 863 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/patchwork-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 8f2420e0345babb525bf8184a6468546d10d64fd2df7edcd79d27d1e8f65bfe8 (560405 bytes) |
+| assets/reign-v11/patchwork-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | be4c3f8a16d16f56f82a38fd4ef765eb820b8ed1 (560405 bytes) |
 
 #### Code/configuration: assets/reign-v11/pixel-verification.json
 
-Change: A. Before absent; after working-tree SHA256 09216540c607344bcb96dca15ffb29a9b0c7a4b09814383925e557c852b7367d.
+Change: A. Before absent; after 5fa9af94aff268eaa2763d2d5892bb2c739ea45c.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -83273,7 +83281,7 @@ Coverage: 415 added and 0 deleted source lines enumerated.
 
 #### Code/configuration: assets/reign-v11/preview-gaits.mjs
 
-Change: A. Before absent; after working-tree SHA256 43484c3c5cc7b5119ff351708087e5b7c111357d3b78a257234a3f40e7aa9d7a.
+Change: A. Before absent; after 7d9e78bc8a07c6d3b9a0111ac149cac8f29bbfad.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -83291,7 +83299,7 @@ Coverage: 7 added and 0 deleted source lines enumerated.
 
 #### Code/configuration: assets/reign-v11/preview-royals.mjs
 
-Change: A. Before absent; after working-tree SHA256 49f0b17d67c0eaad2278751e9aa35bbc7ac5922b9091c94031602d1335e66d6f.
+Change: A. Before absent; after 18fab8f9c7566c3abbf3e274fffc0911a0187c37.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -83311,11 +83319,11 @@ Coverage: 7 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/quiet-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 01028cfbe69f63d009277ef5f58570ef6867e85476ff36a1972d91f9a851885b (454852 bytes) |
+| assets/reign-v11/quiet-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | 2eee91a7e55a2ab0ee258822158423f776ac585c (454852 bytes) |
 
 #### Code/configuration: assets/reign-v11/record-hashes.mjs
 
-Change: A. Before absent; after working-tree SHA256 8696b4fa73e459b114405f6b4f4434e89238432ac42c7b03e2d58ade01681c7f.
+Change: A. Before absent; after c78da0ed992fb4d449f3eb156484bfa7e370cca6.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -83333,7 +83341,7 @@ Coverage: 7 added and 0 deleted source lines enumerated.
 
 #### Code/configuration: assets/reign-v11/royal-magic-fx-geometry.json
 
-Change: A. Before absent; after working-tree SHA256 1519d99f5b05c0a72bd3ec771e440f37d99a15b0e0b4a857c12726a349ce07e5.
+Change: A. Before absent; after 3aec804ce0a106e8ea183d5e98ae13b4e8eff459.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -83809,23 +83817,23 @@ Coverage: 463 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/royal-magic-fx-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 cac4d1a5221f95e59d1b0c3c8235f5381247f4e085e567ce756dc9babf27b19c (6209983 bytes) |
+| assets/reign-v11/royal-magic-fx-original.png | A | Binary/art/audio resource; see manifests and attribution | absent | 72c1f391e041337e97e4bd7159851716b6bbcb3d (6209983 bytes) |
 
 #### File inventory: assets/reign-v11/sailor-study.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/sailor-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 f8d32c2c81b26c73fc8362d5163722a9f9ed733b630696d7553e563f998bff4e (602734 bytes) |
+| assets/reign-v11/sailor-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | 4970e64cff51179be315c1310d846882bc2db180 (602734 bytes) |
 
 #### File inventory: assets/reign-v11/thief-study.png
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/thief-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 c0714462e7c8ca3e5af6dad5cddf9ba484896160ad2248f3d72c65a6669def84 (536609 bytes) |
+| assets/reign-v11/thief-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | cecfdc71a80f7fb4f5a9cf29b51ba78aea9dc6e3 (536609 bytes) |
 
 #### Code/configuration: assets/reign-v11/verify-art.mjs
 
-Change: A. Before absent; after working-tree SHA256 adf59bff8b7d1bd437bd255ec240c6c24053f99fc2d9485c807836b2fd7c9f0f.
+Change: A. Before absent; after 5a3deef10a4abf6ca3fa01a6b0a00a4b7a5f7e2d.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -83851,23 +83859,23 @@ Coverage: 13 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| assets/reign-v11/witch-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 50e70eef55142e5256175576f7a71bc73a111c041b09fb829deb8459ffb57363 (465762 bytes) |
+| assets/reign-v11/witch-study.png | A | Binary/art/audio resource; see manifests and attribution | absent | 81c2b26d7b74a5703ff10a3e44601da6abf83220 (465762 bytes) |
 
 #### File inventory: docs/sovereign-magic.md
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| docs/sovereign-magic.md | A | Public documentation/data; see recorded revision intent | absent | working-tree SHA256 8f391f52cc60e07fe553f0ac2552559ba2d71b0d3afc9f6f88a54663c3704747 (10022 bytes) |
+| docs/sovereign-magic.md | A | Public documentation/data; see recorded revision intent | absent | 4c1266e4cf2e7c9865fcc27c73f50d13ef560eea (10022 bytes) |
 
 #### File inventory: docs/sovereign-qa.md
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| docs/sovereign-qa.md | A | Public documentation/data; see recorded revision intent | absent | working-tree SHA256 ddc46fc8b867f31ca8f864de4f7e9de5403f257bac85dcf67cf2c75f70f4a393 (6133 bytes) |
+| docs/sovereign-qa.md | A | Public documentation/data; see recorded revision intent | absent | 05a3402427b28b8fa37869f6024b99ee3709e130 (6133 bytes) |
 
 #### Code/configuration: godot/actor_view.gd
 
-Change: M. Before 52b1334312ae8cfa550f5721aed293f3afba1478; after working-tree SHA256 0f7fcf1a2b49baae00c8291729739b944889732cfdd4f0efddb23f1200ef5f93.
+Change: M. Before 52b1334312ae8cfa550f5721aed293f3afba1478; after 0577bd56060e88f01429f88437ff387011eca53e.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -83970,11 +83978,11 @@ Coverage: 89 added and 1 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/gait-acrobat-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 10ec5b7fc36ad051edb21d05526d3691607f913964f8f825b665ba93005d3b1f (16718 bytes) |
+| godot/art/gait-acrobat-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | b85e15f92712ee19ab153db06c1ce9de41bcd168 (16718 bytes) |
 
 #### Code/configuration: godot/art/gait-acrobat-v11.png.import
 
-Change: A. Before absent; after working-tree SHA256 e322a8cde353ae984e41ee3ec3dd46b153481d9103609e6c23ab3e90474d9ea3.
+Change: A. Before absent; after 088f12b000b34d6c7899f3db7ee16d7837ec88de.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -84027,11 +84035,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/gait-alley-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 dd5df2b78ad1164660cf9dee295553e39d932089086d37ad3ed7a511ad62e77f (18198 bytes) |
+| godot/art/gait-alley-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | a2dc0a2ab674f8194c500e241b44c5cf1fdc1dd2 (18198 bytes) |
 
 #### Code/configuration: godot/art/gait-alley-v11.png.import
 
-Change: A. Before absent; after working-tree SHA256 2b987472f730467481e2d3eaf6bb087be80a0767314579721c80c2b90b471f21.
+Change: A. Before absent; after 47602979d980df1ee5d1a09ab1134b48ece325ca.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -84084,11 +84092,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/gait-king-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 a5dfc96e4a876b9949364d6d38f3605b1f9bd1d74d1b6c6e54005a92aa0a45a5 (51045 bytes) |
+| godot/art/gait-king-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | 76de10eaafe0e39f9a91eac607bc41699a91b986 (51045 bytes) |
 
 #### Code/configuration: godot/art/gait-king-v11.png.import
 
-Change: A. Before absent; after working-tree SHA256 fc2fe72db6fd9da5b2a71789e62d38dcdc1641180f7c36149e5c49c1be4a5340.
+Change: A. Before absent; after e0783af0a61b869a91e7e838d13a2be7909ad833.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -84141,11 +84149,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/gait-kitten-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 8b028ed5ba79d1c40b62af28448e299758d4d1cc7382bdd9d458aa6921a743a2 (20557 bytes) |
+| godot/art/gait-kitten-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | 66fddd1b9e246933834b6af975d56e11dd217b00 (20557 bytes) |
 
 #### Code/configuration: godot/art/gait-kitten-v11.png.import
 
-Change: A. Before absent; after working-tree SHA256 861f72798141bc91c983128e843e2c78116fed2f6a487ac0896f1bc3a8116d87.
+Change: A. Before absent; after f1bc4ab10e43e21e688c37add51d2ed9d9a8b250.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -84198,11 +84206,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/gait-knight-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 3bb05a0eba083b0c2f87314e7973f5cbb18115408ab20720e3d1aaafc43c4342 (24931 bytes) |
+| godot/art/gait-knight-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | b6f962dd01058ef5b6bb92b59a7871b21311ec6f (24931 bytes) |
 
 #### Code/configuration: godot/art/gait-knight-v11.png.import
 
-Change: A. Before absent; after working-tree SHA256 0044fdd4b5de70033888c8fea899069fc9bc3865dd32833e70943666f1a97271.
+Change: A. Before absent; after caf05b61bdae74fd3827385a1094e3a4507009dd.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -84255,11 +84263,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/gait-patchwork-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 98ee66ce0443285c4820e3a1ca8a7f3fbf7b2be0f0fe1e9d37d75e56e5f72fb9 (23615 bytes) |
+| godot/art/gait-patchwork-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | 0867d7d37180a53a638f6165ed7d6a9a9d0c0c62 (23615 bytes) |
 
 #### Code/configuration: godot/art/gait-patchwork-v11.png.import
 
-Change: A. Before absent; after working-tree SHA256 5ea90ef8c1d6ae32ce2f8dc050fed02465815aec9886c038fb7ccf9c5965d9fd.
+Change: A. Before absent; after cd7aa5a47cc490477dd2dd2920578a164c8b71ce.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -84312,11 +84320,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/gait-quiet-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 2fba735b6a571dca3bf99f9825fbb6fb77186ef0bfd6f91661d97784e7d2f495 (22840 bytes) |
+| godot/art/gait-quiet-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | 88d5cd6a0b122b959d61eb59872b94f7f49193b7 (22840 bytes) |
 
 #### Code/configuration: godot/art/gait-quiet-v11.png.import
 
-Change: A. Before absent; after working-tree SHA256 1954205a27722ef8ca02395c0680880adfa8c4d14bb30623246e5b18560018c8.
+Change: A. Before absent; after b1687bf9bd38d02acaab4060ee71d10454204a1b.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -84369,11 +84377,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/gait-sailor-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 c1f2cd34fd15f8fd8ff792d6bd2f82d154d5e129e36a4ac9ff79dd796a6bd30a (21235 bytes) |
+| godot/art/gait-sailor-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | a9e4aaea085e1db88a2cde2ece1c13e0e7bc9ede (21235 bytes) |
 
 #### Code/configuration: godot/art/gait-sailor-v11.png.import
 
-Change: A. Before absent; after working-tree SHA256 7775576e1d49dbeac153a315e52dfa20b9cbcc9c154ab7942e51b7056aa81562.
+Change: A. Before absent; after e5db1fe08e6655e2ce73e47063b2dddf9134a535.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -84426,11 +84434,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/gait-thief-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 506285b71becd4bc85152d3715cd47cf8a30b4e4ef3ad93e3bf91ceeecf28673 (18629 bytes) |
+| godot/art/gait-thief-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | f860ac58e5c7874f0cad309a5d889c977d79de74 (18629 bytes) |
 
 #### Code/configuration: godot/art/gait-thief-v11.png.import
 
-Change: A. Before absent; after working-tree SHA256 f82b7e1e8e6ab1dd0e7132db6e26a7203784d800cf75a1b2d7013e8cee8523c6.
+Change: A. Before absent; after b39f09253d9f18eb7849761ccae00fbee40ce310.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -84483,11 +84491,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/gait-witch-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 51433351d4a52d7676281e39822a5cd9cb311290536dd5d461e3414d1b37ddc8 (19549 bytes) |
+| godot/art/gait-witch-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | 0b0ce747eaa95411ba54f1aa6690aa725cef620d (19549 bytes) |
 
 #### Code/configuration: godot/art/gait-witch-v11.png.import
 
-Change: A. Before absent; after working-tree SHA256 9fc65bb2269e31cdf645448c41426d66ed7dd655b27a6a500115cd157d067d02.
+Change: A. Before absent; after 511b906dfad241f609c3cdff2844406c43ef0dd5.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -84540,11 +84548,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/magic-air-gifts-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 3d71065c3b2effff06a8cd5cec00b200ed97d7939e3b20c3d5d0d6b795f07fb6 (71191 bytes) |
+| godot/art/magic-air-gifts-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | d15a8dcf976bcd3326df0bbf6df379763cca6f5d (71191 bytes) |
 
 #### Code/configuration: godot/art/magic-air-gifts-v11.png.import
 
-Change: A. Before absent; after working-tree SHA256 5817970ffc5dd20d1fdf8f83e8eacf96a545dfc3f8ad5cf4c0681cf5c49b6e47.
+Change: A. Before absent; after 53cbedef09ab2f2a7e85f090974e66ffe9a00476.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -84597,11 +84605,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/magic-air-hand-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 c487394735d3d1c47c7a7cdf4c53d064f20833f6c31ed0f3479c8667a120c469 (76589 bytes) |
+| godot/art/magic-air-hand-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | 67c3d191fcf844379fc6cff4f707525da7b304ed (76589 bytes) |
 
 #### Code/configuration: godot/art/magic-air-hand-v11.png.import
 
-Change: A. Before absent; after working-tree SHA256 39eb84c04dfcd61b4e0068704f064ce107e3aaefee03dc560b07ce092c089837.
+Change: A. Before absent; after 1e3eb1290aca2b84266c413170de654056ccf012.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -84654,11 +84662,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/magic-air-travel-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 fdd5aac316cb3e047769d57c6f63aff947cb681ae3a649c4f9528cdc4ef3fe42 (43609 bytes) |
+| godot/art/magic-air-travel-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | 355f0470d7d1c23afdb14408531fefce8830cf38 (43609 bytes) |
 
 #### Code/configuration: godot/art/magic-air-travel-v11.png.import
 
-Change: A. Before absent; after working-tree SHA256 039b9c14ccf26d66973efd699de5dea4ee26acb87d82d2e0b829527b712f43fe.
+Change: A. Before absent; after 43d779853d7c0a64683237bb56f4c75dd86e6967.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -84711,11 +84719,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/magic-base-gifts-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 12f6820a57af94fd78da670e71dfbf9c66718a14e9bcb8355c43163993628386 (60799 bytes) |
+| godot/art/magic-base-gifts-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | 4a148ff4c8f7631d5e4b9035888aefe31aaa415b (60799 bytes) |
 
 #### Code/configuration: godot/art/magic-base-gifts-v11.png.import
 
-Change: A. Before absent; after working-tree SHA256 5e2a65d94f8970124a1b51c5f13ca54830301290450a266ad52fba74270a8dad.
+Change: A. Before absent; after 06b42a40237e53956a83f3fcb0782213d1029b5a.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -84768,11 +84776,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/magic-base-hand-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 6749bedbd6c411960003a01d3eff47d7e4a45753e116bd837893f1ac8b7de5bf (63260 bytes) |
+| godot/art/magic-base-hand-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | 1c41440bda306b3c8c432e4d4eba4df4bdf20924 (63260 bytes) |
 
 #### Code/configuration: godot/art/magic-base-hand-v11.png.import
 
-Change: A. Before absent; after working-tree SHA256 2586e99093d3ef07b6228502ac14f6669f36938dce1b59120a18d1403bf6b7bb.
+Change: A. Before absent; after 907dd469b329eb264a18eaff880c5a203287fe95.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -84825,11 +84833,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/magic-icons-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 48f0e098fe8c3c45193c6de4c2296edbf11e4e714aa601865f150e64021f6a15 (3589 bytes) |
+| godot/art/magic-icons-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | 2598b0a8891991197325e14e1c9680e3aaf1dfa7 (3589 bytes) |
 
 #### Code/configuration: godot/art/magic-icons-v11.png.import
 
-Change: A. Before absent; after working-tree SHA256 95ff149dd6ae158ccc67e15248db07148fc7b323963de888c9c0595b5b38bc1e.
+Change: A. Before absent; after 7b443a6947c9cef1a1b8ac8a267a354f2d166f8e.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -84882,11 +84890,11 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 | File | Change | Purpose | Before blob / bytes | After blob / bytes |
 |---|---|---|---|---|
-| godot/art/royal-magic-fx-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | working-tree SHA256 9250cec40bdf9a46b51c1a9c59263eb3bd90f11786d04084715f889626ad2c2d (36898 bytes) |
+| godot/art/royal-magic-fx-v11.png | A | Binary/art/audio resource; see manifests and attribution | absent | 8927941d268f92bffb3222078864a045e1e62ee2 (36898 bytes) |
 
 #### Code/configuration: godot/art/royal-magic-fx-v11.png.import
 
-Change: A. Before absent; after working-tree SHA256 555ec552c1771437198387fd888a0f1b361627c599cedff92c6b8a825899324f.
+Change: A. Before absent; after af69e8efee1bec6f02e19b142613b0e03f9185ad.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -84937,7 +84945,7 @@ Coverage: 40 added and 0 deleted source lines enumerated.
 
 #### Code/configuration: godot/combat_rules.gd
 
-Change: M. Before fa0d321e5d272adb830ca7954f9c0a1991af7c4f; after working-tree SHA256 2ad149b3c762c433a5bc53c9f4adc3dd2b699e62d2639a4e16d9fc18b69adf4b.
+Change: M. Before fa0d321e5d272adb830ca7954f9c0a1991af7c4f; after 5d1b473b8eac96993d0dc5357cc8260041020406.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -84964,7 +84972,7 @@ Coverage: 8 added and 8 deleted source lines enumerated.
 
 #### Code/configuration: godot/content/verify_body_animation.gd
 
-Change: M. Before 7e4366c90825cd919df0e9aa8b3a5146cade420b; after working-tree SHA256 048a780114cb7bdba9622fcb137a71bcbcea3d28be8faec374819b7af283f46e.
+Change: M. Before 7e4366c90825cd919df0e9aa8b3a5146cade420b; after 2c793e2fdc2c940167b714782a8b3c0bc5c1ccf8.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -85015,7 +85023,7 @@ Coverage: 35 added and 5 deleted source lines enumerated.
 
 #### Code/configuration: godot/content/verify_court.gd
 
-Change: M. Before dc1141c608ecb8108f02d9dd0bc2c414ab01e4ea; after working-tree SHA256 02f572674a5235d530d736356decf2261ae9db9d4805dc8a7c6a135c41dd032d.
+Change: M. Before dc1141c608ecb8108f02d9dd0bc2c414ab01e4ea; after c6673657a87581612bd0eaed0117b6b857e6f4c7.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -85042,7 +85050,7 @@ Coverage: 10 added and 6 deleted source lines enumerated.
 
 #### Code/configuration: godot/content/verify_entrance.gd
 
-Change: A. Before absent; after working-tree SHA256 ca582353254118bdf6745f79f734baf25d50838c1dfc8644ece44f2618e3decf.
+Change: A. Before absent; after 77280155ee587c99b2397ed47f87029cb11950f1.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -85096,7 +85104,7 @@ Coverage: 43 added and 0 deleted source lines enumerated.
 
 #### Code/configuration: godot/content/verify_entrance.gd.uid
 
-Change: A. Before absent; after working-tree SHA256 caa88d231c7357db7f5cd4bdb407d081ad978bb8cc3545300a58176b211c1171.
+Change: A. Before absent; after 7c6c606148158ef3f3a4560eb386747c2ace2c3e.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -85108,7 +85116,7 @@ Coverage: 1 added and 0 deleted source lines enumerated.
 
 #### Code/configuration: godot/content/verify_game.gd
 
-Change: M. Before fad183fd228fdc96de25a1f1bc136501ef06f984; after working-tree SHA256 602b469a8cfcfb528e88d34f4aa809eabe9ebfe05ba3e254ff77f38a4c1652e4.
+Change: M. Before fad183fd228fdc96de25a1f1bc136501ef06f984; after 9c678bf52f22deb153da3b4bec1cc4bf8581f6ef.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -85129,7 +85137,7 @@ Coverage: 4 added and 6 deleted source lines enumerated.
 
 #### Code/configuration: godot/content/verify_reign.gd
 
-Change: M. Before d4bd4aac3dac45d393b37b7a85bbc0bdac532fa6; after working-tree SHA256 a8c45c605cfc440f421000b61262f49b449015a945a635506a3f63986ca5ef3e.
+Change: M. Before d4bd4aac3dac45d393b37b7a85bbc0bdac532fa6; after 1d757cca32de1561a0d894e0068973b3f5233240.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -85144,7 +85152,7 @@ Coverage: 0 added and 4 deleted source lines enumerated.
 
 #### Code/configuration: godot/content/verify_royal_magic.gd
 
-Change: A. Before absent; after working-tree SHA256 9a0bad6369531bb43be8d997c8899bca905d02b7cf4309c1301722829672344a.
+Change: A. Before absent; after c4606a5f72ddcfcb4d1718a79c0bafdf38bb21e3.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -85340,7 +85348,7 @@ Coverage: 185 added and 0 deleted source lines enumerated.
 
 #### Code/configuration: godot/content/verify_royal_magic.gd.uid
 
-Change: A. Before absent; after working-tree SHA256 9b9361f45286d3b6d2f7103b212c574406b2defd48afffd59640671f75aaca11.
+Change: A. Before absent; after a99ec77f2bfa5c474bc47bd0d11893431404b3af.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -85352,7 +85360,7 @@ Coverage: 1 added and 0 deleted source lines enumerated.
 
 #### Code/configuration: godot/content/visitors.json
 
-Change: M. Before 09cbe50e2c1b216f0bef53a312ec1ede6ff71cbd; after working-tree SHA256 8d34ce48f768650ec12a588016394bc6e56bb116d6d935013fac4933f372cdf6.
+Change: M. Before 09cbe50e2c1b216f0bef53a312ec1ede6ff71cbd; after bb3c202ea1626f9d9aa9453bf0a49c4b25756c34.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -85448,7 +85456,7 @@ Coverage: 38 added and 47 deleted source lines enumerated.
 
 #### Code/configuration: godot/court_ui.gd
 
-Change: M. Before ffb4c88f51582e4e2b3655b8da85c1de3764fdd5; after working-tree SHA256 912ecd3371aae0a524b944489751c0c8172385cf9bf742a83e045eb3a1f617de.
+Change: M. Before ffb4c88f51582e4e2b3655b8da85c1de3764fdd5; after f8d22a5d6a56f887f91ad3e99a8c2fece1e7e69f.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -85530,7 +85538,7 @@ Coverage: 40 added and 31 deleted source lines enumerated.
 
 #### Code/configuration: godot/entrance_director.gd
 
-Change: M. Before 3f4075547bbb49f43543e4b84bfcdec0f6872a3c; after working-tree SHA256 53d5b332dc4418b77c4a76c6718f25d828d1d3a7f5f06d44112ebacbeee26696.
+Change: M. Before 3f4075547bbb49f43543e4b84bfcdec0f6872a3c; after 69c92b271c2d4844c48413b2a82310a426ddc80a.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -85754,7 +85762,7 @@ Coverage: 138 added and 75 deleted source lines enumerated.
 
 #### Code/configuration: godot/game.gd
 
-Change: M. Before 3913e3b436db86f82b678e28268cdeb0575a4de3; after working-tree SHA256 d129c6877d630d08f87051f951b0718d5ebd9209f466545805dc70f15ec1d271.
+Change: M. Before 3913e3b436db86f82b678e28268cdeb0575a4de3; after 8a422a66c84716547315f8af061c6cb50d9f7697.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -86045,7 +86053,7 @@ Coverage: 159 added and 121 deleted source lines enumerated.
 
 #### Code/configuration: godot/power_director.gd
 
-Change: M. Before 7e7f89225ba0fa10fbabc4bf70bdbac1a5e1ddec; after working-tree SHA256 6ee8b1ea6e075497e658d24cfe9cf35b51fa84c94e3df4cdfa328192b70ef52b.
+Change: M. Before 7e7f89225ba0fa10fbabc4bf70bdbac1a5e1ddec; after 2f77ed37650a98f76654cdd2403c2df2d29df59b.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -86094,7 +86102,7 @@ Coverage: 37 added and 1 deleted source lines enumerated.
 
 #### Code/configuration: godot/royal_magic.gd
 
-Change: A. Before absent; after working-tree SHA256 061ab458652fd4611250a0a1352d613f79c687a43d3d0acad894701c712e27fd.
+Change: A. Before absent; after 16a0b7255b8a5035f8d0d490ff0f343d7257db51.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -86319,7 +86327,7 @@ Coverage: 214 added and 0 deleted source lines enumerated.
 
 #### Code/configuration: godot/royal_magic.gd.uid
 
-Change: A. Before absent; after working-tree SHA256 b0620a9b0540a6668193939038c2c10dcf5509a8d3ed07799c866f272393267d.
+Change: A. Before absent; after 7a6c7ee44e486d22dfb8ae982b410fde44f1c27a.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -86331,7 +86339,7 @@ Coverage: 1 added and 0 deleted source lines enumerated.
 
 #### Code/configuration: scripts/body-animation-smoke.mjs
 
-Change: M. Before 7fae62bb8f858d26eaf34a8d606f54d4381b3c56; after working-tree SHA256 7b9012a08509034acdedc7ef34f004fcbb0703d9823d61a961cd79467cff7bd9.
+Change: M. Before 7fae62bb8f858d26eaf34a8d606f54d4381b3c56; after 7eef0ce251a75bd6a00acce68ee310de897ba0d2.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -86348,7 +86356,7 @@ Coverage: 3 added and 3 deleted source lines enumerated.
 
 #### Code/configuration: scripts/build-chat-audit.mjs
 
-Change: M. Before 73d5a84bb0aca916f10a8cc5ff5b588868c21dd4; after working-tree SHA256 13582bc3c483aa2c2529e37ae6456863743309f7c56f2e40a653e15ac6208d94.
+Change: M. Before 73d5a84bb0aca916f10a8cc5ff5b588868c21dd4; after b3c9a5a863d063e5a357d141422deb066ee47eb0.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -86362,7 +86370,7 @@ Coverage: 2 added and 1 deleted source lines enumerated.
 
 #### Code/configuration: scripts/build-godot.mjs
 
-Change: M. Before 7c0d7c85eb0d0217e3d3e7445e84ad68efe9f1ec; after working-tree SHA256 8feee037bdd6c2471adae2bee0ec3043fb4a1729e7e6674fd7772f7ecea66a4f.
+Change: M. Before 7c0d7c85eb0d0217e3d3e7445e84ad68efe9f1ec; after 0adc7e23e2e63962e5cc742287c59977ff05aece.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -86375,7 +86383,7 @@ Coverage: 1 added and 1 deleted source lines enumerated.
 
 #### Code/configuration: scripts/godot-smoke.mjs
 
-Change: M. Before fac07de133d65eda5d4952384a9c2a081cc7894e; after working-tree SHA256 9f750bb9622082933a3a8f92154ced45d9ca3d3edb1419fbe62905e6b225acf6.
+Change: M. Before fac07de133d65eda5d4952384a9c2a081cc7894e; after 28e8b609272c735661bf5bb08c05de2521f43153.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -86390,7 +86398,7 @@ Coverage: 2 added and 2 deleted source lines enumerated.
 
 #### Code/configuration: scripts/kinetic-smoke.mjs
 
-Change: M. Before d2c02db6b42dc5063faa383d4764bb0f49ea7b30; after working-tree SHA256 f948dd87fc7cef0ab023b4013c22ab84e8545583d2f344bc875cde39f2bcbff4.
+Change: M. Before d2c02db6b42dc5063faa383d4764bb0f49ea7b30; after a78fcc85088194b7895c6cd3aded181f01c3e2fa.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -86403,7 +86411,7 @@ Coverage: 1 added and 1 deleted source lines enumerated.
 
 #### Code/configuration: scripts/mash-smoke.mjs
 
-Change: A. Before absent; after working-tree SHA256 279ca7815eeb8bfddc02c996cefcb18b81d389cf22d1c35f0797ab75846505aa.
+Change: A. Before absent; after 4ae74ab9e8fda59e21647116dee74bd411525e61.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -86450,7 +86458,7 @@ Coverage: 36 added and 0 deleted source lines enumerated.
 
 #### Code/configuration: scripts/reign-smoke.mjs
 
-Change: M. Before 8758edc70e17193400e3907736fadb2dbe66b0f2; after working-tree SHA256 15bb81080ab14b1c9f949fbdfb04b660a90452d7e382fdd737944d8fbf0393c1.
+Change: M. Before 8758edc70e17193400e3907736fadb2dbe66b0f2; after 019c1cd8773243dc880aa777ff6ca953b3b5337d.
 
 Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
 
@@ -86463,20 +86471,1164 @@ Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backsla
 
 Coverage: 2 added and 2 deleted source lines enumerated.
 
+## Virtual working-tree revision
+
+Base HEAD: 05d6c57981b0b969e86fcc1c71f3975196547c6d. Captured UTC: 2026-11-21T16:46:39.114Z. These files are not claimed as already committed or deployed. Re-run the generator after the source freeze; a later commit can turn this snapshot into a named revision.
+
+Recorded intent: at the user's explicit request, restore the previously accepted king kit from96261d0, including classic sword combos, physical thrust, ground attacks, floating-area moves, names/timings/contact/VFX and sword-bearing animation. Remove live Pressure/body-magic/guard-lock mechanics and their UI. Preserve v11 individual visitor gaits, entrance synchronization, personal no-oath dialogue and unrelated fixes. Adapt enemy counter tells to the restored recovery and verify the actual classic actions before publication.
+
+#### File inventory: ATTRIBUTION.md
+
+| File | Change | Purpose | Before blob / bytes | After blob / bytes |
+|---|---|---|---|---|
+| ATTRIBUTION.md | M | Public documentation/data; see recorded revision intent | 2a0ab8447b72962e1451dbe4c3dddcb767c8b4ea (40235 bytes) | working-tree SHA256 f4ee0f1dd7a26e5b1dd561ae505db50ff385977289add25fabd3c659c2329b4f (40642 bytes) |
+
+#### File inventory: CLAUDE.md
+
+| File | Change | Purpose | Before blob / bytes | After blob / bytes |
+|---|---|---|---|---|
+| CLAUDE.md | M | Public documentation/data; see recorded revision intent | 1685067c8aaa1d3a579df32960cf2c6a8d854300 (4969 bytes) | working-tree SHA256 fc514f10be4f32fa460104efb523c38102239ccb872b2e4d92fe01e778ae0c2c (5194 bytes) |
+
+#### File inventory: GDD.md
+
+| File | Change | Purpose | Before blob / bytes | After blob / bytes |
+|---|---|---|---|---|
+| GDD.md | M | Public documentation/data; see recorded revision intent | fc4405dbb302b0d425455d8842c841aed2d2b3a9 (22468 bytes) | working-tree SHA256 bf51d571a7c4a5e1890b456fe0016ac04075537dafdec0a60fbb514e24ef2c1c (22915 bytes) |
+
+#### File inventory: README.md
+
+| File | Change | Purpose | Before blob / bytes | After blob / bytes |
+|---|---|---|---|---|
+| README.md | M | Public documentation/data; see recorded revision intent | 979ea3747a8fb1e3e49ebadd93bcb328222c14d4 (5484 bytes) | working-tree SHA256 aa6559f0238c45a5be73214016e69f9bad5b126552b29a1706fa215fc2c734b1 (5629 bytes) |
+
+#### File inventory: docs/sovereign-magic.md
+
+| File | Change | Purpose | Before blob / bytes | After blob / bytes |
+|---|---|---|---|---|
+| docs/sovereign-magic.md | M | Public documentation/data; see recorded revision intent | 4c1266e4cf2e7c9865fcc27c73f50d13ef560eea (10022 bytes) | working-tree SHA256 58f690e1102210cc8d71184464cff23fad4ec917fc6dd898cabd9bb0973b9de1 (10225 bytes) |
+
+#### File inventory: docs/sovereign-qa.md
+
+| File | Change | Purpose | Before blob / bytes | After blob / bytes |
+|---|---|---|---|---|
+| docs/sovereign-qa.md | M | Public documentation/data; see recorded revision intent | 05a3402427b28b8fa37869f6024b99ee3709e130 (6133 bytes) | working-tree SHA256 624b1628b55346d8bfa81adc4a9d8fc3cc97e29d125318a2f1ff0476ac3911f9 (6336 bytes) |
+
+#### Code/configuration: godot/actor_view.gd
+
+Change: M. Before 0577bd56060e88f01429f88437ff387011eca53e; after working-tree SHA256 d211183c2134c0d5f9466c562251127debee7960b6d4bd6cc243193b8a1aad17.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| DELETE | 78 | — | <code>"    if motion.begins_with(\"royal_\"):"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func frame_count(actor: String, motion: String) -&gt; int:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 79 | — | <code>"        return 12"</code> | Inferred mechanical role: remove control exit, error or iteration behavior. Context: <code>"static func frame_count(actor: String, motion: String) -&gt; int:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 80 | — | <code>"    if actor in [\"player\",\"king\",\"immortal-base\"] and ResourceLoader.exists(\"res://art/gait-king-v11.png\"):"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func frame_count(actor: String, motion: String) -&gt; int:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 81 | — | <code>"        if motion == \"land\":"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func frame_count(actor: String, motion: String) -&gt; int:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 82 | — | <code>"            return 3"</code> | Inferred mechanical role: remove control exit, error or iteration behavior. Context: <code>"static func frame_count(actor: String, motion: String) -&gt; int:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 83 | — | <code>"        if motion == \"hurt\":"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func frame_count(actor: String, motion: String) -&gt; int:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 84 | — | <code>"            return 1"</code> | Inferred mechanical role: remove control exit, error or iteration behavior. Context: <code>"static func frame_count(actor: String, motion: String) -&gt; int:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 85 | — | <code>"    if motion == \"idle\" and LIVES.has(actor) and ResourceLoader.exists(\"res://art/gait-\" + actor + \"-v11.png\"):"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func frame_count(actor: String, motion: String) -&gt; int:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 86 | — | <code>"        return 1"</code> | Inferred mechanical role: remove control exit, error or iteration behavior. Context: <code>"static func frame_count(actor: String, motion: String) -&gt; int:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 87 | — | <code>"    if motion == \"idle\" and actor in [\"player\",\"king\",\"immortal-base\",\"ascended\",\"king_aoe\",\"immortal-ascended\"]:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func frame_count(actor: String, motion: String) -&gt; int:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 88 | — | <code>"        return 12 if actor in [\"ascended\",\"king_aoe\",\"immortal-ascended\"] and ResourceLoader.exists(\"res://art/magic-air-travel-v11.png\") else 1"</code> | Inferred mechanical role: remove control exit, error or iteration behavior. Context: <code>"static func frame_count(actor: String, motion: String) -&gt; int:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 78 | <code>"    if _is_king(actor):return _classic_frame_count(actor,motion)"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"static func frame_count(actor: String, motion: String) -&gt; int:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 79 | <code>"    if motion==\"idle\" and ResourceLoader.exists(\"res://art/gait-\"+actor+\"-v11.png\"):return 1"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"static func frame_count(actor: String, motion: String) -&gt; int:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 80 | <code>"    return 12 if motion in [\"walk\",\"run\"] else 6"</code> | Inferred mechanical role: add control exit, error or iteration behavior. Context: <code>"static func frame_count(actor: String, motion: String) -&gt; int:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 81 | <code>""</code> | Inferred mechanical role: add separate adjacent source blocks for readability. Context: <code>"static func frame_count(actor: String, motion: String) -&gt; int:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 82 | <code>"static func _classic_frame_count(actor: String, motion: String) -&gt; int:"</code> | Inferred mechanical role: add declare the API, type, function or scene behavior. Context: <code>"static func _classic_frame_count(actor: String, motion: String) -&gt; int:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 92 | <code>"    var f:int=clampi(frame,0,frame_count(actor,motion)-1)"</code> | Inferred mechanical role: add set timing, animation progression or simulation cadence. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 93 | <code>"    if _is_king(actor):"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 94 | <code>"        return _classic_descriptor(actor,\"idle\" if motion in [\"start_walk\",\"stop_walk\",\"land\"] else motion,f)"</code> | Inferred mechanical role: add control exit, error or iteration behavior. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 95 | <code>"    var life_index:int=LIVES.find(actor)"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 96 | <code>"    var path:String=\"res://art/gait-\"+actor+\"-v11.png\""</code> | Inferred mechanical role: add connect an asset, resource or playback operation. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 97 | <code>"    if life_index&gt;=0 and ResourceLoader.exists(path) and motion in [\"walk\",\"run\",\"start_walk\",\"stop_walk\",\"idle\"]:"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 98 | <code>"        var index:int=12+f if motion==\"start_walk\" else 17-f if motion==\"stop_walk\" else 12 if motion==\"idle\" else f"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 99 | <code>"        return {\"path\":path,\"cell\":144,\"foot\":110,\"body\":BODY_HEIGHTS[life_index],\"frame\":index,\"left\":false}"</code> | Inferred mechanical role: add control exit, error or iteration behavior. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 100 | <code>"    return _classic_descriptor(actor,motion,f)"</code> | Inferred mechanical role: add control exit, error or iteration behavior. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 101 | <code>""</code> | Inferred mechanical role: add separate adjacent source blocks for readability. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 102 | <code>"static func _classic_descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code> | Inferred mechanical role: add declare the API, type, function or scene behavior. Context: <code>"static func _classic_descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 99 | — | <code>"    var air_identity: bool = actor in [\"ascended\",\"king_aoe\",\"immortal-ascended\"]"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 100 | — | <code>"    if air_identity and ResourceLoader.exists(\"res://art/magic-air-travel-v11.png\") and motion in [\"idle\",\"walk\",\"run\",\"glide\",\"jump\",\"fall\",\"dash\",\"hurt\",\"land\",\"start_walk\",\"stop_walk\"]:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 101 | — | <code>"        var air_travel_frame: int = f if motion in [\"idle\",\"hurt\",\"land\"] else 5-f if motion == \"stop_walk\" else 12+f"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 102 | — | <code>"        return {\"path\":\"res://art/magic-air-travel-v11.png\",\"cell\":192,\"foot\":154,\"body\":130.0,\"frame\":air_travel_frame,\"left\":true}"</code> | Inferred mechanical role: remove control exit, error or iteration behavior. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 103 | — | <code>"    if actor in [\"player\",\"king\",\"immortal-base\"] and ResourceLoader.exists(\"res://art/gait-king-v11.png\") and motion in [\"walk\",\"run\",\"start_walk\",\"stop_walk\",\"jump\",\"fall\",\"dash\",\"hurt\",\"land\"]:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 104 | — | <code>"        var king_travel_frame: int = f"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 105 | — | <code>"        if motion == \"start_walk\":"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 106 | — | <code>"            king_travel_frame = 12+f"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 107 | — | <code>"        elif motion == \"stop_walk\":"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 108 | — | <code>"            king_travel_frame = 17-f"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 109 | — | <code>"        elif motion in [\"jump\",\"fall\"]:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 110 | — | <code>"            king_travel_frame = 18+f"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 111 | — | <code>"        elif motion == \"land\":"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 112 | — | <code>"            var landing_frames: Array[int] = [23,28,12]"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 113 | — | <code>"            king_travel_frame = landing_frames[clampi(f,0,2)]"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 114 | — | <code>"        elif motion in [\"dash\",\"hurt\"]:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 115 | — | <code>"            king_travel_frame = 29 if motion == \"hurt\" else 24+f"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 116 | — | <code>"        return {\"path\":\"res://art/gait-king-v11.png\",\"cell\":192,\"foot\":154,\"body\":107.0,\"frame\":king_travel_frame,\"left\":true}"</code> | Inferred mechanical role: remove control exit, error or iteration behavior. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 117 | — | <code>"    if _is_king(actor) and actor != \"previous\" and motion == \"transform\" and ResourceLoader.exists(\"res://art/magic-base-gifts-v11.png\") and ResourceLoader.exists(\"res://art/magic-air-gifts-v11.png\"):"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 118 | — | <code>"        var change_frames: Array[int] = [0,2,4,0,2,11]"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 119 | — | <code>"        return _descriptor(\"king\" if f &lt; 3 else \"ascended\",\"royal_ransom\",change_frames[f])"</code> | Inferred mechanical role: remove control exit, error or iteration behavior. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 120 | — | <code>"    if _is_king(actor) and motion.begins_with(\"royal_\"):"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 121 | — | <code>"        var air_magic: bool = actor in [\"ascended\",\"king_aoe\",\"immortal-ascended\"]"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 122 | — | <code>"        var hand_magic: bool = motion.begins_with(\"royal_hand_\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 123 | — | <code>"        var magic_slot: int = clampi(int(motion.right(1)),0,2) if hand_magic else 0 if motion == \"royal_echo\" else 1 if motion == \"royal_burden\" else 2"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 124 | — | <code>"        var magic_path: String = \"res://art/magic-\" + (\"air\" if air_magic else \"base\") + (\"-hand\" if hand_magic else \"-gifts\") + \"-v11.png\""</code> | Inferred mechanical role: remove connect an asset, resource or playback operation. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 125 | — | <code>"        if ResourceLoader.exists(magic_path):"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 126 | — | <code>"            return {\"path\":magic_path,\"cell\":192,\"foot\":154,\"body\":130.0 if air_magic else 107.0,\"frame\":magic_slot*12+f,\"left\":true}"</code> | Inferred mechanical role: remove control exit, error or iteration behavior. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 127 | — | <code>"        return _descriptor(actor,\"idle\",f%6)"</code> | Inferred mechanical role: remove control exit, error or iteration behavior. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 128 | — | <code>"    if _is_king(actor) and actor not in [\"previous\",\"rest\"] and motion == \"idle\":"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 129 | — | <code>"        var neutral_magic: String = \"res://art/magic-\" + (\"air\" if actor in [\"ascended\",\"king_aoe\",\"immortal-ascended\"] else \"base\") + \"-hand-v11.png\""</code> | Inferred mechanical role: remove connect an asset, resource or playback operation. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 130 | — | <code>"        if ResourceLoader.exists(neutral_magic):"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 131 | — | <code>"            return {\"path\":neutral_magic,\"cell\":192,\"foot\":154,\"body\":body_height(actor),\"frame\":0,\"left\":true}"</code> | Inferred mechanical role: remove control exit, error or iteration behavior. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 132 | — | <code>"    var life_index: int = LIVES.find(actor)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 133 | — | <code>"    var personal_gait: String = \"res://art/gait-\" + actor + \"-v11.png\""</code> | Inferred mechanical role: remove connect an asset, resource or playback operation. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 134 | — | <code>"    if life_index &gt;= 0 and ResourceLoader.exists(personal_gait):"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 135 | — | <code>"        var personal_frame: int = f"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 136 | — | <code>"        if motion == \"start_walk\":"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 137 | — | <code>"            personal_frame = 12+f"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 138 | — | <code>"        elif motion == \"stop_walk\":"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 139 | — | <code>"            personal_frame = 17-f"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 140 | — | <code>"        elif motion == \"idle\":"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 141 | — | <code>"            personal_frame = 12"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 142 | — | <code>"        if motion in [\"walk\",\"run\",\"start_walk\",\"stop_walk\",\"idle\"]:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 143 | — | <code>"            return {\"path\":personal_gait,\"cell\":144,\"foot\":110,\"body\":BODY_HEIGHTS[life_index],\"frame\":personal_frame,\"left\":false}"</code> | Inferred mechanical role: remove control exit, error or iteration behavior. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 144 | — | <code>"    if motion in [\"start_walk\",\"stop_walk\"]:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 145 | — | <code>"        return _descriptor(actor,\"idle\",f%3)"</code> | Inferred mechanical role: remove control exit, error or iteration behavior. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 180 | — | <code>"        if not ROWS.has(motion):"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 181 | — | <code>"            return _descriptor(actor,\"idle\",0)"</code> | Inferred mechanical role: remove control exit, error or iteration behavior. Context: <code>"static func _descriptor(actor: String, motion: String, frame: int) -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 275 | — | <code>"static func skill_icon(index: int, phase: int = 1) -&gt; Texture2D:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"static func skill_icon(index: int, phase: int = 1) -&gt; Texture2D:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 276 | — | <code>"    if ResourceLoader.exists(\"res://art/magic-icons-v11.png\"):"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"static func skill_icon(index: int, phase: int = 1) -&gt; Texture2D:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 277 | — | <code>"        return _region(\"res://art/magic-icons-v11.png\",Vector2i(32,32),clampi(index,0,3)+(4 if phase &gt; 1 else 0),4)"</code> | Inferred mechanical role: remove control exit, error or iteration behavior. Context: <code>"static func skill_icon(index: int, phase: int = 1) -&gt; Texture2D:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 231 | <code>"static func skill_icon(index: int, _phase: int = 1) -&gt; Texture2D:"</code> | Inferred mechanical role: add declare the API, type, function or scene behavior. Context: <code>"static func skill_icon(index: int, _phase: int = 1) -&gt; Texture2D:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 17 added and 63 deleted source lines enumerated.
+
+#### Code/configuration: godot/combat_rules.gd
+
+Change: M. Before 5d1b473b8eac96993d0dc5357cc8260041020406; after working-tree SHA256 ca2cfaacfeefc5de8d474cd4d3f4fa92c6d96040de04838f8f3582e0c69faf42.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| DELETE | 22 | — | <code>" \"cleave\":{\"name\":\"Crownless Hand\",\"tell\":0.24,\"active\":0.10,\"recover\":0.28,\"cooldown\":0.48,\"damage\":25.0},"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 23 | — | <code>" \"throw\":{\"name\":\"Borrowed Hour\",\"tell\":0.38,\"active\":0.12,\"recover\":0.28,\"cooldown\":1.2,\"damage\":0.0},"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 24 | — | <code>" \"reap\":{\"name\":\"Royal Burden\",\"tell\":0.56,\"active\":0.12,\"recover\":0.34,\"cooldown\":2.1,\"damage\":10.0},"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 25 | — | <code>" \"nova\":{\"name\":\"King's Ransom\",\"tell\":0.92,\"active\":0.16,\"recover\":0.90,\"cooldown\":4.0,\"damage\":0.0}}"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 22 | <code>" \"cleave\":{\"name\":\"Crownsteel\",\"tell\":0.27,\"active\":0.1,\"recover\":0.36,\"cooldown\":0.55,\"damage\":28.0},"</code> | Inferred mechanical role: add set timing, animation progression or simulation cadence. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 23 | <code>" \"throw\":{\"name\":\"Oathpiercer\",\"tell\":0.42,\"active\":0.11,\"recover\":0.42,\"cooldown\":1.35,\"damage\":34.0},"</code> | Inferred mechanical role: add set timing, animation progression or simulation cadence. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 24 | <code>" \"reap\":{\"name\":\"Kneel\",\"tell\":0.82,\"active\":0.15,\"recover\":0.46,\"cooldown\":1.85,\"damage\":32.0},"</code> | Inferred mechanical role: add set timing, animation progression or simulation cadence. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 25 | <code>" \"nova\":{\"name\":\"Procession\",\"tell\":1.05,\"active\":0.46,\"recover\":0.56,\"cooldown\":8.5,\"damage\":36.0}}"</code> | Inferred mechanical role: add set timing, animation progression or simulation cadence. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 27 | — | <code>" \"cleave\":{\"name\":\"Hollow Orbit\",\"tell\":0.28,\"active\":0.12,\"recover\":0.30,\"cooldown\":0.52,\"damage\":23.0},"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 28 | — | <code>" \"throw\":{\"name\":\"Vacant Step\",\"tell\":0.42,\"active\":0.12,\"recover\":0.36,\"cooldown\":1.5,\"damage\":0.0},"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 29 | — | <code>" \"reap\":{\"name\":\"Unmoored\",\"tell\":0.62,\"active\":0.12,\"recover\":0.40,\"cooldown\":2.3,\"damage\":10.0},"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 30 | — | <code>" \"nova\":{\"name\":\"Empty Throne\",\"tell\":0.88,\"active\":0.58,\"recover\":0.94,\"cooldown\":4.5,\"damage\":0.0}}"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 27 | <code>" \"cleave\":{\"name\":\"Gloam Rake\",\"tell\":0.34,\"active\":0.12,\"recover\":0.42,\"cooldown\":0.64,\"damage\":22.0},"</code> | Inferred mechanical role: add set timing, animation progression or simulation cadence. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 28 | <code>" \"throw\":{\"name\":\"Crownfall\",\"tell\":0.82,\"active\":0.42,\"recover\":0.46,\"cooldown\":1.75,\"damage\":13.0},"</code> | Inferred mechanical role: add set timing, animation progression or simulation cadence. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 29 | <code>" \"reap\":{\"name\":\"Royal Undertow\",\"tell\":1.08,\"active\":0.42,\"recover\":0.54,\"cooldown\":1.95,\"damage\":32.0},"</code> | Inferred mechanical role: add set timing, animation progression or simulation cadence. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 30 | <code>" \"nova\":{\"name\":\"Last Dominion\",\"tell\":1.28,\"active\":0.58,\"recover\":0.68,\"cooldown\":8,\"damage\":84.0}}"</code> | Inferred mechanical role: add set timing, animation progression or simulation cadence. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 8 added and 8 deleted source lines enumerated.
+
+#### Code/configuration: godot/content/verify_body_animation.gd
+
+Change: M. Before 2c793e2fdc2c940167b714782a8b3c0bc5c1ccf8; after working-tree SHA256 9e08bfbf59134b31e3a0a6bc4035dd316b384c94633f20b30ce84b9b136de1e3.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| DELETE | 6 | — | <code>"const KING_MAGIC: Array[String] = [\"royal_hand_0\", \"royal_hand_1\", \"royal_hand_2\", \"royal_echo\", \"royal_burden\", \"royal_ransom\"]"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 6 | <code>"const KING_PREPARATIONS: Array[String] = [\"prepare_cleave_0\", \"prepare_cleave_1\", \"prepare_cleave_2\", \"prepare_throw\", \"prepare_reap\", \"prepare_nova\"]"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 29 | — | <code>"        if motion.begins_with(\"royal_\"):"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func sequence(actor: String, motion: String, frame_total: int = 6) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 30 | — | <code>"            check(path.begins_with(\"res://art/magic-\") and path.ends_with(\"-v11.png\"), actor + \": royal motion must use the actual new magic body atlas, without legacy weapon fallback.\")"</code> | Inferred mechanical role: remove connect an asset, resource or playback operation. Context: <code>"func sequence(actor: String, motion: String, frame_total: int = 6) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 59 | — | <code>"        if actor != \"ascended\" and not motion.begins_with(\"royal_\"):"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func sequence(actor: String, motion: String, frame_total: int = 6) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 57 | <code>"        if actor != \"ascended\" and (motion in [\"walk\",\"run\",\"idle\",\"start_walk\",\"stop_walk\"] or motion.begins_with(\"prepare\")):"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func sequence(actor: String, motion: String, frame_total: int = 6) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 62 | — | <code>"            check(bottom &gt;= 0 and foot &gt; 0 and foot &lt; crop.get_height(), actor + \": \" + motion + \" must retain a valid airborne body anchor.\")"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func sequence(actor: String, motion: String, frame_total: int = 6) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 60 | <code>"            check(bottom &gt;= 0 and foot &gt; 0 and foot &lt; crop.get_height(), actor + \": \" + motion + \" must retain a valid body anchor.\")"</code> | Inferred mechanical role: add set spatial layout, movement or sprite geometry. Context: <code>"func sequence(actor: String, motion: String, frame_total: int = 6) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 72 | — | <code>"    sequence(\"king\", \"idle\", 1)\r"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 70 | <code>"    sequence(\"king\", \"idle\", 6)"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 75 | — | <code>"        for motion in KING_MAGIC:"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 76 | — | <code>"            sequence(actor, motion, 12)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 73 | <code>"        for motion in KING_PREPARATIONS:"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 74 | <code>"            sequence(actor, motion, 6)"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 75 | <code>"    for motion in [\"combo_0\",\"combo_1\",\"combo_2\",\"throw\"]:"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 76 | <code>"        sequence(\"king\", motion, 12)"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 77 | <code>"        sequence(\"ascended\", motion, 6)"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 78 | <code>"    for actor in [\"king\",\"ascended\"]:"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 79 | <code>"        sequence(actor, \"reap\", 6)"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 80 | <code>"        sequence(actor, \"nova\", 6)"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 12 added and 8 deleted source lines enumerated.
+
+#### Code/configuration: godot/content/verify_court.gd
+
+Change: M. Before c6673657a87581612bd0eaed0117b6b857e6f4c7; after working-tree SHA256 91a30a9cbed6a02d13e4f69f05fc25137ea76d8e3ae1d34c00072498198bf859.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| DELETE | 102 | — | <code>"    check(ui._move_labels[0].text == \"Hollow Orbit\" and ui._move_labels[1].text == \"Vacant Step\" and ui._move_labels[2].text == \"Unmoored\" and ui._move_labels[3].text == \"Empty Throne\", \"The transformed HUD must use the body-and-curse attack names.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 102 | <code>"    check(ui._move_labels[0].text == \"Gloam Rake\" and ui._move_labels[1].text == \"Crownfall\" and ui._move_labels[2].text == \"Royal Undertow\" and ui._move_labels[3].text == \"Last Dominion\", \"The transformed HUD must restore the previous sword-and-area attack names.\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 114 | — | <code>"    ui.set_hud({\"pressure\": 24.0, \"ward_exposure\": 2.4, \"enemy_ultimate\": \"This Gate Will Hold\"})"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 115 | — | <code>"    check(is_equal_approx(ui._pressure_fill.size.x,35.52) and ui._pressure_label.text == \"PRESSURE 24\", \"The finite Pressure meter must show the real remaining resource.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 116 | — | <code>"    check(ui._exposure_label.text == \"WARD EXPOSED 2.4s\", \"A spent seal must expose its temporary defensive cost.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 117 | — | <code>"    check(\"24 Pressure\" in ui._move_panels[1].tooltip_text and \"2.4 seconds\" in ui._move_panels[3].tooltip_text, \"Skill tooltips must explain costs and committed tradeoffs.\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 114 | <code>"    ui.set_hud({\"phase\":1,\"enemy_ultimate\":\"This Gate Will Hold\"})"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 115 | <code>"    check(ui._move_labels[0].text==\"Crownsteel\" and ui._move_labels[1].text==\"Oathpiercer\",\"The original sword kit must return on the native HUD.\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 116 | <code>"    check(not \"Pressure\" in ui._move_panels[1].tooltip_text,\"Classic actions must not advertise the rejected resource gate.\")"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 117 | <code>"    ui.set_hud({\"phase\":2,\"enemy_ultimate\":\"This Gate Will Hold\"})"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 118 | <code>"    check(ui._move_labels[1].text==\"Crownfall\" and ui._move_labels[3].text==\"Last Dominion\",\"The previous transformed kit must return with its original names.\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 6 added and 5 deleted source lines enumerated.
+
+#### Code/configuration: godot/content/verify_entrance.gd
+
+Change: M. Before 77280155ee587c99b2397ed47f87029cb11950f1; after working-tree SHA256 c8d25ef6b46cf7f4a1c87d6ceeea3f4fd847297b9938c978ffe1c0e1d58bc758.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| DELETE | 41 | — | <code>"    game.magic.clear();game.powers.dispel();game.entrances.clear();game._clear_effects();game.ui.reset();game.audio.stop_all();game.Actor._cache.clear();game.Actor._images.clear()"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 41 | <code>"    game.powers.dispel();game.entrances.clear();game._clear_effects();game.ui.reset();game.audio.stop_all();game.Actor._cache.clear();game.Actor._images.clear()"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 1 added and 1 deleted source lines enumerated.
+
+#### Code/configuration: godot/content/verify_game.gd
+
+Change: M. Before 9c678bf52f22deb153da3b4bec1cc4bf8581f6ef; after working-tree SHA256 14a52c6d33e3003510b1cb87e62f0a6fa7269b548b52566411e15be08b87219c.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| DELETE | 63 | — | <code>"    check(game.boss.x==before and game.projectiles.is_empty() and not game.magic.echo_arm.is_empty(),\"Borrowed Hour anchors an actual old body instead of a sword projectile\")"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 63 | <code>"    check(game.boss.x&lt;before and game.projectiles.is_empty(),\"Base sword thrust is a physical lunge\")"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 71 | — | <code>"    check(game.projectiles.is_empty() and game.boss.x&lt;800 and (game.magic.echoes.size()&gt;0 or game.magic.interactions.echo_hits&gt;0),\"Vacant Step moves the king and commits an automatic old-position body\")"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 71 | <code>"    check(game.projectiles.size()==5,\"Crownfall releases five actual descending crown blades\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _run() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 164 | — | <code>"    check(game._telegraph_data().is_empty(),\"Recall preparation never projects an attack hologram\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 164 | <code>"    check(game._telegraph_data().is_empty(),\"Sword thrust preparation never projects an attack hologram\")"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 3 added and 3 deleted source lines enumerated.
+
+#### Code/configuration: godot/content/verify_royal_magic.gd
+
+Change: D. Before c4606a5f72ddcfcb4d1718a79c0bafdf38bb21e3; after working-tree text.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| DELETE | 1 | — | <code>"# AI-use disclosure: Codex-authored native behavioral checks for limited, positional royal magic."</code> | Inferred mechanical role: remove document behavior, provenance or maintenance instructions. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 2 | — | <code>"extends SceneTree"</code> | Inferred mechanical role: remove declare a dependency or engine type. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 3 | — | <code>"var game"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 4 | — | <code>"var checks:int=0"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 5 | — | <code>"var failures:Array[String]=[]"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 6 | — | <code>"func _initialize()-&gt;void:call_deferred(\"_run\")"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func _initialize()-&gt;void:call_deferred(\"_run\")"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 7 | — | <code>"func check(value:bool,why:String)-&gt;void:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func check(value:bool,why:String)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 8 | — | <code>"    checks+=1"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func check(value:bool,why:String)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 9 | — | <code>"    if not value:failures.append(why);push_error(why)"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func check(value:bool,why:String)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 10 | — | <code>"func fixture(index:int=0)-&gt;void:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func fixture(index:int=0)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 11 | — | <code>"    game.life=index;game.fight_index=index;game._reset_bodies();game.mode=\"fight\""</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func fixture(index:int=0)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 12 | — | <code>"    game.boss.x=520.0;game.enemy.x=600.0;game.enemy.hp=1000.0;game.enemy.max=1000.0"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func fixture(index:int=0)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 13 | — | <code>"    game.enemy.state=\"wait\";game.enemy.decision=100;game.enemy.ability_cd=100;game.enemy.mobility_cd=100"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func fixture(index:int=0)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 14 | — | <code>"func contact(id:String)-&gt;void:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func contact(id:String)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 15 | — | <code>"    game._start_move(id)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func contact(id:String)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 16 | — | <code>"    if game.move.is_empty():return"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func contact(id:String)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 17 | — | <code>"    game.move.stage=\"active\";game.move.t=0.0;game._active_hit()"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func contact(id:String)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 18 | — | <code>"func tick_magic(seconds:float)-&gt;void:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func tick_magic(seconds:float)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 19 | — | <code>"    for n in range(ceili(seconds/0.01)):"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func tick_magic(seconds:float)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 20 | — | <code>"        game.boss.invuln=maxf(0,game.boss.invuln-0.01)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func tick_magic(seconds:float)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 21 | — | <code>"        game.enemy.invuln=maxf(0,game.enemy.invuln-0.01)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func tick_magic(seconds:float)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 22 | — | <code>"        game.magic.tick(0.01)"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"func tick_magic(seconds:float)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 23 | — | <code>"func hazard_interactions()-&gt;void:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 24 | — | <code>"    fixture(2)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 25 | — | <code>"    game.powers.cast(false);game.boss.x=950;game.boss.y=400"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 26 | — | <code>"    for n in range(140):game.powers.tick(0.01)"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 27 | — | <code>"    var crest:Dictionary=game.powers._hazards[1]"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 28 | — | <code>"    var old_origin:float=crest.origin_x;var old_x:float=crest.x"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 29 | — | <code>"    var changed:int=game.powers.bend_field(old_x+50,120,1,0.20)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 30 | — | <code>"    check(changed&gt;0 and crest.origin_x&gt;old_origin and crest.x&gt;old_x,\"A field can redirect a currently travelling water crest, not only its preview.\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 31 | — | <code>"    game.powers.tick(0.02)"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 32 | — | <code>"    var expected:float=crest.origin_x+crest.vx*minf(crest.time-crest.tell,crest.travel)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 33 | — | <code>"    check(is_equal_approx(crest.x,expected) and is_equal_approx(crest.sprite.position.x,crest.x),\"Redirected crest collision and live sprite keep the shifted origin instead of snapping back.\")"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 34 | — | <code>"    fixture(1)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 35 | — | <code>"    game.enemy.hp=500;game.powers.cast(true);game.boss.x=950;game.boss.y=400"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 36 | — | <code>"    for n in range(128):game.powers.tick(0.01)"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 37 | — | <code>"    var active:Dictionary=game.powers._hazards[0];var pending:Dictionary=game.powers._hazards[1]"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 38 | — | <code>"    game.boss.x=520;game.boss.y=0;game.enemy.x=900;game.magic.pressure=80"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 39 | — | <code>"    contact(\"nova\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 40 | — | <code>"    check(not active.real and active.hit and pending.real and not pending.hit,\"Ransom disperses only live nearby danger; future queued threats remain real.\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 41 | — | <code>"    check(game.powers.busy(),\"Dispersing one active lane does not universally cancel the enemy cast.\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 42 | — | <code>"    var hp:float=game.boss.hp"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 43 | — | <code>"    for n in range(60):game.boss.invuln=maxf(0,game.boss.invuln-0.01);game.powers.tick(0.01)"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 44 | — | <code>"    check(game.boss.hp&lt;hp,\"A future queued lane can still punish the exposed king after his burst.\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 45 | — | <code>"    fixture(3)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 46 | — | <code>"    game.powers.cast(false)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 47 | — | <code>"    for n in range(20):game.powers.tick(0.01)"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 48 | — | <code>"    contact(\"reap\");game.magic.tick(0.05)"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 49 | — | <code>"    check(game.magic.interactions.groundings&gt;0 and game.powers._hazards[0].get(\"disarmed\",false),\"A placed grounded field can interrupt a pending physical dive inside it.\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 50 | — | <code>"    fixture(1)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 51 | — | <code>"    game.powers.cast(false);contact(\"reap\");game.magic.tick(0.20)"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 52 | — | <code>"    check(game.powers.busy() and game.powers._hazards.size()&gt;0,\"The same field bends pressure lanes without becoming a universal hard counter.\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func hazard_interactions()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 53 | — | <code>"func rebuke_cases()-&gt;void:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 54 | — | <code>"    for index in [2,5,7,8]:"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 55 | — | <code>"        fixture(index);game.enemy.guard_t=3.0;game.enemy.guard_facing=-1;game.enemy.poise=1000;game.enemy.poise_max=1000"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 56 | — | <code>"        game._hit_enemy(20,\"cleave\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 57 | — | <code>"        check(game.enemy.state==\"rebuke\" and game.enemy.windup&gt;0 and game.enemy.rebuke_cd&gt;0,\"Frontal guard contact starts a real body counter for visitor%d.\"%index)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 58 | — | <code>"        game._animate()"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 59 | — | <code>"        check(game.visitor.current_motion==\"prepare\",\"The counter exposes an actual bodily anticipation, not an invisible damage timer.\")"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 60 | — | <code>"        var tell:float=game.enemy.windup;var count:int=game.enemy.rebukes"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 61 | — | <code>"        game.enemy.invuln=0;game._hit_enemy(2,\"cleave\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 62 | — | <code>"        check(game.enemy.rebukes==count and game.enemy.windup==tell,\"Repeated basic contacts cannot reset or extend the latched counter tell.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 63 | — | <code>"        var hp:float=game.boss.hp"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 64 | — | <code>"        for n in range(ceili(float(game.enemy.rebuke_tell)/0.01)+3):game._enemy_step(0.01)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 65 | — | <code>"        check(game.boss.hp&lt;hp and game.enemy.strikes==1,\"The guarded counter reaches real collision and damage instead of merely flashing.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 66 | — | <code>"    fixture(5);game.enemy.guard_t=3.0;game.enemy.guard_facing=-1;game.boss.x=680"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 67 | — | <code>"    game._hit_enemy(20,\"echo\",520.0)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 68 | — | <code>"    check(game.enemy.state==\"rebuke\" and game.enemy.attack_dir==-1,\"An old-body frontal echo latches the counter toward that actual ghost source.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 69 | — | <code>"    check(game.boss.knock==0,\"A remote old-body guard clash cannot physically shove the real king on the opposite side.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 70 | — | <code>"    var hp:float=game.boss.hp"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 71 | — | <code>"    for n in range(ceili(float(game.enemy.rebuke_tell)/0.01)+3):game._enemy_step(0.01)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 72 | — | <code>"    check(game.boss.hp==hp,\"A ghost-baited counter can miss the real king on the opposite side.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 73 | — | <code>"    fixture(5);game.enemy.guard_t=3.0;game.enemy.guard_facing=-1;game.boss.x=680"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 74 | — | <code>"    game._hit_enemy(20,\"cleave\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 75 | — | <code>"    check(game.enemy.state!=\"rebuke\" and game.enemy.hp==980,\"A genuine rear hit bypasses frontal guard without a compulsory counter.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 76 | — | <code>"    fixture(5);game.enemy.guard_t=3.0;game.boss.guarding=true;game.boss.guard_age=0.01"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 77 | — | <code>"    game._hurt_boss(20,false,{})"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 78 | — | <code>"    check(game.enemy.state==\"parried\" and game.enemy.guard_t==0,\"A timed parry opens the enemy shield for a real riposte.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 79 | — | <code>"func readable_counter_case()-&gt;void:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 80 | — | <code>"    fixture(5);game.enemy.guard_t=3.0;game.enemy.guard_facing=-1;game.boss.facing=1"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 81 | — | <code>"    game._start_move(\"cleave\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 82 | — | <code>"    var committed=false;var defended=false;var recovered=false"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 83 | — | <code>"    for n in range(130):"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 84 | — | <code>"        game.enemy.invuln=maxf(0,game.enemy.invuln-0.01);game.boss.invuln=maxf(0,game.boss.invuln-0.01)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 85 | — | <code>"        var press=false"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 86 | — | <code>"        if game.enemy.state==\"rebuke\":"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 87 | — | <code>"            committed=true"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 88 | — | <code>"            if game.move.is_empty():recovered=true"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 89 | — | <code>"            press=game.move.is_empty() and float(game.enemy.rebuke_tell)-game.enemy.windup&lt;=0.085"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 90 | — | <code>"        var keys={\"left\":false,\"right\":false,\"jump\":false,\"jump_held\":false,\"dash\":false,\"guard\":press,\"hold\":false,\"cleave\":false,\"cleave_taps\":0,\"throw\":false,\"reap\":false,\"nova\":false}"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 91 | — | <code>"        game._player_step(keys,0.01);game._move_step(0.01);game._enemy_step(0.01)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 92 | — | <code>"        if game.boss.perfect_blocks&gt;0:defended=true;break"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 93 | — | <code>"    check(committed and recovered,\"A real blocked main Hand finishes its full recovery before the visible counter lands.\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 94 | — | <code>"    check(defended and game.boss.hp==game.boss.max,\"A real fresh G after Hand recovery can parry the committed body counter without pre-canceling the original strike.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 95 | — | <code>"func spacing_cases()-&gt;void:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 96 | — | <code>"    var keys={\"left\":false,\"right\":true,\"jump\":false,\"jump_held\":false,\"dash\":false,\"guard\":false,\"hold\":false,\"cleave\":false,\"cleave_taps\":0,\"throw\":false,\"reap\":false,\"nova\":false}"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 97 | — | <code>"    fixture(5);var stayed_front=true"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 98 | — | <code>"    for n in range(100):"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 99 | — | <code>"        game._player_step(keys,1.0/60.0)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 100 | — | <code>"        if game.boss.x&gt;game.enemy.x:stayed_front=false"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 101 | — | <code>"    check(stayed_front and game.enemy.x-game.boss.x&gt;=43.99,\"One hundred real walking inputs cannot automatically cross a grounded guard body.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 102 | — | <code>"    fixture(5);game.boss.x=560;keys.dash=true"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 103 | — | <code>"    for n in range(15):game._player_step(keys,1.0/60.0);keys.dash=false"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 104 | — | <code>"    check(game.boss.x&gt;game.enemy.x and game.boss.dashes==1,\"A real dash deliberately crosses the body that ordinary walking cannot pass.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 105 | — | <code>"    fixture(5);game.boss.x=540;keys.jump=true;keys.jump_held=true"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 106 | — | <code>"    var crossed_above=false"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 107 | — | <code>"    for n in range(90):"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 108 | — | <code>"        game._player_step(keys,1.0/60.0);keys.jump=false"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 109 | — | <code>"        if game.boss.x&gt;game.enemy.x and game.boss.y&gt;=game.Actor.body_height(\"knight\")-10:crossed_above=true"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 110 | — | <code>"    check(crossed_above and game.boss.x&gt;game.enemy.x,\"A real jump can clear the solid lower body and land on the other side.\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 111 | — | <code>"    fixture(5);game.phase=2;game.boss.y=56;game.boss.x=540;game.boss.facing=1"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 112 | — | <code>"    contact(\"throw\");game._body_spacing()"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 113 | — | <code>"    check(game.boss.x&gt;game.enemy.x,\"Vacant Step's actual phase-pass can cross the body instead of behaving like ordinary walking.\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 114 | — | <code>"    fixture(5);game.boss.x=912;game.enemy.x=930;game._body_spacing()"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 115 | — | <code>"    check(is_finite(game.boss.x) and is_finite(game.enemy.x) and game.boss.x&gt;=48 and game.boss.x&lt;=912 and game.enemy.x-game.boss.x&gt;=43.99,\"Mass separation stays finite and non-overlapping against the right arena wall.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 116 | — | <code>"    game.boss.x=48;game.enemy.x=30;game._body_spacing()"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 117 | — | <code>"    check(is_finite(game.boss.x) and is_finite(game.enemy.x) and game.boss.x-game.enemy.x&gt;=43.99,\"Mass separation also resolves overlap against the opposite wall.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 118 | — | <code>"func _run()-&gt;void:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 119 | — | <code>"    game=load(\"res://game.gd\").new();root.add_child(game);await process_frame;game.set_physics_process(false)"</code> | Inferred mechanical role: remove connect an asset, resource or playback operation. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 120 | — | <code>"    fixture();check(game.magic.pressure==60,\"Each reign begins with a finite60Pressure reserve.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 121 | — | <code>"    for id in [\"throw\",\"reap\",\"nova\"]:"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 122 | — | <code>"        fixture();game.magic.pressure=0"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 123 | — | <code>"        game._start_move(id)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 124 | — | <code>"        check(game.move.is_empty() and game.boss.cooldowns[id]==0 and game.move_counts[id]==0,\"Unaffordable magic must not consume a cooldown or invent a cast.\")"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 125 | — | <code>"    fixture();game.magic.pressure=0;contact(\"cleave\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 126 | — | <code>"    check(game.enemy.hp&lt;1000 and game.magic.pressure==7,\"A free actual unblocked Hand hit must earn exactly7Pressure.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 127 | — | <code>"    fixture();game.enemy.guard_t=2.0;game.enemy.guard_facing=-1;contact(\"cleave\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 128 | — | <code>"    check(game.enemy.hp&lt;1000 and game.magic.pressure==60,\"Blocked chip damage must not farm Pressure.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 129 | — | <code>"    fixture();game.magic.pressure=20;game.boss.guarding=true;game.boss.guard_age=0.05"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 130 | — | <code>"    game._hurt_boss(20,false,{})"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 131 | — | <code>"    check(game.boss.perfect_blocks==1 and game.magic.pressure==36,\"A real perfect parry must earn16Pressure.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 132 | — | <code>"    fixture();game.magic.pressure=20;game.boss.guarding=true;tick_magic(1)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 133 | — | <code>"    check(game.magic.pressure==20,\"Holding a ward must not passively farm Pressure.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 134 | — | <code>"    game.boss.guarding=false;tick_magic(1)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 135 | — | <code>"    check(is_equal_approx(game.magic.pressure,23),\"Quiet unguarded rest regenerates only3Pressure per second.\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 136 | — | <code>"    fixture();contact(\"throw\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 137 | — | <code>"    check(game.magic.pressure==36 and not game.magic.echo_arm.is_empty(),\"Borrowed Hour spends24 and anchors a short-lived recall.\")"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 138 | — | <code>"    check(game.magic.echo_arm.position==Vector2(520,0) and game.projectiles.is_empty(),\"The base recall is an old body position, not a replacement projectile.\")"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 139 | — | <code>"    game.move.clear();game.boss.cooldowns.cleave=0;contact(\"cleave\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 140 | — | <code>"    var echo_damage:float=game.move.spec.damage*0.65"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 141 | — | <code>"    check(game.magic.echo_arm.is_empty() and game.magic.echoes.size()==1,\"The next real Hand action becomes one committed delayed body.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 142 | — | <code>"    game.boss.x=680;game.enemy.invuln=0;game.enemy.guard_t=2;game.enemy.guard_facing=1"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 143 | — | <code>"    var hp:float=game.enemy.hp;var resource:float=game.magic.pressure"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 144 | — | <code>"    tick_magic(0.64)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 145 | — | <code>"    check(is_equal_approx(game.enemy.hp,hp),\"The echo must respect its readable0.65second delay.\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 146 | — | <code>"    tick_magic(0.02)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 147 | — | <code>"    check(is_equal_approx(hp-game.enemy.hp,echo_damage),\"The delayed old-position body hits an actual flank through front guard.\")"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 148 | — | <code>"    check(game.magic.pressure==resource and game.magic.interactions.flanks==1,\"Echo damage never farms Pressure and guards use the actual attack origin.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 149 | — | <code>"    fixture();game.phase=2;game.boss.y=56;contact(\"throw\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 150 | — | <code>"    check(game.boss.x==720 and game.boss.invuln==0,\"Vacant Step physically moves200pixels without free invulnerability.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 151 | — | <code>"    check(game.magic.pressure==32 and game.magic.echoes.size()==1,\"Phase2recall spends28 and commits its old body without requiring another button.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 152 | — | <code>"    check(game.magic.echoes[0].x==520,\"Vacant Step leaves the body at its real previous origin.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 153 | — | <code>"    fixture();game.enemy.y=65;game.enemy.vy=200;contact(\"reap\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 154 | — | <code>"    var center:float=game.magic.field.x"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 155 | — | <code>"    game.enemy.x=center+65;game.move.clear();game.magic.tick(0.1)"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 156 | — | <code>"    check(game.magic.pressure==30 and game.enemy.x&lt;center+65 and game.enemy.y&lt;65,\"Royal Burden spends30 to draw mass inward and physically ground it.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 157 | — | <code>"    check(game.enemy.state!=\"hurt\",\"The field is a positional tool, not a universal hard stun.\")"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 158 | — | <code>"    var pressure:float=game.magic.pressure;game.boss.invuln=0;game._hurt_boss(20,false,{})"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 159 | — | <code>"    check(game.magic.field.is_empty(),\"A real health hit breaks the king's maintained field.\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 160 | — | <code>"    game.move.clear();tick_magic(1)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 161 | — | <code>"    check(game.magic.pressure==pressure,\"Being wounded delays safe Pressure recovery.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 162 | — | <code>"    fixture();game.phase=2;game.boss.y=56;contact(\"reap\");center=game.magic.field.x;game.enemy.x=center+60;game.move.clear();game.magic.tick(0.1)"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 163 | — | <code>"    check(game.magic.pressure==26 and game.enemy.x&gt;center+60 and game.enemy.y&gt;0,\"Unmoored spends34 to lift and repel instead of copying the grounded field.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 164 | — | <code>"    fixture();game.magic.pressure=80;game.enemy.x=game.boss.x+250;contact(\"nova\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 165 | — | <code>"    check(game.magic.pressure==0 and game.move.paid==80,\"Ransom spends the entire reserve, not just its minimum cost.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 166 | — | <code>"    check(game.enemy.hp&lt;1000 and game.magic.strain==2.4,\"The base blast reaches260pixels and exposes the ward for2.4seconds.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 167 | — | <code>"    var held={\"left\":false,\"right\":false,\"jump\":false,\"dash\":false,\"guard\":true,\"hold\":false,\"cleave\":false,\"throw\":false,\"reap\":false,\"nova\":false}"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 168 | — | <code>"    game.move.clear();game._player_step(held,1.0/60.0)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 169 | — | <code>"    check(not game.boss.guarding,\"The spent-reserve opening cannot immediately be covered by a ward.\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 170 | — | <code>"    fixture();game.phase=2;game.boss.y=56;game.magic.pressure=80;game.enemy.x=game.boss.x+349"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 171 | — | <code>"    game._start_move(\"nova\");game.move.stage=\"active\""</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 172 | — | <code>"    hp=game.enemy.hp"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 173 | — | <code>"    for n in range(21):game.move.t=n/60.0;game.move.step=1.0/60.0;game._active_hit()"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 174 | — | <code>"    check(game.enemy.hp==hp and game.enemy.x&lt;game.boss.x+349,\"Empty Throne visibly pulls its outer range before its delayed contact.\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 175 | — | <code>"    game.move.t=0.37;game._active_hit()"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 176 | — | <code>"    check(game.enemy.hp&lt;hp,\"A stationary target at349pixels must enter the inner180crush before delayed impact.\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 177 | — | <code>"    fixture();contact(\"throw\");game.move.clear();game.magic.clear()"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 178 | — | <code>"    check(game.magic.echo_arm.is_empty() and game.magic.echoes.is_empty() and game.magic.field.is_empty(),\"Ending an encounter clears old memories and fields.\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 179 | — | <code>"    hazard_interactions()"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 180 | — | <code>"    rebuke_cases()"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 181 | — | <code>"    readable_counter_case()"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 182 | — | <code>"    spacing_cases()"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 183 | — | <code>"    game.magic.clear();game.powers.dispel();game.entrances.clear();game._clear_effects();game.ui.reset();game.audio.stop_all();game.Actor._cache.clear();game.Actor._images.clear()"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 184 | — | <code>"    await create_timer(0.25).timeout;game.queue_free();await process_frame;await process_frame;await create_timer(0.15).timeout"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 185 | — | <code>"    print(JSON.stringify({\"ok\":failures.is_empty(),\"checks\":checks,\"failures\":failures}));quit(0 if failures.is_empty() else 1)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 0 added and 185 deleted source lines enumerated.
+
+#### Code/configuration: godot/content/verify_royal_magic.gd.uid
+
+Change: D. Before a99ec77f2bfa5c474bc47bd0d11893431404b3af; after working-tree text.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| DELETE | 1 | — | <code>"uid://cyydh1hr1ad8d"</code> | Inferred mechanical role: remove set a serialized configuration, resource reference or workflow value. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 0 added and 1 deleted source lines enumerated.
+
+#### Code/configuration: godot/court_ui.gd
+
+Change: M. Before f8d22a5d6a56f887f91ad3e99a8c2fece1e7e69f; after working-tree SHA256 385e9e52d42b1103dc835dae08147695c5a8950696c0831e6aef0548b559e5fa.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| DELETE | 44 | — | <code>"var _pressure_fill: ColorRect"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"class_name CourtUI"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 45 | — | <code>"var _pressure_label: Label"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"class_name CourtUI"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 46 | — | <code>"var _exposure_label: Label"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"class_name CourtUI"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 54 | — | <code>"const ACTION_LABELS: Dictionary = {\"left\": \"Move left\", \"right\": \"Move right\", \"jump\": \"Jump\", \"dash\": \"Dash\", \"cleave\": \"Crownless Hand / Hollow Orbit\", \"throw\": \"Borrowed Hour / Vacant Step\", \"reap\": \"Royal Burden / Unmoored\", \"nova\": \"King’s Ransom / Empty Throne\", \"guard\": \"Guard\", \"hold\": \"Lower guard\"}"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"class_name CourtUI"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 51 | <code>"const ACTION_LABELS: Dictionary = {\"left\": \"Move left\", \"right\": \"Move right\", \"jump\": \"Jump\", \"dash\": \"Dash\", \"cleave\": \"Sword / Gloam Rake\", \"throw\": \"Thrust / Crownfall\", \"reap\": \"Kneel / Royal Undertow\", \"nova\": \"Procession / Last Dominion\", \"guard\": \"Guard\", \"hold\": \"Lower guard\"}"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"class_name CourtUI"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 158 | — | <code>"    _pressure_fill = ColorRect.new()"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _make_hud() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 159 | — | <code>"    _pressure_fill.position = Vector2(784,58)"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func _make_hud() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 160 | — | <code>"    _pressure_fill.size = Vector2(148,3)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _make_hud() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 161 | — | <code>"    _pressure_fill.color = Color(\"#c1b4f2\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _make_hud() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 162 | — | <code>"    _pressure_fill.mouse_filter = Control.MOUSE_FILTER_IGNORE"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _make_hud() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 163 | — | <code>"    _hud.add_child(_pressure_fill)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _make_hud() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 164 | — | <code>"    _pressure_label = _label(_hud, \"PRESSURE 60\", Vector2(784,63), Vector2(148,17), 10, Color(\"#c1b4f2\"))"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _make_hud() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 165 | — | <code>"    _pressure_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _make_hud() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 166 | — | <code>"    _exposure_label = _label(_hud, \"\", Vector2(682,82), Vector2(250,18), 10, Color(\"#ffb18d\"))"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _make_hud() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 167 | — | <code>"    _exposure_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _make_hud() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 396 | — | <code>"    _label(_menu, \"Fresh guard opens a counter. Empty guard breaks on the next hit. Skills share finite Pressure.\", Vector2(57, 420), Vector2(835, 18), 11, Color(\"#b5c6ca\"))"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func show_controls() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 383 | <code>"    _label(_menu, \"Fresh guard opens a counter. Empty guard breaks on the next hit. Time the counter, then commit to a strike.\", Vector2(57, 420), Vector2(835, 18), 11, Color(\"#b5c6ca\"))"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func show_controls() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 439 | — | <code>"    var pressure: float = clampf(float(data.get(\"pressure\", 60.0)),0.0,100.0)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 440 | — | <code>"    _pressure_fill.size.x = 148.0*pressure/100.0"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 441 | — | <code>"    _pressure_label.text = \"PRESSURE \" + str(int(pressure))"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 442 | — | <code>"    _pressure_fill.color=Color(\"#ef987f\") if bool(data.get(\"pressure_blocked\",false)) else Color(\"#c1b4f2\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 443 | — | <code>"    var exposure: float = maxf(0.0,float(data.get(\"ward_exposure\",data.get(\"exposure\",0.0))))"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 444 | — | <code>"    _exposure_label.text = \"WARD EXPOSED \" + str(snappedf(exposure,0.1)) + \"s\" if exposure&gt;0.0 else \"\""</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 448 | — | <code>"    var names: Array = data.get(\"move_names\", [\"Crownless Hand\", \"Borrowed Hour\", \"Royal Burden\", \"King’s Ransom\"] if int(data.get(\"phase\", 1)) == 1 else [\"Hollow Orbit\", \"Vacant Step\", \"Unmoored\", \"Empty Throne\"])"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 449 | — | <code>"    var cooldowns: Dictionary = data.get(\"cooldowns\", {})"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 450 | — | <code>"    var transformed: bool = int(data.get(\"phase\",1)) == 2"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 451 | — | <code>"    var tradeoffs: Array[String] = ["</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 452 | — | <code>"        \"0 Pressure. Connected body strikes restore Pressure only on actual contact.\","</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 453 | — | <code>"        \"28 Pressure. Commit a 200px phase pass; an echo attacks from the old position. No free invulnerability.\" if transformed else \"24 Pressure. A stationary echo records your next hand strike for 3 seconds, then repeats after 0.65 seconds. Enemies can leave its range.\","</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 454 | — | <code>"        \"34 Pressure. Lock a lift/repel field. Position and timing matter; it does not universally stun.\" if transformed else \"30 Pressure. Lock a short gravity field: pull, ground dives and move hazards. Enemies can escape or interrupt you.\","</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 455 | — | <code>"        \"At least 40 Pressure; spends all. Delayed inward collapse. Long recovery and 2.4 seconds without a ward.\" if transformed else \"At least 40 Pressure; spends all. Chest pressure erupts outward. Long recovery and 2.4 seconds without a ward.\""</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 456 | — | <code>"    ]"</code> | Inferred mechanical role: remove close a source expression or block. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 429 | <code>"    var names:Array=data.get(\"move_names\",[\"Crownsteel\",\"Oathpiercer\",\"Kneel\",\"Procession\"] if int(data.get(\"phase\",1))==1 else [\"Gloam Rake\",\"Crownfall\",\"Royal Undertow\",\"Last Dominion\"])"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 430 | <code>"    var cooldowns:Dictionary=data.get(\"cooldowns\",{})"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 431 | <code>"    var tips:Array=[\"Three successive sword strikes. Fresh taps queue the follow-up.\",\"A committed sword thrust; transformed, falling crown fragments.\",\"A delayed royal area strike; transformed, an inward sweep.\",\"A committed procession; transformed, a wide expanding release.\"]"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 458 | — | <code>"        var action: String = moves[i]"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 459 | — | <code>"        var remaining: float = float(cooldowns.get(action, 0.0))"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 460 | — | <code>"        _move_panels[i].tooltip_text = str(names[i]) + \"\\n\" + tradeoffs[i]"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 461 | — | <code>"        _move_keys[i].text = binding_label(action)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 462 | — | <code>"        _move_labels[i].text = str(snappedf(remaining, 0.1)) if remaining &gt; 0.05 else str(names[i])"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 463 | — | <code>"        var costs:Array[float]=[0.0,28.0 if transformed else 24.0,34.0 if transformed else 30.0,40.0]"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 464 | — | <code>"        var ready:bool=remaining&lt;=0.05 and pressure&gt;=costs[i]"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 465 | — | <code>"        _move_icons[i].texture=ACTOR_SCRIPT.skill_icon(i,2 if transformed else 1)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 466 | — | <code>"        _move_icons[i].modulate=Color.WHITE if ready else Color(0.5,0.5,0.5,0.7)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 467 | — | <code>"        _move_labels[i].add_theme_color_override(\"font_color\",Color(\"#f0dba6\") if ready else Color(\"#7d8798\"))"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 433 | <code>"        var action:String=moves[i]"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 434 | <code>"        var remaining:float=float(cooldowns.get(action,0.0))"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 435 | <code>"        _move_panels[i].tooltip_text=str(names[i])+\"\\n\"+tips[i]"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 436 | <code>"        _move_keys[i].text=binding_label(action)"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 437 | <code>"        _move_labels[i].text=str(snappedf(remaining,0.1)) if remaining&gt;0.05 else str(names[i])"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 438 | <code>"        _move_icons[i].texture=ACTOR_SCRIPT.skill_icon(i)"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 439 | <code>"        _move_icons[i].modulate=Color.WHITE"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 440 | <code>"        _move_labels[i].add_theme_color_override(\"font_color\",Color(\"#a5b7c4\") if remaining&gt;0.05 else Color(\"#f0dba6\"))"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func set_hud(data: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 13 added and 40 deleted source lines enumerated.
+
+#### Code/configuration: godot/game.gd
+
+Change: M. Before 8a422a66c84716547315f8af061c6cb50d9f7697; after working-tree SHA256 bd5139ff0852bba039cf96eb8dffe09acbee86262ce20188ca07c45da3de35d9.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| DELETE | 65 | — | <code>"var magic"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 118 | — | <code>"    magic=load(\"res://royal_magic.gd\").new()"</code> | Inferred mechanical role: remove connect an asset, resource or playback operation. Context: <code>"func _ready() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 119 | — | <code>"    magic.game=self"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _ready() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 120 | — | <code>"    add_child(magic)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _ready() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 147 | — | <code>"    if magic:magic.clear()"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _menu() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 219 | — | <code>"    if magic:magic.reset()"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _reset_bodies() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 488 | — | <code>"    var read_tell:float=float(enemy.get(\"rebuke_tell\",0.30)) if enemy.state==\"rebuke\" else Rules.MELEE[life].tell"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _bot_input() -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 489 | — | <code>"    i.guard=enemy.state in [\"attack\",\"rebuke\"] and enemy.windup&gt;read_tell-0.11 and distance&lt;reach and boss.guard&gt;0.02 and magic.strain&lt;=0"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _bot_input() -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 490 | — | <code>"    i.left=(distance&gt;(150 if phase==2 else 115) and enemy.x&lt;boss.x) or (distance&lt;75 and enemy.x&gt;boss.x)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _bot_input() -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 491 | — | <code>"    i.right=(distance&gt;(150 if phase==2 else 115) and enemy.x&gt;boss.x) or (distance&lt;75 and enemy.x&lt;boss.x)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _bot_input() -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 482 | <code>"    var read_tell:float=float(enemy.get(\"rebuke_tell\",0.46)) if enemy.state==\"rebuke\" else Rules.MELEE[life].tell"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _bot_input() -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 483 | <code>"    i.guard=enemy.state in [\"attack\",\"rebuke\"] and distance&lt;reach and boss.guard&gt;0.2"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _bot_input() -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 484 | <code>"    i.left=(distance&gt;180 and enemy.x&lt;boss.x) or (distance&lt;140 and enemy.x&gt;boss.x)"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _bot_input() -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 485 | <code>"    i.right=(distance&gt;180 and enemy.x&gt;boss.x) or (distance&lt;140 and enemy.x&lt;boss.x)"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _bot_input() -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 512 | — | <code>"    if magic.pressure&gt;=65 and distance&lt;240 and enemy.state in [\"backoff\",\"hurt\",\"parried\"] and boss.cooldowns.nova&lt;=0:i.nova=true"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _bot_input() -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 513 | — | <code>"    elif distance&lt;(225 if phase==2 else 175) and boss.cooldowns.cleave&lt;=0 and (magic.pressure&lt;35 or not magic.echo_arm.is_empty() or enemy.state in [\"hurt\",\"parried\"]):i.cleave=true"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _bot_input() -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 514 | — | <code>"    elif magic.can_cast(\"reap\",phase) and boss.cooldowns.reap&lt;=0 and (enemy.y&gt;60 or enemy.guard_t&gt;0 or powers.busy()):i.reap=true"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _bot_input() -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 515 | — | <code>"    elif magic.can_cast(\"throw\",phase) and distance&lt;195 and magic.echo_arm.is_empty() and boss.cooldowns[\"throw\"]&lt;=0:i[\"throw\"]=true"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _bot_input() -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 516 | — | <code>"    elif distance&lt;(225 if phase==2 else 175) and boss.cooldowns.cleave&lt;=0:i.cleave=true"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _bot_input() -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 506 | <code>"    if boss.cooldowns.nova&lt;=0:i.nova=true"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _bot_input() -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 507 | <code>"    elif distance&lt;(300 if phase==2 else 195) and boss.cooldowns.cleave&lt;=0:i.cleave=true"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _bot_input() -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 508 | <code>"    elif boss.cooldowns.reap&lt;=0:i.reap=true"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _bot_input() -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 509 | <code>"    elif boss.cooldowns[\"throw\"]&lt;=0:i[\"throw\"]=true"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _bot_input() -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 542 | — | <code>"    magic.tick(dt)"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"func _combat_step(dt:float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 604 | — | <code>"    boss.guarding=i.guard and move.is_empty() and boss.dash&lt;=0 and boss.guard_broken&lt;=0 and magic.strain&lt;=0"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _player_step(i:Dictionary,dt:float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 596 | <code>"    boss.guarding=i.guard and move.is_empty() and boss.dash&lt;=0 and boss.guard_broken&lt;=0"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _player_step(i:Dictionary,dt:float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 678 | — | <code>"    if not move.is_empty() and move.id==\"throw\" and move.phase==2 and move.stage==\"active\":return"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _body_spacing() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 670 | <code>"    if not move.is_empty() and move.id==\"throw\" and move.phase==1 and move.stage==\"active\":return"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _body_spacing() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 712 | — | <code>"    if magic:magic.wounded()"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _guard_break(damage:float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 723 | — | <code>"    if not magic.begin(id,phase):return"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _start_move(id:String) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 742 | — | <code>"    move={\"id\":id,\"phase\":phase,\"spec\":spec,\"stage\":\"tell\",\"t\":0.0,\"direction\":boss.facing,\"target\":enemy.x,\"combo\":boss.combo,\"spawned\":0,\"hit\":false,\"marks\":[],\"counter\":counter,\"paid\":magic._reserved}"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _start_move(id:String) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 743 | — | <code>"    if id==\"reap\":move.target=clampf(enemy.x,boss.x-300,boss.x+300)"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _start_move(id:String) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 744 | — | <code>"    audio.sfx(\"cloth\" if id==\"cleave\" else \"magic\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _start_move(id:String) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 732 | <code>"    move={\"id\":id,\"phase\":phase,\"spec\":spec,\"stage\":\"tell\",\"t\":0.0,\"direction\":boss.facing,\"target\":enemy.x,\"combo\":boss.combo,\"spawned\":0,\"hit\":false,\"marks\":[],\"counter\":counter}"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _start_move(id:String) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 733 | <code>"    if id==\"reap\" and phase==2:move.marks=[boss.x-180,boss.x,boss.x+180]"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _start_move(id:String) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 734 | <code>"    if id==\"nova\" and phase==1:move.marks=[boss.x+boss.facing*90,boss.x+boss.facing*250,boss.x+boss.facing*410]"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _start_move(id:String) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 735 | <code>"    audio.sfx(\"magic\" if phase==2 or id in [\"nova\",\"reap\"] else \"sword-draw\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _start_move(id:String) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 762 | — | <code>"    move.step=dt"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _move_step(dt:float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 766 | — | <code>"        if move.id==\"cleave\":boss.vx=move.direction*(180.0 if move.combo&lt;2 else 290.0)"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _move_step(dt:float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 767 | — | <code>"        audio.sfx(\"cloth\" if move.id==\"throw\" else \"magic\")"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _move_step(dt:float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 756 | <code>"        if move.id==\"throw\" and phase==1:boss.vx=move.direction*650.0"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _move_step(dt:float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 757 | <code>"        elif move.id==\"cleave\":boss.vx=move.direction*(380.0 if move.combo&lt;2 else 530.0)"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _move_step(dt:float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 758 | <code>"        if move.id not in [\"nova\",\"reap\"] or phase==1 and move.id==\"reap\":"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _move_step(dt:float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 759 | <code>"            var effect=_royal_fx(move.id,Vector2(move.target if move.id==\"reap\" else boss.x+move.direction*75,FLOOR-boss.y-65),phase)"</code> | Inferred mechanical role: add set spatial layout, movement or sprite geometry. Context: <code>"func _move_step(dt:float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 760 | <code>"            if move.id==\"cleave\":"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _move_step(dt:float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 761 | <code>"                effect.flip_v=move.combo==1"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _move_step(dt:float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 762 | <code>"                effect.rotation=deg_to_rad((-30 if move.combo==1 else 36 if move.combo==2 else 0)*move.direction)"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _move_step(dt:float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 763 | <code>"                effects[-1].velocity=Vector2(move.direction*(160 if move.combo&lt;2 else 250),-80 if move.combo==1 else 70 if move.combo==2 else 0)"</code> | Inferred mechanical role: add set spatial layout, movement or sprite geometry. Context: <code>"func _move_step(dt:float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 764 | <code>"            audio.sfx(\"sword\" if phase==1 else \"magic\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _move_step(dt:float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 774 | — | <code>"    magic.strike(move)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 771 | <code>"    var id:String=move.id"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 772 | <code>"    var damage:float=move.spec.damage"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 773 | <code>"    if id==\"cleave\":"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 774 | <code>"        var ranges=[166.0,185.0,218.0] if phase==1 else [212.0,248.0,290.0]"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 775 | <code>"        if not move.hit and (enemy.x-boss.x)*move.direction&gt;-24 and absf(enemy.x-boss.x)&lt;ranges[move.combo] and absf(enemy.y-boss.y)&lt;(150 if move.combo==1 else 120):"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 776 | <code>"            _hit_enemy(damage,id)"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 777 | <code>"            if move.combo==1:enemy.vy=maxf(enemy.vy,320.0) if enemy.state==\"hurt\" else enemy.vy"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 778 | <code>"            elif move.combo==2 and enemy.state==\"hurt\":enemy.knock=move.direction*540.0"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 779 | <code>"            move.hit=true"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 780 | <code>"        if phase==2 and move.spawned==0:"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 781 | <code>"            move.spawned=1"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 782 | <code>"            _fx(2,Vector2(boss.x,FLOOR-boss.y-50),220+move.combo*50,0.36,\"royal\")"</code> | Inferred mechanical role: add set spatial layout, movement or sprite geometry. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 783 | <code>"    elif id==\"throw\":"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 784 | <code>"        if phase==1:"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 785 | <code>"            if not move.hit and (enemy.x-boss.x)*move.direction&gt;-20 and absf(enemy.x-boss.x)&lt;230 and absf(enemy.y-boss.y)&lt;72:"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 786 | <code>"                move.hit=true"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 787 | <code>"                _hit_enemy(damage,id)"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 788 | <code>"        else:"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 789 | <code>"            # Crown fragments fall as separate physical blades rather than a base-form thrust."</code> | Inferred mechanical role: add document behavior, provenance or maintenance instructions. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 790 | <code>"            while move.spawned&lt;5 and move.t&gt;=move.spawned*0.075:"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 791 | <code>"                var lane:float=move.target+(move.spawned-2)*60"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 792 | <code>"                _projectile(Vector2(lane-move.direction*70,290),Vector2(move.direction*130,-520),15,false,damage,true,life)"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 793 | <code>"                move.spawned+=1"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 794 | <code>"    elif id==\"reap\":"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 795 | <code>"        if phase==1:"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 796 | <code>"            if move.spawned==0:"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 797 | <code>"                move.spawned=1"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 798 | <code>"                if absf(enemy.x-move.target)&lt;88 and enemy.y&lt;72:"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 799 | <code>"                    var before:float=enemy.hp"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 800 | <code>"                    _hit_enemy(damage,id)"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 801 | <code>"                    if enemy.hp&lt;before and enemy.state==\"hurt\":"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 802 | <code>"                        enemy.y=0.0;enemy.vy=0.0;enemy.knock=0.0;enemy.kneel=0.42"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 803 | <code>"        else:"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 804 | <code>"            while move.spawned&lt;3 and move.t&gt;=move.spawned*0.16:"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 805 | <code>"                var x:float=move.marks[move.spawned]"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 806 | <code>"                move.spawned+=1"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 807 | <code>"                _royal_fx(\"reap\",Vector2(x,FLOOR-65),2)"</code> | Inferred mechanical role: add set spatial layout, movement or sprite geometry. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 808 | <code>"            if not move.hit and absf(enemy.x-boss.x)&lt;310 and enemy.y&lt;164:"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 809 | <code>"                _hit_enemy(damage,id)"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 810 | <code>"                enemy.knock=signf(boss.x-enemy.x)*500"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 811 | <code>"                enemy.vy=260.0"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 812 | <code>"                move.hit=true"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 813 | <code>"    elif phase==1:"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 814 | <code>"        while move.spawned&lt;3 and move.t&gt;=move.spawned*0.14:"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 815 | <code>"            var x:float=move.marks[move.spawned]"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 816 | <code>"            move.spawned+=1"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 817 | <code>"            _royal_fx(\"cleave\",Vector2(x,FLOOR-65),1)"</code> | Inferred mechanical role: add set spatial layout, movement or sprite geometry. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 818 | <code>"            if absf(enemy.x-x)&lt;104 and enemy.y&lt;130:_hit_enemy(damage,id)"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 819 | <code>"    else:"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 820 | <code>"        var radius:float=520*minf(1,move.t/move.spec.active)"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 821 | <code>"        if move.spawned&lt;int(move.t*20)+1:"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 822 | <code>"            move.spawned+=1"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 823 | <code>"            _fx(4,Vector2(boss.x-radius,FLOOR-55),180,0.30,\"nova\",-1)"</code> | Inferred mechanical role: add set spatial layout, movement or sprite geometry. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 824 | <code>"            _fx(4,Vector2(boss.x+radius,FLOOR-55),180,0.30,\"nova\",1)"</code> | Inferred mechanical role: add set spatial layout, movement or sprite geometry. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 825 | <code>"        if not move.hit and absf(absf(enemy.x-boss.x)-radius)&lt;64 and enemy.y&lt;130:"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 826 | <code>"            _hit_enemy(damage,id);move.hit=true"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _active_hit() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 779 | — | <code>"    var flank:bool=enemy.guard_t&gt;0 and enemy.guard_facing*(source_x-enemy.x)&lt;0"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _hit_enemy(damage:float,id:String,origin_x:float=NAN) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 831 | <code>"    var _flank:bool=enemy.guard_t&gt;0 and enemy.guard_facing*(source_x-enemy.x)&lt;0"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _hit_enemy(damage:float,id:String,origin_x:float=NAN) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 790 | — | <code>"    if id==\"cleave\" and not guard_hit and enemy.hp&lt;before_hp:magic.gain(7.0)"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _hit_enemy(damage:float,id:String,origin_x:float=NAN) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 791 | — | <code>"    if id==\"echo\" and flank:magic.interactions.flanks+=1"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _hit_enemy(damage:float,id:String,origin_x:float=NAN) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 988 | <code>"    if not move.is_empty():enemy.rebuke_tell=maxf(enemy.rebuke_tell,float(move.spec.active)+float(move.spec.recover)+0.10)"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _royal_rebuke(source_x:float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 996 | — | <code>"        magic.gain(16.0)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _hurt_boss(damage:float,low:bool,weapon:Dictionary={}) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 1028 | — | <code>"    magic.wounded()"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _hurt_boss(damage:float,low:bool,weapon:Dictionary={}) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 1110 | — | <code>"            motion=\"royal_hand_\"+str(move.combo) if move.id==\"cleave\" else \"royal_echo\" if move.id==\"throw\" else \"royal_burden\" if move.id==\"reap\" else \"royal_ransom\""</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _animate() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 1159 | <code>"            motion=\"throw\" if move.get(\"counter\",false) else \"combo_\"+str(move.combo) if move.id==\"cleave\" else move.id"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _animate() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 1112 | — | <code>"            if move.stage==\"tell\":frame=mini(4,int(move.t/maxf(0.01,duration)*5))"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _animate() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 1113 | — | <code>"            elif move.stage==\"active\":frame=mini(7,5+int(move.t/maxf(0.01,duration)*3))"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _animate() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 1114 | — | <code>"            else:frame=mini(11,8+int(move.t/maxf(0.01,duration)*4))"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _animate() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 1161 | <code>"            if move.stage==\"tell\":"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _animate() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 1162 | <code>"                motion=\"prepare_throw\" if move.get(\"counter\",false) else \"prepare_\"+(\"cleave_\"+str(move.combo) if move.id==\"cleave\" else move.id)"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _animate() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 1163 | <code>"                frame=mini(5,int(move.t/maxf(0.01,duration)*6))"</code> | Inferred mechanical role: add set timing, animation progression or simulation cadence. Context: <code>"func _animate() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 1164 | <code>"            elif move.stage==\"active\":"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _animate() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 1165 | <code>"                frame=mini(7,5+int(move.t/maxf(0.01,duration)*3)) if phase==1 and move.id in [\"cleave\",\"throw\"] else mini(4,2+int(move.t/maxf(0.01,duration)*3))"</code> | Inferred mechanical role: add set timing, animation progression or simulation cadence. Context: <code>"func _animate() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 1166 | <code>"            else:"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _animate() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 1167 | <code>"                frame=mini(11,8+int(move.t/maxf(0.01,duration)*4)) if phase==1 and move.id in [\"cleave\",\"throw\"] else 4 if move.t&lt;duration*0.65 else 5"</code> | Inferred mechanical role: add set timing, animation progression or simulation cadence. Context: <code>"func _animate() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 1176 | — | <code>"        \"pressure\":magic.pressure,\"ward_exposure\":magic.strain,\"pressure_blocked\":magic.dry&gt;0,"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _hud() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 1244 | — | <code>"    magic.clear()"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _win_encounter() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 1293 | — | <code>"    magic.clear()"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _finish(kind:String) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 1433 | — | <code>"        \"action_locked\":boss.get(\"guard_broken\",0)&gt;0.45 or boss.get(\"land\",0)&gt;0.065,\"pressure\":magic.pressure,\"magic\":magic.debug_state(),"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _publish_state() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 1483 | <code>"        \"action_locked\":boss.get(\"guard_broken\",0)&gt;0.45 or boss.get(\"land\",0)&gt;0.065,"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _publish_state() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 1481 | — | <code>"            entries.append({\"kind\":\"royal\",\"x\":move.target,\"y\":FLOOR-3,\"width\":240.0,\"progress\":ratio,\"enemy\":false,\"remaining\":move.spec.tell-move.t})"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func _telegraph_data() -&gt; Array:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 1531 | <code>"            var marks:Array=move.marks if phase==2 else [move.target]"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _telegraph_data() -&gt; Array:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 1532 | <code>"            for x in marks:entries.append({\"kind\":\"royal\",\"x\":float(x),\"y\":FLOOR-3,\"width\":128.0 if phase==2 else 176.0,\"progress\":ratio,\"enemy\":false,\"remaining\":move.spec.tell-move.t})"</code> | Inferred mechanical role: add set spatial layout, movement or sprite geometry. Context: <code>"func _telegraph_data() -&gt; Array:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 1533 | <code>"        elif move.id==\"throw\" and phase==2:"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func _telegraph_data() -&gt; Array:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 1534 | <code>"            for lane in range(-2,3):entries.append({\"kind\":\"landing\",\"x\":move.target+lane*60,\"y\":FLOOR-3,\"width\":46.0,\"progress\":ratio,\"enemy\":false,\"remaining\":move.spec.tell-move.t})"</code> | Inferred mechanical role: add set spatial layout, movement or sprite geometry. Context: <code>"func _telegraph_data() -&gt; Array:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 1483 | — | <code>"            entries.append({\"kind\":\"nova\",\"x\":boss.x,\"y\":FLOOR-3,\"width\":700.0 if phase==2 else 520.0,\"progress\":ratio,\"enemy\":false,\"remaining\":move.spec.tell-move.t})"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func _telegraph_data() -&gt; Array:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 1536 | <code>"            for x in (move.marks if phase==1 else [boss.x-250,boss.x,boss.x+250]):"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func _telegraph_data() -&gt; Array:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 1537 | <code>"                entries.append({\"kind\":\"nova\",\"x\":float(x),\"y\":FLOOR-3,\"width\":170.0,\"progress\":ratio,\"enemy\":false,\"remaining\":move.spec.tell-move.t})"</code> | Inferred mechanical role: add set spatial layout, movement or sprite geometry. Context: <code>"func _telegraph_data() -&gt; Array:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 96 added and 42 deleted source lines enumerated.
+
+#### Code/configuration: godot/royal_magic.gd
+
+Change: D. Before 16a0b7255b8a5035f8d0d490ff0f343d7257db51; after working-tree text.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| DELETE | 1 | — | <code>"# AI-use disclosure: Codex authored body-bound royal magic, finite Pressure and positional interactions."</code> | Inferred mechanical role: remove document behavior, provenance or maintenance instructions. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 2 | — | <code>"class_name RoyalMagic"</code> | Inferred mechanical role: remove declare a dependency or engine type. Context: <code>"class_name RoyalMagic"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 3 | — | <code>"extends Node"</code> | Inferred mechanical role: remove declare a dependency or engine type. Context: <code>"class_name RoyalMagic"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 4 | — | <code>"var game"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"class_name RoyalMagic"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 5 | — | <code>"var pressure: float = 60.0"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"class_name RoyalMagic"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 6 | — | <code>"var strain: float = 0.0"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"class_name RoyalMagic"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 7 | — | <code>"var dry: float = 0.0"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"class_name RoyalMagic"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 8 | — | <code>"var echo_arm: Dictionary = {}"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"class_name RoyalMagic"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 9 | — | <code>"var echoes: Array[Dictionary] = []"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"class_name RoyalMagic"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 10 | — | <code>"var field: Dictionary = {}"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"class_name RoyalMagic"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 11 | — | <code>"var vfx: Array[Dictionary] = []"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"class_name RoyalMagic"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 12 | — | <code>"var interactions: Dictionary = {\"echo_hits\":0,\"groundings\":0,\"redirects\":0,\"bursts\":0,\"flanks\":0}"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"class_name RoyalMagic"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 13 | — | <code>"var _reserved: float = 0.0"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"class_name RoyalMagic"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 14 | — | <code>"var arm_sprite: Sprite2D"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"class_name RoyalMagic"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 15 | — | <code>"var _echo_clock: float = 0.0"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"class_name RoyalMagic"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 16 | — | <code>"var _regen_delay: float = 0.0"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"class_name RoyalMagic"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 17 | — | <code>""</code> | Inferred mechanical role: remove separate adjacent source blocks for readability. Context: <code>"class_name RoyalMagic"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 18 | — | <code>"func reset() -&gt; void:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func reset() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 19 | — | <code>"    clear()"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func reset() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 20 | — | <code>"    pressure=60.0;strain=0.0;dry=0.0;_regen_delay=0.0"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func reset() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 21 | — | <code>"    interactions={\"echo_hits\":0,\"groundings\":0,\"redirects\":0,\"bursts\":0,\"flanks\":0}"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func reset() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 22 | — | <code>""</code> | Inferred mechanical role: remove separate adjacent source blocks for readability. Context: <code>"func reset() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 23 | — | <code>"func clear() -&gt; void:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func clear() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 24 | — | <code>"    for item in vfx:"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func clear() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 25 | — | <code>"        if is_instance_valid(item.sprite):item.sprite.queue_free()"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func clear() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 26 | — | <code>"    vfx.clear()"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func clear() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 27 | — | <code>"    if field.has(\"sprite\") and is_instance_valid(field.sprite):field.sprite.queue_free()"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func clear() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 28 | — | <code>"    field.clear();echo_arm.clear()"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func clear() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 29 | — | <code>"    if is_instance_valid(arm_sprite):arm_sprite.queue_free()"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func clear() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 30 | — | <code>"    arm_sprite=null"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func clear() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 31 | — | <code>"    for e in echoes:"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func clear() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 32 | — | <code>"        if is_instance_valid(e.sprite):e.sprite.queue_free()"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func clear() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 33 | — | <code>"    echoes.clear()"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func clear() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 34 | — | <code>""</code> | Inferred mechanical role: remove separate adjacent source blocks for readability. Context: <code>"func clear() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 35 | — | <code>"func gain(amount: float) -&gt; void:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func gain(amount: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 36 | — | <code>"    pressure=minf(100.0,pressure+amount)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func gain(amount: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 37 | — | <code>""</code> | Inferred mechanical role: remove separate adjacent source blocks for readability. Context: <code>"func gain(amount: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 38 | — | <code>"func cost(id: String, phase: int) -&gt; float:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func cost(id: String, phase: int) -&gt; float:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 39 | — | <code>"    if id==\"cleave\":return 0.0"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func cost(id: String, phase: int) -&gt; float:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 40 | — | <code>"    if id==\"throw\":return 28.0 if phase==2 else 24.0"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func cost(id: String, phase: int) -&gt; float:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 41 | — | <code>"    if id==\"reap\":return 34.0 if phase==2 else 30.0"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func cost(id: String, phase: int) -&gt; float:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 42 | — | <code>"    return maxf(40.0,pressure)"</code> | Inferred mechanical role: remove control exit, error or iteration behavior. Context: <code>"func cost(id: String, phase: int) -&gt; float:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 43 | — | <code>""</code> | Inferred mechanical role: remove separate adjacent source blocks for readability. Context: <code>"func cost(id: String, phase: int) -&gt; float:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 44 | — | <code>"func can_cast(id: String, phase: int) -&gt; bool:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func can_cast(id: String, phase: int) -&gt; bool:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 45 | — | <code>"    return pressure+0.001&gt;=cost(id,phase)"</code> | Inferred mechanical role: remove control exit, error or iteration behavior. Context: <code>"func can_cast(id: String, phase: int) -&gt; bool:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 46 | — | <code>""</code> | Inferred mechanical role: remove separate adjacent source blocks for readability. Context: <code>"func can_cast(id: String, phase: int) -&gt; bool:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 47 | — | <code>"func begin(id: String, phase: int) -&gt; bool:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func begin(id: String, phase: int) -&gt; bool:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 48 | — | <code>"    if not can_cast(id,phase):"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func begin(id: String, phase: int) -&gt; bool:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 49 | — | <code>"        dry=0.65"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func begin(id: String, phase: int) -&gt; bool:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 50 | — | <code>"        return false"</code> | Inferred mechanical role: remove control exit, error or iteration behavior. Context: <code>"func begin(id: String, phase: int) -&gt; bool:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 51 | — | <code>"    _reserved=cost(id,phase)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func begin(id: String, phase: int) -&gt; bool:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 52 | — | <code>"    pressure=maxf(0.0,pressure-_reserved)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func begin(id: String, phase: int) -&gt; bool:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 53 | — | <code>"    _regen_delay=0.75 if id!=\"cleave\" else _regen_delay"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func begin(id: String, phase: int) -&gt; bool:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 54 | — | <code>"    return true"</code> | Inferred mechanical role: remove control exit, error or iteration behavior. Context: <code>"func begin(id: String, phase: int) -&gt; bool:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 55 | — | <code>""</code> | Inferred mechanical role: remove separate adjacent source blocks for readability. Context: <code>"func begin(id: String, phase: int) -&gt; bool:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 56 | — | <code>"func wounded() -&gt; void:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func wounded() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 57 | — | <code>"    _regen_delay=1.4"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func wounded() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 58 | — | <code>"    if field.has(\"sprite\") and is_instance_valid(field.sprite):field.sprite.queue_free()"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func wounded() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 59 | — | <code>"    field.clear()"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func wounded() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 60 | — | <code>"    # A recalled body can still finish its already committed action."</code> | Inferred mechanical role: remove document behavior, provenance or maintenance instructions. Context: <code>"func wounded() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 61 | — | <code>""</code> | Inferred mechanical role: remove separate adjacent source blocks for readability. Context: <code>"func wounded() -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 62 | — | <code>"func _sprite(actor: String, motion: String, frame: int, at: Vector2, alpha: float=0.65) -&gt; Sprite2D:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func _sprite(actor: String, motion: String, frame: int, at: Vector2, alpha: float=0.65) -&gt; Sprite2D:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 63 | — | <code>"    var s:=Sprite2D.new()"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _sprite(actor: String, motion: String, frame: int, at: Vector2, alpha: float=0.65) -&gt; Sprite2D:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 64 | — | <code>"    s.texture=game.Actor.texture_for(actor,motion,frame)"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"func _sprite(actor: String, motion: String, frame: int, at: Vector2, alpha: float=0.65) -&gt; Sprite2D:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 65 | — | <code>"    s.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _sprite(actor: String, motion: String, frame: int, at: Vector2, alpha: float=0.65) -&gt; Sprite2D:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 66 | — | <code>"    s.position=Vector2(at.x,game.FLOOR-at.y)"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func _sprite(actor: String, motion: String, frame: int, at: Vector2, alpha: float=0.65) -&gt; Sprite2D:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 67 | — | <code>"    s.offset=Vector2(0,-58)"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func _sprite(actor: String, motion: String, frame: int, at: Vector2, alpha: float=0.65) -&gt; Sprite2D:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 68 | — | <code>"    s.modulate=Color(0.54,0.88,1.0,alpha)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _sprite(actor: String, motion: String, frame: int, at: Vector2, alpha: float=0.65) -&gt; Sprite2D:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 69 | — | <code>"    s.z_index=7"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _sprite(actor: String, motion: String, frame: int, at: Vector2, alpha: float=0.65) -&gt; Sprite2D:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 70 | — | <code>"    add_child(s)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _sprite(actor: String, motion: String, frame: int, at: Vector2, alpha: float=0.65) -&gt; Sprite2D:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 71 | — | <code>"    return s"</code> | Inferred mechanical role: remove control exit, error or iteration behavior. Context: <code>"func _sprite(actor: String, motion: String, frame: int, at: Vector2, alpha: float=0.65) -&gt; Sprite2D:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 72 | — | <code>""</code> | Inferred mechanical role: remove separate adjacent source blocks for readability. Context: <code>"func _sprite(actor: String, motion: String, frame: int, at: Vector2, alpha: float=0.65) -&gt; Sprite2D:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 73 | — | <code>"func _effect(row:int,at:Vector2,width:float,duration:float=0.32) -&gt; void:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func _effect(row:int,at:Vector2,width:float,duration:float=0.32) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 74 | — | <code>"    var s:=Sprite2D.new()"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _effect(row:int,at:Vector2,width:float,duration:float=0.32) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 75 | — | <code>"    s.texture=game.Actor.magic_texture(row,0)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _effect(row:int,at:Vector2,width:float,duration:float=0.32) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 76 | — | <code>"    s.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _effect(row:int,at:Vector2,width:float,duration:float=0.32) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 77 | — | <code>"    s.position=at;s.offset=Vector2(64,64)-game.Actor.magic_anchor(row)"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func _effect(row:int,at:Vector2,width:float,duration:float=0.32) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 78 | — | <code>"    s.scale=Vector2.ONE*(width/128.0);s.z_index=11"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func _effect(row:int,at:Vector2,width:float,duration:float=0.32) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 79 | — | <code>"    add_child(s)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _effect(row:int,at:Vector2,width:float,duration:float=0.32) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 80 | — | <code>"    vfx.append({\"sprite\":s,\"row\":row,\"time\":0.0,\"duration\":duration})"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"func _effect(row:int,at:Vector2,width:float,duration:float=0.32) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 81 | — | <code>""</code> | Inferred mechanical role: remove separate adjacent source blocks for readability. Context: <code>"func _effect(row:int,at:Vector2,width:float,duration:float=0.32) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 82 | — | <code>"func strike(m: Dictionary) -&gt; void:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 83 | — | <code>"    var id: String=m.id"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 84 | — | <code>"    if id==\"cleave\":"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 85 | — | <code>"        if m.spawned==0:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 86 | — | <code>"            m.spawned=1"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 87 | — | <code>"            _effect(0,Vector2(game.boss.x+m.direction*80,game.FLOOR-game.boss.y-60),130.0+m.combo*20,0.25)"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 88 | — | <code>"        var reach: float=([135.0,155.0,185.0] if m.phase==1 else [175.0,200.0,225.0])[m.combo]"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 89 | — | <code>"        var origin: float=game.boss.x"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 90 | — | <code>"        if not m.hit and (game.enemy.x-origin)*m.direction&gt;-24 and absf(game.enemy.x-origin)&lt;reach and absf(game.enemy.y-game.boss.y)&lt;125:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 91 | — | <code>"            var before: float=game.enemy.hp"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 92 | — | <code>"            game._hit_enemy(m.spec.damage,id)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 93 | — | <code>"            m.hit=true"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 94 | — | <code>"            if game.enemy.hp&lt;before:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 95 | — | <code>"                var knock: float=(120.0 if m.combo==0 else -90.0 if m.combo==1 else 350.0)*m.direction"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 96 | — | <code>"                game.enemy.knock=knock if game.enemy.state==\"hurt\" else knock*0.18"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 97 | — | <code>"                if m.combo==1 and game.enemy.state==\"hurt\":game.enemy.vy=maxf(game.enemy.vy,210.0)"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 98 | — | <code>"        if not m.get(\"echo_recorded\",false):"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 99 | — | <code>"            m.echo_recorded=true"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 100 | — | <code>"            if not echo_arm.is_empty():"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 101 | — | <code>"                var actor: String=\"ascended\" if m.phase==2 else \"king\""</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 102 | — | <code>"                var pos: Vector2=echo_arm.position"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 103 | — | <code>"                var s: Sprite2D=_sprite(actor,\"royal_hand_\"+str(m.combo),0,pos,0.38)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 104 | — | <code>"                s.flip_h=m.direction&gt;0"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 105 | — | <code>"                echoes.append({\"x\":pos.x,\"y\":pos.y,\"direction\":m.direction,\"combo\":m.combo,\"phase\":m.phase,\"damage\":m.spec.damage*0.65,\"reach\":reach,\"t\":-0.65,\"hit\":false,\"sprite\":s})"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 106 | — | <code>"                echo_arm.clear()"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 107 | — | <code>"                if is_instance_valid(arm_sprite):arm_sprite.queue_free()"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 108 | — | <code>"                arm_sprite=null"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 109 | — | <code>"    elif id==\"throw\" and m.spawned==0:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 110 | — | <code>"        m.spawned=1"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 111 | — | <code>"        var old: Vector2=Vector2(game.boss.x,game.boss.y)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 112 | — | <code>"        _effect(1,Vector2(old.x,game.FLOOR-old.y),140,0.45)"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 113 | — | <code>"        if m.phase==1:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 114 | — | <code>"            echo_arm={\"position\":old,\"ttl\":3.0}"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 115 | — | <code>"            if is_instance_valid(arm_sprite):arm_sprite.queue_free()"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 116 | — | <code>"            arm_sprite=_sprite(\"king\",\"royal_echo\",7,old,0.23)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 117 | — | <code>"        else:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 118 | — | <code>"            var s: Sprite2D=_sprite(\"ascended\",\"royal_hand_0\",0,old,0.30)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 119 | — | <code>"            s.flip_h=m.direction&gt;0"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 120 | — | <code>"            echoes.append({\"x\":old.x,\"y\":old.y,\"direction\":m.direction,\"combo\":0,\"phase\":2,\"damage\":game.Rules.CROWN_MOVES.cleave.damage*0.65,\"reach\":200.0,\"t\":-0.65,\"hit\":false,\"sprite\":s})"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 121 | — | <code>"            game.boss.x=clampf(game.boss.x+m.direction*200.0,48.0,912.0)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 122 | — | <code>"            game.boss.vx=m.direction*80.0"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 123 | — | <code>"            game._trail(game.king,Color(\"#8cf4ff\"))"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 124 | — | <code>"        game.audio.sfx(\"cloth\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 125 | — | <code>"    elif id==\"reap\" and m.spawned==0:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 126 | — | <code>"        m.spawned=1"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 127 | — | <code>"        if field.has(\"sprite\") and is_instance_valid(field.sprite):field.sprite.queue_free()"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 128 | — | <code>"        var s:=Sprite2D.new()"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 129 | — | <code>"        s.texture=game.Actor.magic_texture(3 if m.phase==2 else 2,1)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 130 | — | <code>"        s.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 131 | — | <code>"        s.position=Vector2(m.target,game.FLOOR)"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 132 | — | <code>"        s.offset=Vector2(64,64)-game.Actor.magic_anchor(3 if m.phase==2 else 2)"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 133 | — | <code>"        s.scale=Vector2(1.875,1.0)"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 134 | — | <code>"        s.modulate=Color(0.72,0.56,1.0,0.55) if m.phase==2 else Color(1.0,0.70,0.30,0.55)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 135 | — | <code>"        s.z_index=3;add_child(s)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 136 | — | <code>"        field={\"x\":m.target,\"radius\":120.0,\"ttl\":1.6,\"phase\":m.phase,\"sprite\":s,\"hit\":false}"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 137 | — | <code>"    elif id==\"nova\":"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 138 | — | <code>"        if m.phase==2:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 139 | — | <code>"            var dx: float=game.boss.x-game.enemy.x"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 140 | — | <code>"            if absf(dx)&lt;350 and not m.hit:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 141 | — | <code>"                game.enemy.x=clampf(game.enemy.x+signf(dx)*minf(absf(dx),650.0*float(m.get(\"step\",1.0/60.0))),30.0,930.0)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 142 | — | <code>"            if m.t&lt;0.36:return"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 143 | — | <code>"        if not m.hit:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 144 | — | <code>"            m.hit=true"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 145 | — | <code>"            strain=2.4;game.boss.guarding=false"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 146 | — | <code>"            var radius: float=350.0 if m.phase==2 else 260.0"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 147 | — | <code>"            if absf(game.enemy.x-game.boss.x)&lt;(180.0 if m.phase==2 else radius) and absf(game.enemy.y-game.boss.y)&lt;180:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 148 | — | <code>"                game._hit_enemy(28.0+float(m.get(\"paid\",40.0))*0.60,\"nova\")"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 149 | — | <code>"                game.enemy.knock=signf(game.enemy.x-game.boss.x)*(520.0 if m.phase==1 else -300.0)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 150 | — | <code>"            _effect(5 if m.phase==2 else 4,Vector2(game.boss.x,game.FLOOR-game.boss.y-65),radius*1.6,0.50)"</code> | Inferred mechanical role: remove set spatial layout, movement or sprite geometry. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 151 | — | <code>"            for p in game.projectiles.duplicate():"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 152 | — | <code>"                if not p.friendly and absf(p.p.x-game.boss.x)&lt;radius:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 153 | — | <code>"                    if is_instance_valid(p.sprite):p.sprite.queue_free()"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 154 | — | <code>"                    game.projectiles.erase(p);interactions.redirects+=1"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 155 | — | <code>"            interactions.redirects+=game.powers.disperse(float(game.boss.x),radius)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 156 | — | <code>"            interactions.bursts+=1"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 157 | — | <code>"            game.audio.pulse(\"climax\");game.trauma=maxf(game.trauma,7.0)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 158 | — | <code>""</code> | Inferred mechanical role: remove separate adjacent source blocks for readability. Context: <code>"func strike(m: Dictionary) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 159 | — | <code>"func tick(dt: float) -&gt; void:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 160 | — | <code>"    for item in vfx.duplicate():"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 161 | — | <code>"        item.time+=dt"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 162 | — | <code>"        item.sprite.texture=game.Actor.magic_texture(item.row,clampi(int(item.time/item.duration*6),0,5))"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 163 | — | <code>"        if item.time&gt;=item.duration:item.sprite.queue_free();vfx.erase(item)"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 164 | — | <code>"    dry=maxf(0,dry-dt)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 165 | — | <code>"    strain=maxf(0,strain-dt);_regen_delay=maxf(0,_regen_delay-dt)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 166 | — | <code>"    if _regen_delay&lt;=0 and strain&lt;=0 and game.move.is_empty() and not game.boss.guarding:gain(3.0*dt)"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 167 | — | <code>"    if not echo_arm.is_empty():"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 168 | — | <code>"        echo_arm.ttl-=dt"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 169 | — | <code>"        if echo_arm.ttl&lt;=0:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 170 | — | <code>"            echo_arm.clear()"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 171 | — | <code>"            if is_instance_valid(arm_sprite):arm_sprite.queue_free()"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 172 | — | <code>"            arm_sprite=null"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 173 | — | <code>"    for e in echoes.duplicate():"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 174 | — | <code>"        e.t+=dt"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 175 | — | <code>"        var frame: int=clampi(int((e.t+0.65)/0.65*5),0,4) if e.t&lt;0 else clampi(5+int(e.t*16),5,11)"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 176 | — | <code>"        e.sprite.texture=game.Actor.texture_for(\"ascended\" if e.phase==2 else \"king\",\"royal_hand_\"+str(e.combo),frame)"</code> | Inferred mechanical role: remove set timing, animation progression or simulation cadence. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 177 | — | <code>"        e.sprite.modulate.a=0.24 if e.t&lt;0 else maxf(0,0.70-e.t)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 178 | — | <code>"        if e.t&gt;=0 and not e.hit:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 179 | — | <code>"            e.hit=true"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 180 | — | <code>"            if absf(game.enemy.x-e.x)&lt;e.reach and (game.enemy.x-e.x)*e.direction&gt;-24 and absf(game.enemy.y-e.y)&lt;125:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 181 | — | <code>"                var before: float=game.enemy.hp"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 182 | — | <code>"                game._hit_enemy(e.damage,\"echo\",e.x)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 183 | — | <code>"                if game.enemy.hp&lt;before:interactions.echo_hits+=1"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 184 | — | <code>"        if e.t&gt;0.55:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 185 | — | <code>"            e.sprite.queue_free();echoes.erase(e)"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 186 | — | <code>"    if not field.is_empty():_field_tick(dt)"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 187 | — | <code>""</code> | Inferred mechanical role: remove separate adjacent source blocks for readability. Context: <code>"func tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 188 | — | <code>"func _field_tick(dt: float) -&gt; void:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 189 | — | <code>"    field.ttl-=dt"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 190 | — | <code>"    var dx: float=field.x-game.enemy.x"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 191 | — | <code>"    var inside: bool=absf(dx)&lt;field.radius"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 192 | — | <code>"    if inside:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 193 | — | <code>"        var mass: float=0.35 if game.life==5 else 0.8 if game.life==2 else 1.0"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 194 | — | <code>"        game.enemy.x=clampf(game.enemy.x+signf(dx)*(1 if field.phase==1 else -1)*minf(absf(dx),130.0*dt*mass),30,930)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 195 | — | <code>"        if field.phase==1:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 196 | — | <code>"            if game.enemy.y&gt;0:interactions.groundings+=1"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 197 | — | <code>"            game.enemy.y=move_toward(float(game.enemy.y),0,440.0*dt)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 198 | — | <code>"            game.enemy.vy=minf(float(game.enemy.vy),0)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 199 | — | <code>"        elif game.enemy.y&lt;100:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 200 | — | <code>"            game.enemy.y=move_toward(float(game.enemy.y),100,190.0*dt)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 201 | — | <code>"            game.enemy.vy=maxf(float(game.enemy.vy),0)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 202 | — | <code>"        if not field.hit:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 203 | — | <code>"            field.hit=true;game._hit_enemy(10.0,\"reap\",field.x)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 204 | — | <code>"    var bends: int=game.powers.bend_field(float(field.x),float(field.radius),int(field.phase),dt)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 205 | — | <code>"    interactions.redirects+=bends"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 206 | — | <code>"    field.sprite.texture=game.Actor.magic_texture(3 if field.phase==2 else 2,clampi(1+int((1.6-field.ttl)*3),1,5))"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 207 | — | <code>"    field.sprite.modulate.a=minf(0.55,field.ttl*2)"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 208 | — | <code>"    if field.ttl&lt;=0:"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 209 | — | <code>"        field.sprite.queue_free();field.clear()"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 210 | — | <code>""</code> | Inferred mechanical role: remove separate adjacent source blocks for readability. Context: <code>"func _field_tick(dt: float) -&gt; void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 211 | — | <code>"func debug_state() -&gt; Dictionary:"</code> | Inferred mechanical role: remove declare the API, type, function or scene behavior. Context: <code>"func debug_state() -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 212 | — | <code>"    var f: Dictionary={}"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"func debug_state() -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 213 | — | <code>"    if not field.is_empty():f={\"x\":field.x,\"radius\":field.radius,\"ttl\":field.ttl,\"phase\":field.phase}"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"func debug_state() -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 214 | — | <code>"    return {\"pressure\":pressure,\"max_pressure\":100,\"strain\":strain,\"pressure_blocked\":dry&gt;0,\"echo_armed\":not echo_arm.is_empty(),\"echoes\":echoes.size(),\"field\":f,\"interactions\":interactions.duplicate()}"</code> | Inferred mechanical role: remove control exit, error or iteration behavior. Context: <code>"func debug_state() -&gt; Dictionary:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 0 added and 214 deleted source lines enumerated.
+
+#### Code/configuration: godot/royal_magic.gd.uid
+
+Change: D. Before 7a6c7ee44e486d22dfb8ae982b410fde44f1c27a; after working-tree text.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| DELETE | 1 | — | <code>"uid://c5sbmwuadnm75"</code> | Inferred mechanical role: remove set a serialized configuration, resource reference or workflow value. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 0 added and 1 deleted source lines enumerated.
+
+#### Code/configuration: scripts/body-animation-smoke.mjs
+
+Change: M. Before 7eef0ce251a75bd6a00acce68ee310de897ba0d2; after working-tree SHA256 055a3226c95554bd598c4c848c8c20fe0f3706aa4a846fca8f9634b9c1c3fe9e.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| DELETE | 70 | — | <code>"    seen=true;assert(s.actor_motion.startsWith('royal_')&amp;&amp;s.actor_frame&lt;=4,label+' tell must use physical royal loading frames');assert(!s.telegraphs.some(t=&gt;['sweep','thrust'].includes(t.kind)),label+' basic tell must have no projected attack/hologram');frames.add(s.actor_frame);regions.add(s.actor_region);samples.push({motion:s.actor_motion,frame:s.actor_frame,region:s.actor_region,path:s.king_sprite_path,tell:s.telegraphs});"</code> | Inferred mechanical role: remove specify or verify an observable regression expectation. Context: <code>"if(s.active_move===id&amp;&amp;s.player_move_stage==='tell'){"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 70 | <code>"    seen=true;assert(s.actor_motion.startsWith('prepare_')&amp;&amp;s.actor_frame&lt;=5,label+' tell must use physical sword preparation frames');assert(!s.telegraphs.some(t=&gt;['sweep','thrust'].includes(t.kind)),label+' basic tell must have no projected attack/hologram');frames.add(s.actor_frame);regions.add(s.actor_region);samples.push({motion:s.actor_motion,frame:s.actor_frame,region:s.actor_region,path:s.king_sprite_path,tell:s.telegraphs});"</code> | Inferred mechanical role: add specify or verify an observable regression expectation. Context: <code>"if(s.active_move===id&amp;&amp;s.player_move_stage==='tell'){"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 85 | — | <code>" await guardOpening();await prepare('j','cleave','base-hand-body-preparation');await prepare('k','throw','base-recall-body-preparation');"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"if(frames.size&gt;=3&amp;&amp;regions.size&gt;=3){report.checks[label]={attempts};return;}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 85 | <code>" await guardOpening();await prepare('j','cleave','base-sword-body-preparation');await prepare('k','throw','base-thrust-body-preparation');"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"if(frames.size&gt;=3&amp;&amp;regions.size&gt;=3){report.checks[label]={attempts};return;}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 87 | — | <code>" await guardOpening();await prepare('j','cleave','ascended-hand-body-preparation');await prepare('k','throw','ascended-vacant-step-body-preparation');"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"if(frames.size&gt;=3&amp;&amp;regions.size&gt;=3){report.checks[label]={attempts};return;}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 87 | <code>" await guardOpening();await prepare('j','cleave','ascended-sword-body-preparation');await prepare('k','throw','ascended-crownfall-body-preparation');"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"if(frames.size&gt;=3&amp;&amp;regions.size&gt;=3){report.checks[label]={attempts};return;}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 3 added and 3 deleted source lines enumerated.
+
+#### Code/configuration: scripts/build-chat-audit.mjs
+
+Change: M. Before b3c9a5a863d063e5a357d141422deb066ee47eb0; after working-tree SHA256 a6da9c52c59dbef59c1d07d5ce14546fb16b1b7ed25f3dc61484b975b787afa7.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| ADD | — | 2595 | <code>"push(...[\"## November21 targeted king-kit rollback\",\"\",\"The user rejected the v11 king kit as clunky and explicitly requested a revert. The rollback restores king behavior from96261d0, rather than reverting the whole previous revision. Visitor-specific gait art, synchronized stair/arrival staging, personal dialogue without stat bargains and the nine innate encounters remain.\",\"\",\"Classic MOVES/CROWN_MOVES and the complete start/active/recovery/contact implementations return: three sword combo stages, physical thrust, Kneel, Procession, Gloam Rake, Crownfall, Royal Undertow and Last Dominion. Classic sword-bearing king idle/walk/preparation/attack/air/transformation regions and the original skill icons replace live v11 body-magic art. Pressure, recorded echoes, phase-pass setup, held fields, reserve releases, defensive exposure and their HUD are removed. The obsolete active module/verifier are removed while the rejected iteration remains in Git and its provenance directory.\",\"\",\"Preserved enemy shield counters were adapted to allow the restored longer player recovery plus0.10seconds before their hit, so reverting the king cannot make a previously readable counter unavoidable. The active classic thrust crosses body spacing as its original lunge. No new art/music generation was required. Updated native and browser tests check real classic contact/projectile damage and castability without a Pressure gate, plus retained visitor gait and dialogue behavior. Final outcomes are recorded in docs/king-kit-revert-qa.md.\",\"\"]);"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"if(untracked &amp;&amp; neu-1!==newLines.length){totals.coverageMismatches++;failures.push(p);}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 2614 | — | <code>"\"Recorded intent: remove all oath/stat-bargain dialogue and restore personal branches; replace uniform locomotion with individually authored humanoid feline gaits and continuous entrance handoffs; completely replace the king weapon-first kit with finite Pressure, physical body combos, delayed world echoes, distinct ground/lift fields and exposed outward/inward releases. Add deliberate shield counters, body mass/spacing and multiple optional encounter approaches, fresh sprites/VFX/icons, regression evidence and complete code/resource audit.\");"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"if(excluded(p)){totals.fileEvents++;totals.excludedEvents++;continue;}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 2615 | <code>"\"Recorded intent: at the user's explicit request, restore the previously accepted king kit from96261d0, including classic sword combos, physical thrust, ground attacks, floating-area moves, names/timings/contact/VFX and sword-bearing animation. Remove live Pressure/body-magic/guard-lock mechanics and their UI. Preserve v11 individual visitor gaits, entrance synchronization, personal no-oath dialogue and unrelated fixes. Adapt enemy counter tells to the restored recovery and verify the actual classic actions before publication.\");"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"if(excluded(p)){totals.fileEvents++;totals.excludedEvents++;continue;}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 2 added and 1 deleted source lines enumerated.
+
+#### Code/configuration: scripts/build-godot.mjs
+
+Change: M. Before 0adc7e23e2e63962e5cc742287c59977ff05aece; after working-tree SHA256 55176422193802762b61c1c9d774f71006d83b63f7584e5922fde06c77d2ac95.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| DELETE | 38 | — | <code>"for(const test of [\"verify_court.gd\",\"verify_game.gd\",\"verify_planner.gd\",\"verify_body_animation.gd\",\"verify_reign.gd\",\"verify_royal_magic.gd\",\"verify_entrance.gd\"])run(binary,[\"--headless\",\"--path\",resolve(repo,\"godot\"),\"--script\",\"res://content/\"+test],{env});"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"if(windows){env.APPDATA=resolve(profile,\"roaming\");env.LOCALAPPDATA=resolve(profile,\"local\");}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 38 | <code>"for(const test of [\"verify_court.gd\",\"verify_game.gd\",\"verify_planner.gd\",\"verify_body_animation.gd\",\"verify_reign.gd\",\"verify_classic_kit.gd\",\"verify_entrance.gd\"])run(binary,[\"--headless\",\"--path\",resolve(repo,\"godot\"),\"--script\",\"res://content/\"+test],{env});"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"if(windows){env.APPDATA=resolve(profile,\"roaming\");env.LOCALAPPDATA=resolve(profile,\"local\");}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 1 added and 1 deleted source lines enumerated.
+
+#### Code/configuration: scripts/godot-smoke.mjs
+
+Change: M. Before 28e8b609272c735661bf5bb08c05de2521f43153; after working-tree SHA256 64554ca68bf835af34a6ea49e20e533ef8bfd5be68cd506542a58fa64e52e6f1.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| DELETE | 111 | — | <code>"  await page.keyboard.press(\"k\");await page.waitForTimeout(150);await shot(page,\"native-recall-load\");"</code> | Inferred mechanical role: remove perform the operation expressed by this source line. Context: <code>"if(rebound.bindings){assert.equal(rebound.bindings.jump,87);report.checks.keyRebound=true;}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 111 | <code>"  await page.keyboard.press(\"k\");await page.waitForTimeout(150);await shot(page,\"native-sword-thrust\");"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"if(rebound.bindings){assert.equal(rebound.bindings.jump,87);report.checks.keyRebound=true;}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 113 | — | <code>"  await shot(page,\"native-hand-combat\");report.checks.realCombatInputs=true;"</code> | Inferred mechanical role: remove declare or update data and runtime state. Context: <code>"if(rebound.bindings){assert.equal(rebound.bindings.jump,87);report.checks.keyRebound=true;}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 113 | <code>"  await shot(page,\"native-sword-combat\");report.checks.realCombatInputs=true;"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"if(rebound.bindings){assert.equal(rebound.bindings.jump,87);report.checks.keyRebound=true;}"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 2 added and 2 deleted source lines enumerated.
+
+#### Code/configuration: scripts/kinetic-smoke.mjs
+
+Change: M. Before a78fcc85088194b7895c6cd3aded181f01c3e2fa; after working-tree SHA256 c450f6f984feb3ae74e6b836d258538bd654d741c5c569185618048e004553ae.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| DELETE | 60 | — | <code>" assert(second.move_labels.some(x=&gt;x.includes('Vacant Step')));assert(second.move_labels.some(x=&gt;x.includes('Unmoored')));await shot('ascended-king');"</code> | Inferred mechanical role: remove specify or verify an observable regression expectation. Context: <code>"for(const result of [short,high]){const air=result.samples.filter(s=&gt;s.y&gt;5&amp;&amp;!s.grounded);assert(air.length&gt;=2);assert.equal(n"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 60 | <code>" assert(second.move_labels.some(x=&gt;x.includes('Crownfall')));assert(second.move_labels.some(x=&gt;x.includes('Royal Undertow')));await shot('ascended-king');"</code> | Inferred mechanical role: add specify or verify an observable regression expectation. Context: <code>"for(const result of [short,high]){const air=result.samples.filter(s=&gt;s.y&gt;5&amp;&amp;!s.grounded);assert(air.length&gt;=2);assert.equal(n"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| DELETE | 70 | — | <code>"finally{report.finishedAt=new Date().toISOString();await writeFile(resolve(out,'report.json'),JSON.stringify(report,null,2));await browser.close();if(server)await new Promise(r=&gt;server.close(r));console.log(JSON.stringify({ok:report.ok,errors:report.errors.length,warnings:report.warnings.length,report:resolve(out,'report.json')}));}\r"</code> | Inferred mechanical role: remove select or guard the relevant execution path. Context: <code>"while(Date.now()&lt;deadline){enemy=await state();trace.push({state:enemy.enemy_state,dashes:enemy.enemy_dashes,strikes:enemy.en"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 70 | <code>"finally{report.finishedAt=new Date().toISOString();await writeFile(resolve(out,'report.json'),JSON.stringify(report,null,2));await browser.close();if(server)await new Promise(r=&gt;server.close(r));console.log(JSON.stringify({ok:report.ok,errors:report.errors.length,warnings:report.warnings.length,report:resolve(out,'report.json')}));}"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"while(Date.now()&lt;deadline){enemy=await state();trace.push({state:enemy.enemy_state,dashes:enemy.enemy_dashes,strikes:enemy.en"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 2 added and 2 deleted source lines enumerated.
+
+#### Code/configuration: scripts/reign-smoke.mjs
+
+Change: M. Before 019c1cd8773243dc880aa777ff6ca953b3b5337d; after working-tree SHA256 a7cf3023f10b44373413d1855ed0f362ea05342806d4df62b21cf21464ea5278.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| DELETE | 46 | — | <code>" await page.keyboard.press('1');await observeEntrance(0,'tutorial-return');const fight=await enterFight();assert(!fight.vow&amp;&amp;fight.max_guard===1&amp;&amp;Math.abs(fight.pressure-60)&lt;1,'First reply must not tax combat or grant a hidden upgrade');report.checks.firstReplyNoModifiers=fight;await page.keyboard.press('1');await observeEntrance(0,'other-reply');const other=await enterFight(1);assert(!other.vow&amp;&amp;other.max_guard===1&amp;&amp;Math.abs(other.pressure-60)&lt;1,'The opposite reply must also preserve normal combat');report.checks.otherReplyNoModifiers=other;"</code> | Inferred mechanical role: remove specify or verify an observable regression expectation. Context: <code>"while(Date.now()&lt;end){s=await state();assert(s.boss_hp&gt;0,'A staged entrance must never kill or softlock the king');minHp=Math"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 46 | <code>" await page.keyboard.press('1');await observeEntrance(0,'tutorial-return');const fight=await enterFight();assert(!fight.vow&amp;&amp;fight.max_guard===1&amp;&amp;fight.pressure===undefined,'First reply must not tax combat or grant a hidden upgrade');report.checks.firstReplyNoModifiers=fight;await page.keyboard.press('1');await observeEntrance(0,'other-reply');const other=await enterFight(1);assert(!other.vow&amp;&amp;other.max_guard===1&amp;&amp;other.pressure===undefined,'The opposite reply must also preserve normal combat');report.checks.otherReplyNoModifiers=other;"</code> | Inferred mechanical role: add specify or verify an observable regression expectation. Context: <code>"while(Date.now()&lt;end){s=await state();assert(s.boss_hp&gt;0,'A staged entrance must never kill or softlock the king');minHp=Math"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 1 added and 1 deleted source lines enumerated.
+
+#### File inventory: docs/king-kit-revert-qa.md
+
+| File | Change | Purpose | Before blob / bytes | After blob / bytes |
+|---|---|---|---|---|
+| docs/king-kit-revert-qa.md | UNTRACKED ADD | Public documentation/data; see recorded revision intent | absent | working-tree SHA256 eb51c0ce4a08a0a42372fc71f32b2bea3dba789f548f5d64dfccea43d8367b7c (3604 bytes) |
+
+#### File inventory: docs/king-kit-revert.md
+
+| File | Change | Purpose | Before blob / bytes | After blob / bytes |
+|---|---|---|---|---|
+| docs/king-kit-revert.md | UNTRACKED ADD | Public documentation/data; see recorded revision intent | absent | working-tree SHA256 8e8b4943003967708c6d5e0f736eaa232e0788b475d2aa0e46b0b1d395e63510 (2042 bytes) |
+
+#### Code/configuration: godot/content/verify_classic_kit.gd
+
+Change: UNTRACKED ADD. Before absent; after working-tree SHA256 ee21ec1b5dec0be9feecb40536b2d5abd167af74142c99d80973867e8b57781a.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| ADD | — | 1 | <code>"# AI-use disclosure: Codex-authored classic sword/AoE restoration and retained weighted-combat regressions."</code> | Inferred mechanical role: add document behavior, provenance or maintenance instructions. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 2 | <code>"extends SceneTree"</code> | Inferred mechanical role: add declare a dependency or engine type. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 3 | <code>"var game"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 4 | <code>"var checks:int=0"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 5 | <code>"var failures:Array[String]=[]"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 6 | <code>"func _initialize()-&gt;void:call_deferred(\"_run\")"</code> | Inferred mechanical role: add declare the API, type, function or scene behavior. Context: <code>"func _initialize()-&gt;void:call_deferred(\"_run\")"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 7 | <code>"func check(value:bool,why:String)-&gt;void:"</code> | Inferred mechanical role: add declare the API, type, function or scene behavior. Context: <code>"func check(value:bool,why:String)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 8 | <code>"    checks+=1"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func check(value:bool,why:String)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 9 | <code>"    if not value:failures.append(why);push_error(why)"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func check(value:bool,why:String)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 10 | <code>"func fixture(index:int=0,stance:int=1)-&gt;void:"</code> | Inferred mechanical role: add declare the API, type, function or scene behavior. Context: <code>"func fixture(index:int=0,stance:int=1)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 11 | <code>"    game.life=index;game.fight_index=index;game._reset_bodies();game.mode=\"fight\";game.phase=stance"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func fixture(index:int=0,stance:int=1)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 12 | <code>"    game.boss.x=520.0;game.boss.facing=1;game.boss.y=56.0 if stance==2 else 0.0"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func fixture(index:int=0,stance:int=1)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 13 | <code>"    game.enemy.x=600.0;game.enemy.hp=1000.0;game.enemy.max=1000.0"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func fixture(index:int=0,stance:int=1)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 14 | <code>"    game.enemy.state=\"wait\";game.enemy.decision=100;game.enemy.ability_cd=100;game.enemy.mobility_cd=100"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func fixture(index:int=0,stance:int=1)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 15 | <code>"    game.powers._used_ultimate=true"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func fixture(index:int=0,stance:int=1)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 16 | <code>"func blank()-&gt;Dictionary:return {\"left\":false,\"right\":false,\"jump\":false,\"jump_held\":false,\"dash\":false,\"guard\":false,\"hold\":false,\"cleave\":false,\"cleave_taps\":0,\"throw\":false,\"reap\":false,\"nova\":false}"</code> | Inferred mechanical role: add declare the API, type, function or scene behavior. Context: <code>"func blank()-&gt;Dictionary:return {\"left\":false,\"right\":false,\"jump\":false,\"jump_held\":false,\"dash\":false,\"guard\":false,\"hold\":"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 17 | <code>"func active(id:String)-&gt;void:"</code> | Inferred mechanical role: add declare the API, type, function or scene behavior. Context: <code>"func active(id:String)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 18 | <code>"    game._start_move(id);game.move.stage=\"active\";game.move.t=0.0"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func active(id:String)-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 19 | <code>"func contact(id:String)-&gt;void:active(id);game._active_hit()"</code> | Inferred mechanical role: add declare the API, type, function or scene behavior. Context: <code>"func contact(id:String)-&gt;void:active(id);game._active_hit()"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 20 | <code>"func exhaust_active()-&gt;void:"</code> | Inferred mechanical role: add declare the API, type, function or scene behavior. Context: <code>"func exhaust_active()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 21 | <code>"    var duration:float=game.move.spec.active"</code> | Inferred mechanical role: add set timing, animation progression or simulation cadence. Context: <code>"func exhaust_active()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 22 | <code>"    for n in range(ceili(duration/0.01)+1):"</code> | Inferred mechanical role: add set timing, animation progression or simulation cadence. Context: <code>"func exhaust_active()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 23 | <code>"        game.enemy.invuln=maxf(0,game.enemy.invuln-0.01);game.move.t=minf(duration,n*0.01);game._active_hit()"</code> | Inferred mechanical role: add set timing, animation progression or simulation cadence. Context: <code>"func exhaust_active()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 24 | <code>"func classic_cases()-&gt;void:"</code> | Inferred mechanical role: add declare the API, type, function or scene behavior. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 25 | <code>"    check(not ResourceLoader.exists(\"res://royal_magic.gd\"),\"The reverted Pressure module is absent from the active Godot project, not silently exported as dead code.\")"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 26 | <code>"    check(game.get(\"magic\")==null,\"RoyalMagic must not be active after the requested classic-kit restoration.\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 27 | <code>"    for stance in [1,2]:"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 28 | <code>"        for id in [\"cleave\",\"throw\",\"reap\",\"nova\"]:"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 29 | <code>"            fixture(0,stance);game.boss.guard=0.0;game._start_move(id)"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 30 | <code>"            check(not game.move.is_empty() and game.move_counts[id]==1,\"Classic %s phase%d casts with cooldowns, without a Pressure gate.\"%[id,stance])"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 31 | <code>"    for stance in [1,2]:"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 32 | <code>"        fixture(0,stance)"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 33 | <code>"        for combo in range(3):"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 34 | <code>"            game.enemy.invuln=0;game.boss.cooldowns.cleave=0;contact(\"cleave\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 35 | <code>"        check(game.boss.combo_history==[0,1,2] and game.enemy.hp&lt;1000,\"Both sword forms retain three distinct actual contact combo stages.\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 36 | <code>"    fixture();var start:float=game.boss.x;game._start_move(\"throw\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 37 | <code>"    for n in range(100):game._player_step(blank(),0.01);game._move_step(0.01)"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 38 | <code>"    check(game.boss.x&gt;start+1 and game.enemy.hp&lt;1000 and game.projectiles.is_empty(),\"Oathpiercer is a physical sword lunge with real damage, not an old-body echo.\")"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 39 | <code>"    fixture();game.enemy.poise=1;contact(\"reap\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 40 | <code>"    check(game.enemy.hp&lt;1000 and game.enemy.kneel&gt;0 and game.enemy.y==0 and game.enemy.vy==0,\"Kneel hits its locked ground position and physically forces a posture-broken visitor down.\")"</code> | Inferred mechanical role: add set spatial layout, movement or sprite geometry. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 41 | <code>"    fixture();game.enemy.x=930;active(\"nova\");exhaust_active()"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 42 | <code>"    check(game.move.spawned==3 and game.enemy.hp&lt;1000,\"Procession reaches all three advancing marks and can strike410pixels away.\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 43 | <code>"    fixture(0,2);game.enemy.x=700;active(\"throw\");exhaust_active()"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 44 | <code>"    check(game.projectiles.size()==5,\"Crownfall creates five separate actual descending crown blades.\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 45 | <code>"    for n in range(100):game.enemy.invuln=maxf(0,game.enemy.invuln-0.01);game._projectile_step(0.01)"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 46 | <code>"    check(game.enemy.hp&lt;1000,\"A descending Crownfall blade reaches actual enemy collision and damage.\")"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 47 | <code>"    fixture(0,2);game.enemy.x=780;contact(\"reap\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 48 | <code>"    check(game.enemy.hp&lt;1000 and game.enemy.knock&lt;0 and game.enemy.vy==260,\"Royal Undertow damages, pulls inward and lifts through its actual AoE contact.\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 49 | <code>"    fixture(0,2);game.enemy.x=930;active(\"nova\");exhaust_active()"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 50 | <code>"    check(game.move.hit and game.enemy.hp&lt;1000,\"Last Dominion expands to its actual outer radius and hits once.\")"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 51 | <code>"    fixture();game._hud()"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 52 | <code>"    var labels=game.ui.get(\"_hud\").find_children(\"*\",\"Label\",true,false)"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 53 | <code>"    var absent=true"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 54 | <code>"    for label in labels:"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 55 | <code>"        if label.is_visible_in_tree() and (\"PRESSURE\" in label.text or \"WARD EXPOSED\" in label.text):absent=false"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 56 | <code>"    check(absent,\"The classic HUD contains no active Pressure meter or Ransom ward-exposure label.\")"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func classic_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 57 | <code>"func rebuke_cases()-&gt;void:"</code> | Inferred mechanical role: add declare the API, type, function or scene behavior. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 58 | <code>"    for index in [2,5,7,8]:"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 59 | <code>"        fixture(index);game.enemy.guard_t=3.0;game.enemy.guard_facing=-1;game.enemy.poise=1000;game.enemy.poise_max=1000"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 60 | <code>"        game._hit_enemy(20,\"cleave\")"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 61 | <code>"        check(game.enemy.state==\"rebuke\" and game.enemy.windup&gt;0 and game.enemy.rebuke_cd&gt;0,\"Frontal guard contact starts a real body counter for visitor%d.\"%index)"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 62 | <code>"        game._animate()"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 63 | <code>"        check(game.visitor.current_motion==\"prepare\",\"The counter exposes an actual bodily anticipation, not an invisible damage timer.\")"</code> | Inferred mechanical role: add set timing, animation progression or simulation cadence. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 64 | <code>"        var tell:float=game.enemy.windup;var count:int=game.enemy.rebukes"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 65 | <code>"        game.enemy.invuln=0;game._hit_enemy(2,\"cleave\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 66 | <code>"        check(game.enemy.rebukes==count and game.enemy.windup==tell,\"Repeated basic contacts cannot reset or extend the latched counter tell.\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 67 | <code>"        var hp:float=game.boss.hp"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 68 | <code>"        for n in range(ceili(float(game.enemy.rebuke_tell)/0.01)+3):game._enemy_step(0.01)"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 69 | <code>"        check(game.boss.hp&lt;hp and game.enemy.strikes==1,\"The guarded counter reaches real collision and damage instead of merely flashing.\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 70 | <code>"    fixture(5);game.enemy.guard_t=3.0;game.enemy.guard_facing=-1;game.boss.x=680"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 71 | <code>"    game._hit_enemy(20,\"cleave\")"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 72 | <code>"    check(game.enemy.state!=\"rebuke\" and game.enemy.hp==980,\"A genuine rear hit bypasses frontal guard without a compulsory counter.\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 73 | <code>"    fixture(5);game.enemy.guard_t=3.0;game.boss.guarding=true;game.boss.guard_age=0.01"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 74 | <code>"    game._hurt_boss(20,false,{})"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 75 | <code>"    check(game.enemy.state==\"parried\" and game.enemy.guard_t==0,\"A timed parry opens the enemy shield for a real riposte.\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func rebuke_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 76 | <code>"func readable_counter_case()-&gt;void:"</code> | Inferred mechanical role: add declare the API, type, function or scene behavior. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 77 | <code>"    for combo in range(3):"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 78 | <code>"        fixture(5);game.enemy.guard_t=3.0;game.enemy.guard_facing=-1;game.boss.facing=1;game.boss.combo=combo-1;game.boss.combo_until=100.0"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 79 | <code>"        game._start_move(\"cleave\")"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 80 | <code>"        var committed=false;var defended=false;var recovered=false"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 81 | <code>"        for n in range(130):"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 82 | <code>"            game.enemy.invuln=maxf(0,game.enemy.invuln-0.01);game.boss.invuln=maxf(0,game.boss.invuln-0.01)"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 83 | <code>"            var press=false"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 84 | <code>"            if game.enemy.state==\"rebuke\":"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 85 | <code>"                committed=true"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 86 | <code>"                if game.move.is_empty():recovered=true"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 87 | <code>"                press=game.move.is_empty() and float(game.enemy.rebuke_tell)-game.enemy.windup&lt;=0.085"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 88 | <code>"            var keys={\"left\":false,\"right\":false,\"jump\":false,\"jump_held\":false,\"dash\":false,\"guard\":press,\"hold\":false,\"cleave\":false,\"cleave_taps\":0,\"throw\":false,\"reap\":false,\"nova\":false}"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 89 | <code>"            game._player_step(keys,0.01);game._move_step(0.01);game._enemy_step(0.01)"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 90 | <code>"            if game.boss.perfect_blocks&gt;0:defended=true;break"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 91 | <code>"        check(committed and recovered,\"A real blocked main sword slash finishes its full recovery before the visible counter lands.\")"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 92 | <code>"        check(defended and game.boss.hp==game.boss.max,\"A real fresh G after sword recovery can parry the committed body counter without pre-canceling the original strike.\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func readable_counter_case()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 93 | <code>"func spacing_cases()-&gt;void:"</code> | Inferred mechanical role: add declare the API, type, function or scene behavior. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 94 | <code>"    var keys={\"left\":false,\"right\":true,\"jump\":false,\"jump_held\":false,\"dash\":false,\"guard\":false,\"hold\":false,\"cleave\":false,\"cleave_taps\":0,\"throw\":false,\"reap\":false,\"nova\":false}"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 95 | <code>"    fixture(5);var stayed_front=true"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 96 | <code>"    for n in range(100):"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 97 | <code>"        game._player_step(keys,1.0/60.0)"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 98 | <code>"        if game.boss.x&gt;game.enemy.x:stayed_front=false"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 99 | <code>"    check(stayed_front and game.enemy.x-game.boss.x&gt;=43.99,\"One hundred real walking inputs cannot automatically cross a grounded guard body.\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 100 | <code>"    fixture(5);game.boss.x=560;keys.dash=true"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 101 | <code>"    for n in range(15):game._player_step(keys,1.0/60.0);keys.dash=false"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 102 | <code>"    check(game.boss.x&gt;game.enemy.x and game.boss.dashes==1,\"A real dash deliberately crosses the body that ordinary walking cannot pass.\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 103 | <code>"    fixture(5);game.boss.x=540;keys.jump=true;keys.jump_held=true"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 104 | <code>"    var crossed_above=false"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 105 | <code>"    for n in range(90):"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 106 | <code>"        game._player_step(keys,1.0/60.0);keys.jump=false"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 107 | <code>"        if game.boss.x&gt;game.enemy.x and game.boss.y&gt;=game.Actor.body_height(\"knight\")-10:crossed_above=true"</code> | Inferred mechanical role: add select or guard the relevant execution path. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 108 | <code>"    check(crossed_above and game.boss.x&gt;game.enemy.x,\"A real jump can clear the solid lower body and land on the other side.\")"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 109 | <code>"    fixture(5);game.boss.x=560;game.boss.facing=1;game._start_move(\"throw\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 110 | <code>"    for n in range(100):game._player_step(blank(),0.01);game._move_step(0.01)"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 111 | <code>"    check(game.boss.x&gt;game.enemy.x,\"The restored physical base thrust can pass through the pushbox for its original lunge flow.\")"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 112 | <code>"    fixture(5);game.boss.x=912;game.enemy.x=930;game._body_spacing()"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 113 | <code>"    check(is_finite(game.boss.x) and is_finite(game.enemy.x) and game.boss.x&gt;=48 and game.boss.x&lt;=912 and game.enemy.x-game.boss.x&gt;=43.99,\"Mass separation stays finite and non-overlapping against the right arena wall.\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 114 | <code>"    game.boss.x=48;game.enemy.x=30;game._body_spacing()"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 115 | <code>"    check(is_finite(game.boss.x) and is_finite(game.enemy.x) and game.boss.x-game.enemy.x&gt;=43.99,\"Mass separation also resolves overlap against the opposite wall.\")"</code> | Inferred mechanical role: add declare or update data and runtime state. Context: <code>"func spacing_cases()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 116 | <code>"func _run()-&gt;void:"</code> | Inferred mechanical role: add declare the API, type, function or scene behavior. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 117 | <code>"    game=load(\"res://game.gd\").new();root.add_child(game);await process_frame;game.set_physics_process(false)"</code> | Inferred mechanical role: add connect an asset, resource or playback operation. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 118 | <code>"    classic_cases();rebuke_cases();readable_counter_case();spacing_cases()"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 119 | <code>"    game.powers.dispel();game.entrances.clear();game._clear_effects();game.ui.reset();game.audio.stop_all();game.Actor._cache.clear();game.Actor._images.clear()"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 120 | <code>"    await create_timer(0.25).timeout;game.queue_free();await process_frame;await process_frame;await create_timer(0.15).timeout"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+| ADD | — | 121 | <code>"    print(JSON.stringify({\"ok\":failures.is_empty(),\"checks\":checks,\"failures\":failures}));quit(0 if failures.is_empty() else 1)"</code> | Inferred mechanical role: add perform the operation expressed by this source line. Context: <code>"func _run()-&gt;void:"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 121 added and 0 deleted source lines enumerated.
+
+#### Code/configuration: godot/content/verify_classic_kit.gd.uid
+
+Change: UNTRACKED ADD. Before absent; after working-tree SHA256 823f49fb2653125c150c13ac060b8610dbbd337b1f63b3781e03490895b017b1.
+
+Source is JSON-escaped inside HTML code: empty strings, tabs, quotes and backslashes remain explicit. “Inferred” reasons describe the observable mechanical role, not private reasoning. The revision heading records the known intent.
+
+| Change | Old line | New line | Exact source | Why this changed line exists |
+|---|---:|---:|---|---|
+| ADD | — | 1 | <code>"uid://lnmrh57bj1u3"</code> | Inferred mechanical role: add set a serialized configuration, resource reference or workflow value. Context: <code>"file scope"</code>. Individual author intent beyond the recorded revision intent is not independently documented. |
+
+Coverage: 1 added and 0 deleted source lines enumerated.
+
 ## Coverage totals
 
-- commits: 29
+- commits: 30
 - inheritedCommits: 13
-- currentChatCommits: 16
-- fileEvents: 1027
-- codeFiles: 535
-- addedLines: 72260
-- deletedLines: 4805
-- inventoryFiles: 485
+- currentChatCommits: 17
+- fileEvents: 1056
+- codeFiles: 555
+- addedLines: 72549
+- deletedLines: 5386
+- inventoryFiles: 493
 - excludedEvents: 8
-- checkedDiffs: 535
+- checkedDiffs: 553
 - coverageMismatches: 0
-- workingTreeFiles: 132
+- workingTreeFiles: 28
 
 Independent changed-line coverage mismatches: 0. All historical/tracked text diffs match independent Git numstat added/deleted counts; new untracked source files match their source line counts.
 

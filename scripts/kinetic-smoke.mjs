@@ -57,7 +57,7 @@ try{
  await page.keyboard.down('a');await page.keyboard.press('Shift');await page.waitForTimeout(100);await shot('kinetic-dash');await page.keyboard.up('a');await wait(s=>s.dashes>0);
  await page.keyboard.press('p');await wait(s=>s.phase===2&&s.king_actor==='ascended',10000);const second=await state();
  assert(second.king_sprite_path&&second.king_sprite_path!==initial.king_sprite_path,'Ascended king must use a distinct sprite sheet');report.checks.secondForm={actor:second.king_actor,sprite:second.king_sprite_path,labels:second.move_labels};
- assert(second.move_labels.some(x=>x.includes('Vacant Step')));assert(second.move_labels.some(x=>x.includes('Unmoored')));await shot('ascended-king');
+ assert(second.move_labels.some(x=>x.includes('Crownfall')));assert(second.move_labels.some(x=>x.includes('Royal Undertow')));await shot('ascended-king');
  await page.keyboard.press('k');await wait(s=>s.active_move==='throw',3000);await page.waitForTimeout(250);await shot('crownfall');await page.waitForTimeout(800);
  await page.keyboard.press('l');await wait(s=>s.active_move==='reap',3000);await page.waitForTimeout(550);await shot('royal-undertow');
  await page.keyboard.press('4');await wait(s=>s.mode==='arrival'&&s.life===4,5000);assert.equal(await enterFight(),2);

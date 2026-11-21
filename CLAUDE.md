@@ -10,7 +10,9 @@ This is Nicoh Koehly's (`nicoh-yay`) final project for COMS E6998 sec 014, AI in
 @CONFIG.md
 @PLAN.md
 
-Latest magic/locomotion correction: @docs/sovereign-magic.md replaces the v10 oath and king kit. No dialogue choice changes combat stats. The king uses one finite Pressure reserve, bodily combos, positional echoes, gravity and exposed reserve releases. Each visitor has a separately authored gait and synchronized entrance handoff.
+Current king-kit rollback: @docs/king-kit-revert.md restores the previous sword/base and floating-area kits. No Pressure or dialogue stat bargain remains. Visitor v11 gaits, entrances and personal dialogue are retained.
+
+Historical magic/locomotion correction: @docs/sovereign-magic.md replaces the v10 oath and king kit. No dialogue choice changes combat stats. The king uses one finite Pressure reserve, bodily combos, positional echoes, gravity and exposed reserve releases. Each visitor has a separately authored gait and synchronized entrance handoff.
 
 Historical encounter contract: @docs/reign-and-exchange.md supersedes conflicting earlier timings: deliberate weighted fights, innate powers/ultimates and sacrifices, unique entrances, logical floating phase2, next-hit guard break and optional per-fight oath.
 

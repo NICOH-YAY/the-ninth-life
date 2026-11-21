@@ -306,3 +306,8 @@ Existing visitor combat preparations, story art, arena, licensed music and earli
 
 
 Codex authored the finite Pressure system, position-bound echoes, gravity interactions, body spacing, visible guard counters and restored personal dialogue. An independent agent reviewed the combat design and identified integration faults before release. Existing licensed music and Foley remain credited above; no new commercial recording or external character pack is imported.
+
+
+## King-kit rollback
+
+Codex restored live royal combat art and effects from the previously attributed v7/v9/v10 sheets. The separately generated v11 visitor gaits remain active; the rejected v11 royal-magic/travel assets remain historical provenance and are no longer selected for the live king. No new image, music or sound generation/import was performed for this rollback. See docs/king-kit-revert.md.

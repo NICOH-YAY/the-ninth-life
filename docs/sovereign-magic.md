@@ -2,6 +2,8 @@ AI-use disclosure: Codex documented the body-and-curse magic design selected by 
 
 # Sovereign magic
 
+Historical v11 snapshot: the king kit was subsequently reverted at the user's request. The current king contract is [king-kit-revert.md](king-kit-revert.md); the visitor gait and entrance fixes remain.
+
 This is the selected v11 combat contract. It supersedes conflicting sword-first player kits and all dialogue-oath rules in earlier revisions. The player may still carry a sword as a secondary visual object, but the king's main attacks come from his body and the crown's curse. Gameplay integration and final browser verification are separate from the court UI checks recorded below.
 
 ## One resource, four connected actions

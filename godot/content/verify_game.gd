@@ -60,7 +60,7 @@ func _run() -> void:
     for n in range(45):
         game._player_step(blank_input(),1.0/60.0)
         game._move_step(1.0/60.0)
-    check(game.boss.x==before and game.projectiles.is_empty() and not game.magic.echo_arm.is_empty(),"Borrowed Hour anchors an actual old body instead of a sword projectile")
+    check(game.boss.x<before and game.projectiles.is_empty(),"Base sword thrust is a physical lunge")
     fixture()
     game.phase=2
     game.enemy.hp=5000.0
@@ -68,7 +68,7 @@ func _run() -> void:
     game.enemy.x=game.boss.x-350
     game._start_move("throw")
     for n in range(90):game._move_step(1.0/60.0)
-    check(game.projectiles.is_empty() and game.boss.x<800 and (game.magic.echoes.size()>0 or game.magic.interactions.echo_hits>0),"Vacant Step moves the king and commits an automatic old-position body")
+    check(game.projectiles.size()==5,"Crownfall releases five actual descending crown blades")
     check(not ResourceLoader.exists("res://art/boss-monster.png"),"Old six-armed monster is not reused for the new form")
     fixture()
     game.boss.hp=345.0
@@ -161,7 +161,7 @@ func _run() -> void:
     check(game._telegraph_data().is_empty(),"Basic slash preparation never projects an attack hologram")
     fixture()
     game._start_move("throw")
-    check(game._telegraph_data().is_empty(),"Recall preparation never projects an attack hologram")
+    check(game._telegraph_data().is_empty(),"Sword thrust preparation never projects an attack hologram")
     fixture()
     game._hud()
     for label in game.ui.get("_move_labels"):

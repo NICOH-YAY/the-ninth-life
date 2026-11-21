@@ -19,7 +19,9 @@ This imports, checks and exports the native Godot project, then serves build/web
 
 ## Current game
 
-Latest mechanics: [body-bound sovereign magic and individual gaits](docs/sovereign-magic.md).
+Current king kit: [restored sword and floating-area abilities](docs/king-kit-revert.md). Individual visitor gait and entrance fixes remain.
+
+Historical mechanics: [body-bound sovereign magic and individual gaits](docs/sovereign-magic.md).
 
 Historical encounter contract: [reign, sacrifice and exchange](docs/reign-and-exchange.md).
 

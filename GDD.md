@@ -7,6 +7,10 @@
 **Labels:** **[Decided]** Nicoh's decision. **[Proposed]** agent recommendation awaiting Nicoh. **[Open]** unresolved.
 **Companion documents:** `CONFIG.md` (Configuration Document), `PLAN.md` (Project Plan and Risk Profile), `docs/design-history.md` (how the concept developed)
 
+## King-kit rollback [Implementation of Nicoh's request]
+
+The current kit is restored from96261d0 after Nicoh rejected the v11 replacement as clunky. See docs/king-kit-revert.md. Pressure and its four new body-magic actions are inactive; classic sword combos, thrust, Kneel/Procession and floating-form area attacks return. Individual visitor gaits, synchronized entrances, personal dialogue without oath bargains and the other v11 fixes remain.
+
 ## Sovereign magic and individual locomotion [Proposed implementation of Nicoh's revision]
 
 The newest contract is docs/sovereign-magic.md. It removes the optional half-guard/oath branches entirely and restores personal branching dialogue without stat choices. The king's live kit is fully replaced by Crownless Hand, Borrowed Hour, Royal Burden and King's Ransom, evolving into Hollow Orbit, Vacant Step, Unmoored and Empty Throne. A single finite Pressure reserve makes missed echoes, fixed fields and exposed releases consequential. No enemy requires one correct magic key; normal defensive reads, body pressure, flanking, delayed echoes and spatial manipulation remain alternatives. Separately authored personality gaits and synchronized stair/ground entrance travel replace uniform walking and pose handoff glitches.

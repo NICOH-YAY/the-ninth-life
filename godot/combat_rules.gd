@@ -19,15 +19,15 @@ const POISE = [55.0,76.0,100.0,70.0,72.0,125.0,68.0,90.0,108.0]
 const RECOVERY = [0.70,0.48,0.66,0.50,0.58,0.72,0.46,0.64,0.58]
 const ABILITY_CD = [3.8,2.15,3.1,2.7,2.8,3.5,2.9,2.4,2.25]
 const MOVES = {
- "cleave":{"name":"Crownless Hand","tell":0.24,"active":0.10,"recover":0.28,"cooldown":0.48,"damage":25.0},
- "throw":{"name":"Borrowed Hour","tell":0.38,"active":0.12,"recover":0.28,"cooldown":1.2,"damage":0.0},
- "reap":{"name":"Royal Burden","tell":0.56,"active":0.12,"recover":0.34,"cooldown":2.1,"damage":10.0},
- "nova":{"name":"King's Ransom","tell":0.92,"active":0.16,"recover":0.90,"cooldown":4.0,"damage":0.0}}
+ "cleave":{"name":"Crownsteel","tell":0.27,"active":0.1,"recover":0.36,"cooldown":0.55,"damage":28.0},
+ "throw":{"name":"Oathpiercer","tell":0.42,"active":0.11,"recover":0.42,"cooldown":1.35,"damage":34.0},
+ "reap":{"name":"Kneel","tell":0.82,"active":0.15,"recover":0.46,"cooldown":1.85,"damage":32.0},
+ "nova":{"name":"Procession","tell":1.05,"active":0.46,"recover":0.56,"cooldown":8.5,"damage":36.0}}
 const CROWN_MOVES = {
- "cleave":{"name":"Hollow Orbit","tell":0.28,"active":0.12,"recover":0.30,"cooldown":0.52,"damage":23.0},
- "throw":{"name":"Vacant Step","tell":0.42,"active":0.12,"recover":0.36,"cooldown":1.5,"damage":0.0},
- "reap":{"name":"Unmoored","tell":0.62,"active":0.12,"recover":0.40,"cooldown":2.3,"damage":10.0},
- "nova":{"name":"Empty Throne","tell":0.88,"active":0.58,"recover":0.94,"cooldown":4.5,"damage":0.0}}
+ "cleave":{"name":"Gloam Rake","tell":0.34,"active":0.12,"recover":0.42,"cooldown":0.64,"damage":22.0},
+ "throw":{"name":"Crownfall","tell":0.82,"active":0.42,"recover":0.46,"cooldown":1.75,"damage":13.0},
+ "reap":{"name":"Royal Undertow","tell":1.08,"active":0.42,"recover":0.54,"cooldown":1.95,"damage":32.0},
+ "nova":{"name":"Last Dominion","tell":1.28,"active":0.58,"recover":0.68,"cooldown":8,"damage":84.0}}
 
 # Per-life footwork: grounded practice, rushes, anchor slide, vault, blink-step,
 # armored charge, crossing dash, ice glide and the returning sword's pursuit.
