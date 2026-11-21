@@ -1,0 +1,6 @@
+{
+  "aiUseDisclosure": "Corrected original Higgsfield bipedal alley gait; rejected quadrupedal iteration preserved separately.",
+  "job": "56138dde-fd69-4f10-aa0e-2e139f4d341c",
+  "bipedal": true,
+  "onlyTwoHindFeetGrounded": true
+}

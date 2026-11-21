@@ -1,0 +1,863 @@
+{
+  "aiUseDisclosure": "Higgsfield created seventeen original sprite-sheet iterations. Sixteen were selected, and the first quadrupedal alley iteration was rejected and retained for provenance. Codex exported native pixel resources, registered genuine paw contacts, wired personality gait transitions and twelve-stage royal body magic, and derived eight semantic ability icons.",
+  "dateUtc": "2026-11-21",
+  "sessionLocalDate": "2026-11-20",
+  "timeZone": "America/New_York",
+  "model": "gpt_image_2_6",
+  "quality": "medium",
+  "resolution": "2k",
+  "use_unlim": true,
+  "billing": "Persistent user authorization for active free unlimited Higgsfield allowance. Seventeen sequential successful generation jobs; no paid fallback or operating-system app/browser windows.",
+  "generated": [
+    {
+      "index": 0,
+      "id": "gait-kitten",
+      "job_id": "3609002c-53ee-4e6e-81c6-3159e417f1fc",
+      "time": "041244",
+      "rows": 3,
+      "status": "selected",
+      "reason": "Selected after native visual review.",
+      "prompt": "Original single-character professional SNES pixel-art SPRITE SHEET. EXACT6columns x3rows, transparent background, equal square cells, no text/grid/room. This sheet depicts ONE cat only, all18drawings same coat, proportions, head size, outfit and weapon kit as reference. Short upright triangular feline ears, flat cat muzzle, whiskers, pawhands; no dogs. FaceRIGHT. Hard square pixelclusters,32-color identity palette, no antialiasing/softpaint, no glowingduplicate or weapon VFX. Full body and accessories fully insidecell withpadding; feet share one ground baseline, constant sourcebody size throughallrows. Rows0and1 are ONE TWELVE-frame distinct personality locomotioncycle, chronological0..5 then6..11, smoothloop11→0, never sixposes repeated. Row2 is SIX physical START-WALK transitiondrawings: frame0 matches upright neutral referenceidlebody,1weightprepares,2hipsbeginlocomotionposture,3shouldersfollow,4feetset,5matchesexactgaitframe0posture. This thirdrow must preserve actual standing body scale; crouching is acting ratherthan a different-sizedcat. Idle0 ofthirdrow andgait0 must have samecharacter/headproportions so they blend. Weapons are stowed or carrieddown, NEVERattacking. No incorrect incoming weapons or copiedkit fromanothercat.  Identity: CREAM tiny novice with brassbell/broken-crownpendant and shortwoodenSTAFF heldgently; no blade/knife/sickle anywhere. Focus ONLY on thatcat's matchingreference row, do not includeanyothercat. Personalityandmechanics: CAUTIOUS SHORTPAW STEPS: kneesclose, chestslightlywithdrawn, littleheadpeeksforward; small heel/pawplacements with hesitant weight checks, tailheldlow but tipcurious. Handsclutchstaffclose for reassurance. Twelvephasesalternate deliberatelytinyfootfalls, anklelift, carefulpassing andsoftpawplant; bodydoesnotbounce likea soldier. Keepforehead and largecateyes modestlyhesitant. Thetwelvecyclemustkeepthepersonalityposture throughbothrowhalves; neverresetto neutralmidcycle. Use thirdrowtransition toenterthatposture fromreferenceidle.",
+      "references": [
+        "37987577-6178-469a-95a9-f5fa338e86a0"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261121_041244_3609002c-53ee-4e6e-81c6-3159e417f1fc.png",
+      "source": "assets/reign-v11/gait-kitten-original.png",
+      "runtime": "godot/art/gait-kitten-v11.png",
+      "frame": [
+        144,
+        144
+      ],
+      "grid": [
+        6,
+        3
+      ],
+      "foot": [
+        72,
+        110
+      ],
+      "sourceSha256": "20bcf426661c02a749bb5528dad040d70189944bd8a1246abeb689e9238b3fe6",
+      "runtimeSha256": "8b028ed5ba79d1c40b62af28448e299758d4d1cc7382bdd9d458aa6921a743a2"
+    },
+    {
+      "index": 1,
+      "id": "gait-alley",
+      "job_id": "8fb8eeda-7c0f-4484-9bc5-0b52be055f63",
+      "time": "041457",
+      "rows": 3,
+      "status": "rejected-quadrupedal",
+      "reason": "First alley interpretation became a four-legged housecat rather than a humanoid fighter. Replaced by job56138dde-fd69-4f10-aa0e-2e139f4d341c; no rejected pixels loaded by the game.",
+      "prompt": "Original single-character professional SNES pixel-art SPRITE SHEET. EXACT6columns x3rows, transparent background, equal square cells, no text/grid/room. This sheet depicts ONE cat only, all18drawings same coat, proportions, head size, outfit and weapon kit as reference. Short upright triangular feline ears, flat cat muzzle, whiskers, pawhands; no dogs. FaceRIGHT. Hard square pixelclusters,32-color identity palette, no antialiasing/softpaint, no glowingduplicate or weapon VFX. Full body and accessories fully insidecell withpadding; feet share one ground baseline, constant sourcebody size throughallrows. Rows0and1 are ONE TWELVE-frame distinct personality locomotioncycle, chronological0..5 then6..11, smoothloop11→0, never sixposes repeated. Row2 is SIX physical START-WALK transitiondrawings: frame0 matches upright neutral referenceidlebody,1weightprepares,2hipsbeginlocomotionposture,3shouldersfollow,4feetset,5matchesexactgaitframe0posture. This thirdrow must preserve actual standing body scale; crouching is acting ratherthan a different-sizedcat. Idle0 ofthirdrow andgait0 must have samecharacter/headproportions so they blend. Weapons are stowed or carrieddown, NEVERattacking. No incorrect incoming weapons or copiedkit fromanothercat.  Identity: ORANGE alleycat in RED neckscarf and wornleather, hookedSICKLE sheathedatbelt/downbehindhip. Focus ONLY on thatcat's matchingreference row, do not includeanyothercat. Personalityandmechanics: PREDATORY LOW STALK: torsoandhead areLOW andforward, backalmosthorizontalrelativeothercats, hipsloaded, flexedknees, longquietpawreach andspringloadedrearleg. Tail counterbalancesnearhorizontal. Scarffollowslowbody, onepawnearthebeltsickle withoutdrawingit. Twelveframes slinkwithalternatingtoeplant anddeliberateweighttransfer, neveruprightgenericmarch. Thetwelvecyclemustkeepthepersonalityposture throughbothrowhalves; neverresetto neutralmidcycle. Use thirdrowtransition toenterthatposture fromreferenceidle.",
+      "references": [
+        "37987577-6178-469a-95a9-f5fa338e86a0"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261121_041457_8fb8eeda-7c0f-4484-9bc5-0b52be055f63.png",
+      "source": "assets/reign-v11/gait-alley-rejected-quadruped-original.png",
+      "runtime": "assets/reign-v11/gait-alley-rejected-quadruped-native.png",
+      "frame": [
+        144,
+        144
+      ],
+      "grid": [
+        6,
+        3
+      ],
+      "foot": [
+        72,
+        110
+      ],
+      "sourceSha256": "1fa334bd110a0e46f19dd5edd58f58c494a20cb6b9a76dd4678bb1f0c4157e7b",
+      "runtimeSha256": "a5f3e73159e97f7ec7d62fb38bcbab5e88c454fadf1267e70b4103e8b62c40f4"
+    },
+    {
+      "index": 2,
+      "id": "gait-sailor",
+      "job_id": "725d45b6-edc1-4887-99f3-5a6f80876e55",
+      "time": "041618",
+      "rows": 3,
+      "status": "selected",
+      "reason": "Selected after native visual review.",
+      "prompt": "Original single-character professional SNES pixel-art SPRITE SHEET. EXACT6columns x3rows, transparent background, equal square cells, no text/grid/room. This sheet depicts ONE cat only, all18drawings same coat, proportions, head size, outfit and weapon kit as reference. Short upright triangular feline ears, flat cat muzzle, whiskers, pawhands; no dogs. FaceRIGHT. Hard square pixelclusters,32-color identity palette, no antialiasing/softpaint, no glowingduplicate or weapon VFX. Full body and accessories fully insidecell withpadding; feet share one ground baseline, constant sourcebody size throughallrows. Rows0and1 are ONE TWELVE-frame distinct personality locomotioncycle, chronological0..5 then6..11, smoothloop11→0, never sixposes repeated. Row2 is SIX physical START-WALK transitiondrawings: frame0 matches upright neutral referenceidlebody,1weightprepares,2hipsbeginlocomotionposture,3shouldersfollow,4feetset,5matchesexactgaitframe0posture. This thirdrow must preserve actual standing body scale; crouching is acting ratherthan a different-sizedcat. Idle0 ofthirdrow andgait0 must have samecharacter/headproportions so they blend. Weapons are stowed or carrieddown, NEVERattacking. No incorrect incoming weapons or copiedkit fromanothercat.  Identity: TUXEDO BLACKWHITE chain/censerwarden in OCHRE coat, broken-crownpendant, sphericalBRONZE CENSER hangingfromREALCHAIN; no hook/sickle/blades. Focus ONLY on thatcat's matchingreference row, do not includeanyothercat. Personalityandmechanics: HEAVY ROCKING TRUDGE: broadstance, pronounced alternating left/righthiprock, shoulderscounterroll, frontheel settlesheavily andrearheel peels slowly, chainandcenser swinglike a heavy pendulum slightlybehindthebody. Mantlehasinertiallag. Kneescompressoncontact, rise slowlywhilepassing; clearlybulky ritualwarden ratherthanlightcatwalk. Thetwelvecyclemustkeepthepersonalityposture throughbothrowhalves; neverresetto neutralmidcycle. Use thirdrowtransition toenterthatposture fromreferenceidle.",
+      "references": [
+        "37987577-6178-469a-95a9-f5fa338e86a0"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261121_041618_725d45b6-edc1-4887-99f3-5a6f80876e55.png",
+      "source": "assets/reign-v11/gait-sailor-original.png",
+      "runtime": "godot/art/gait-sailor-v11.png",
+      "frame": [
+        144,
+        144
+      ],
+      "grid": [
+        6,
+        3
+      ],
+      "foot": [
+        72,
+        110
+      ],
+      "sourceSha256": "6d8b7be795f57ac951e75db287054bc307f5e212db7bf234ab4bea578d87774a",
+      "runtimeSha256": "c1f2cd34fd15f8fd8ff792d6bd2f82d154d5e129e36a4ac9ff79dd796a6bd30a"
+    },
+    {
+      "index": 3,
+      "id": "gait-acrobat",
+      "job_id": "4ca3e5cd-811e-44fd-a600-b8ba223e58ed",
+      "time": "041924",
+      "rows": 3,
+      "status": "selected",
+      "reason": "Selected after native visual review.",
+      "prompt": "Original single-character professional SNES pixel-art SPRITE SHEET. EXACT6columns x3rows, transparent background, equal square cells, no text/grid/room. This sheet depicts ONE cat only, all18drawings same coat, proportions, head size, outfit and weapon kit as reference. Short upright triangular feline ears, flat cat muzzle, whiskers, pawhands; no dogs. FaceRIGHT. Hard square pixelclusters,32-color identity palette, no antialiasing/softpaint, no glowingduplicate or weapon VFX. Full body and accessories fully insidecell withpadding; feet share one ground baseline, constant sourcebody size throughallrows. Rows0and1 are ONE TWELVE-frame distinct personality locomotioncycle, chronological0..5 then6..11, smoothloop11→0, never sixposes repeated. Row2 is SIX physical START-WALK transitiondrawings: frame0 matches upright neutral referenceidlebody,1weightprepares,2hipsbeginlocomotionposture,3shouldersfollow,4feetset,5matchesexactgaitframe0posture. This thirdrow must preserve actual standing body scale; crouching is acting ratherthan a different-sizedcat. Idle0 ofthirdrow andgait0 must have samecharacter/headproportions so they blend. Weapons are stowed or carrieddown, NEVERattacking. No incorrect incoming weapons or copiedkit fromanothercat.  Identity: CALICO acrobat with JADE BELL and twinJADE CHAKRAM RINGS beltedatbothhips. Focus ONLY on thatcat's matchingreference row, do not includeanyothercat. Personalityandmechanics: HIGH-TOE SPRING/CROSSSTEP: uprightelongatedspine, highliftedankles, feetcrossgracefullypassingunderhips, onefootalways touchesfloorwithtoe. Bellandjade loops swinginopposition tohips, tailmakes smoothS-curve. Twelveframes showsofttoeland, kneecompress, gracefulcrosspassing andrise, distinctfromwalkingmarch orrunningbounce. Elegant agilepersonality, noairborne jumpcycle. Thetwelvecyclemustkeepthepersonalityposture throughbothrowhalves; neverresetto neutralmidcycle. Use thirdrowtransition toenterthatposture fromreferenceidle.",
+      "references": [
+        "37987577-6178-469a-95a9-f5fa338e86a0"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261121_041924_4ca3e5cd-811e-44fd-a600-b8ba223e58ed.png",
+      "source": "assets/reign-v11/gait-acrobat-original.png",
+      "runtime": "godot/art/gait-acrobat-v11.png",
+      "frame": [
+        144,
+        144
+      ],
+      "grid": [
+        6,
+        3
+      ],
+      "foot": [
+        72,
+        110
+      ],
+      "sourceSha256": "cbe76fadc92efde255ee10a1d67c8569f51f4706c2ea0cac98ec31b2da582cc7",
+      "runtimeSha256": "10ec5b7fc36ad051edb21d05526d3691607f913964f8f825b665ba93005d3b1f"
+    },
+    {
+      "index": 4,
+      "id": "gait-witch",
+      "job_id": "c50f7ba3-1e95-4e6b-bbff-2df339c598d0",
+      "time": "042217",
+      "rows": 3,
+      "status": "selected",
+      "reason": "Selected after native visual review.",
+      "prompt": "Original single-character professional SNES pixel-art SPRITE SHEET. EXACT6columns x3rows, transparent background, equal square cells, no text/grid/room. This sheet depicts ONE cat only, all18drawings same coat, proportions, head size, outfit and weapon kit as reference. Short upright triangular feline ears, flat cat muzzle, whiskers, pawhands; no dogs. FaceRIGHT. Hard square pixelclusters,32-color identity palette, no antialiasing/softpaint, no glowingduplicate or weapon VFX. Full body and accessories fully insidecell withpadding; feet share one ground baseline, constant sourcebody size throughallrows. Rows0and1 are ONE TWELVE-frame distinct personality locomotioncycle, chronological0..5 then6..11, smoothloop11→0, never sixposes repeated. Row2 is SIX physical START-WALK transitiondrawings: frame0 matches upright neutral referenceidlebody,1weightprepares,2hipsbeginlocomotionposture,3shouldersfollow,4feetset,5matchesexactgaitframe0posture. This thirdrow must preserve actual standing body scale; crouching is acting ratherthan a different-sizedcat. Idle0 ofthirdrow andgait0 must have samecharacter/headproportions so they blend. Weapons are stowed or carrieddown, NEVERattacking. No incorrect incoming weapons or copiedkit fromanothercat.  Identity: CHARCOAL/VIOLET necromancercat with pointedVIOLET HAT, ceremonialshortrobe, slenderGOLD ASTRAL NEEDLE/staff carrieddown, smallbeltLANTERN. Focus ONLY on thatcat's matchingreference row, do not includeanyothercat. Personalityandmechanics: MEASURED RITUAL PROCESSION: almoststillhead, shoulders heldsolemnly, smalldeliberate longtimedsteppattern, eachfootrollsheel-to-toe withritualpause; hatandrobehem laglaterthanpelvis andlanternswingseparately. Freepawheldnearheartlikechestwoundmemory. Twelveposes conveyintentional almostceremonialtracking, notsamegaitasarmorcat. Thetwelvecyclemustkeepthepersonalityposture throughbothrowhalves; neverresetto neutralmidcycle. Use thirdrowtransition toenterthatposture fromreferenceidle.",
+      "references": [
+        "37987577-6178-469a-95a9-f5fa338e86a0"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261121_042217_c50f7ba3-1e95-4e6b-bbff-2df339c598d0.png",
+      "source": "assets/reign-v11/gait-witch-original.png",
+      "runtime": "godot/art/gait-witch-v11.png",
+      "frame": [
+        144,
+        144
+      ],
+      "grid": [
+        6,
+        3
+      ],
+      "foot": [
+        72,
+        110
+      ],
+      "sourceSha256": "4e8592fe69d9f78d596118c3fb1d1fd5c10a6228d0119e779a9518f266760b4e",
+      "runtimeSha256": "51433351d4a52d7676281e39822a5cd9cb311290536dd5d461e3414d1b37ddc8"
+    },
+    {
+      "index": 5,
+      "id": "gait-knight",
+      "job_id": "7a6c120a-6660-4050-a9d7-5380d38bea86",
+      "time": "042643",
+      "rows": 3,
+      "status": "selected",
+      "reason": "Selected after native visual review.",
+      "prompt": "Original single-character professional SNES pixel-art SPRITE SHEET. EXACT6columns x3rows, transparent background, equal square cells, no text/grid/room. This sheet depicts ONE cat only, all18drawings same coat, proportions, head size, outfit and weapon kit as reference. Short upright triangular feline ears, flat cat muzzle, whiskers, pawhands; no dogs. FaceRIGHT. Hard square pixelclusters,32-color identity palette, no antialiasing/softpaint, no glowingduplicate or weapon VFX. Full body and accessories fully insidecell withpadding; feet share one ground baseline, constant sourcebody size throughallrows. Rows0and1 are ONE TWELVE-frame distinct personality locomotioncycle, chronological0..5 then6..11, smoothloop11→0, never sixposes repeated. Row2 is SIX physical START-WALK transitiondrawings: frame0 matches upright neutral referenceidlebody,1weightprepares,2hipsbeginlocomotionposture,3shouldersfollow,4feetset,5matchesexactgaitframe0posture. This thirdrow must preserve actual standing body scale; crouching is acting ratherthan a different-sizedcat. Idle0 ofthirdrow andgait0 must have samecharacter/headproportions so they blend. Weapons are stowed or carrieddown, NEVERattacking. No incorrect incoming weapons or copiedkit fromanothercat.  Identity: BROWN knight in heavyCOBALT BLUE ARMOR, HAMMER carrieddownonshoulder and BLUEPLATE SHIELD heldclose. Focus ONLY on thatcat's matchingreference row, do not includeanyothercat. Personalityandmechanics: ARMORED HEELPLANT WEIGHT: lowcenterofgravity, widebootbase, eachheelhitsfirmlyandkneescompress visibly, breastplateandshield lagonebeat beforetorso settles, thicktailcounterweights. Push-offrequireswholehipandshoulderrotation, notfloatingroundedfeet. Twelveheavyfootroll/down/passing/up poseswithnoticeablyweightedload, noquiettoe-stalk. Thetwelvecyclemustkeepthepersonalityposture throughbothrowhalves; neverresetto neutralmidcycle. Use thirdrowtransition toenterthatposture fromreferenceidle. Mandatory anatomy: HUMANOID BIPED with TWO legs and TWO arms, exactly two hindfeet as groundcontacts. Frontpaws are HANDS, never used as forelegs or planted to carrybodyweight. Keep humanoid pelvis/knees and mostlyupright chest evenwhen crouched; NO four-legged housecat gait.",
+      "references": [
+        "37987577-6178-469a-95a9-f5fa338e86a0"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261121_042643_7a6c120a-6660-4050-a9d7-5380d38bea86.png",
+      "source": "assets/reign-v11/gait-knight-original.png",
+      "runtime": "godot/art/gait-knight-v11.png",
+      "frame": [
+        144,
+        144
+      ],
+      "grid": [
+        6,
+        3
+      ],
+      "foot": [
+        72,
+        110
+      ],
+      "sourceSha256": "c9a0bc28f43ffe0163ffaf3d5a1e78b368bbf07ecbeddfdbdeda0a7cc703665c",
+      "runtimeSha256": "3bb05a0eba083b0c2f87314e7973f5cbb18115408ab20720e3d1aaafc43c4342"
+    },
+    {
+      "index": 6,
+      "id": "gait-thief",
+      "job_id": "43605acd-d35e-452c-81a4-4a5fd8b7d930",
+      "time": "043056",
+      "rows": 3,
+      "status": "selected",
+      "reason": "Selected after native visual review.",
+      "prompt": "Original single-character professional SNES pixel-art SPRITE SHEET. EXACT6columns x3rows, transparent background, equal square cells, no text/grid/room. This sheet depicts ONE cat only, all18drawings same coat, proportions, head size, outfit and weapon kit as reference. Short upright triangular feline ears, flat cat muzzle, whiskers, pawhands; no dogs. FaceRIGHT. Hard square pixelclusters,32-color identity palette, no antialiasing/softpaint, no glowingduplicate or weapon VFX. Full body and accessories fully insidecell withpadding; feet share one ground baseline, constant sourcebody size throughallrows. Rows0and1 are ONE TWELVE-frame distinct personality locomotioncycle, chronological0..5 then6..11, smoothloop11→0, never sixposes repeated. Row2 is SIX physical START-WALK transitiondrawings: frame0 matches upright neutral referenceidlebody,1weightprepares,2hipsbeginlocomotionposture,3shouldersfollow,4feetset,5matchesexactgaitframe0posture. This thirdrow must preserve actual standing body scale; crouching is acting ratherthan a different-sizedcat. Idle0 ofthirdrow andgait0 must have samecharacter/headproportions so they blend. Weapons are stowed or carrieddown, NEVERattacking. No incorrect incoming weapons or copiedkit fromanothercat.  Identity: SILVER cat in EMERALD HOOD with twinMIRROR DAGGERS stowedbesideribs/hips. Focus ONLY on thatcat's matchingreference row, do not includeanyothercat. Personalityandmechanics: CROUCHED SIDEWAYS SILENT TOE: bodysideonandtwistedthreequarter, kneesseverelyflexed, onelegcrossesbehindotherlikecrabstep, headwatchesaheadindependentofshoulderangle, heelsrarelyraisedhigh. Tail tucksnearbody then unfurlsforbalance, hoodclothtensionchanges. Twelveverylow sidewayscarefulfootfalls, distinctlydifferentfromforwardpredatoryalley-stalk. Thetwelvecyclemustkeepthepersonalityposture throughbothrowhalves; neverresetto neutralmidcycle. Use thirdrowtransition toenterthatposture fromreferenceidle. Mandatory anatomy: HUMANOID BIPED with TWO legs and TWO arms, exactly two hindfeet as groundcontacts. Frontpaws are HANDS, never used as forelegs or planted to carrybodyweight. Keep humanoid pelvis/knees and mostlyupright chest evenwhen crouched; NO four-legged housecat gait.",
+      "references": [
+        "37987577-6178-469a-95a9-f5fa338e86a0"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261121_043056_43605acd-d35e-452c-81a4-4a5fd8b7d930.png",
+      "source": "assets/reign-v11/gait-thief-original.png",
+      "runtime": "godot/art/gait-thief-v11.png",
+      "frame": [
+        144,
+        144
+      ],
+      "grid": [
+        6,
+        3
+      ],
+      "foot": [
+        72,
+        110
+      ],
+      "sourceSha256": "6095940db5c795f85d3cf7f2e5639beb57a858b683bd2ddff515f2d1144f3d64",
+      "runtimeSha256": "506285b71becd4bc85152d3715cd47cf8a30b4e4ef3ad93e3bf91ceeecf28673"
+    },
+    {
+      "index": 7,
+      "id": "gait-quiet",
+      "job_id": "9082ff2f-1db7-4d4c-8fda-15e1951405ed",
+      "time": "043416",
+      "rows": 3,
+      "status": "selected",
+      "reason": "Selected after native visual review.",
+      "prompt": "Original single-character professional SNES pixel-art SPRITE SHEET. EXACT6columns x3rows, transparent background, equal square cells, no text/grid/room. This sheet depicts ONE cat only, all18drawings same coat, proportions, head size, outfit and weapon kit as reference. Short upright triangular feline ears, flat cat muzzle, whiskers, pawhands; no dogs. FaceRIGHT. Hard square pixelclusters,32-color identity palette, no antialiasing/softpaint, no glowingduplicate or weapon VFX. Full body and accessories fully insidecell withpadding; feet share one ground baseline, constant sourcebody size throughallrows. Rows0and1 are ONE TWELVE-frame distinct personality locomotioncycle, chronological0..5 then6..11, smoothloop11→0, never sixposes repeated. Row2 is SIX physical START-WALK transitiondrawings: frame0 matches upright neutral referenceidlebody,1weightprepares,2hipsbeginlocomotionposture,3shouldersfollow,4feetset,5matchesexactgaitframe0posture. This thirdrow must preserve actual standing body scale; crouching is acting ratherthan a different-sizedcat. Idle0 ofthirdrow andgait0 must have samecharacter/headproportions so they blend. Weapons are stowed or carrieddown, NEVERattacking. No incorrect incoming weapons or copiedkit fromanothercat.  Identity: WHITE frostcat with FROST SPEAR carriedverticalbehindshoulder and smallICYBLUE LANTERN atbelt. Focus ONLY on thatcat's matchingreference row, do not includeanyothercat. Personalityandmechanics: SLOW GROUNDED GLIDING TOE CONTACT: calmstilltorso, long nearlysilentslidingpawreach withonlyfronttoepadsmaintaininggroundcontact, tinyanklearticulationandminimalbounce. Robeandlanternfloatwithslowlag, taildescribesa gentlelowarc. BOTHlegsarephysicallydrawn asgroundedtoecontacts, never levitating orrunning shiftedup. Twelveelegantmeasuredquietposes, visuallysereneandunnerving, notsoldierwalk. Thetwelvecyclemustkeepthepersonalityposture throughbothrowhalves; neverresetto neutralmidcycle. Use thirdrowtransition toenterthatposture fromreferenceidle. Mandatory anatomy: HUMANOID BIPED with TWO legs and TWO arms, exactly two hindfeet as groundcontacts. Frontpaws are HANDS, never used as forelegs or planted to carrybodyweight. Keep humanoid pelvis/knees and mostlyupright chest evenwhen crouched; NO four-legged housecat gait.",
+      "references": [
+        "37987577-6178-469a-95a9-f5fa338e86a0"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261121_043416_9082ff2f-1db7-4d4c-8fda-15e1951405ed.png",
+      "source": "assets/reign-v11/gait-quiet-original.png",
+      "runtime": "godot/art/gait-quiet-v11.png",
+      "frame": [
+        144,
+        144
+      ],
+      "grid": [
+        6,
+        3
+      ],
+      "foot": [
+        72,
+        110
+      ],
+      "sourceSha256": "f10f61a16aa6f5c76e996c514a53b9de4edf14174f91a54a1a91a543986edc25",
+      "runtimeSha256": "2fba735b6a571dca3bf99f9825fbb6fb77186ef0bfd6f91661d97784e7d2f495"
+    },
+    {
+      "index": 8,
+      "id": "gait-patchwork",
+      "job_id": "9cbab2d1-b265-41b7-8bc8-7daf3fb0654d",
+      "time": "043553",
+      "rows": 3,
+      "status": "selected",
+      "reason": "Selected after native visual review.",
+      "prompt": "Original single-character professional SNES pixel-art SPRITE SHEET. EXACT6columns x3rows, transparent background, equal square cells, no text/grid/room. This sheet depicts ONE cat only, all18drawings same coat, proportions, head size, outfit and weapon kit as reference. Short upright triangular feline ears, flat cat muzzle, whiskers, pawhands; no dogs. FaceRIGHT. Hard square pixelclusters,32-color identity palette, no antialiasing/softpaint, no glowingduplicate or weapon VFX. Full body and accessories fully insidecell withpadding; feet share one ground baseline, constant sourcebody size throughallrows. Rows0and1 are ONE TWELVE-frame distinct personality locomotioncycle, chronological0..5 then6..11, smoothloop11→0, never sixposes repeated. Row2 is SIX physical START-WALK transitiondrawings: frame0 matches upright neutral referenceidlebody,1weightprepares,2hipsbeginlocomotionposture,3shouldersfollow,4feetset,5matchesexactgaitframe0posture. This thirdrow must preserve actual standing body scale; crouching is acting ratherthan a different-sizedcat. Idle0 ofthirdrow andgait0 must have samecharacter/headproportions so they blend. Weapons are stowed or carrieddown, NEVERattacking. No incorrect incoming weapons or copiedkit fromanothercat.  Identity: BLACK-WHITE patchedcat in wornRUST/ORANGE patchedroyalmantle, brokenROYAL SWORD sheathed/carriedlow, visiblemendedclothing. Focus ONLY on thatcat's matchingreference row, do not includeanyothercat. Personalityandmechanics: TIRED ASYMMETRIC LIMP: rightlegstiffandshortsteps, leftlegdoesmorework; leftshoulderhangslower, bodybrieflycompressesafterweightgoesonto badrightpaw, then unevenhiphitchrecover, taildragslowbutofffloor. Brokenmantleonepanel lagsmorethanother. Twelveposesmustshowclearunequalcontactdurations/stride andsmallrecoveryhesitation, notsymmetricaltwostep. Stillstrongfelinefighter, no cartooninjurycomedy. Thetwelvecyclemustkeepthepersonalityposture throughbothrowhalves; neverresetto neutralmidcycle. Use thirdrowtransition toenterthatposture fromreferenceidle. Mandatory anatomy: HUMANOID BIPED with TWO legs and TWO arms, exactly two hindfeet as groundcontacts. Frontpaws are HANDS, never used as forelegs or planted to carrybodyweight. Keep humanoid pelvis/knees and mostlyupright chest evenwhen crouched; NO four-legged housecat gait.",
+      "references": [
+        "37987577-6178-469a-95a9-f5fa338e86a0"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261121_043553_9cbab2d1-b265-41b7-8bc8-7daf3fb0654d.png",
+      "source": "assets/reign-v11/gait-patchwork-original.png",
+      "runtime": "godot/art/gait-patchwork-v11.png",
+      "frame": [
+        144,
+        144
+      ],
+      "grid": [
+        6,
+        3
+      ],
+      "foot": [
+        72,
+        110
+      ],
+      "sourceSha256": "8b533217bb8972785e88b0b188de938fb1054a864d2d6c092e9acf0cfc0962c7",
+      "runtimeSha256": "98ee66ce0443285c4820e3a1ca8a7f3fbf7b2be0f0fe1e9d37d75e56e5f72fb9"
+    },
+    {
+      "index": 9,
+      "id": "magic-base-hand",
+      "job_id": "e1c96db4-e212-44ea-aaa1-49962502670d",
+      "time": "042030",
+      "rows": 6,
+      "status": "selected",
+      "reason": "Selected after native visual review.",
+      "prompt": "Original royal feline BODY-MAGIC pixel sprite sheet, EXACT6columns x6rows, transparentbackground, threeTWELVE-frame actions eachoccupyingTWO consecutiverows. Read0..5 onfirstrow,6..11 onnext. Everyframe fullbody withfeetcommonbaseline, constant head/bodyproportions, faceLEFT, shortuprighttriangularcat ears/flatcatmuzzle. Keepfamiliarblackcat royalidentity: ruby/goldcrown, crimson/goldembroideredmantle forBASE or fragmentedcrown/indigoraggedmantle/cyanchestseam forAIR. SWORDISSECONDARY, fullySHEATHEDonhip/back orhangingcarriedDOWN, NEVERswingit oruseweaponasattack. Actualtorso/hips/paws/shoulders performmagic; no idlebodyhiddenbygenericgiantglow. SharpSNESpixelclusters32colors, noantialiasing/smoothpaint/grid/text/environment. Eachaction12realphysicalposes:0neutral,1weightload,2knees/torso compress,3handsload,4fullycocked,5release/contact,6fullfollowthrough,7aftershock,8armsfall/recoil,9bodyrebalance,10breath,11neutral. Clearbodyacting evenwithoutVFX. Finite thin magicattachedtothepalms/chest only, neveropaque blocks orweapon-shapedholograms.  BASE KING groundedfeet. Rows0and1 CROWNLESS HAND part1 PALM SHOVE: rearheel loads, hipsandshouldercoil, realopenpalm pullsbacknexttoribs thenSHOVESLEFT withwholebodyweight, frontkneebends, narrowwarmgoldpressurefollowsPALM, physicalfollowthroughandrecovery. Rows2and3 part2 RISING BACKHAND PRESSURE: lowerscenterofgravity, freehandcloseslowbesideoppositehip, shoulderswinddown, backofpawdrivesUPandLEFT withkneestendingandtorso rising, thinruby/goldpressurecurl attachedtopaw, recoilbalance. Rows4and5 part3 CHEST/FOREARM CONCUSSIVE PUSH: bothforearmsfoldtightlyacrossownchest, shoulderscompressedandheadbowed, chestopenswhileforearmsPUSHOUTWARDandLEFT, wholehipsadvance, coatkicksbackthenfalls, exhaustedexhale. NEVERa swordslash; allthreeactionsdifferentbodymechanics.",
+      "references": [
+        "13cf3b8c-deb3-4980-be07-707400612d7c"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261121_042030_e1c96db4-e212-44ea-aaa1-49962502670d.png",
+      "source": "assets/reign-v11/magic-base-hand-original.png",
+      "runtime": "godot/art/magic-base-hand-v11.png",
+      "frame": [
+        192,
+        192
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "foot": [
+        96,
+        154
+      ],
+      "sourceSha256": "4b232077fc181f966e8569f6a44b1fd3451485f95990417124048f4f78a4b730",
+      "runtimeSha256": "6749bedbd6c411960003a01d3eff47d7e4a45753e116bd837893f1ac8b7de5bf"
+    },
+    {
+      "index": 10,
+      "id": "magic-base-gifts",
+      "job_id": "22832bca-a23a-4efd-9111-a0a57218719a",
+      "time": "042819",
+      "rows": 6,
+      "status": "selected",
+      "reason": "Selected after native visual review.",
+      "prompt": "Original royal feline BODY-MAGIC pixel sprite sheet, EXACT6columns x6rows, transparentbackground, threeTWELVE-frame actions eachoccupyingTWO consecutiverows. Read0..5 onfirstrow,6..11 onnext. Everyframe fullbody withfeetcommonbaseline, constant head/bodyproportions, faceLEFT, shortuprighttriangularcat ears/flatcatmuzzle. Keepfamiliarblackcat royalidentity: ruby/goldcrown, crimson/goldembroideredmantle forBASE or fragmentedcrown/indigoraggedmantle/cyanchestseam forAIR. SWORDISSECONDARY, fullySHEATHEDonhip/back orhangingcarriedDOWN, NEVERswingit oruseweaponasattack. Actualtorso/hips/paws/shoulders performmagic; no idlebodyhiddenbygenericgiantglow. SharpSNESpixelclusters32colors, noantialiasing/smoothpaint/grid/text/environment. Eachaction12realphysicalposes:0neutral,1weightload,2knees/torso compress,3handsload,4fullycocked,5release/contact,6fullfollowthrough,7aftershock,8armsfall/recoil,9bodyrebalance,10breath,11neutral. Clearbodyacting evenwithoutVFX. Finite thin magicattachedtothepalms/chest only, neveropaque blocks orweapon-shapedholograms.  BASE KING groundedfeet. Rows0and1 BORROWED HOUR: pawclutchesownsternum, shouldersfoldin, fingersreachintocoronallightatownchest, torsoleansbackwhilehandphysicallyDRAWSASMALLCAT-SHAPEDMEMORYOUTOFHISHEART, otherforearmbracesribs, tinyamberghostformstretchesfromchesttopalmthenreleases, handfallsandbreathrecovers. Ghostisintentionalmemoryforthisoneability, notgenericallattack. Rows2and3 ROYAL BURDEN: heelsplantedwide, backandkneesbendunderimaginedweight, realpalmLOWERSfromwaisttowardfloor, shoulderweighsdown, cloakandsmallgoldchaindetailsgetPUSHEDDOWN bygravity, headbowed, lowesthandcontact5..7, thenstraightensslowly. NOraisedweapon. Rows4and5 KING'S RANSOM: realpawCLUTCHESOWNCHESThard, bodydoublesover, otherhandsteadiesbelly, tearsCROWN-SHAPEDLIGHTOUTOFHIMSELF, thenthrowsarmsandchestwide/exposedasbriefcoronalburstcomesfromsternum, smallredwoundlight, coatfliesapartthenfalls, kingstaggersandhangsexhaustedbeforegettingcontrol. Bodypaysavisibleprice; no heroicweaponswing. Critical continuity: swordmustbeFULLYSHEATHEDinback/hipscabbardwithonlysmallhiltvisible; BOTH HANDS EMPTY except attachedmagicalight, absolutelyNOdrawnblade/carriedblade anywhere.",
+      "references": [
+        "13cf3b8c-deb3-4980-be07-707400612d7c"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261121_042819_22832bca-a23a-4efd-9111-a0a57218719a.png",
+      "source": "assets/reign-v11/magic-base-gifts-original.png",
+      "runtime": "godot/art/magic-base-gifts-v11.png",
+      "frame": [
+        192,
+        192
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "foot": [
+        96,
+        154
+      ],
+      "sourceSha256": "5040edaccc7c753f717b5c94af82aa10834dd89cb27a9b2ebaed1a373ca25a0d",
+      "runtimeSha256": "12f6820a57af94fd78da670e71dfbf9c66718a14e9bcb8355c43163993628386"
+    },
+    {
+      "index": 11,
+      "id": "magic-air-hand",
+      "job_id": "b011a4be-de77-4407-ac77-f807cd6b9913",
+      "time": "042400",
+      "rows": 6,
+      "status": "selected",
+      "reason": "Selected after native visual review.",
+      "prompt": "Original royal feline BODY-MAGIC pixel sprite sheet, EXACT6columns x6rows, transparentbackground, threeTWELVE-frame actions eachoccupyingTWO consecutiverows. Read0..5 onfirstrow,6..11 onnext. Everyframe fullbody withfeetcommonbaseline, constant head/bodyproportions, faceLEFT, shortuprighttriangularcat ears/flatcatmuzzle. Keepfamiliarblackcat royalidentity: ruby/goldcrown, crimson/goldembroideredmantle forBASE or fragmentedcrown/indigoraggedmantle/cyanchestseam forAIR. SWORDISSECONDARY, fullySHEATHEDonhip/back orhangingcarriedDOWN, NEVERswingit oruseweaponasattack. Actualtorso/hips/paws/shoulders performmagic; no idlebodyhiddenbygenericgiantglow. SharpSNESpixelclusters32colors, noantialiasing/smoothpaint/grid/text/environment. Eachaction12realphysicalposes:0neutral,1weightload,2knees/torso compress,3handsload,4fullycocked,5release/contact,6fullfollowthrough,7aftershock,8armsfall/recoil,9bodyrebalance,10breath,11neutral. Clearbodyacting evenwithoutVFX. Finite thin magicattachedtothepalms/chest only, neveropaque blocks orweapon-shapedholograms.  AIRBORNE HOLLOW SOVEREIGN, trulyhangingboots/relaxedknees,toesdown, longtailandcloakpanelsfallDOWN; NEVERgroundedbracedfeet orwalkingstance shiftedup. Rows0and1 HOLLOW ORBIT part1 ELBOW ORBIT: torsoandclawedforearmcoilintoacompactcloseguard, elbowcirclesoutandLEFT drivingaslimcyanpressureorbit, hipsanddanglingkneescounterrotate, recoverysettlesinhangingposition. Rows2and3 part2 SHOULDER RELEASE: bodyturnssidewaysanddrawsoneSHOULDERbackhard, closedpawnearcollarbone, thenwholeupperbodyuncoilsandshoulder/upperarmconcussivelysweepsLEFT, coatwrapsthenpeelsopen, legslooselytrailunderneath. Rows4and5 part3 CLOSED-CHEST RELEASE: bothforearmswrapprotectivelyacrosssternumandchestcontractsIN, crownfragmentstiltinward, thenchestopenswhilebothpawsseparateandpressurepopsOUTfrombody, shouldersfollowthroughanddroop, tail/clothfalltohang. Swordremainssheathed/secondaryandneverattacks. Threedistinctphysicalairbornebodymagiccombos.",
+      "references": [
+        "46795626-9471-4c2b-ac44-aa6e869c99e6"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261121_042400_b011a4be-de77-4407-ac77-f807cd6b9913.png",
+      "source": "assets/reign-v11/magic-air-hand-original.png",
+      "runtime": "godot/art/magic-air-hand-v11.png",
+      "frame": [
+        192,
+        192
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "foot": [
+        96,
+        154
+      ],
+      "sourceSha256": "95cd5edb19b16a147f04c2408334d2613f43fe52330d420f11aef78957fd609b",
+      "runtimeSha256": "c487394735d3d1c47c7a7cdf4c53d064f20833f6c31ed0f3479c8667a120c469"
+    },
+    {
+      "index": 12,
+      "id": "magic-air-gifts",
+      "job_id": "3338fb71-83d6-4857-90e4-ecc79decb720",
+      "rows": 6,
+      "status": "selected",
+      "time": "043230",
+      "reason": "Selected after native visual review.",
+      "prompt": "Original royal feline BODY-MAGIC pixel sprite sheet, EXACT6columns x6rows, transparentbackground, threeTWELVE-frame actions eachoccupyingTWO consecutiverows. Read0..5 onfirstrow,6..11 onnext. Everyframe fullbody withfeetcommonbaseline, constant head/bodyproportions, faceLEFT, shortuprighttriangularcat ears/flatcatmuzzle. Keepfamiliarblackcat royalidentity: ruby/goldcrown, crimson/goldembroideredmantle forBASE or fragmentedcrown/indigoraggedmantle/cyanchestseam forAIR. SWORDISSECONDARY, fullySHEATHEDonhip/back orhangingcarriedDOWN, NEVERswingit oruseweaponasattack. Actualtorso/hips/paws/shoulders performmagic; no idlebodyhiddenbygenericgiantglow. SharpSNESpixelclusters32colors, noantialiasing/smoothpaint/grid/text/environment. Eachaction12realphysicalposes:0neutral,1weightload,2knees/torso compress,3handsload,4fullycocked,5release/contact,6fullfollowthrough,7aftershock,8armsfall/recoil,9bodyrebalance,10breath,11neutral. Clearbodyacting evenwithoutVFX. Finite thin magicattachedtothepalms/chest only, neveropaque blocks orweapon-shapedholograms.  AIRBORNE HOLLOW SOVEREIGN, relaxedhangingkneesanddownpointedboots, fallingmantle/tail, neverplantedgroundstance. Rows0and1 VACANT STEP: shouldersandclawspullcloakCLOSEaroundtorso, bodycompressesnarrowandturnsthreequarter, solidbodyPHASESsidewaysLEFT throughitsOWNoldtranslucentbodyoutline, atcontact5..7newsolidbodyemergeswhileoldoutlinepeelsbehindit, handsopenandhangingbodysettles. Thisabilityintentionallyleavesoldbodymemorybutnotduplicateweapons; allotheractionsrealbodilyacting. Rows2and3 UNMOORED: freePALMfacesUPatbelly, shoulderscurlinthenhandliftsUPaboveheadwithregalcommand, ribsopenupward, coatstreamsandthreadsFLOWUPagainstgravitywhilebootkneesremainrelaxed, crownfragmentsslightlyrise, palmlowersandclothsettles. ClearoppositegesturefromgroundedRoyalBurden'spalmdown. Rows4and5 EMPTY THRONE: pawstouchsternumandtorsoCOLLAPSESINWARD, shouldersfoldhardin, tornmantlepanelsgettuggedtowardthechestasifimploding, bodyexposesitshollowcyancenter, at5..7airisdrawnINTOBODYnotpushedout, thenarmsandheadhangweaklywithkneeslooseandclothfallingdown, slumpedexhaustedhoverrecovery. No swordattack. Critical continuity: swordmustbeFULLYSHEATHEDinback/hipscabbardwithonlysmallhiltvisible; BOTH HANDS EMPTY except attachedmagicalight, absolutelyNOdrawnblade/carriedblade anywhere.",
+      "references": [
+        "46795626-9471-4c2b-ac44-aa6e869c99e6"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261121_043230_3338fb71-83d6-4857-90e4-ecc79decb720.png",
+      "source": "assets/reign-v11/magic-air-gifts-original.png",
+      "runtime": "godot/art/magic-air-gifts-v11.png",
+      "frame": [
+        192,
+        192
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "foot": [
+        96,
+        154
+      ],
+      "sourceSha256": "ef81e9ba318f56cd585088a444b6c909be622bbbd24c82bb329b50c09ce50de0",
+      "runtimeSha256": "3d71065c3b2effff06a8cd5cec00b200ed97d7939e3b20c3d5d0d6b795f07fb6"
+    },
+    {
+      "index": 13,
+      "id": "royal-magic-fx",
+      "job_id": "f498f5b1-ffae-482a-9528-9a47d18d3406",
+      "time": "044105",
+      "rows": 6,
+      "status": "selected",
+      "reason": "Selected after native visual review.",
+      "prompt": "Original game ROYAL BODY-MAGIC PIXEL VFX ATLAS, EXACT6columns x6rows transparentbackground, squareequalcells. Professionalhard SNES pixelclusters32colors, noantialiasing/smoothpainting, no solidcolorblocks, no text/grid/environment/weapons. Eachrow6finite temporalframes: seedmarker/build/readablecharge/contactpeak/followthrough/fragmentsfade. Effectsrealpixelobjects/runes/threads withtransparentgaps, distinctaestheticfunction, notrandomflash. Row0 CROWNLESS PALM PRESSURE: a clearlyreadable OPEN PAW/PALM silhouette withfourfingers andpad radiatesSHORT warmgold/ruby pressurewave, then concentricshortconcussiveimpactrings, no blade/crescent-shapedslash. Row1 BORROWED HOUR ECHO: delicate goldhourhalo withclockticks/crownnotches andTWO smallfeet/pawprintanchors beneath a faint uprightcatmemory outline; fixedworldafterimagepulledfromownchest aesthetic, tidyhourglyph readableat32px. Row2 ROYAL BURDEN DOWN: darkgold/crimsonGRAVITYTETHERS pullingDOWN fromupperanchorstoground, verticalweightedchains/threads anddownwardarrowteardrops; clothlikepressurelines sink, hollowgroundseal. Row3 UNMOORED UP: icycyan/violetLIFTTHREADS flowingUP fromgroundthroughbodyspace, upwardarrows/featheredcurves anddiscretelevitatingrunechips; visuallyoppositedirectionfromrow2. Row4 KING'S RANSOM OUTWARD: coronal HEART/CHEST STAR burstingOUTWARD inwarmgold/crimsonrays, crown-shapedshatteredlightpieces andsmallredcostspark, centralemptyspaceafterburst. Row5 EMPTY THRONE INWARD: violet/cyan thin implosionSPIRAL linesandraggedcloth-shapedribbons drawnINWARD towardaBLACKHOLLOWCHEST center, fragmentsconverge/collapse thenquietdissipate; NOT an outwardexplosion. Everymotifcompletelyinsideitscellwithmargin; actualroyalpalms/time/gravity/chestimagery, no sword or monster claw icons.",
+      "references": [],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261121_044105_f498f5b1-ffae-482a-9528-9a47d18d3406.png",
+      "source": "assets/reign-v11/royal-magic-fx-original.png",
+      "runtime": "godot/art/royal-magic-fx-v11.png",
+      "frame": [
+        128,
+        128
+      ],
+      "grid": [
+        6,
+        6
+      ],
+      "sourceSha256": "cac4d1a5221f95e59d1b0c3c8235f5381247f4e085e567ce756dc9babf27b19c",
+      "runtimeSha256": "9250cec40bdf9a46b51c1a9c59263eb3bd90f11786d04084715f889626ad2c2d",
+      "anchors": [
+        [
+          64,
+          64
+        ],
+        [
+          64,
+          110
+        ],
+        [
+          64,
+          110
+        ],
+        [
+          64,
+          110
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          64,
+          64
+        ]
+      ]
+    },
+    {
+      "index": 14,
+      "id": "gait-alley",
+      "job_id": "56138dde-fd69-4f10-aa0e-2e139f4d341c",
+      "time": "044328",
+      "rows": 3,
+      "status": "selected",
+      "reason": "Selected after native visual review.",
+      "prompt": "Original anthropomorphic ORANGE ALLEY CAT FIGHTER sprite sheet, exact6columns x3rows transparentbackground. ThisisHUMANOID BIPED: TWOlegs withclearhumanoidpelvis/kneejoints,TWOarmswithHANDpaws. ONLY TWO HINDFEET touchfloor. BothHANDS stayforwardoratthebelthook; neverplant forepaws orwalkonallfours. Torsoleansforwardabout30degreesbutCHESTremainsabovepelvis, deepKNEEBENDninjastalk/samurai-crouch, NEVERhorizontalfourleggedcatspine. Sameorangefur,redneckscarf,wornleatherarmorandbeltsheathedHOOKEDSICKLE frommatchingreferencecat. FaceRIGHT, shortuprighttriangularcatears,flatcatmuzzle. Rows0and1 are TWELVE distinct bipedal LOW STALK cycle drawings0..11: bentkneesload, onehindfootreachesquietlytoe-first, hips transfer, rearheelpeels, legs crossbeneathpelvis, oppositehindfoot plants, shoulderscoilcautiouslyandtailcounterbalances; handshovernearwaist/predatoryguard, NOattacking. StronglowfighterpersonalitydifferentfromuprightnoviceorheavyknightbutSTILLwalkinguprightontwolegs. Row2 SIX transitionposesfrommatchingUPRIGHT HUMANOID neutralidlebodytofullybentkneestalk; finalintro matchesgait0. Fixedbody/headproportionsbetweenall18poses, commonfeetbaseline, allbodiesandaccessoriesinsidecells. SharpSNESpixelclusters32colors,noantialiasing/smoothpaint/text/grid/effects. No dog, no quadruped, no fourlegprowl, nofrontpawgroundcontact.",
+      "references": [
+        "37987577-6178-469a-95a9-f5fa338e86a0"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261121_044328_56138dde-fd69-4f10-aa0e-2e139f4d341c.png",
+      "source": "assets/reign-v11/gait-alley-original.png",
+      "runtime": "godot/art/gait-alley-v11.png",
+      "frame": [
+        144,
+        144
+      ],
+      "grid": [
+        6,
+        3
+      ],
+      "foot": [
+        72,
+        110
+      ],
+      "sourceSha256": "60faa40f2b995df20692a10c76c22ddea0a1655b8e0201d39d4329a7a760be9f",
+      "runtimeSha256": "dd5df2b78ad1164660cf9dee295553e39d932089086d37ad3ed7a511ad62e77f"
+    },
+    {
+      "index": 15,
+      "id": "gait-king",
+      "job_id": "279bab89-cee1-412c-8fea-3b0787a9240d",
+      "time": "044525",
+      "rows": 5,
+      "status": "selected",
+      "reason": "Selected after native visual review.",
+      "prompt": "Original BLACK FELINE IMMORTAL KING EMPTY-HAND travel sprite sheet, exact6columns x5rows transparentbackground. Match NEW bodymagicreference exactly: ruby/gold crown, crimson/gold royal mantle, darkbluearmor, shortuprightcatears/flatmuzzle, proportionalhead/torso. His sword is FULLY SHEATHED atback/hip, onlysmallhiltvisible; BOTH HANDS FREE, NO drawnblade orcarriedblade inANYframe. FaceLEFT,fixedsourcebody/headscale,feetcommonbaseline, allbodiesfullyinsideequalcells. SharpSNESpixelart32colors, hard squareclusters/noantialiasing, no text/grid/background/glowduplicates. Rows0and1 TWELVE distinct REGAL measuredstride drawings: selfpossesseduprightchest, deliberate heel-to-toe weighttransfer, heavyroyalcape latearc, freehands relaxandcounterswing, crownedheadsteadierthanhips; notsamewalkasnovice/knight/stalker. Row2 SIXstart-walkposes from EXACTempty-handedNEUTRALfirstframeofreference to firstregalstride, movementbeginsatfeetthenshoulders, lastmatchesgait0. Row3 SIXphysical JUMPposes: compressknees/freehandsbalance /pushoff /kneestuckup /apexhangingfeet /falldownfeetextend /softkneecompressionlanding. Row4 SIXphysical DASH/HURTposes: lowforwardcoil /hardleftwardpushoff /longlowdashwithfreehandsandcapelag /passinglegsfastskid /brakedrecoverystance /visiblehurtforearmprotectschestandkneebuckles. Keep sword sheathed throughoutwalking,jumping,dashing,hurt. Freepawsandchest arethemagicidentity, no genericweaponstrikes.",
+      "references": [
+        "e1c96db4-e212-44ea-aaa1-49962502670d"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261121_044525_279bab89-cee1-412c-8fea-3b0787a9240d.png",
+      "source": "assets/reign-v11/gait-king-original.png",
+      "runtime": "godot/art/gait-king-v11.png",
+      "frame": [
+        192,
+        192
+      ],
+      "grid": [
+        6,
+        5
+      ],
+      "foot": [
+        96,
+        154
+      ],
+      "sourceSha256": "1a64c9414b0d43d3094fd72c52b6ee42c8c37a3f101974d1094501a9545a77e1",
+      "runtimeSha256": "a5dfc96e4a876b9949364d6d38f3605b1f9bd1d74d1b6c6e54005a92aa0a45a5"
+    },
+    {
+      "index": 16,
+      "id": "magic-air-travel",
+      "job_id": "1809f998-6abc-47a0-b572-a3a7e3399e35",
+      "time": "044637",
+      "rows": 4,
+      "status": "selected",
+      "reason": "Selected after native visual review.",
+      "prompt": "Original HOLLOW SOVEREIGN EMPTY-HAND AIRBORNE travel sprite sheet, exact6columns x4rows transparentbackground. Match NEW royalbodymagicreference: fragmentedgoldcrown, shorttriangularuprightcat ears, flatblackfeline muzzle, cyan chestseam, INDIGO tornroyalmantle, longtail. SwordFULLYSHEATHEDatback/hip, ONLYsmallscabbardhiltvisible, BOTH CLAWED HANDS FREE, NO drawn/carriedbladeinANYpose. TrulyLEVITATING, relaxedhangingknees/downwardboottoes, cloakpanels/tailfallDOWN, notgroundwalkshiftedup. Fixedbody/headproportionsbetweenall24poses; faceLEFT, commonfeetanchor/fullbodypadding. HardSNESsquarepixelclusters32colors,noantialiasing/softpaint/text/grid/duplicateactors. Rows0and1 TWELVE chronological hoveringIDLE frames: regal freehandsrestnearhips/chest, subtlefloatingbreath, hipsandkneesrelax, coatandtailpendulumthroughfullcycle, broken crownfragmentscant. Rows2and3 TWELVE airborneGLIDE frames: torsoleansgentlyLEFT, handsbalanceinairwithoutweapon, hangingbootsloosenandlag, tailandlongcloakpanelsstreamdown/backthensettlethroughcyclicwind, NEVERsteps/feetplant. Allsameconsistentemptyhandmagicwardrobeasreference. Firstidleposematchesreference'sneutralbodystanceandheadsizesoattack/idlehasnoswordorbodypop.",
+      "references": [
+        "b011a4be-de77-4407-ac77-f807cd6b9913"
+      ],
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3JxutfUTS7l31WJvQcHkO7xzOS5/hf_20261121_044637_1809f998-6abc-47a0-b572-a3a7e3399e35.png",
+      "source": "assets/reign-v11/magic-air-travel-original.png",
+      "runtime": "godot/art/magic-air-travel-v11.png",
+      "frame": [
+        192,
+        192
+      ],
+      "grid": [
+        6,
+        4
+      ],
+      "foot": [
+        96,
+        154
+      ],
+      "sourceSha256": "91925f680e4529aecfdb5fb2b4dfdac4b90b4f8ba3a973b195731b06fd76ad8c",
+      "runtimeSha256": "fdd5aac316cb3e047769d57c6f63aff947cb681ae3a649c4f9528cdc4ef3fe42"
+    }
+  ],
+  "totals": {
+    "jobs": 17,
+    "selectedJobs": 16,
+    "rejectedJobs": 1,
+    "generatedPoses": 414,
+    "selectedRuntimeCells": 396,
+    "derivedIcons": 8
+  },
+  "visitorProfiles": [
+    {
+      "id": "kitten",
+      "identity": "CREAM tiny novice with brassbell/broken-crownpendant and shortwoodenSTAFF heldgently; no blade/knife/sickle anywhere.",
+      "personality": "CAUTIOUS SHORTPAW STEPS: kneesclose, chestslightlywithdrawn, littleheadpeeksforward; small heel/pawplacements with hesitant weight checks, tailheldlow but tipcurious. Handsclutchstaffclose for reassurance. Twelvephasesalternate deliberatelytinyfootfalls, anklelift, carefulpassing andsoftpawplant; bodydoesnotbounce likea soldier. Keepforehead and largecateyes modestlyhesitant.",
+      "bodyHeight": 74,
+      "stride": 44,
+      "gaitFrames": [
+        0,
+        11
+      ],
+      "startFrames": [
+        12,
+        17
+      ],
+      "stop": "reverse12..17, with actual prior gait pose held at runtime stopframe0",
+      "idle": "one real matching neutral at sourceframe12"
+    },
+    {
+      "id": "alley",
+      "identity": "ORANGE alleycat in RED neckscarf and wornleather, hookedSICKLE sheathedatbelt/downbehindhip.",
+      "personality": "PREDATORY LOW STALK: torsoandhead areLOW andforward, backalmosthorizontalrelativeothercats, hipsloaded, flexedknees, longquietpawreach andspringloadedrearleg. Tail counterbalancesnearhorizontal. Scarffollowslowbody, onepawnearthebeltsickle withoutdrawingit. Twelveframes slinkwithalternatingtoeplant anddeliberateweighttransfer, neveruprightgenericmarch.",
+      "bodyHeight": 80,
+      "stride": 88,
+      "gaitFrames": [
+        0,
+        11
+      ],
+      "startFrames": [
+        12,
+        17
+      ],
+      "stop": "reverse12..17, with actual prior gait pose held at runtime stopframe0",
+      "idle": "one real matching neutral at sourceframe12"
+    },
+    {
+      "id": "sailor",
+      "identity": "TUXEDO BLACKWHITE chain/censerwarden in OCHRE coat, broken-crownpendant, sphericalBRONZE CENSER hangingfromREALCHAIN; no hook/sickle/blades.",
+      "personality": "HEAVY ROCKING TRUDGE: broadstance, pronounced alternating left/righthiprock, shoulderscounterroll, frontheel settlesheavily andrearheel peels slowly, chainandcenser swinglike a heavy pendulum slightlybehindthebody. Mantlehasinertiallag. Kneescompressoncontact, rise slowlywhilepassing; clearlybulky ritualwarden ratherthanlightcatwalk.",
+      "bodyHeight": 71,
+      "stride": 72,
+      "gaitFrames": [
+        0,
+        11
+      ],
+      "startFrames": [
+        12,
+        17
+      ],
+      "stop": "reverse12..17, with actual prior gait pose held at runtime stopframe0",
+      "idle": "one real matching neutral at sourceframe12"
+    },
+    {
+      "id": "acrobat",
+      "identity": "CALICO acrobat with JADE BELL and twinJADE CHAKRAM RINGS beltedatbothhips.",
+      "personality": "HIGH-TOE SPRING/CROSSSTEP: uprightelongatedspine, highliftedankles, feetcrossgracefullypassingunderhips, onefootalways touchesfloorwithtoe. Bellandjade loops swinginopposition tohips, tailmakes smoothS-curve. Twelveframes showsofttoeland, kneecompress, gracefulcrosspassing andrise, distinctfromwalkingmarch orrunningbounce. Elegant agilepersonality, noairborne jumpcycle.",
+      "bodyHeight": 69,
+      "stride": 108,
+      "gaitFrames": [
+        0,
+        11
+      ],
+      "startFrames": [
+        12,
+        17
+      ],
+      "stop": "reverse12..17, with actual prior gait pose held at runtime stopframe0",
+      "idle": "one real matching neutral at sourceframe12"
+    },
+    {
+      "id": "witch",
+      "identity": "CHARCOAL/VIOLET necromancercat with pointedVIOLET HAT, ceremonialshortrobe, slenderGOLD ASTRAL NEEDLE/staff carrieddown, smallbeltLANTERN.",
+      "personality": "MEASURED RITUAL PROCESSION: almoststillhead, shoulders heldsolemnly, smalldeliberate longtimedsteppattern, eachfootrollsheel-to-toe withritualpause; hatandrobehem laglaterthanpelvis andlanternswingseparately. Freepawheldnearheartlikechestwoundmemory. Twelveposes conveyintentional almostceremonialtracking, notsamegaitasarmorcat.",
+      "bodyHeight": 76,
+      "stride": 64,
+      "gaitFrames": [
+        0,
+        11
+      ],
+      "startFrames": [
+        12,
+        17
+      ],
+      "stop": "reverse12..17, with actual prior gait pose held at runtime stopframe0",
+      "idle": "one real matching neutral at sourceframe12"
+    },
+    {
+      "id": "knight",
+      "identity": "BROWN knight in heavyCOBALT BLUE ARMOR, HAMMER carrieddownonshoulder and BLUEPLATE SHIELD heldclose.",
+      "personality": "ARMORED HEELPLANT WEIGHT: lowcenterofgravity, widebootbase, eachheelhitsfirmlyandkneescompress visibly, breastplateandshield lagonebeat beforetorso settles, thicktailcounterweights. Push-offrequireswholehipandshoulderrotation, notfloatingroundedfeet. Twelveheavyfootroll/down/passing/up poseswithnoticeablyweightedload, noquiettoe-stalk.",
+      "bodyHeight": 79,
+      "stride": 76,
+      "gaitFrames": [
+        0,
+        11
+      ],
+      "startFrames": [
+        12,
+        17
+      ],
+      "stop": "reverse12..17, with actual prior gait pose held at runtime stopframe0",
+      "idle": "one real matching neutral at sourceframe12"
+    },
+    {
+      "id": "thief",
+      "identity": "SILVER cat in EMERALD HOOD with twinMIRROR DAGGERS stowedbesideribs/hips.",
+      "personality": "CROUCHED SIDEWAYS SILENT TOE: bodysideonandtwistedthreequarter, kneesseverelyflexed, onelegcrossesbehindotherlikecrabstep, headwatchesaheadindependentofshoulderangle, heelsrarelyraisedhigh. Tail tucksnearbody then unfurlsforbalance, hoodclothtensionchanges. Twelveverylow sidewayscarefulfootfalls, distinctlydifferentfromforwardpredatoryalley-stalk.",
+      "bodyHeight": 71,
+      "stride": 84,
+      "gaitFrames": [
+        0,
+        11
+      ],
+      "startFrames": [
+        12,
+        17
+      ],
+      "stop": "reverse12..17, with actual prior gait pose held at runtime stopframe0",
+      "idle": "one real matching neutral at sourceframe12"
+    },
+    {
+      "id": "quiet",
+      "identity": "WHITE frostcat with FROST SPEAR carriedverticalbehindshoulder and smallICYBLUE LANTERN atbelt.",
+      "personality": "SLOW GROUNDED GLIDING TOE CONTACT: calmstilltorso, long nearlysilentslidingpawreach withonlyfronttoepadsmaintaininggroundcontact, tinyanklearticulationandminimalbounce. Robeandlanternfloatwithslowlag, taildescribesa gentlelowarc. BOTHlegsarephysicallydrawn asgroundedtoecontacts, never levitating orrunning shiftedup. Twelveelegantmeasuredquietposes, visuallysereneandunnerving, notsoldierwalk.",
+      "bodyHeight": 76,
+      "stride": 56,
+      "gaitFrames": [
+        0,
+        11
+      ],
+      "startFrames": [
+        12,
+        17
+      ],
+      "stop": "reverse12..17, with actual prior gait pose held at runtime stopframe0",
+      "idle": "one real matching neutral at sourceframe12"
+    },
+    {
+      "id": "patchwork",
+      "identity": "BLACK-WHITE patchedcat in wornRUST/ORANGE patchedroyalmantle, brokenROYAL SWORD sheathed/carriedlow, visiblemendedclothing.",
+      "personality": "TIRED ASYMMETRIC LIMP: rightlegstiffandshortsteps, leftlegdoesmorework; leftshoulderhangslower, bodybrieflycompressesafterweightgoesonto badrightpaw, then unevenhiphitchrecover, taildragslowbutofffloor. Brokenmantleonepanel lagsmorethanother. Twelveposesmustshowclearunequalcontactdurations/stride andsmallrecoveryhesitation, notsymmetricaltwostep. Stillstrongfelinefighter, no cartooninjurycomedy.",
+      "bodyHeight": 85,
+      "stride": 68,
+      "gaitFrames": [
+        0,
+        11
+      ],
+      "startFrames": [
+        12,
+        17
+      ],
+      "stop": "reverse12..17, with actual prior gait pose held at runtime stopframe0",
+      "idle": "one real matching neutral at sourceframe12"
+    }
+  ],
+  "royalMoves": {
+    "base": [
+      "royal_hand_0: Crownless Hand palm shove",
+      "royal_hand_1: rising backhand pressure",
+      "royal_hand_2: chest/forearm concussive push",
+      "royal_echo: Borrowed Hour chest-memory extraction",
+      "royal_burden: Royal Burden knees/back load and lowered palm",
+      "royal_ransom: King's Ransom coronal chest cost/outward burst"
+    ],
+    "air": [
+      "royal_hand_0: Hollow Orbit elbow pressure",
+      "royal_hand_1: shoulder release",
+      "royal_hand_2: closed-chest release",
+      "royal_echo: Vacant Step old-body phase",
+      "royal_burden: Unmoored upward palm/lift threads",
+      "royal_ransom: Empty Throne inward chest collapse"
+    ],
+    "layout": "Hand atlas3x12 chronologicalcells; gift atlas3x12. Eachsequence spans two six-column rows. Tell0..4,contact5..7,recovery8..11.",
+    "weaponContinuity": "All live royal magic/idle/travel/jump/dash/hurt/landing use empty/free hands and a sheathed secondary sword. Legacy story coronation/duel/rest retain intentional weapon props.",
+    "transformation": "Six selected body-magic frames transition through base chest-cost into the airborne hollow form; no legacy drawn-sword flash."
+  },
+  "travel": {
+    "king": {
+      "frame": [
+        192,
+        192
+      ],
+      "foot": [
+        96,
+        154
+      ],
+      "body": 107,
+      "rows": [
+        "walk0..11",
+        "start/stop12..17",
+        "jump18..23",
+        "dash/hurt24..29"
+      ],
+      "land": "Three true empty-hand compression/rebalance/neutral poses:23,28,12."
+    },
+    "air": {
+      "frame": [
+        192,
+        192
+      ],
+      "foot": [
+        96,
+        154
+      ],
+      "body": 130,
+      "idleFrames": [
+        0,
+        11
+      ],
+      "glideFrames": [
+        12,
+        23
+      ],
+      "stance": "Truly dangling knees/toes, cloak/tail fall downward, both hands free; never grounded run shifted upward."
+    }
+  },
+  "fx": {
+    "path": "godot/art/royal-magic-fx-v11.png",
+    "frame": [
+      128,
+      128
+    ],
+    "grid": [
+      6,
+      6
+    ],
+    "rows": [
+      "palm/concussive short pressure",
+      "memory/hour footprint halo",
+      "downward gravity tethers",
+      "upward lift threads",
+      "outward chest burst",
+      "inward collapse"
+    ],
+    "anchors": [
+      [
+        64,
+        64
+      ],
+      [
+        64,
+        110
+      ],
+      [
+        64,
+        110
+      ],
+      [
+        64,
+        110
+      ],
+      [
+        64,
+        64
+      ],
+      [
+        64,
+        64
+      ]
+    ],
+    "icons": {
+      "path": "godot/art/magic-icons-v11.png",
+      "frame": [
+        32,
+        32
+      ],
+      "grid": [
+        4,
+        2
+      ],
+      "baseRows": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "airRows": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "source": "Actual contact motifs from the original FX sheet, not weapon glyphs."
+    }
+  },
+  "pixels": {
+    "block": 2,
+    "alpha": "hard0/255",
+    "palette": 32,
+    "filter": "nearest",
+    "scale": "One fixed identity scale measured from the matching upright neutral transition pose. Crouched/dancing/limping gait posture is preserved rather than stretched to uniform height.",
+    "anchors": "Connected central-body/paw sampling avoids the whole-image weapon/staff bbox. Root reviewed actual floor-marked neutral,walk5,walk11,start/stop paw contacts for all9 visitors; equipment bottoms do not define the floor.",
+    "gaitGeometry": "Every geometry JSON preserves measured source row gutters, per-frame sourceRect, sourceFoot, fixed native foot and removed fragment counts."
+  },
+  "runtimeAPI": [
+    "gait_stride(actor),gait_frame(actor,distance),body_height(actor)",
+    "start_walk6 / stop_walk6 / visitoridle1 / walk12",
+    "royal_*12 each, baseidle1,airidle12",
+    "land3/hurt1 empty-hand for base; airborne land/hurt remain matching airborne art",
+    "magic_texture(row,frame),magic_anchor(row),skill_icon(index,phase=1)"
+  ],
+  "review": {
+    "approved": "Root visually approved all9 floor-marked gait rows, all144 royal body-magic poses and36semantic FX cells before freeze.",
+    "artifacts": [
+      "assets/reign-v11/gait-floor-contact-final.png",
+      "assets/reign-v11/magic-base-hand-native-contact.png",
+      "assets/reign-v11/magic-base-gifts-native-contact.png",
+      "assets/reign-v11/magic-air-hand-native-contact.png",
+      "assets/reign-v11/magic-air-gifts-native-contact.png"
+    ],
+    "verification": "node assets/reign-v11/verify-art.mjs; actual native cropped pixels, unique clips, binary alpha and exact2x2 clusters. Complete engine/browser gameplay is separate QA."
+  }
+}

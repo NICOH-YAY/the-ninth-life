@@ -67,7 +67,7 @@ const prepare=async(key,id,label)=>{
   await wait(s=>!s.active_move,10000);await page.keyboard.press(key);const frames=new Set(),regions=new Set(),samples=[];const end=Date.now()+2500;let seen=false;
   while(Date.now()<end){const s=await state();collectEnemy(s);
    if(s.active_move===id&&s.player_move_stage==='tell'){
-    seen=true;assert(s.actor_motion.startsWith('prepare_'),label+' tell must render physical preparation, not an active swing');assert(!s.telegraphs.some(t=>['sweep','thrust'].includes(t.kind)),label+' basic tell must have no projected attack/hologram');frames.add(s.actor_frame);regions.add(s.actor_region);samples.push({motion:s.actor_motion,frame:s.actor_frame,region:s.actor_region,path:s.king_sprite_path,tell:s.telegraphs});
+    seen=true;assert(s.actor_motion.startsWith('royal_')&&s.actor_frame<=4,label+' tell must use physical royal loading frames');assert(!s.telegraphs.some(t=>['sweep','thrust'].includes(t.kind)),label+' basic tell must have no projected attack/hologram');frames.add(s.actor_frame);regions.add(s.actor_region);samples.push({motion:s.actor_motion,frame:s.actor_frame,region:s.actor_region,path:s.king_sprite_path,tell:s.telegraphs});
    }else if(seen)break;
    await page.waitForTimeout(6);
   }
@@ -82,9 +82,9 @@ try{
  await page.keyboard.press('Enter');await enterFight('tutorial');
  await walk('d','king-walk-right');await walk('a','king-walk-left');
  assert(enemyWalk.frames.size>=6&&enemyWalk.regions.size>=6&&[...enemyWalk.frames].some(f=>f>=6),'Enemy combat approach must use actual12-frame feet, not frozen or six-frame walking');report.checks.tutorialCombatWalk={frames:[...enemyWalk.frames],regions:[...enemyWalk.regions]};
- await guardOpening();await prepare('j','cleave','base-cleave-body-preparation');await prepare('k','throw','base-thrust-body-preparation');
+ await guardOpening();await prepare('j','cleave','base-hand-body-preparation');await prepare('k','throw','base-recall-body-preparation');
  await page.keyboard.press('p');await wait(s=>s.phase===2&&s.king_actor==='ascended',10000);await walk('d','ascended-walk');
- await guardOpening();await prepare('j','cleave','ascended-cleave-body-preparation');await prepare('k','throw','ascended-crownfall-body-preparation');
+ await guardOpening();await prepare('j','cleave','ascended-hand-body-preparation');await prepare('k','throw','ascended-vacant-step-body-preparation');
  await shot('ascended-body-followthrough');
  await page.keyboard.press('6');await wait(s=>s.mode==='arrival'&&s.life===6);await enterFight('knight');
  const visitorFrames=new Set(),visitorRegions=new Set(),walkingFrames=new Set();const end=Date.now()+12000;let pictured=false;

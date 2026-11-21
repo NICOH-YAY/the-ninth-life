@@ -19,7 +19,9 @@ This imports, checks and exports the native Godot project, then serves build/web
 
 ## Current game
 
-Latest encounter contract: [reign, sacrifice and exchange](docs/reign-and-exchange.md).
+Latest mechanics: [body-bound sovereign magic and individual gaits](docs/sovereign-magic.md).
+
+Historical encounter contract: [reign, sacrifice and exchange](docs/reign-and-exchange.md).
 
 Latest animation revision: [physical body preparation and walking](docs/body-animation.md).
 

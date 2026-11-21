@@ -223,7 +223,7 @@ func tick(dt: float) -> void:
             memory.texture = game.Actor.texture_for(str(item.memory_actor),"idle" if contact<0 else motion,frame)
         if live and (bool(item.get("advance",false)) or bool(item.get("lunge",false))):
             game.enemy.x=float(item.x)
-        if live and bool(item.real) and not bool(item.hit):
+        if live and bool(item.real) and not bool(item.hit) and not bool(item.get("disarmed",false)):
             var boss_foot: float = game.boss.y
             var overlaps_body: bool = boss_foot <= float(item.y)+float(item.height) and boss_foot+85.0 >= float(item.y)
             if absf(float(game.boss.x)-float(item.x))<=float(item.width)*0.5+12 and overlaps_body:
@@ -260,6 +260,9 @@ func _update_aura() -> void:
     _aura.modulate.a=0.58+0.18*sin((8.0-_boost_left)*8.0)
 
 func _dive_body(item: Dictionary) -> void:
+    if item.get("disarmed",false):
+        game.enemy.y=0.0;game.enemy.vy=0.0
+        return
     var t: float = item.time
     var tell: float = item.tell
     if t<0 or t>tell+0.15: return
@@ -331,3 +334,36 @@ func _exit_tree() -> void:
     _clear_hazards()
     if is_instance_valid(_aura): _aura.queue_free()
     _aura=null
+
+# Gravity bends pending spatial commitments; it never rewrites an already landed hit.
+func bend_field(center: float, radius: float, phase: int, dt: float) -> int:
+    var changed: int=0
+    if _life==5 and absf(game.enemy.x-center)<radius:
+        _boost_left=maxf(0,_boost_left-dt*0.65)
+    for item in _hazards:
+        var travelling:bool=float(item.travel)>0 and float(item.time)<float(item.tell)+float(item.active)+float(item.travel)
+        if (float(item.time)>=float(item.tell) and not travelling) or absf(float(item.x)-center)>radius:continue
+        if phase==1 and bool(item.get("dive",false)) and absf(game.enemy.x-center)<radius:
+            if not item.get("disarmed",false):
+                item.disarmed=true;item.hit=true;item.real=false;game.enemy.y=0.0;game.enemy.vy=0.0
+                changed+=1
+            continue
+        var old_shift: float=float(item.get("royal_shift",0.0))
+        var direction: float=signf(center-float(item.x))*(1.0 if phase==1 else -1.0)
+        var next_shift: float=clampf(old_shift+direction*65.0*dt,-90.0,90.0)
+        var delta: float=next_shift-old_shift
+        item.origin_x=clampf(float(item.origin_x)+delta,30,930)
+        item.x=clampf(float(item.x)+delta,30,930)
+        item.royal_shift=next_shift
+        if not item.get("royal_bent",false) and absf(next_shift)>=8:
+            item.royal_bent=true;changed+=1
+    return changed
+
+func disperse(center:float,radius:float) -> int:
+    var count:int=0
+    for item in _hazards:
+        var live:bool=float(item.time)>=float(item.tell) and float(item.time)<=float(item.tell)+float(item.active)+float(item.travel)
+        if live and bool(item.real) and not item.hit and absf(float(item.x)-center)<radius:
+            item.disarmed=true;item.hit=true;item.real=false
+            count+=1
+    return count

@@ -10,7 +10,9 @@ This is Nicoh Koehly's (`nicoh-yay`) final project for COMS E6998 sec 014, AI in
 @CONFIG.md
 @PLAN.md
 
-Latest encounter contract: @docs/reign-and-exchange.md supersedes conflicting earlier timings: deliberate weighted fights, innate powers/ultimates and sacrifices, unique entrances, logical floating phase2, next-hit guard break and optional per-fight oath.
+Latest magic/locomotion correction: @docs/sovereign-magic.md replaces the v10 oath and king kit. No dialogue choice changes combat stats. The king uses one finite Pressure reserve, bodily combos, positional echoes, gravity and exposed reserve releases. Each visitor has a separately authored gait and synchronized entrance handoff.
+
+Historical encounter contract: @docs/reign-and-exchange.md supersedes conflicting earlier timings: deliberate weighted fights, innate powers/ultimates and sacrifices, unique entrances, logical floating phase2, next-hit guard break and optional per-fight oath.
 
 Latest animation correction: @docs/body-animation.md supersedes conflicting timing and locomotion details: physical body windups, upright triangular feline ears and every identity walking.
 

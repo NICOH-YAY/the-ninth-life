@@ -38,16 +38,20 @@ var _hint: Label
 var _enemy_fill: ColorRect
 var _player_fill: ColorRect
 var _guard_fill: ColorRect
-var _vow_mark: Control
 var _guard_state: Label
 var _ultimate_label: Label
+var _move_icons:Array[TextureRect]=[]
+var _pressure_fill: ColorRect
+var _pressure_label: Label
+var _exposure_label: Label
+var _move_panels: Array[Panel] = []
 var _move_labels: Array[Label] = []
 var _move_keys: Array[Label] = []
 var _notice: Panel
 var _notice_label: Label
 const ACTIONS: Array[String] = ["left", "right", "jump", "dash", "cleave", "throw", "reap", "nova", "guard", "hold"]
 const DEFAULT_KEYS: Dictionary = {"left": KEY_A, "right": KEY_D, "jump": KEY_SPACE, "dash": KEY_SHIFT, "cleave": KEY_J, "throw": KEY_K, "reap": KEY_L, "nova": KEY_F, "guard": KEY_G, "hold": KEY_S}
-const ACTION_LABELS: Dictionary = {"left": "Move left", "right": "Move right", "jump": "Jump", "dash": "Dash", "cleave": "Sword / Gloam Rake", "throw": "Thrust / Crownfall", "reap": "Kneel / Royal Undertow", "nova": "Procession / Last Dominion", "guard": "Guard", "hold": "Lower guard"}
+const ACTION_LABELS: Dictionary = {"left": "Move left", "right": "Move right", "jump": "Jump", "dash": "Dash", "cleave": "Crownless Hand / Hollow Orbit", "throw": "Borrowed Hour / Vacant Step", "reap": "Royal Burden / Unmoored", "nova": "King’s Ransom / Empty Throne", "guard": "Guard", "hold": "Lower guard"}
 
 func _ready() -> void:
     layer = 100
@@ -151,34 +155,22 @@ func _make_hud() -> void:
     _guard_state = _label(_hud, "", Vector2(632, 58), Vector2(185, 20), 10, Color("#ffc397"))
     _ultimate_label = _label(_hud, "", Vector2(28, 51), Vector2(310, 30), 11, Color("#ebc586"))
     _ultimate_label.clip_text = true
-    _vow_mark = Control.new()
-    _vow_mark.position = Vector2(843, 53)
-    _vow_mark.size = Vector2(89, 23)
-    _vow_mark.tooltip_text = "One-fight vow: strikes deal 15% more damage; maximum guard is halved."
-    _vow_mark.mouse_filter = Control.MOUSE_FILTER_STOP
-    _hud.add_child(_vow_mark)
-    var shield_pixels := Image.create(18,20,false,Image.FORMAT_RGBA8)
-    shield_pixels.fill(Color.TRANSPARENT)
-    for y in range(1,19):
-        var inset: int = maxi(0,y-10)
-        for x in range(1+inset,16-inset):
-            shield_pixels.set_pixel(x,y,Color("#806f4c"))
-    var crack_x: Array[int] = [9,9,8,7,6,6,7,9,10,9,8,8,7,7,7,8,8,8]
-    for y in range(1,19):
-        for x in range(crack_x[y-1],crack_x[y-1]+2):
-            shield_pixels.set_pixel(x,y,Color("#080d18"))
-    var shield := TextureRect.new()
-    shield.texture = ImageTexture.create_from_image(shield_pixels)
-    shield.size = Vector2(18,20)
-    shield.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-    shield.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    _vow_mark.add_child(shield)
-    _label(_vow_mark, "OATH", Vector2(22,0), Vector2(63,20), 11, Color("#e0bf7c"))
-    _vow_mark.hide()
+    _pressure_fill = ColorRect.new()
+    _pressure_fill.position = Vector2(784,58)
+    _pressure_fill.size = Vector2(148,3)
+    _pressure_fill.color = Color("#c1b4f2")
+    _pressure_fill.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    _hud.add_child(_pressure_fill)
+    _pressure_label = _label(_hud, "PRESSURE 60", Vector2(784,63), Vector2(148,17), 10, Color("#c1b4f2"))
+    _pressure_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+    _exposure_label = _label(_hud, "", Vector2(682,82), Vector2(250,18), 10, Color("#ffb18d"))
+    _exposure_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
     _hint = _label(_hud, "", Vector2(80, 63), Vector2(800, 25), 13, Color("#edda9f"))
     _hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
     for i in range(4):
         var panel := _box(_hud, Vector2(230 + i * 126, 495), Vector2(120, 38), Color("#091321"), Color("#627a86"))
+        panel.mouse_filter = Control.MOUSE_FILTER_STOP
+        _move_panels.append(panel)
         var icon := TextureRect.new()
         icon.texture = ACTOR_SCRIPT.skill_icon(i)
         icon.position = Vector2(3, 3)
@@ -188,6 +180,7 @@ func _make_hud() -> void:
         icon.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
         icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
         panel.add_child(icon)
+        _move_icons.append(icon)
         var key_label := _label(panel, "", Vector2(39, 1), Vector2(76, 16), 10, Color("#a9bbc8"))
         var label := _label(panel, "", Vector2(39, 18), Vector2(76, 17), 10)
         label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -400,8 +393,7 @@ func show_controls() -> void:
             _capturing = action
             show_notice("Press the new key for " + str(ACTION_LABELS[action]) + ".\nEsc cancels. Enter is reserved.")
         , 14)
-    _label(_menu, "Fresh guard: perfect timing opens a stab counter. Empty guard breaks on the next hit.", Vector2(57, 420), Vector2(835, 18), 11, Color("#b5c6ca"))
-    _label(_menu, "A dialogue oath is optional: +15% strike damage, half maximum guard, for one fight.", Vector2(57, 437), Vector2(835, 18), 11, Color("#b5c6ca"))
+    _label(_menu, "Fresh guard opens a counter. Empty guard breaks on the next hit. Skills share finite Pressure.", Vector2(57, 420), Vector2(835, 18), 11, Color("#b5c6ca"))
     _button(_menu, "RESET DEFAULTS", Vector2(57, 459), Vector2(225, 39), func() -> void:
         _bindings = DEFAULT_KEYS.duplicate()
         _save_bindings()
@@ -439,23 +431,40 @@ func set_hud(data: Dictionary) -> void:
     _guard_fill.size.x = 180.0 * guard
     _guard_fill.color = Color("#df665b") if broken else Color("#91c8e9")
     _guard_state.text = "GUARD BROKEN" if broken else ("GUARD EXPOSED" if guard <= 0.001 else "")
-    _vow_mark.visible = bool(data.get("vow", false))
     var ultimate: String = str(data.get("enemy_ultimate", ""))
     var power: String = str(data.get("currentpower", data.get("current_power", "")))
     _ultimate_label.text = ultimate.to_upper() if not ultimate.is_empty() else ""
     _ultimate_label.tooltip_text = power
     _ultimate_label.modulate.a = 1.0 if not ultimate.is_empty() else 0.0
+    var pressure: float = clampf(float(data.get("pressure", 60.0)),0.0,100.0)
+    _pressure_fill.size.x = 148.0*pressure/100.0
+    _pressure_label.text = "PRESSURE " + str(int(pressure))
+    _pressure_fill.color=Color("#ef987f") if bool(data.get("pressure_blocked",false)) else Color("#c1b4f2")
+    var exposure: float = maxf(0.0,float(data.get("ward_exposure",data.get("exposure",0.0))))
+    _exposure_label.text = "WARD EXPOSED " + str(snappedf(exposure,0.1)) + "s" if exposure>0.0 else ""
     _year_label.text = "YEAR " + str(data.get("year", 1000))
     _hint.text = str(data.get("hint", ""))
     var moves: Array[String] = ["cleave", "throw", "reap", "nova"]
-    var names: Array = data.get("move_names", ["STEEL", "THRUST", "KNEEL", "PROCESSION"] if int(data.get("phase", 1)) == 1 else ["Gloam Rake", "Crownfall", "Royal Undertow", "Last Dominion"])
+    var names: Array = data.get("move_names", ["Crownless Hand", "Borrowed Hour", "Royal Burden", "King’s Ransom"] if int(data.get("phase", 1)) == 1 else ["Hollow Orbit", "Vacant Step", "Unmoored", "Empty Throne"])
     var cooldowns: Dictionary = data.get("cooldowns", {})
+    var transformed: bool = int(data.get("phase",1)) == 2
+    var tradeoffs: Array[String] = [
+        "0 Pressure. Connected body strikes restore Pressure only on actual contact.",
+        "28 Pressure. Commit a 200px phase pass; an echo attacks from the old position. No free invulnerability." if transformed else "24 Pressure. A stationary echo records your next hand strike for 3 seconds, then repeats after 0.65 seconds. Enemies can leave its range.",
+        "34 Pressure. Lock a lift/repel field. Position and timing matter; it does not universally stun." if transformed else "30 Pressure. Lock a short gravity field: pull, ground dives and move hazards. Enemies can escape or interrupt you.",
+        "At least 40 Pressure; spends all. Delayed inward collapse. Long recovery and 2.4 seconds without a ward." if transformed else "At least 40 Pressure; spends all. Chest pressure erupts outward. Long recovery and 2.4 seconds without a ward."
+    ]
     for i in range(4):
         var action: String = moves[i]
         var remaining: float = float(cooldowns.get(action, 0.0))
+        _move_panels[i].tooltip_text = str(names[i]) + "\n" + tradeoffs[i]
         _move_keys[i].text = binding_label(action)
         _move_labels[i].text = str(snappedf(remaining, 0.1)) if remaining > 0.05 else str(names[i])
-        _move_labels[i].add_theme_color_override("font_color", Color("#a5b7c4") if remaining > 0.05 else Color("#f0dba6"))
+        var costs:Array[float]=[0.0,28.0 if transformed else 24.0,34.0 if transformed else 30.0,40.0]
+        var ready:bool=remaining<=0.05 and pressure>=costs[i]
+        _move_icons[i].texture=ACTOR_SCRIPT.skill_icon(i,2 if transformed else 1)
+        _move_icons[i].modulate=Color.WHITE if ready else Color(0.5,0.5,0.5,0.7)
+        _move_labels[i].add_theme_color_override("font_color",Color("#f0dba6") if ready else Color("#7d8798"))
 
 func hide_hud() -> void:
     _hud.hide()

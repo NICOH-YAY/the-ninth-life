@@ -1,0 +1,415 @@
+{
+  "aiUseDisclosure": "Codex checks actual cropped pixel uniqueness, binary alpha, native square pixel clusters and nonempty/clipping geometry. Static neutral holds intentionally report framecount1. Paw-contact visual QA and full game/browser checks remain separate.",
+  "selectedFrames": 396,
+  "checks": [
+    {
+      "id": "gait-kitten",
+      "frames": 18,
+      "cell": 144,
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 12,
+          "expected": 6,
+          "actual": 6
+        }
+      ],
+      "runtimeSha256": "8b028ed5ba79d1c40b62af28448e299758d4d1cc7382bdd9d458aa6921a743a2"
+    },
+    {
+      "id": "gait-alley",
+      "frames": 18,
+      "cell": 144,
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 12,
+          "expected": 6,
+          "actual": 6
+        }
+      ],
+      "runtimeSha256": "dd5df2b78ad1164660cf9dee295553e39d932089086d37ad3ed7a511ad62e77f"
+    },
+    {
+      "id": "gait-sailor",
+      "frames": 18,
+      "cell": 144,
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 12,
+          "expected": 6,
+          "actual": 6
+        }
+      ],
+      "runtimeSha256": "c1f2cd34fd15f8fd8ff792d6bd2f82d154d5e129e36a4ac9ff79dd796a6bd30a"
+    },
+    {
+      "id": "gait-acrobat",
+      "frames": 18,
+      "cell": 144,
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 12,
+          "expected": 6,
+          "actual": 6
+        }
+      ],
+      "runtimeSha256": "10ec5b7fc36ad051edb21d05526d3691607f913964f8f825b665ba93005d3b1f"
+    },
+    {
+      "id": "gait-witch",
+      "frames": 18,
+      "cell": 144,
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 12,
+          "expected": 6,
+          "actual": 6
+        }
+      ],
+      "runtimeSha256": "51433351d4a52d7676281e39822a5cd9cb311290536dd5d461e3414d1b37ddc8"
+    },
+    {
+      "id": "gait-knight",
+      "frames": 18,
+      "cell": 144,
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 12,
+          "expected": 6,
+          "actual": 6
+        }
+      ],
+      "runtimeSha256": "3bb05a0eba083b0c2f87314e7973f5cbb18115408ab20720e3d1aaafc43c4342"
+    },
+    {
+      "id": "gait-thief",
+      "frames": 18,
+      "cell": 144,
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 12,
+          "expected": 6,
+          "actual": 6
+        }
+      ],
+      "runtimeSha256": "506285b71becd4bc85152d3715cd47cf8a30b4e4ef3ad93e3bf91ceeecf28673"
+    },
+    {
+      "id": "gait-quiet",
+      "frames": 18,
+      "cell": 144,
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 12,
+          "expected": 6,
+          "actual": 6
+        }
+      ],
+      "runtimeSha256": "2fba735b6a571dca3bf99f9825fbb6fb77186ef0bfd6f91661d97784e7d2f495"
+    },
+    {
+      "id": "gait-patchwork",
+      "frames": 18,
+      "cell": 144,
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 12,
+          "expected": 6,
+          "actual": 6
+        }
+      ],
+      "runtimeSha256": "98ee66ce0443285c4820e3a1ca8a7f3fbf7b2be0f0fe1e9d37d75e56e5f72fb9"
+    },
+    {
+      "id": "magic-base-hand",
+      "frames": 36,
+      "cell": 192,
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 12,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 24,
+          "expected": 12,
+          "actual": 12
+        }
+      ],
+      "runtimeSha256": "6749bedbd6c411960003a01d3eff47d7e4a45753e116bd837893f1ac8b7de5bf"
+    },
+    {
+      "id": "magic-base-gifts",
+      "frames": 36,
+      "cell": 192,
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 12,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 24,
+          "expected": 12,
+          "actual": 12
+        }
+      ],
+      "runtimeSha256": "12f6820a57af94fd78da670e71dfbf9c66718a14e9bcb8355c43163993628386"
+    },
+    {
+      "id": "magic-air-hand",
+      "frames": 36,
+      "cell": 192,
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 12,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 24,
+          "expected": 12,
+          "actual": 12
+        }
+      ],
+      "runtimeSha256": "c487394735d3d1c47c7a7cdf4c53d064f20833f6c31ed0f3479c8667a120c469"
+    },
+    {
+      "id": "magic-air-gifts",
+      "frames": 36,
+      "cell": 192,
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 12,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 24,
+          "expected": 12,
+          "actual": 12
+        }
+      ],
+      "runtimeSha256": "3d71065c3b2effff06a8cd5cec00b200ed97d7939e3b20c3d5d0d6b795f07fb6"
+    },
+    {
+      "id": "royal-magic-fx",
+      "frames": 36,
+      "cell": 128,
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 6,
+          "actual": 6
+        },
+        {
+          "start": 6,
+          "expected": 6,
+          "actual": 6
+        },
+        {
+          "start": 12,
+          "expected": 6,
+          "actual": 6
+        },
+        {
+          "start": 18,
+          "expected": 6,
+          "actual": 6
+        },
+        {
+          "start": 24,
+          "expected": 6,
+          "actual": 6
+        },
+        {
+          "start": 30,
+          "expected": 6,
+          "actual": 6
+        }
+      ],
+      "runtimeSha256": "9250cec40bdf9a46b51c1a9c59263eb3bd90f11786d04084715f889626ad2c2d"
+    },
+    {
+      "id": "gait-king",
+      "frames": 30,
+      "cell": 192,
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 12,
+          "expected": 6,
+          "actual": 6
+        },
+        {
+          "start": 18,
+          "expected": 6,
+          "actual": 6
+        },
+        {
+          "start": 24,
+          "expected": 6,
+          "actual": 6
+        }
+      ],
+      "runtimeSha256": "a5dfc96e4a876b9949364d6d38f3605b1f9bd1d74d1b6c6e54005a92aa0a45a5"
+    },
+    {
+      "id": "magic-air-travel",
+      "frames": 24,
+      "cell": 192,
+      "emptyFrames": 0,
+      "softAlphaPixels": 0,
+      "offGridPixels": 0,
+      "clipped": 0,
+      "unique": [
+        {
+          "start": 0,
+          "expected": 12,
+          "actual": 12
+        },
+        {
+          "start": 12,
+          "expected": 12,
+          "actual": 12
+        }
+      ],
+      "runtimeSha256": "fdd5aac316cb3e047769d57c6f63aff947cb681ae3a649c4f9528cdc4ef3fe42"
+    }
+  ],
+  "icons": {
+    "path": "godot/art/magic-icons-v11.png",
+    "count": 8,
+    "pixelGrid": 1,
+    "softAlphaPixels": 0,
+    "sha256": "48f0e098fe8c3c45193c6de4c2296edbf11e4e714aa601865f150e64021f6a15"
+  }
+}

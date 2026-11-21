@@ -7,6 +7,10 @@
 **Labels:** **[Decided]** Nicoh's decision. **[Proposed]** agent recommendation awaiting Nicoh. **[Open]** unresolved.
 **Companion documents:** `CONFIG.md` (Configuration Document), `PLAN.md` (Project Plan and Risk Profile), `docs/design-history.md` (how the concept developed)
 
+## Sovereign magic and individual locomotion [Proposed implementation of Nicoh's revision]
+
+The newest contract is docs/sovereign-magic.md. It removes the optional half-guard/oath branches entirely and restores personal branching dialogue without stat choices. The king's live kit is fully replaced by Crownless Hand, Borrowed Hour, Royal Burden and King's Ransom, evolving into Hollow Orbit, Vacant Step, Unmoored and Empty Throne. A single finite Pressure reserve makes missed echoes, fixed fields and exposed releases consequential. No enemy requires one correct magic key; normal defensive reads, body pressure, flanking, delayed echoes and spatial manipulation remain alternatives. Separately authored personality gaits and synchronized stair/ground entrance travel replace uniform walking and pose handoff glitches.
+
 ## November20 native fantasy revision [Proposed implementation of Nicoh's request]
 
 The active engine is Godot4.7.2 with native web export. The latest contract is docs/reign-and-exchange.md, superseding conflicting historical sections below. All nine anonymous visitors are the immortal's former lives, carrying losses under tyranny and distinct innate powers, sacrifices, entrances and ultimates. The opening and years of neglect show the player repeating the old king's rule. Combat uses bodily anticipation, committed contact/recovery, twelve-frame gaits, poise, perfect parries and next-hit guard breaks at exhausted stamina. The second form truly floats. One optional per-fight oath exchanges half maximum guard for15% attack power. Three earned endings and the held heart impalement/memory release/nova/ruined hall remain.

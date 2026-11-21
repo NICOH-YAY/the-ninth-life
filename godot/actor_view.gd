@@ -11,6 +11,7 @@ var who: String = "player"
 var current_motion: String = "idle"
 var current_frame: int = 0
 var sprite: Sprite2D
+var _stop_source_texture: Texture2D
 var foot_origin: Vector2 = Vector2(96,154)
 var visible_body_height: float = 143.0
 var source_body_height: float = 107.0
@@ -33,6 +34,9 @@ func setup(actor: String) -> void:
     pose("idle",0,-1 if _is_king(actor) else 1,143.0 if _is_king(actor) else 78.0)
 
 func pose(motion: String, frame: int, facing: int, height: float) -> void:
+    var prior_motion: String = current_motion
+    if motion == "stop_walk" and prior_motion != "stop_walk":
+        _stop_source_texture = sprite.texture if prior_motion in ["walk","run","start_walk"] and is_instance_valid(sprite) else null
     current_motion = motion
     current_frame = clampi(frame,0,frame_count(who,motion)-1)
     _ensure_sprite()
@@ -42,6 +46,8 @@ func pose(motion: String, frame: int, facing: int, height: float) -> void:
     source_body_height = float(d.body)
     visible_body_height = height
     sprite.texture = texture_for(who,motion,frame)
+    if motion == "stop_walk" and current_frame == 0 and _stop_source_texture != null:
+        sprite.texture = _stop_source_texture
     sprite.position = Vector2(0.0,float(cell) * 0.5 - float(d.foot))
     sprite.flip_h = facing > 0 if bool(d.left) else facing < 0
     var amount: float = maxf(1.0,floorf(height / maxf(1.0,source_body_height)))
@@ -56,7 +62,30 @@ func pose(motion: String, frame: int, facing: int, height: float) -> void:
 static func _is_king(actor: String) -> bool:
     return actor in ["player","king","immortal-base","ascended","king_aoe","immortal-ascended","rest","previous"]
 
+static func gait_stride(actor: String) -> float:
+    var strides: Dictionary = {"kitten":44.0,"alley":88.0,"sailor":72.0,"acrobat":108.0,"witch":64.0,"knight":76.0,"thief":84.0,"quiet":56.0,"patchwork":68.0,"previous":84.0}
+    return float(strides.get(actor,96.0))
+
+static func gait_frame(actor: String, distance: float) -> int:
+    return floori(absf(distance) / gait_stride(actor) * 12.0) % 12
+
+static func body_height(actor: String) -> float:
+    if _is_king(actor):
+        return 86.0 if actor == "previous" else 130.0 if actor in ["ascended","king_aoe","immortal-ascended"] else 107.0
+    return BODY_HEIGHTS[maxi(0,LIVES.find(actor))]
+
 static func frame_count(actor: String, motion: String) -> int:
+    if motion.begins_with("royal_"):
+        return 12
+    if actor in ["player","king","immortal-base"] and ResourceLoader.exists("res://art/gait-king-v11.png"):
+        if motion == "land":
+            return 3
+        if motion == "hurt":
+            return 1
+    if motion == "idle" and LIVES.has(actor) and ResourceLoader.exists("res://art/gait-" + actor + "-v11.png"):
+        return 1
+    if motion == "idle" and actor in ["player","king","immortal-base","ascended","king_aoe","immortal-ascended"]:
+        return 12 if actor in ["ascended","king_aoe","immortal-ascended"] and ResourceLoader.exists("res://art/magic-air-travel-v11.png") else 1
     if motion in ["walk","run"]:
         return 12
     if actor in ["ascended","king_aoe","immortal-ascended"] and motion in ["idle","glide","jump","fall","dash"]:
@@ -67,6 +96,53 @@ static func frame_count(actor: String, motion: String) -> int:
 
 static func _descriptor(actor: String, motion: String, frame: int) -> Dictionary:
     var f: int = clampi(frame,0,frame_count(actor,motion)-1)
+    var air_identity: bool = actor in ["ascended","king_aoe","immortal-ascended"]
+    if air_identity and ResourceLoader.exists("res://art/magic-air-travel-v11.png") and motion in ["idle","walk","run","glide","jump","fall","dash","hurt","land","start_walk","stop_walk"]:
+        var air_travel_frame: int = f if motion in ["idle","hurt","land"] else 5-f if motion == "stop_walk" else 12+f
+        return {"path":"res://art/magic-air-travel-v11.png","cell":192,"foot":154,"body":130.0,"frame":air_travel_frame,"left":true}
+    if actor in ["player","king","immortal-base"] and ResourceLoader.exists("res://art/gait-king-v11.png") and motion in ["walk","run","start_walk","stop_walk","jump","fall","dash","hurt","land"]:
+        var king_travel_frame: int = f
+        if motion == "start_walk":
+            king_travel_frame = 12+f
+        elif motion == "stop_walk":
+            king_travel_frame = 17-f
+        elif motion in ["jump","fall"]:
+            king_travel_frame = 18+f
+        elif motion == "land":
+            var landing_frames: Array[int] = [23,28,12]
+            king_travel_frame = landing_frames[clampi(f,0,2)]
+        elif motion in ["dash","hurt"]:
+            king_travel_frame = 29 if motion == "hurt" else 24+f
+        return {"path":"res://art/gait-king-v11.png","cell":192,"foot":154,"body":107.0,"frame":king_travel_frame,"left":true}
+    if _is_king(actor) and actor != "previous" and motion == "transform" and ResourceLoader.exists("res://art/magic-base-gifts-v11.png") and ResourceLoader.exists("res://art/magic-air-gifts-v11.png"):
+        var change_frames: Array[int] = [0,2,4,0,2,11]
+        return _descriptor("king" if f < 3 else "ascended","royal_ransom",change_frames[f])
+    if _is_king(actor) and motion.begins_with("royal_"):
+        var air_magic: bool = actor in ["ascended","king_aoe","immortal-ascended"]
+        var hand_magic: bool = motion.begins_with("royal_hand_")
+        var magic_slot: int = clampi(int(motion.right(1)),0,2) if hand_magic else 0 if motion == "royal_echo" else 1 if motion == "royal_burden" else 2
+        var magic_path: String = "res://art/magic-" + ("air" if air_magic else "base") + ("-hand" if hand_magic else "-gifts") + "-v11.png"
+        if ResourceLoader.exists(magic_path):
+            return {"path":magic_path,"cell":192,"foot":154,"body":130.0 if air_magic else 107.0,"frame":magic_slot*12+f,"left":true}
+        return _descriptor(actor,"idle",f%6)
+    if _is_king(actor) and actor not in ["previous","rest"] and motion == "idle":
+        var neutral_magic: String = "res://art/magic-" + ("air" if actor in ["ascended","king_aoe","immortal-ascended"] else "base") + "-hand-v11.png"
+        if ResourceLoader.exists(neutral_magic):
+            return {"path":neutral_magic,"cell":192,"foot":154,"body":body_height(actor),"frame":0,"left":true}
+    var life_index: int = LIVES.find(actor)
+    var personal_gait: String = "res://art/gait-" + actor + "-v11.png"
+    if life_index >= 0 and ResourceLoader.exists(personal_gait):
+        var personal_frame: int = f
+        if motion == "start_walk":
+            personal_frame = 12+f
+        elif motion == "stop_walk":
+            personal_frame = 17-f
+        elif motion == "idle":
+            personal_frame = 12
+        if motion in ["walk","run","start_walk","stop_walk","idle"]:
+            return {"path":personal_gait,"cell":144,"foot":110,"body":BODY_HEIGHTS[life_index],"frame":personal_frame,"left":false}
+    if motion in ["start_walk","stop_walk"]:
+        return _descriptor(actor,"idle",f%3)
     if _is_king(actor) and motion in ["run","walk"]:
         if actor in ["ascended","king_aoe","immortal-ascended"]:
             return {"path":"res://art/sovereign-air-v10.png","cell":192,"foot":154,"body":130.0,"frame":12+f,"left":true}
@@ -101,6 +177,8 @@ static func _descriptor(actor: String, motion: String, frame: int) -> Dictionary
         var attack_offset: int = 36 if motion in ["throw","thrust"] else int(motion.right(1))*12 if motion.begins_with("combo_") else 0
         return {"path":"res://art/king-full-attacks-v10.png","cell":192,"foot":154,"body":107.0,"frame":attack_offset+f,"left":true}
     if _is_king(actor):
+        if not ROWS.has(motion):
+            return _descriptor(actor,"idle",0)
         var row: int = int(ROWS.get(motion,0))
         if actor == "rest" and motion == "idle":
             row = 6
@@ -194,7 +272,9 @@ static func coronation_texture(frame: int) -> Texture2D:
 static func finisher_texture(frame: int) -> Texture2D:
     return _region("res://art/held-impalement-v7.png",Vector2i(320,256),clampi(frame,0,11))
 
-static func skill_icon(index: int) -> Texture2D:
+static func skill_icon(index: int, phase: int = 1) -> Texture2D:
+    if ResourceLoader.exists("res://art/magic-icons-v11.png"):
+        return _region("res://art/magic-icons-v11.png",Vector2i(32,32),clampi(index,0,3)+(4 if phase > 1 else 0),4)
     return _region("res://art/skill-icons.png",Vector2i(32,32),clampi(index,0,3),4)
 
 static func transition_texture(frame: int) -> Texture2D:
@@ -236,3 +316,11 @@ static func death_knight_texture(motion: String, frame: int) -> Texture2D:
     var row: int = 1 if motion in ["slam","strike","attack","recover"] else 0
     var f: int = 5-clampi(frame,0,5) if motion == "recover" else clampi(frame,0,5)
     return _region("res://art/death-knight-v10.png",Vector2i(256,256),row*6+f)
+
+static func magic_texture(row: int, frame: int) -> Texture2D:
+    if ResourceLoader.exists("res://art/royal-magic-fx-v11.png"):
+        return _region("res://art/royal-magic-fx-v11.png",Vector2i(128,128),clampi(row,0,5)*6+clampi(frame,0,5))
+    return effect_texture(2,clampi(frame,0,5),"royal")
+
+static func magic_anchor(row: int) -> Vector2:
+    return Vector2(64,110) if row in [1,2,3] else Vector2(64,64)

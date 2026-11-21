@@ -108,9 +108,9 @@ try{
   await wait(page,s=>s.blocks>0,25000);await page.keyboard.up("g");
   report.checks.mobility=await state(page);
   if(Array.isArray(report.checks.mobility.move_labels))assert(report.checks.mobility.move_labels.every(label=>!String(label).includes("<null>")));
-  await page.keyboard.press("k");await page.waitForTimeout(150);await shot(page,"native-sword-thrust");
+  await page.keyboard.press("k");await page.waitForTimeout(150);await shot(page,"native-recall-load");
   await page.keyboard.down("j");await page.waitForTimeout(550);await page.keyboard.up("j");
-  await shot(page,"native-sword-combat");report.checks.realCombatInputs=true;
+  await shot(page,"native-hand-combat");report.checks.realCombatInputs=true;
   if(!live){
    await page.keyboard.press("p");await wait(page,s=>s.phase===2,8000);
    await page.keyboard.press("l");await page.waitForTimeout(250);await shot(page,"native-second-royal-stance");

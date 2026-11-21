@@ -52,10 +52,6 @@ func guard_cases() -> void:
     game.boss.guarding=true;game.boss.guard=0;game.boss.guard_exhausted=true;hp=game.boss.hp
     game._hurt_boss(20,true,{})
     check(game.boss.hp==hp-20 and game.boss.guard_breaks==0,"An unblockable low hit damages health but does not contact/break the shield.")
-    fixture()
-    game.boss.guard_max=0.5;game.boss.guard=0
-    step_player(input(),300)
-    check(is_equal_approx(game.boss.guard,0.5),"Sacrificed guard capacity must cap regeneration at half a normal shield.")
 func weight_cases() -> void:
     fixture()
     var leap: Dictionary=input();leap.jump=true

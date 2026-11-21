@@ -3,7 +3,7 @@ extends SceneTree
 
 const ACTOR = preload("res://actor_view.gd")
 const VISITORS: Array[String] = ["kitten", "alley", "sailor", "acrobat", "witch", "knight", "thief", "quiet", "patchwork"]
-const KING_PREPARATIONS: Array[String] = ["prepare_cleave_0", "prepare_cleave_1", "prepare_cleave_2", "prepare_throw", "prepare_reap", "prepare_nova"]
+const KING_MAGIC: Array[String] = ["royal_hand_0", "royal_hand_1", "royal_hand_2", "royal_echo", "royal_burden", "royal_ransom"]
 var checks: int = 0
 var failures: Array[String] = []
 var sequences: Array[Dictionary] = []
@@ -26,6 +26,10 @@ func sequence(actor: String, motion: String, frame_total: int = 6) -> void:
     for frame in range(frame_total):
         var descriptor: Dictionary = ACTOR._descriptor(actor, motion, frame)
         var path: String = str(descriptor.path)
+        if motion.begins_with("royal_"):
+            check(path.begins_with("res://art/magic-") and path.ends_with("-v11.png"), actor + ": royal motion must use the actual new magic body atlas, without legacy weapon fallback.")
+        if VISITORS.has(actor) and motion in ["walk","run","start_walk","stop_walk","idle"]:
+            check(path == "res://art/gait-"+actor+"-v11.png", actor + ": gait and neutral must come from that visitor's own new body sheet.")
         if not sheets.has(path):
             var sheet_texture: Texture2D = load(path)
             check(sheet_texture != null, actor + ": " + motion + " sheet must load.")
@@ -52,7 +56,7 @@ func sequence(actor: String, motion: String, frame_total: int = 6) -> void:
                 if crop.get_pixel(x, y).a > 0.5:
                     bottom = maxi(bottom, y)
         anchors.append(bottom - foot + 1)
-        if actor != "ascended":
+        if actor != "ascended" and not motion.begins_with("royal_"):
             check(bottom >= foot - 5 and bottom <= foot + 3, actor + ": " + motion + " frame " + str(frame) + " must keep a physical support foot on its baseline (delta " + str(bottom - foot + 1) + ").")
         else:
             check(bottom >= 0 and foot > 0 and foot < crop.get_height(), actor + ": " + motion + " must retain a valid airborne body anchor.")
@@ -65,12 +69,38 @@ func _run() -> void:
     walkers.append_array(VISITORS)
     for actor in walkers:
         sequence(actor, "walk", 12)
+    sequence("king", "idle", 1)
     sequence("ascended", "idle", 12)
     for actor in ["king", "ascended"]:
-        for motion in KING_PREPARATIONS:
-            sequence(actor, motion)
+        for motion in KING_MAGIC:
+            sequence(actor, motion, 12)
+    var strides: Dictionary = {}
     for actor in VISITORS:
+        var stride: float = ACTOR.gait_stride(actor)
+        strides[stride] = true
+        check(stride > 0 and ACTOR.gait_frame(actor, 0) == 0, actor + ": the distance-based gait starts at its own contact.")
+        check(ACTOR.gait_frame(actor, stride*0.5) == 6, actor + ": opposite foot contact occurs after half its own stride.")
+        check(ACTOR.gait_frame(actor, stride) == 0, actor + ": one individual stride completes the full twelve-pose cycle.")
         sequence(actor, "prepare")
+        sequence(actor, "start_walk", 6)
+        sequence(actor, "stop_walk", 6)
+        sequence(actor, "idle", 1)
+    for actor in VISITORS:
+        var view = ACTOR.new()
+        root.add_child(view);view.setup(actor)
+        view.pose("walk",7,1,ACTOR.body_height(actor))
+        var moving_texture: Texture2D = view.sprite.texture
+        view.pose("stop_walk",0,1,ACTOR.body_height(actor))
+        check(view.sprite.texture == moving_texture, actor + ": stopping begins with the exact last rendered gait pose instead of jumping to a generic leg position.")
+        view.pose("stop_walk",5,1,ACTOR.body_height(actor))
+        var neutral: AtlasTexture = view.sprite.texture as AtlasTexture
+        var neutral_scale: Vector2 = view.scale
+        view.pose("idle",0,1,ACTOR.body_height(actor))
+        var resting: AtlasTexture = view.sprite.texture as AtlasTexture
+        check(neutral.atlas == resting.atlas and neutral.region == resting.region and neutral_scale == view.scale, actor + ": completed stop and idle share the exact neutral source and integer body size.")
+        view.queue_free()
+    await process_frame
+    check(strides.size() == VISITORS.size(), "Nine visitors must retain independent stride lengths instead of a shared gait clock.")
     print(JSON.stringify({"ok": failures.is_empty(), "checks": checks, "sequences": sequences, "failures": failures}))
     ACTOR._cache.clear()
     ACTOR._images.clear()

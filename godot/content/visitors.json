@@ -1,21 +1,20 @@
 {
-  "aiUseDisclosure": "Codex authored the accepted innate-power victim stories, optional one-fight vows and two-exchange branches; the anonymous visitors are Morrow's past lives retained by the crown.",
+  "aiUseDisclosure": "Codex authored the distinct two-exchange personal stories and innate-power metadata; dialogue choices carry no combat-stat bargains.",
   "visitors": {
     "kitten": {
       "power": "The Last Warmth",
       "ultimate": "A Little Longer",
       "sacrifice": "Gave away body heat to children during the old king's winter levy.",
       "entrance": "A small body crawls from the gutter and warms a dead lantern between its paws.",
-      "vow_choice": 0,
       "first": {
         "question": "He took our coal for his palace. I kept the little ones warm until my paws went cold. Your windows are still lit.",
         "choices": [
-          "Take half my guard. Let my strikes carry 15% more force.",
-          "I will face you with the strength I have."
+          "I remember what cold can do to a small body.",
+          "Those winters ended before my reign."
         ],
         "responses": [
-          "For this fight, then. Half your guard; your strikes carry 15% more force. Please make it mean something.",
-          "He kept everything, too. I hoped you would be different."
+          "Then remember the children outside your windows. They are cold now.",
+          "The king changed. The locked doors did not."
         ]
       },
       "remembered": "The smallest one slept against my chest. I could not feel her breathing through the frost.",
@@ -49,16 +48,15 @@
       "ultimate": "Nothing Left to Breathe",
       "sacrifice": "Suffocated while hiding children from crown raids rather than reveal their shelter.",
       "entrance": "The lamps gutter in order; a sharp inhale reveals a body in the last shadow.",
-      "vow_choice": 0,
       "first": {
         "question": "I held my breath under the floor while his soldiers counted the children. You stopped counting years ago.",
         "choices": [
-          "Half my guard for 15% stronger strikes. I will pay this time.",
-          "I will not bargain with another life."
+          "I used to know every loose board in those houses.",
+          "You could have let the soldiers hear you."
         ],
         "responses": [
-          "Only your guard. Only this fight. Your blows gain 15%; no child pays for it.",
-          "Another life? You say it like you cannot hear the boards beneath us."
+          "The third board by the chimney. You stepped over it before I spoke.",
+          "They would have found the children. You know why I stayed quiet."
         ]
       },
       "remembered": "One child started to cough. I covered my own mouth so they would hear only me.",
@@ -75,7 +73,7 @@
           ]
         },
         {
-          "question": "Look at me when you say you will not bargain.",
+          "question": "The floor gave way before I made a sound. You still think I should have cried out?",
           "choices": [
             "I should have opened the gates.",
             "I have enemies beyond these walls."
@@ -92,16 +90,15 @@
       "ultimate": "All Who Were Carried",
       "sacrifice": "Drowned carrying refugees after the old king barred the flood gates.",
       "entrance": "Water gathers into bent silhouettes before a burdened body rises between them.",
-      "vow_choice": 0,
       "first": {
         "question": "The flood came to the gate. He ordered it barred. I carried three across before the fourth pulled me under.",
         "choices": [
-          "Let half my guard sink. Give my strikes 15% more force.",
-          "I will carry my own strength into this."
+          "I taste salt whenever you lift your shoulders.",
+          "I did not give the order to bar that gate."
         ],
         "responses": [
-          "This burden is yours: half your guard, 15% more force, until our fight ends.",
-          "Then carry it. Do not put another body beneath it."
+          "There is still water in our lungs. The crown cannot dry it.",
+          "You left the hinges to rust. No order was needed."
         ]
       },
       "remembered": "I kept one hand above the water long after I could no longer see the bank.",
@@ -135,16 +132,15 @@
       "ultimate": "Let Me Catch Them",
       "sacrifice": "Broke its own body catching laborers from neglected palace scaffolds.",
       "entrance": "A body hangs in an unfinished fall, then strikes the stone and stands unevenly.",
-      "vow_choice": 0,
       "first": {
         "question": "The scaffold rope snapped. His steward charged us for it. I caught who I could with the bones I had left.",
         "choices": [
-          "Half my guard for 15% more striking force. I accept the fall.",
-          "I will not promise what I cannot bear."
+          "There was someone falling after you. I remember reaching.",
+          "Why come here when your legs can barely hold you?"
         ],
         "responses": [
-          "For this fight, your guard is halved and your strikes gain 15%. Land on your own bones.",
-          "You promised them safety by wearing the crown."
+          "There always was. The next paw was already slipping.",
+          "Because I can still reach the one who could have stopped it."
         ]
       },
       "remembered": "The rope burned through my paw. I held on until the next body fell.",
@@ -178,16 +174,15 @@
       "ultimate": "Give It To Me",
       "sacrifice": "Took neighbors' deaths into her own body when royal medicine was withheld; calls those graves into a protector.",
       "entrance": "Grave lights rise from scars; a death-knight kneels behind the small calling body.",
-      "vow_choice": 0,
       "first": {
         "question": "He kept medicine for the court. They came to my door with their dying. I took each death inside me. They still answer.",
         "choices": [
-          "Take half my guard; let my strikes gain 15% force. No one else pays.",
-          "I will not take strength from those graves."
+          "The fever took the house with the blue door.",
+          "You carry the dead into a living kingdom."
         ],
         "responses": [
-          "Only you pay. Half your guard, 15% more force, for this fight. My dead remain mine.",
-          "You already live on what the crown took. Refusing to look is not refusal."
+          "The mother asked me to leave the lamp burning. You remember its color.",
+          "Then open a window. Show me who is still living beneath your rule."
         ]
       },
       "remembered": "The last neighbor asked whether it would hurt. I told her it would be over soon.",
@@ -221,16 +216,15 @@
       "ultimate": "This Gate Will Hold",
       "sacrifice": "Turned executioners from a refuge gate; inherited bloodline marks spend the body to brace and accelerate it.",
       "entrance": "A shoulder forces the doors apart as old bloodline tattoos kindle through cracked skin.",
-      "vow_choice": 0,
       "first": {
         "question": "His executioners came for the gatekeepers. I braced the gate until the marks split my skin. Your seals are on it now.",
         "choices": [
-          "Half my guard for 15% stronger strikes. Open my protection instead.",
-          "I will not spend my body for a promise."
+          "Those marks burn when I close my paws.",
+          "You could have stepped away from the gate."
         ],
         "responses": [
-          "Half your guard and 15% more force, this fight only. A promise ought to leave a mark.",
-          "You have spent other bodies without touching your own."
+          "The blood remembers what you have tried to sit through.",
+          "And let the executioners in? Is that what you would call surviving?"
         ]
       },
       "remembered": "The wood gave before my knees did. I could still hear them pushing from the other side.",
@@ -264,16 +258,15 @@
       "ultimate": "Leave Me Out",
       "sacrifice": "Erased its own place in the census to steal ration records for households the old king denied.",
       "entrance": "Footprints cross empty moonlight; a body appears where their shadow should have been.",
-      "vow_choice": 0,
       "first": {
         "question": "He erased a street from the ration book. I stole its pages back. By morning my own name was gone.",
         "choices": [
-          "Erase half my guard. Give my strikes 15% more force.",
-          "I will keep what is mine for this fight."
+          "I know how you folded those stolen pages.",
+          "You erased yourself for strangers."
         ],
         "responses": [
-          "Your guard is halved; your strikes gain 15%, until this fight ends. Nothing else is erased.",
-          "That is always where the crown begins."
+          "Twice inward. So the names would not get wet.",
+          "They were hungry. Their names were all the proof they had."
         ]
       },
       "remembered": "I left the pages on their doors. I could not remember which door had been mine.",
@@ -307,17 +300,16 @@
       "ultimate": "Hear Them Once",
       "sacrifice": "Surrendered its voice to stop the execution bell; speaks here only through a remembered whisper.",
       "entrance": "The bell cuts out; a scarred paw rests at a throat that cannot make a sound.",
-      "vow_choice": 0,
       "voice": "memory_whisper",
       "first": {
         "question": "The bell called them out. I gave my voice to stop it. In the silence, another name was read.",
         "choices": [
-          "Half my guard. Fifteen percent more force. Let this oath be mine.",
-          "I will listen without an oath."
+          "I can hear the bell in the silence.",
+          "I have not ordered an execution."
         ],
         "responses": [
-          "Half your guard; 15% more force. Only until this fight ends. Not another voice.",
-          "Then listen past the quiet."
+          "Then you remember why we stopped it.",
+          "You stopped asking who never returned."
         ]
       },
       "remembered": "My mouth kept moving. The bell kept swinging. Neither of us made a sound.",
@@ -351,16 +343,15 @@
       "ultimate": "Bring Them Home",
       "sacrifice": "Kept the erased victims' names in its own scarred body and now carries the trapped lives toward release.",
       "entrance": "Walks in without charging; nine scars light in the order of the memories held by the crown.",
-      "vow_choice": 0,
       "first": {
         "question": "Nine scars. Nine deaths the crown would not release. You have been fighting what it kept of you.",
         "choices": [
-          "Half my guard for 15% more force. This last debt is mine.",
-          "No more bargains. Tell me my name."
+          "I remember every scar. Tell me who I was.",
+          "You know my face. Say the name I lost."
         ],
         "responses": [
-          "Morrow. Half your guard; 15% more force, for this last fight. Even now you make yourself the price.",
-          "Morrow. Before the crown, before the names were taken, you were Morrow."
+          "Morrow. You carried their names before you carried the crown. It kept the lives you could not let go.",
+          "Morrow. That was your name when you still answered the door."
         ]
       },
       "remembered": "You carried their names when the old king burned the records. The crown kept every life that tried to save them.",

@@ -62,6 +62,7 @@ var input_edges: Dictionary = {}
 var completed: Array = []
 var powers
 var entrances
+var magic
 var trauma=0.0
 var king_shadow:Sprite2D
 var visitor_shadow:Sprite2D
@@ -114,6 +115,9 @@ func _ready() -> void:
     powers=load("res://power_director.gd").new()
     powers.game=self
     add_child(powers)
+    magic=load("res://royal_magic.gd").new()
+    magic.game=self
+    add_child(magic)
     entrances=load("res://entrance_director.gd").new()
     entrances.game=self
     add_child(entrances)
@@ -140,6 +144,7 @@ func _background(path: String, depth: int) -> Sprite2D:
     return s
 
 func _menu() -> void:
+    if magic:magic.clear()
     epoch+=1
     mode="menu"
     stage=""
@@ -186,11 +191,11 @@ func _set_background(id: String) -> void:
 
 func _reset_bodies() -> void:
     boss={"x":800.0,"y":0.0,"vy":0.0,"vx":0.0,"knock":0.0,"hp":700.0,"max":700.0,
-        "guard_max":1.0,"guard_exhausted":false,"guard_broken":0.0,"guard_breaks":0,"regen_delay":0.0,"bound":0.0,"vow":false,"attack_gain":1.0,
+        "guard_max":1.0,"guard_exhausted":false,"guard_broken":0.0,"guard_breaks":0,"regen_delay":0.0,"bound":0.0,
         "facing":-1,"grounded":true,"dash":0.0,"dash_cd":0.0,"invuln":0.0,"guard":1.0,
         "guard_age":99.0,"guard_held":false,"guard_perfect_used":false,"guard_rearm":0.0,"perfect_blocks":0,"counter_hits":0,"counter_window":0.0,"cancels":0,"guarding":false,"flash":0.0,"inactive":0.0,"jumps":0,"dashes":0,"blocks":0,
         "combo":0,"combo_until":-1.0,"combo_queue":0,"combo_buffer":0.0,"combo_history":[],
-        "stride":0.0,"steps":0,"land":0.0,"coyote":0.1,"jump_buffer":0.0,"input_buffer":0.0,"buffered_action":"","transition":0.0,"phase_triggered":false,
+        "stride":0.0,"steps":0,"idle_clock":0.0,"gait_blend":0.0,"walk_was_moving":false,"land":0.0,"coyote":0.1,"jump_buffer":0.0,"input_buffer":0.0,"buffered_action":"","transition":0.0,"phase_triggered":false,
         "cooldowns":{"cleave":0.0,"throw":0.0,"reap":0.0,"nova":0.0}}
     var stats=Rules.stats(fight_index)
     move_counts={"cleave":0,"throw":0,"reap":0,"nova":0}
@@ -210,7 +215,8 @@ func _reset_bodies() -> void:
         "windup":0.0,"ability_cd":2.5,"ability_t":0.0,"ability_serial":0,"attack_flash":0.0,
         "flash":0.0,"invuln":0.0,"poise":Rules.POISE[life],"poise_max":Rules.POISE[life],"poise_delay":0.0,"stagger_lock":0.0,"poise_breaks":0,"guard":1.0,"guard_facing":1.0,"attack_dir":1.0,"ability_target":Vector2.ZERO,"evade_cd":0.0,"guard_t":0.0,
         "kneel":0.0,"armored":life==5,"mobility_cd":0.8,"dash_dir":1.0,"chain_left":1,"combo_index":0,
-        "dashes":0,"strikes":0,"abilities":0,"stride":0.0,"steps":0,"blood_boost":0.0,"power_count":0,"ultimate_count":0,"cost_paid":0.0}
+        "dashes":0,"strikes":0,"abilities":0,"stride":0.0,"steps":0,"idle_clock":0.0,"gait_blend":0.0,"walk_was_moving":false,"blood_boost":0.0,"power_count":0,"ultimate_count":0,"cost_paid":0.0}
+    if magic:magic.reset()
     if powers:powers.reset(life)
     if entrances:entrances.clear()
     move.clear()
@@ -361,8 +367,6 @@ func _encounter() -> void:
         if not autoplay:
             open=await ui.choose(options)
             if token!=epoch:return
-        if step==0 and open and int(script_data.get("vow_choice",0))==0:
-            boss.vow=true;boss.guard_max=0.5;boss.guard=minf(boss.guard,0.5);boss.attack_gain=1.15
         history.append(open)
         bond=clampi(bond+(1 if open else -1),0,8)
         if not autoplay:
@@ -476,12 +480,16 @@ func _bot_input() -> Dictionary:
             i.right=distance>85 and enemy.x>boss.x
             i.guard=enemy.state=="attack"
         return i
+    if policy=="mash":
+        i.left=enemy.x<boss.x;i.right=enemy.x>boss.x;i.cleave=true
+        return i
     if policy=="normal" and life>0:i.guard=true;return i
     var reach=Rules.MELEE[life].reach+75
-    i.guard=enemy.state=="attack" and distance<reach and boss.guard>0.2
-    i.left=(distance>180 and enemy.x<boss.x) or (distance<140 and enemy.x>boss.x)
-    i.right=(distance>180 and enemy.x>boss.x) or (distance<140 and enemy.x<boss.x)
-    if enemy.state=="attack" and enemy.windup>Rules.MELEE[life].tell-0.1 and distance<reach and boss.dash_cd<=0:
+    var read_tell:float=float(enemy.get("rebuke_tell",0.30)) if enemy.state=="rebuke" else Rules.MELEE[life].tell
+    i.guard=enemy.state in ["attack","rebuke"] and enemy.windup>read_tell-0.11 and distance<reach and boss.guard>0.02 and magic.strain<=0
+    i.left=(distance>(150 if phase==2 else 115) and enemy.x<boss.x) or (distance<75 and enemy.x>boss.x)
+    i.right=(distance>(150 if phase==2 else 115) and enemy.x>boss.x) or (distance<75 and enemy.x<boss.x)
+    if enemy.state in ["attack","rebuke"] and enemy.windup>read_tell-0.1 and distance<reach and boss.dash_cd<=0:
         i.dash=true;i.guard=false
     for p in projectiles:
         if not p.friendly and absf(p.p.x-boss.x)<170:
@@ -501,10 +509,11 @@ func _bot_input() -> Dictionary:
                 i.left=away<0;i.right=away>0;i.guard=false
                 if hazard.tell<0.14 and boss.dash_cd<=0:i.dash=true
     if i.guard or i.dash or not move.is_empty():return i
-    if boss.cooldowns.nova<=0:i.nova=true
-    elif distance<(300 if phase==2 else 195) and boss.cooldowns.cleave<=0:i.cleave=true
-    elif boss.cooldowns.reap<=0:i.reap=true
-    elif boss.cooldowns["throw"]<=0:i["throw"]=true
+    if magic.pressure>=65 and distance<240 and enemy.state in ["backoff","hurt","parried"] and boss.cooldowns.nova<=0:i.nova=true
+    elif distance<(225 if phase==2 else 175) and boss.cooldowns.cleave<=0 and (magic.pressure<35 or not magic.echo_arm.is_empty() or enemy.state in ["hurt","parried"]):i.cleave=true
+    elif magic.can_cast("reap",phase) and boss.cooldowns.reap<=0 and (enemy.y>60 or enemy.guard_t>0 or powers.busy()):i.reap=true
+    elif magic.can_cast("throw",phase) and distance<195 and magic.echo_arm.is_empty() and boss.cooldowns["throw"]<=0:i["throw"]=true
+    elif distance<(225 if phase==2 else 175) and boss.cooldowns.cleave<=0:i.cleave=true
     return i
 
 func _combat_step(dt:float) -> void:
@@ -530,6 +539,11 @@ func _combat_step(dt:float) -> void:
     _projectile_step(dt)
     _enemy_step(dt)
     powers.tick(dt)
+    magic.tick(dt)
+    _body_spacing()
+    _loco_step(boss,absf(boss.vx)>20 and boss.grounded and move.is_empty(),"king",dt)
+    var walking:bool=enemy.state=="enter" or enemy.state=="attack" and enemy.windup<=0 and absf(enemy.x-boss.x)>52+Rules.MELEE[life].reach
+    _loco_step(enemy,walking and enemy.y<=2,Rules.LIVES[life],dt)
     var tension:float=0.30 if enemy.windup>0 or enemy.ability_t>0 or not move.is_empty() and move.stage=="tell" else 0.60
     if boss.hp/boss.max<0.30 or powers.debug_state().casting_ultimate:tension=0.88
     audio.set_tension(tension)
@@ -587,7 +601,7 @@ func _player_step(i:Dictionary,dt:float) -> void:
         move.clear()
         audio.sfx("dash")
         _trail(king,Color("#6fe7ff") if phase==2 else Color("#ffc976"))
-    boss.guarding=i.guard and move.is_empty() and boss.dash<=0 and boss.guard_broken<=0
+    boss.guarding=i.guard and move.is_empty() and boss.dash<=0 and boss.guard_broken<=0 and magic.strain<=0
     if boss.guarding:
         boss.guard=maxf(0,boss.guard-0.30*dt)
         if boss.guard<=0:
@@ -612,6 +626,7 @@ func _player_step(i:Dictionary,dt:float) -> void:
     var before:float=boss.x
     boss.x=clampf(boss.x+(boss.vx+boss.knock)*dt,48,912)
     boss.knock=move_toward(float(boss.knock),0,maxf(1,absf(boss.knock))*8*dt)
+    _body_spacing()
     if phase==2:
         boss.grounded=false
         if boss.vy>0 or boss.y>60:
@@ -655,6 +670,34 @@ func _player_step(i:Dictionary,dt:float) -> void:
                 _start_move("cleave")
                 boss.combo_queue=maxi(0,int(boss.combo_queue)-1)
 
+# Grounded overlapping bodies have mass. Explicit mobility, height and phase-pass
+# cross the pushbox; simply walking into a shield does not turn into a free flank.
+func _body_spacing() -> void:
+    if mode!="fight" or boss.is_empty() or enemy.is_empty():return
+    if boss.dash>0 or enemy.state in ["dash","evade"]:return
+    if not move.is_empty() and move.id=="throw" and move.phase==2 and move.stage=="active":return
+    var overlap_height:float=minf(boss.y+95.0,enemy.y+Actor.body_height(Rules.LIVES[life]))-maxf(boss.y,enemy.y)
+    if overlap_height<10.0:return
+    var dx:float=boss.x-enemy.x
+    var overlap:float=44.0-absf(dx)
+    if overlap<=0:return
+    var side:float=signf(dx) if absf(dx)>0.01 else -float(boss.facing)
+    var royal_share:float=0.85 if life==5 else 0.65 if life in [2,8] else 0.45 if life==0 else 0.55
+    boss.x=clampf(boss.x+side*overlap*royal_share,48,912)
+    enemy.x=clampf(enemy.x-side*overlap*(1.0-royal_share),30,930)
+    var remainder:float=44.0-absf(boss.x-enemy.x)
+    if remainder>0:
+        boss.x=clampf(boss.x+side*remainder,48,912)
+    if boss.vx*side<0:boss.vx*=0.45
+
+func _loco_step(body:Dictionary,walking:bool,_actor:String,dt:float) -> void:
+    if walking!=bool(body.walk_was_moving):
+        body.walk_was_moving=walking
+        body.gait_blend=0.18
+        body.idle_clock=0.0
+    body.gait_blend=maxf(0.0,float(body.gait_blend)-dt)
+    if not walking:body.idle_clock+=dt
+
 func _guard_break(damage:float) -> void:
     boss.guard_broken=1.10
     boss.guard_exhausted=false
@@ -666,6 +709,7 @@ func _guard_break(damage:float) -> void:
     boss.combo_queue=0
     move.clear()
     boss.hp-=damage
+    if magic:magic.wounded()
     boss.flash=0.28;boss.invuln=0.30
     boss.knock=signf(boss.x-enemy.x)*460.0
     trauma=maxf(trauma,7.0);hitstop=0.075
@@ -676,7 +720,7 @@ func _guard_break(damage:float) -> void:
 
 func _start_move(id:String) -> void:
     var spec=Rules.move_spec(id,phase)
-    spec.damage*=boss.attack_gain
+    if not magic.begin(id,phase):return
     var counter:bool=id=="cleave" and boss.counter_window>0
     if counter:
         spec.tell=0.055;spec.active=0.075;spec.recover=0.25;spec.damage*=1.55
@@ -695,10 +739,9 @@ func _start_move(id:String) -> void:
         elif boss.combo==2:spec.tell*=1.30;spec.damage*=1.25;spec.recover*=1.25
         boss.combo_history.append(boss.combo)
     boss.cooldowns[id]=spec.cooldown
-    move={"id":id,"phase":phase,"spec":spec,"stage":"tell","t":0.0,"direction":boss.facing,"target":enemy.x,"combo":boss.combo,"spawned":0,"hit":false,"marks":[],"counter":counter}
-    if id=="reap" and phase==2:move.marks=[boss.x-180,boss.x,boss.x+180]
-    if id=="nova" and phase==1:move.marks=[boss.x+boss.facing*90,boss.x+boss.facing*250,boss.x+boss.facing*410]
-    audio.sfx("magic" if phase==2 or id in ["nova","reap"] else "sword-draw")
+    move={"id":id,"phase":phase,"spec":spec,"stage":"tell","t":0.0,"direction":boss.facing,"target":enemy.x,"combo":boss.combo,"spawned":0,"hit":false,"marks":[],"counter":counter,"paid":magic._reserved}
+    if id=="reap":move.target=clampf(enemy.x,boss.x-300,boss.x+300)
+    audio.sfx("cloth" if id=="cleave" else "magic")
     if life>0 and enemy.evade_cd<=0 and not counter and enemy.state not in ["hurt","parried"]:
         if life in [1,8] and id=="cleave" and boss.combo==0:
             enemy.state="evade";enemy.t=0.16;enemy.invuln=0.10;enemy.evade_cd=2.0
@@ -716,84 +759,25 @@ func _start_move(id:String) -> void:
 func _move_step(dt:float) -> void:
     if move.is_empty():return
     move.t+=dt
+    move.step=dt
     var spec:Dictionary=move.spec
     if move.stage=="tell" and move.t>=spec.tell:
         move.stage="active";move.t=0.0
-        if move.id=="throw" and phase==1:boss.vx=move.direction*650.0
-        elif move.id=="cleave":boss.vx=move.direction*(380.0 if move.combo<2 else 530.0)
-        if move.id not in ["nova","reap"] or phase==1 and move.id=="reap":
-            var effect=_royal_fx(move.id,Vector2(move.target if move.id=="reap" else boss.x+move.direction*75,FLOOR-boss.y-65),phase)
-            if move.id=="cleave":
-                effect.flip_v=move.combo==1
-                effect.rotation=deg_to_rad((-30 if move.combo==1 else 36 if move.combo==2 else 0)*move.direction)
-                effects[-1].velocity=Vector2(move.direction*(160 if move.combo<2 else 250),-80 if move.combo==1 else 70 if move.combo==2 else 0)
-            audio.sfx("sword" if phase==1 else "magic")
+        if move.id=="cleave":boss.vx=move.direction*(180.0 if move.combo<2 else 290.0)
+        audio.sfx("cloth" if move.id=="throw" else "magic")
     if move.stage=="active":
         _active_hit()
         if move.t>=spec.active:move.stage="recover";move.t=0.0
     elif move.stage=="recover" and move.t>=spec.recover:move.clear()
 
 func _active_hit() -> void:
-    var id:String=move.id
-    var damage:float=move.spec.damage
-    if id=="cleave":
-        var ranges=[166.0,185.0,218.0] if phase==1 else [212.0,248.0,290.0]
-        if not move.hit and (enemy.x-boss.x)*move.direction>-24 and absf(enemy.x-boss.x)<ranges[move.combo] and absf(enemy.y-boss.y)<(150 if move.combo==1 else 120):
-            _hit_enemy(damage,id)
-            if move.combo==1:enemy.vy=maxf(enemy.vy,320.0) if enemy.state=="hurt" else enemy.vy
-            elif move.combo==2 and enemy.state=="hurt":enemy.knock=move.direction*540.0
-            move.hit=true
-        if phase==2 and move.spawned==0:
-            move.spawned=1
-            _fx(2,Vector2(boss.x,FLOOR-boss.y-50),220+move.combo*50,0.36,"royal")
-    elif id=="throw":
-        if phase==1:
-            if not move.hit and (enemy.x-boss.x)*move.direction>-20 and absf(enemy.x-boss.x)<230 and absf(enemy.y-boss.y)<72:
-                move.hit=true
-                _hit_enemy(damage,id)
-        else:
-            # Crown fragments fall as separate physical blades rather than a base-form thrust.
-            while move.spawned<5 and move.t>=move.spawned*0.075:
-                var lane:float=move.target+(move.spawned-2)*60
-                _projectile(Vector2(lane-move.direction*70,290),Vector2(move.direction*130,-520),15,false,damage,true,life)
-                move.spawned+=1
-    elif id=="reap":
-        if phase==1:
-            if move.spawned==0:
-                move.spawned=1
-                if absf(enemy.x-move.target)<88 and enemy.y<72:
-                    var before:float=enemy.hp
-                    _hit_enemy(damage,id)
-                    if enemy.hp<before and enemy.state=="hurt":
-                        enemy.y=0.0;enemy.vy=0.0;enemy.knock=0.0;enemy.kneel=0.42
-        else:
-            while move.spawned<3 and move.t>=move.spawned*0.16:
-                var x:float=move.marks[move.spawned]
-                move.spawned+=1
-                _royal_fx("reap",Vector2(x,FLOOR-65),2)
-            if not move.hit and absf(enemy.x-boss.x)<310 and enemy.y<164:
-                _hit_enemy(damage,id)
-                enemy.knock=signf(boss.x-enemy.x)*500
-                enemy.vy=260.0
-                move.hit=true
-    elif phase==1:
-        while move.spawned<3 and move.t>=move.spawned*0.14:
-            var x:float=move.marks[move.spawned]
-            move.spawned+=1
-            _royal_fx("cleave",Vector2(x,FLOOR-65),1)
-            if absf(enemy.x-x)<104 and enemy.y<130:_hit_enemy(damage,id)
-    else:
-        var radius:float=520*minf(1,move.t/move.spec.active)
-        if move.spawned<int(move.t*20)+1:
-            move.spawned+=1
-            _fx(4,Vector2(boss.x-radius,FLOOR-55),180,0.30,"nova",-1)
-            _fx(4,Vector2(boss.x+radius,FLOOR-55),180,0.30,"nova",1)
-        if not move.hit and absf(absf(enemy.x-boss.x)-radius)<64 and enemy.y<130:
-            _hit_enemy(damage,id);move.hit=true
+    magic.strike(move)
 
-func _hit_enemy(damage:float,id:String) -> void:
+func _hit_enemy(damage:float,id:String,origin_x:float=NAN) -> void:
+    var source_x:float=boss.x if is_nan(origin_x) else origin_x
     if enemy.hp<=0 or enemy.invuln>0:return
-    var guard_hit:bool=enemy.guard_t>0 and enemy.guard>0.05 and enemy.guard_facing*(boss.x-enemy.x)>=0 and id not in ["nova","reap"]
+    var flank:bool=enemy.guard_t>0 and enemy.guard_facing*(source_x-enemy.x)<0
+    var guard_hit:bool=enemy.guard_t>0 and enemy.guard>0.05 and enemy.guard_facing*(source_x-enemy.x)>=0 and id not in ["nova","reap"]
     if guard_hit:
         enemy.guard=maxf(0,enemy.guard-0.22)
         damage*=0.24
@@ -803,6 +787,8 @@ func _hit_enemy(damage:float,id:String) -> void:
     enemy.hp-=damage
     if life==0 and not _tutorial_complete():enemy.hp=maxf(1,enemy.hp)
     damage_dealt+=maxf(0,before_hp-maxf(0,enemy.hp))
+    if id=="cleave" and not guard_hit and enemy.hp<before_hp:magic.gain(7.0)
+    if id=="echo" and flank:magic.interactions.flanks+=1
     if not move.is_empty() and move.get("counter",false):boss.counter_hits+=1
     enemy.flash=0.12
     enemy.poise_delay=2.0
@@ -812,12 +798,13 @@ func _hit_enemy(damage:float,id:String) -> void:
         if enemy.poise<=0 or guard_hit and enemy.guard<=0:_break_enemy_poise()
     # Damage still lands during armor; only a broken posture interrupts the action.
     if enemy.state=="hurt":
-        enemy.knock=signf(enemy.x-boss.x)*(360 if id=="nova" else 190)
+        enemy.knock=signf(enemy.x-source_x)*(360 if id=="nova" else 190)
         if id in ["cleave","nova"]:enemy.vy=maxf(enemy.vy,140.0)
-    else:enemy.knock=signf(enemy.x-boss.x)*28
+    else:enemy.knock=signf(enemy.x-source_x)*28
     enemy.invuln=0.045
     _blood(Vector2(enemy.x,FLOOR-enemy.y-38))
     hitstop=0.045 if enemy.state=="hurt" else 0.026
+    if guard_hit and enemy.state not in ["hurt","parried"]:_royal_rebuke(source_x)
     audio.sfx("hit")
     trauma=maxf(trauma,4.0 if enemy.state=="hurt" else 1.5)
 
@@ -844,7 +831,9 @@ func _enemy_step(dt:float) -> void:
     enemy.evade_cd=maxf(0,enemy.evade_cd-dt)
     enemy.mobility_cd=maxf(0,enemy.mobility_cd-dt)
     enemy.kneel=maxf(0,enemy.kneel-dt)
+    enemy.rebuke_cd=maxf(0,float(enemy.get("rebuke_cd",0.0))-dt)
     if powers.busy():return
+    _royal_response(dt)
     var old_x:float=enemy.x
     var was_airborne:bool=enemy.y>0
     enemy.x=clampf(enemy.x+enemy.knock*dt,30,930)
@@ -853,6 +842,17 @@ func _enemy_step(dt:float) -> void:
         enemy.vy-=1600*dt;enemy.y=maxf(0,enemy.y+enemy.vy*dt)
         if enemy.y<=0:enemy.vy=0.0
     if boss.transition>0:return
+    if enemy.state=="rebuke":
+        enemy.windup+=dt
+        if enemy.windup>=float(enemy.rebuke_tell):
+            enemy.windup=0.0;enemy.attack_flash=0.10;enemy.strikes+=1
+            enemy.state="contact";enemy.t=0.10;enemy.chain_left=0
+            var melee:Dictionary=Rules.MELEE[life]
+            audio.sfx(_weapon_sound())
+            _fx(maxi(0,life-1),Vector2(enemy.x+enemy.attack_dir*60,FLOOR-enemy.y-40),140,0.22,"visitor",int(enemy.attack_dir))
+            if absf(enemy.x-boss.x)<melee.reach+72 and (boss.x-enemy.x)*enemy.attack_dir>-16 and absf(enemy.y-boss.y)<melee.height:
+                _hurt_boss(enemy.damage*1.45,false,melee)
+        return
     var mobility:Dictionary=Rules.MOBILITY[life]
     if enemy.kneel>0:return
     enemy.ability_cd-=dt
@@ -923,10 +923,48 @@ func _enemy_step(dt:float) -> void:
                 enemy.guard_facing=signf(boss.x-enemy.x)
 
     if enemy.y<=0 and enemy.state not in ["dash","hurt"]:
-        var old_step:int=int(enemy.stride/34.0)
+        var half_stride:float=Actor.gait_stride(Rules.LIVES[life])*0.5
+        var old_step:int=int(enemy.stride/half_stride)
         enemy.stride+=absf(enemy.x-old_x)
-        if int(enemy.stride/34.0)>old_step:audio.sfx("step");enemy.steps+=1
+        if int(enemy.stride/half_stride)>old_step:audio.sfx("step");enemy.steps+=1
     if was_airborne and enemy.y<=0:audio.sfx("step")
+
+# Reactions are temperaments, not damage immunities or mandatory counters.
+func _royal_rebuke(source_x:float) -> void:
+    if life not in [2,5,7,8] or powers.busy() or enemy.guard<=0:return
+    if float(enemy.get("rebuke_cd",0.0))>0 or enemy.state not in ["attack","wait","backoff"]:return
+    if absf(source_x-boss.x)<32:boss.knock+=signf(boss.x-enemy.x)*270.0
+    enemy.state="rebuke";enemy.rebuke_tell=0.46 if life in [5,7] else 0.52
+    enemy.windup=0.001;enemy.attack_dir=signf(source_x-enemy.x)
+    enemy.guard_facing=enemy.attack_dir
+    enemy.guard_t=maxf(enemy.guard_t,enemy.rebuke_tell+0.12)
+    enemy.rebuke_cd=1.2 if life==5 else 1.7
+    enemy.rebukes=int(enemy.get("rebukes",0))+1
+
+func _royal_response(dt:float) -> void:
+    enemy.read_cd=maxf(0,float(enemy.get("read_cd",0.0))-dt)
+    if life==0 or move.is_empty() or move.stage!="tell" or enemy.read_cd>0:return
+    if enemy.state not in ["attack","wait"] or enemy.windup>0:return
+    var distance:float=absf(enemy.x-boss.x)
+    if life in [2,5] and move.id=="cleave" and distance<210:
+        enemy.guard_t=0.95 if life==2 else 3.0
+        enemy.guard_facing=signf(boss.x-enemy.x)
+        enemy.read_cd=1.65 if life==2 else 1.45
+    elif life==1 and move.id=="throw" and distance>110:
+        _enemy_dash(signf(boss.x-enemy.x));enemy.read_cd=2.0
+    elif life==3 and move.id in ["cleave","reap"] and distance<220:
+        enemy.vy=420.0;enemy.y=maxf(enemy.y,1.0);enemy.read_cd=2.2
+    elif life==4 and move.id=="cleave" and distance<150:
+        _enemy_dash(-signf(boss.x-enemy.x));enemy.read_cd=2.5
+    elif life==6 and move.id=="nova":
+        _enemy_dash(signf(boss.x-enemy.x));enemy.read_cd=1.7
+    elif life==7 and move.id=="cleave" and move.combo==0 and distance<190:
+        enemy.guard_t=0.24;enemy.guard_facing=signf(boss.x-enemy.x);enemy.read_cd=1.6
+    elif life==8 and sequence.size()>=3 and sequence[-1]==sequence[-2] and sequence[-2]==sequence[-3]:
+        if distance<210:
+            enemy.guard_t=0.50;enemy.guard_facing=signf(boss.x-enemy.x)
+        else:_enemy_dash(signf(boss.x-enemy.x))
+        enemy.read_cd=2.0
 
 func _enemy_dash(direction:float) -> void:
     enemy.state="dash"
@@ -955,12 +993,13 @@ func _hurt_boss(damage:float,low:bool,weapon:Dictionary={}) -> void:
     if guarded and boss.guard_age<=0.12 and not boss.guard_perfect_used:
         boss.guard_perfect_used=true
         boss.perfect_blocks+=1
+        magic.gain(16.0)
         boss.blocks+=1
         boss.guard=minf(boss.guard_max,boss.guard+0.16)
         boss.guard_exhausted=false
         boss.counter_window=0.75
         boss.invuln=0.16
-        enemy.state="parried";enemy.t=0.42
+        enemy.state="parried";enemy.t=0.42;enemy.guard_t=0.0
         powers.dispel()
         enemy.poise=maxf(1,enemy.poise-enemy.poise_max*0.55)
         enemy.windup=0.0;enemy.ability_t=0.0
@@ -986,6 +1025,7 @@ func _hurt_boss(damage:float,low:bool,weapon:Dictionary={}) -> void:
             move.clear()
             boss.combo_queue=0
             boss.cancels+=1
+    magic.wounded()
     boss.hp-=damage
     boss.flash=0.14;boss.invuln=0.28
     boss.knock=signf(boss.x-enemy.x)*float(weapon.get("impulse",240))*(0.25 if guarded else 1.0)
@@ -1056,27 +1096,23 @@ func _tutorial_complete() -> bool:
 
 func _animate() -> void:
     var motion="idle"
-    var frame=int(elapsed*(8 if phase==2 else 5))%(12 if phase==2 else 6)
-    if mode=="arrival":
-        var t=clampf(mode_t/1.3,0,1)
-        king.position=Vector2(lerpf(THRONE.x,boss.x,t),lerpf(THRONE.y,FLOOR-boss.y,t))
-        if t<1:motion="rise";frame=mini(5,int(t*6))
-    else:
-        king.position=Vector2(roundf(boss.x),roundf(FLOOR-boss.y))
+    var frame=int(boss.idle_clock*(8 if phase==2 else 5))%(12 if phase==2 else 6)
+    king.position=Vector2(roundf(boss.x),roundf(FLOOR-boss.y))
+    if mode in ["arrival","fight"]:
         if boss.dash>0:motion="dash";frame=mini(11 if phase==2 else 5,int((1-boss.dash/0.18)*(12 if phase==2 else 6)))
-        elif phase==1 and not boss.grounded:motion="jump";frame=1 if boss.vy>180 else 3 if boss.vy> -180 else 5
-        elif absf(boss.vx)>20:motion="run";frame=int(boss.stride/8.0)%12
+        elif phase==1 and not boss.grounded:motion="jump";frame=clampi(int((560.0-boss.vy)/1120.0*6),0,5)
+        elif phase==2 and (absf(boss.vy)>20 or boss.y>60):motion="glide";frame=int(boss.idle_clock*14)%12
+        elif absf(boss.vx)>20:motion="run";frame=Actor.gait_frame("king",boss.stride)
+        if phase==1 and boss.grounded and boss.dash<=0 and boss.gait_blend>0:
+            motion="start_walk" if boss.walk_was_moving else "stop_walk"
+            frame=clampi(int((1-boss.gait_blend/0.18)*6),0,5)
         if not move.is_empty():
-            motion="throw" if move.get("counter",false) else "combo_"+str(move.combo) if move.id=="cleave" else move.id
+            motion="royal_hand_"+str(move.combo) if move.id=="cleave" else "royal_echo" if move.id=="throw" else "royal_burden" if move.id=="reap" else "royal_ransom"
             var duration:float=move.spec[move.stage]
-            if move.stage=="tell":
-                motion="prepare_throw" if move.get("counter",false) else "prepare_"+("cleave_"+str(move.combo) if move.id=="cleave" else move.id)
-                frame=mini(5,int(move.t/maxf(0.01,duration)*6))
-            elif move.stage=="active":
-                frame=mini(7,5+int(move.t/maxf(0.01,duration)*3)) if phase==1 and move.id in ["cleave","throw"] else mini(4,2+int(move.t/maxf(0.01,duration)*3))
-            else:
-                frame=mini(11,8+int(move.t/maxf(0.01,duration)*4)) if phase==1 and move.id in ["cleave","throw"] else 4 if move.t<duration*0.65 else 5
-        if boss.land>0 and move.is_empty():motion="land";frame=clampi(int((1-boss.land/0.18)*6),0,5)
+            if move.stage=="tell":frame=mini(4,int(move.t/maxf(0.01,duration)*5))
+            elif move.stage=="active":frame=mini(7,5+int(move.t/maxf(0.01,duration)*3))
+            else:frame=mini(11,8+int(move.t/maxf(0.01,duration)*4))
+        if boss.land>0 and move.is_empty():motion="land";frame=clampi(int((1-boss.land/0.18)*3),0,2)
         if boss.guard_broken>0:motion="hurt";frame=clampi(int((1-boss.guard_broken/1.1)*6),0,5)
         if boss.transition>0:motion="transform";frame=mini(5,int((1-boss.transition/1.8)*6))
     king.who="ascended" if phase==2 or boss.transition<0.9 and boss.transition>0 else "king"
@@ -1087,12 +1123,15 @@ func _animate() -> void:
     if boss.dash>0 and elapsed-trail_t>0.04:
         trail_t=elapsed;_trail(king,Color("#7de9ff") if phase==2 else Color("#ffdc7e"))
     var em="idle"
-    var ef=int(elapsed*3.5)%6
+    var ef=int(enemy.idle_clock*3.5)%6
     if enemy.state=="enter" or enemy.state=="attack" and enemy.windup<=0 and absf(enemy.x-boss.x)>52+Rules.MELEE[life].reach:
-        em="walk";ef=int(enemy.stride/7.0)%12
+        em="walk";ef=Actor.gait_frame(Rules.LIVES[life],enemy.stride)
+    if enemy.gait_blend>0:
+        em="start_walk" if enemy.walk_was_moving else "stop_walk"
+        ef=clampi(int((1-enemy.gait_blend/0.18)*6),0,5)
     if enemy.state in ["dash","evade"]:em="dash";ef=int(elapsed*22)%6
     if enemy.y>2:em="jump";ef=1 if enemy.vy>150 else 4
-    if enemy.windup>0:em="prepare";ef=mini(5,int(enemy.windup/Rules.MELEE[life].tell*6))
+    if enemy.windup>0:em="prepare";ef=mini(5,int(enemy.windup/(float(enemy.get("rebuke_tell",0.30)) if enemy.state=="rebuke" else Rules.MELEE[life].tell)*6))
     if enemy.ability_t>0:em="prepare";ef=mini(5,int((1-enemy.ability_t/Rules.ABILITY_TELL[life])*6))
     elif enemy.attack_flash>0:em="cleave";ef=3+mini(2,int((1-enemy.attack_flash/0.18)*3))
     if enemy.state in ["hurt","parried"]:em="hurt";ef=mini(5,int((0.48-enemy.t)/0.48*6))
@@ -1104,7 +1143,7 @@ func _animate() -> void:
     if enemy.windup>0 or enemy.state in ["contact","backoff"]:enemy_facing=int(enemy.attack_dir)
     elif enemy.ability_t>0:enemy_facing=1 if enemy.ability_target.x>enemy.x else -1
     elif enemy.state=="dash":enemy_facing=int(enemy.dash_dir)
-    visitor.pose(em,ef,enemy_facing,61 if life==0 else 85 if life==8 else 78)
+    visitor.pose(em,ef,enemy_facing,Actor.body_height(Rules.LIVES[life]))
     visitor.rotation=deg_to_rad(float(enemy.combo_index)*-7.0) if enemy.attack_flash>0 else 0.0
     visitor.modulate=Color("#ffb3ab") if enemy.flash>0 else Color.WHITE
     king_shadow.position=Vector2(roundf(boss.x),FLOOR+2)
@@ -1133,7 +1172,8 @@ func _hud() -> void:
     for key in ["cleave","throw","reap","nova"]:names.append(Rules.move_spec(key,phase).name)
     ui.set_hud({"player_hp":boss.hp,"player_max":boss.max,"enemy_hp":enemy.hp,"enemy_max":enemy.max,
         "enemy_name":"???","year":Rules.YEARS[fight_index],"phase":phase,"guard":boss.guard,
-        "cooldowns":boss.cooldowns,"move_names":names,"guard_max":boss.guard_max,"guard_break":boss.guard_broken,"vow":boss.vow,
+        "cooldowns":boss.cooldowns,"move_names":names,"guard_max":boss.guard_max,"guard_break":boss.guard_broken,
+        "pressure":magic.pressure,"ward_exposure":magic.strain,"pressure_blocked":magic.dry>0,
         "current_power":powers.debug_state().power,"enemy_ultimate":powers.debug_state().ultimate if powers.debug_state().casting_ultimate else "",
         "hint":"Jump · Dash · Block a hit" if life==0 and not _tutorial_complete() else ""})
 
@@ -1201,6 +1241,7 @@ func _clear_effects() -> void:
     projectiles.clear()
 
 func _win_encounter() -> void:
+    magic.clear()
     if mode!="fight":return
     completed.append(Rules.LIVES[life])
     var summary={"fight":fight_index+1,"fightIndex":fight_index+1,"lifeId":Rules.LIVES[life],
@@ -1249,6 +1290,7 @@ func _win_encounter() -> void:
     message.text=""
     _encounter()
 func _finish(kind:String) -> void:
+    magic.clear()
     if mode!="fight":return
     var token=epoch
     mode="ending";stage="silence";ending=kind;ending_ready=false
@@ -1388,7 +1430,7 @@ func _publish_state() -> void:
         "music":audio.get("current_cue"),
         "guard":boss.get("guard",1),"max_guard":boss.get("guard_max",1),"guard_exhausted":boss.get("guard_exhausted",false),
         "guard_broken":boss.get("guard_broken",0),"guard_breaks":boss.get("guard_breaks",0),"regen_delay":boss.get("regen_delay",0),
-        "action_locked":boss.get("guard_broken",0)>0.45 or boss.get("land",0)>0.065,"vow":boss.get("vow",false),
+        "action_locked":boss.get("guard_broken",0)>0.45 or boss.get("land",0)>0.065,"pressure":magic.pressure,"magic":magic.debug_state(),
         "hovering":phase==2 and mode=="fight","hover_height":56 if phase==2 else 0,"shadow_visible":king_shadow.visible,
         "land_timer":boss.get("land",0),"power":powers.debug_state(),"entrance":entrances.debug_state(),
         "power_count":enemy.get("power_count",0),"ultimate_count":enemy.get("ultimate_count",0),"cost_paid":enemy.get("cost_paid",0)}
@@ -1436,13 +1478,9 @@ func _telegraph_data() -> Array:
     if not move.is_empty() and move.stage=="tell":
         var ratio:float=clampf(move.t/move.spec.tell,0,1)
         if move.id=="reap":
-            var marks:Array=move.marks if phase==2 else [move.target]
-            for x in marks:entries.append({"kind":"royal","x":float(x),"y":FLOOR-3,"width":128.0 if phase==2 else 176.0,"progress":ratio,"enemy":false,"remaining":move.spec.tell-move.t})
-        elif move.id=="throw" and phase==2:
-            for lane in range(-2,3):entries.append({"kind":"landing","x":move.target+lane*60,"y":FLOOR-3,"width":46.0,"progress":ratio,"enemy":false,"remaining":move.spec.tell-move.t})
+            entries.append({"kind":"royal","x":move.target,"y":FLOOR-3,"width":240.0,"progress":ratio,"enemy":false,"remaining":move.spec.tell-move.t})
         elif move.id=="nova":
-            for x in (move.marks if phase==1 else [boss.x-250,boss.x,boss.x+250]):
-                entries.append({"kind":"nova","x":float(x),"y":FLOOR-3,"width":170.0,"progress":ratio,"enemy":false,"remaining":move.spec.tell-move.t})
+            entries.append({"kind":"nova","x":boss.x,"y":FLOOR-3,"width":700.0 if phase==2 else 520.0,"progress":ratio,"enemy":false,"remaining":move.spec.tell-move.t})
     if enemy.ability_t>0 and life in [0,5,7]:
         entries.append({"kind":"landing","x":enemy.ability_target.x,"y":FLOOR-3,"width":90.0,"progress":1-enemy.ability_t/Rules.ABILITY_TELL[life],"enemy":true,"remaining":enemy.ability_t})
     return entries
